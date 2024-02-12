@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border-radius: 0.7vh;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  background-color: rgb(97, 116, 140);
+}
