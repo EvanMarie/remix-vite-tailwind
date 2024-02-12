@@ -1,4 +1,4 @@
-# Remix with Flat Routes & Tailwind CSS
+# Remix with Vite, Flat Routes, & Tailwind CSS
 
 This project is built using [Remix](https://remix.run/), leveraging Flat Routes for a simplified routing structure, and styled using [Tailwind CSS](https://tailwindcss.com/), a utility-first CSS framework for rapidly building custom designs.
 
