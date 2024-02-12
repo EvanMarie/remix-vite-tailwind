@@ -2,6 +2,52 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const plugin = require("tailwindcss/plugin");
 
+const typographyPlugin = plugin(function ({ addUtilities }) {
+  const utilities = {
+    ".text-xs-normal": { fontSize: "1.2vh", lineHeight: "1.8vh" },
+    ".text-xs-tight": { fontSize: "1.2vh", lineHeight: "1.5vh" },
+    ".text-xs-loose": { fontSize: "1.2vh", lineHeight: "1.6vh" },
+
+    ".text-sm-normal": { fontSize: "1.5vh", lineHeight: "2.2vh" },
+    ".text-sm-tight": { fontSize: "1.5vh", lineHeight: "1.7vh" },
+    ".text-sm-loose": { fontSize: "1.5vh", lineHeight: "2.4vh" },
+
+    ".text-md-normal": { fontSize: "1.7vh", lineHeight: "2.4vh" },
+    ".text-md-tight": { fontSize: "1.7vh", lineHeight: "1.9vh" },
+    ".text-md-loose": { fontSize: "1.7vh", lineHeight: "2.6vh" },
+
+    ".text-lg-normal": { fontSize: "2.4vh", lineHeight: "3.1vh" },
+    ".text-lg-tight": { fontSize: "2.4vh", lineHeight: "2.6vh" },
+    ".text-lg-loose": { fontSize: "2.4vh", lineHeight: "3.3vh" },
+
+    ".text-xl-normal": { fontSize: "3.1vh", lineHeight: "3.8vh" },
+    ".text-xl-tight": { fontSize: "3.1vh", lineHeight: "3.3vh" },
+    ".text-xl-loose": { fontSize: "3.1vh", lineHeight: "4vh" },
+
+    ".text-xxl-normal": { fontSize: "3.6vh", lineHeight: "4.3vh" },
+    ".text-xxl-tight": { fontSize: "3.6vh", lineHeight: "3.8vh" },
+    ".text-xxl-loose": { fontSize: "3.6vh", lineHeight: "4.5vh" },
+
+    ".text-xxxl-normal": { fontSize: "4.1vh", lineHeight: "4.8vh" },
+    ".text-xxxl-tight": { fontSize: "4.1vh", lineHeight: "4.3vh" },
+    ".text-xxxl-loose": { fontSize: "4.1vh", lineHeight: "5vh" },
+
+    ".text-mega-normal": { fontSize: "4.3vh", lineHeight: "5vh" },
+    ".text-mega-tight": { fontSize: "4.3vh", lineHeight: "4.5vh" },
+    ".text-mega-loose": { fontSize: "4.3vh", lineHeight: "5.2vh" },
+
+    ".text-too-big-normal": { fontSize: "4.5vh", lineHeight: "5.2vh" },
+    ".text-too-big-tight": { fontSize: "4.5vh", lineHeight: "4.7vh" },
+    ".text-too-big-loose": { fontSize: "4.5vh", lineHeight: "5.4vh" },
+
+    ".text-insane-normal": { fontSize: "5.1vh", lineHeight: "5.8vh" },
+    ".text-insane-tight": { fontSize: "5.1vh", lineHeight: "5.3vh" },
+    ".text-insane-loose": { fontSize: "5.1vh", lineHeight: "6vh" },
+  };
+
+  addUtilities(utilities, ["responsive", "hover"]);
+});
+
 export default {
   content: ["./app/**/*.{tsx,ts,jsx,js}"],
   theme: {
@@ -1830,20 +1876,39 @@ export default {
     textShadow: ["responsive", "hover", "focus"],
   },
   plugins: [
-    // Existing text shadow plugin
-    function ({ addUtilities, theme }) {
-      const shadows = theme("textShadow");
+    // TEXT SHADOW PLUGIN
+    plugin(function ({ addUtilities, theme }) {
+      const textShadows = theme("textShadow");
       const newUtilities = {};
-      Object.keys(shadows).forEach((key) => {
-        const value = shadows[key];
-        newUtilities[`.${key}`] = { textShadow: value };
-      });
-      addUtilities(newUtilities, {
-        variants: ["responsive", "hover", "focus"],
-      });
-    },
 
-    // Add the custom plugin for text stroke here
+      Object.keys(textShadows).forEach((key) => {
+        // Skip HD keys to prevent duplication
+        if (key.endsWith("HD")) return;
+
+        const normalValue = textShadows[key];
+        const hdKey = `${key}HD`;
+        const hdValue = textShadows[hdKey];
+
+        // Normal utility
+        newUtilities[`.${key}`] = {
+          textShadow: normalValue,
+        };
+
+        // HD utility with a media query
+        if (hdValue) {
+          newUtilities[`@media (min-width: 1920px)`] = {
+            ...newUtilities[`@media (min-width: 1920px)`],
+            [`.${key}`]: {
+              textShadow: hdValue,
+            },
+          };
+        }
+      });
+
+      addUtilities(newUtilities, ["responsive", "hover", "focus"]);
+    }),
+
+    // TEXT STROKE PLUGIN
     plugin(function ({ addUtilities, theme, e }) {
       const newUtilities = {};
       const strokeWidths = theme("textStrokeWidth", {});
@@ -1861,5 +1926,108 @@ export default {
 
       addUtilities(newUtilities, ["responsive", "hover", "focus"]);
     }),
+
+    // TRANSITIONS PLUGIN
+    plugin(function ({ addUtilities }) {
+      const transitionUtilities = {
+        ".transition-300": {
+          transition: "all 300ms ease-in-out",
+        },
+        ".transition-400": {
+          transition: "all 400ms ease-in-out",
+        },
+        ".transition-500": {
+          transition: "all 500ms ease-in-out",
+        },
+        ".transition-600": {
+          transition: "all 600ms ease-in-out",
+        },
+        ".transition-700": {
+          transition: "all 700ms ease-in-out",
+        },
+        ".transition-800": {
+          transition: "all 800ms ease-in-out",
+        },
+      };
+      addUtilities(transitionUtilities, ["responsive", "hover", "focus"]);
+    }),
+
+    // BORDERS PLUGIN
+    plugin(function ({ addUtilities, theme }) {
+      const borderUtilities = {};
+
+      // Iterate through each border style you want to create
+      [
+        "100",
+        "200",
+        "300",
+        "400",
+        "500",
+        "600",
+        "700",
+        "800",
+        "900",
+        "970",
+      ].forEach((border) => {
+        const colorKey = `col.${border}`; // Construct the color key path
+        const borderColor = theme(`colors.${colorKey}`, "currentColor"); // Use 'currentColor' as fallback
+
+        // Base border style
+        borderUtilities[`.border-${border}`] = {
+          borderWidth: "0.2vh",
+          borderStyle: "solid",
+          borderColor: borderColor,
+        };
+
+        // Hover state
+        borderUtilities[`.hover\\:border-${border}:hover`] = {
+          borderWidth: "0.2vh",
+          borderStyle: "solid",
+          borderColor: borderColor,
+        };
+
+        // Bottom border style
+        borderUtilities[`.border-b-${border}`] = {
+          borderBottomWidth: "0.2vh",
+          borderStyle: "solid",
+          borderBottomColor: borderColor,
+        };
+      });
+
+      addUtilities(borderUtilities, ["responsive", "hover"]);
+    }),
+
+    // BOX SHADOW PLUGIN
+    plugin(function ({ addUtilities, theme }) {
+      const boxShadows = theme("boxShadow");
+      const newUtilities = {};
+
+      Object.keys(boxShadows).forEach((key) => {
+        // Skip HD keys to prevent duplication
+        if (key.endsWith("HD")) return;
+
+        const normalValue = boxShadows[key];
+        const hdKey = `${key}HD`;
+        const hdValue = boxShadows[hdKey];
+
+        // Normal utility
+        newUtilities[`.${key}`] = {
+          boxShadow: normalValue,
+        };
+
+        // HD utility with a media query
+        if (hdValue) {
+          newUtilities[`@media (min-width: 1920px)`] = {
+            ...newUtilities[`@media (min-width: 1920px)`],
+            [`.${key}`]: {
+              boxShadow: hdValue,
+            },
+          };
+        }
+      });
+
+      addUtilities(newUtilities, ["responsive", "hover", "focus"]);
+    }),
+    typographyPlugin,
   ],
 };

@@ -91,7 +91,7 @@ export default function ModalWithButton({
               />
               {/* Modal */}
               <motion.div
-                className={`w-full h-full ${maxWidth} fixed inset-0 m-auto ${shadow3D}  z-50 lg:w-94% lg:h-94% ${className}`}
+                className={`w-full h-full ${maxWidth} fixed inset-0 m-auto shadow3D  z-50 lg:w-94% lg:h-94% ${className}`}
                 style={{ ...style, maxHeight: "100svh" }}
                 variants={variants}
                 initial="closed"
@@ -106,7 +106,7 @@ export default function ModalWithButton({
                     <Flex className="h-full w-full flex-1 bg-cyanBack border-l-3 border-dt-900 ">
                       <Box className="w-full h-full pb-[50px] rounded-b-none">
                         <Box
-                          className={`w-full h-full  ${shadow3D} ${textShadow} rounded-b-none bg-darkVioletGrad ${borderShadow} overflow-y-auto`}
+                          className={`w-full h-full  shadow3D textShadowrounded-b-none bg-darkVioletGrad ${borderShadow} overflow-y-auto`}
                         >
                           <Flex className="w-full h-full flex-col items-center rounded-b-none gap-5">
                             {children}

@@ -50,7 +50,7 @@ export default function IconDrawer({
           />
           {/* Drawer */}
           <motion.div
-            className={`fixed top-2 right-0 w-full sm:w-[400px] h-[50px] bg-white  ${shadow3D} z-50 ${className}`}
+            className={`fixed top-2 right-0 w-full sm:w-[400px] h-[50px] bg-white  shadow3D z-50 ${className}`}
             style={style}
             variants={variants}
             initial="closed"

@@ -92,13 +92,13 @@ export default function TagsInput({
           </Button>
         </HStack>
         <Flex
-          className={`w-full overflow-y-auto overflow-x-hidden ${subtleShadow} ${inputStyles} ${wrapHeight}`}
+          className={`w-full overflow-y-auto overflow-x-hidden subtleShadow ${inputStyles} ${wrapHeight}`}
         >
           <Wrap
             className={`w-full h-full gap-x-[1vh] gap-y-[1vh] justify-start p-[1vh]`}
           >
             {localTags.length === 0 && (
-              <Flex className={`text-sm h-fit w-fit ${textShadow}`}>
+              <Flex className={`text-sm h-fit w-fit textShadow`}>
                 <HeadingSM>There are currently no tags.</HeadingSM>
               </Flex>
             )}

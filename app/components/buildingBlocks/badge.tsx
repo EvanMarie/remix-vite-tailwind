@@ -26,7 +26,7 @@ export default function Badge({
   const baseClasses = `px-[1vh] py-[0.1vh] text-xs font-semibold ${leading.xxsTight}`;
 
   // Merge Tailwind classes with the provided className prop
-  const badgeClasses = `${subtleShadow} ${baseClasses} ${rounded}  ${bgColor} ${textColor} ${className}`;
+  const badgeClasses = `subtleShadow ${baseClasses} ${rounded}  ${bgColor} ${textColor} ${className}`;
 
   return (
     <div className={badgeClasses} style={style} {...props}>

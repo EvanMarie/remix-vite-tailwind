@@ -45,7 +45,7 @@ export default function ScrollingSelector({
     if (option === selected) {
       return `py-[0.5vh] bg-dt-200 text-dt-900 hover:bg-dt-400 hover:text-dt-900`;
     } else {
-      return `py-[0.5vh] bg-dt-640 font-[400] hover:bg-dt-600 hover:text-dt-900 ${transition500}`;
+      return `py-[0.5vh] bg-dt-640 font-[400] hover:bg-dt-600 hover:text-dt-900 transition-500`;
     }
   };
 
@@ -61,7 +61,7 @@ export default function ScrollingSelector({
               <Button
                 isUnstyled
                 key={option}
-                buttonClassName={`w-full ${shadow3D} ${scaleItem}`}
+                buttonClassName={`w-full shadow3D ${scaleItem}`}
                 className={handButtonStyle({ option })}
                 onClick={() => handleStatusSelect(option)}
               >

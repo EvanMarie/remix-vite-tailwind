@@ -100,7 +100,7 @@ export default function Modal({
             />
             {/* Modal */}
             <motion.div
-              className={`${maxWidth} fixed inset-0 m-auto ${shadow3D} ${modalSize} ${contentBg} ${modalContentClassName}`}
+              className={`${maxWidth} fixed inset-0 m-auto shadow3D ${modalSize} ${contentBg} ${modalContentClassName}`}
               style={{ ...style, zIndex: 101, maxHeight: "100svh" }}
               variants={variants}
               initial="closed"

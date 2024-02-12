@@ -130,7 +130,7 @@ export default function Drawer({
             <motion.div
               className={`fixed ${drawerPositionClass(
                 slideDirection
-              )} ${subtleShadow} z-50 ${drawerHeight} ${drawerClassName} ${drawerWidth}`}
+              )} subtleShadow z-50 ${drawerHeight} ${drawerClassName} ${drawerWidth}`}
               style={style}
               variants={variants}
               transition={{

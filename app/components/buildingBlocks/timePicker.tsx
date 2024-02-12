@@ -40,7 +40,7 @@ const ScrollableSelector = ({
     <VStack className="w-35%" gap="gap-[0.5vh]">
       <Text className={`${DateTimePickerLabelStyles}`}>{label}</Text>
       <VStackFull
-        className={`overflow-auto h-[23vh] max-h-[25vh] items-start ${insetShadow} bg-dt-740`}
+        className={`overflow-auto h-[23vh] max-h-[25vh] items-start insetShadow bg-dt-740`}
         gap="gap-[0.7vh]"
       >
         {items.map((item) => (

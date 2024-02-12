@@ -22,7 +22,7 @@ export function ColumnsPageHeader({
       )}
       {subtitle && (
         <Flex
-          className={`w-95% h-fit flex-shrink-0 justify-center bg-dt-975 px-[1vw] py-[1vh] rounded-[1vw] ${shadow3D} fullHD:w-90% quadHD:w-85% ultraHD:w-80% `}
+          className={`w-95% h-fit flex-shrink-0 justify-center bg-dt-975 px-[1vw] py-[1vh] rounded-[1vw] shadow3D fullHD:w-90% quadHD:w-85% ultraHD:w-80% `}
         >
           <TextMD>{subtitle}</TextMD>
         </Flex>

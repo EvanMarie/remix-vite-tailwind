@@ -94,7 +94,7 @@ export default function Alert({
       style={{ zIndex: 1000 }}
     >
       <motion.div
-        className={`bg-radial4 ${subtleShadow} ${sizeClass} ${alertDimensions} ${className}`}
+        className={`bg-radial4 subtleShadow ${sizeClass} ${alertDimensions} ${className}`}
         variants={{ ...modalVariants, ...modalExitVariants }}
         initial="hidden"
         animate="visible"
@@ -125,7 +125,7 @@ export default function Alert({
                     />
                   </Box>
                 )}
-                <Text className={`${bodyTextSize} ${lightTextShadow}`}>
+                <Text className={`${bodyTextSize} lightTextShadow`}>
                   {body}
                 </Text>
               </Flex>

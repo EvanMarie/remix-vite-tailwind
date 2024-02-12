@@ -101,17 +101,17 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
     } h-[2.8vh] md:h-[3.5vh]`;
     const negativeStyles = `text-[2vh] leading-[3.5vh] lg:text-[2.3vh] lg:leading-[3.5vh] fullHD:p-[1vh] ${
       textLeft || textRight ? "w-fit" : buttonWidth
-    }  ${buttonHeight} ${negativeButtonColors} ${metallicEdgesHover}`;
+    }  ${buttonHeight} ${negativeButtonColors} hover:metallicEdges`;
     const negativeSmallStyles = `text-[1.7vh] leading-[3vh] ${
       textLeft || textRight ? "w-fit px-[0.5vh]" : "w-[3.2vh]"
-    } h-[3.2vh] ${negativeButtonColors} ${metallicEdgesHover}`;
+    } h-[3.2vh] ${negativeButtonColors} hover:metallicEdges`;
     const unstyledStyles = `text-[2.5vh] leading-[3.5vh] ${
       textLeft || textRight ? "w-fit" : "w-[2.8vh]"
     } h-[2.8vh] text-dt-100 hover:text-dt-300 transition duration-500 ease-in-out z-10`;
     const noStylesStyles = "";
     const isLikedStyle = `text-[1.7vh] leading-[3vh] ${
       textLeft || textRight ? "w-fit px-[0.5vh]" : "w-[3.2vh]"
-    } h-[3.2vh] text-dt-700 bg-dt-400 border ${subtleShadow} border-solid border-[0.2vh] border-dt-400 transition duration-500 ease-in-out hover:bg-dt-400 hover:text-dt-900 hover:border-dt-900 ${subtleShadowHover} ${lightTextShadowHover}`;
+    } h-[3.2vh] text-dt-700 bg-dt-400 border subtleShadow border-solid border-[0.2vh] border-dt-400 transition duration-500 ease-in-out hover:bg-dt-400 hover:text-dt-900 hover:border-dt-900 ${subtleShadowHover} ${lightTextShadowHover}`;
 
     const buttonStyles = isSmall
       ? isSmallStyles

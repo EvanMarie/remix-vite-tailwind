@@ -55,14 +55,14 @@ export default function Design() {
       bg.startsWith("bg-col-5");
 
     const fontColor = isLightFont
-      ? `text-col-100 ${textShadow}`
+      ? `text-col-100 textShadow`
       : isDarkFont
-      ? `text-col-900 ${lightTextShadow}`
-      : `text-col-100 ${textShadow}`;
+      ? `text-col-900 lightTextShadow`
+      : `text-col-100 textShadow`;
 
     return (
       <Flex
-        className={`h-[5vh] ${w} font-bold ${bg} ${subtleShadow} ${fontColor} justify-center items-center`}
+        className={`h-[5vh] ${w} font-bold ${bg} subtleShadow ${fontColor} justify-center items-center`}
       >
         <Text>{children}</Text>
       </Flex>
@@ -308,7 +308,7 @@ export default function Design() {
           <Wrap className="w-full gap-[2vh] items-center">
             <button>
               <Box
-                className={`p-[1vh] bg-col-300 ${border900} hover:bg-col-700 hover:text-col-100  ${hoverBorder100} ${transition500}`}
+                className={`p-[1vh] bg-col-300 ${border900} hover:bg-col-700 hover:text-col-100  ${hoverBorder100} transition-500`}
               >
                 Test
               </Box>

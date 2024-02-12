@@ -51,7 +51,7 @@ export const Avatar = ({
     <div
       className={`${rounded} overflow-hidden flex-shrink-0 ${
         sizeClasses[size || "sm"]
-      } border-[1.5px] border-solid border-dt-400 ${subtleShadow} flex items-center justify-center text-dt-400 bg-dt-900`}
+      } border-[1.5px] border-solid border-dt-400 subtleShadow flex items-center justify-center text-dt-400 bg-dt-900`}
     >
       {src ? (
         <Image

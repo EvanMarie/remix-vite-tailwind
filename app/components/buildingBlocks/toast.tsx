@@ -96,7 +96,7 @@ export default function Toast({
 
   return (
     <motion.div
-      className={`w-[20vw] h-[25vh] fixed ${positionClass} bg-darkVioletBack ${borderShadow} text-dt-100 ${textShadow} rounded-lg  ${shadow3D} z-50`}
+      className={`w-[20vw] h-[25vh] fixed ${positionClass} bg-darkVioletBack ${borderShadow} text-dt-100 textShadowrounded-lg  shadow3D z-50`}
       initial="hidden"
       animate="visible"
       exit="hidden"

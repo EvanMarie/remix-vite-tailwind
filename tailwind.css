@@ -7,9 +7,10 @@
   padding: 0;
   box-sizing: border-box;
   border-radius: 0.7vh;
+  font-size: 1.7vh;
 }
 
 body {
-  font-family: "Nunito", sans-serif;
+  font-family: "Lato", sans-serif;
   background-color: rgb(97, 116, 140);
 }

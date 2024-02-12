@@ -94,7 +94,7 @@ const Calendar = ({ selectedDate, onSelect }: CalendarProps) => {
 
   return (
     <div
-      className={`w-[24vh] grid grid-cols-7 gap-y-[0.7vh] gap-x-[1.5vh] px-[1.5vh] justify-center items-center  ${textShadow}`}
+      className={`w-[24vh] grid grid-cols-7 gap-y-[0.7vh] gap-x-[1.5vh] px-[1.5vh] justify-center items-center  textShadow`}
     >
       {days}
     </div>
@@ -188,14 +188,14 @@ export default function DatePicker({
               <Button
                 isUnstyled
                 onClick={goToToday}
-                className={`text-[1.6vh] leading-[1.6vh] h-[2.5vh] px-[0.5vh] bg-dt-700 hover:bg-dt-600 flex items-center ${subtleShadow} ${textShadow} ${transition400}`}
+                className={`text-[1.6vh] leading-[1.6vh] h-[2.5vh] px-[0.5vh] bg-dt-700 hover:bg-dt-600 flex items-center subtleShadow textShadowtransition-400`}
               >
                 Today{" "}
               </Button>
               <Button
                 isUnstyled
                 onClick={() => setIsEditDate(false)}
-                className={`text-[1.6vh] leading-[1.6vh] h-[2.5vh] px-[0.2vh] bg-dt-400 text-dt-900 hover:bg-dt-200 flex items-center ${subtleShadow} ${lightTextShadow} ${transition400}`}
+                className={`text-[1.6vh] leading-[1.6vh] h-[2.5vh] px-[0.2vh] bg-dt-400 text-dt-900 hover:bg-dt-200 flex items-center subtleShadow lightTextShadow transition-400`}
               >
                 <HStack gap={`gap-[0px] ${verticalAlign} pb-[0.5vh]`}>
                   <Icon icon={CloseIcon} />

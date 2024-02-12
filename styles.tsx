@@ -58,120 +58,6 @@ import { TbActivityHeartbeat, TbStar, TbStarFilled } from "react-icons/tb";
 export const imageFallback = "";
 export const defaultAvatar = "/images/avatars/creature1.png";
 
-export const leading = {
-  xxsNormal: "leading-[1.8vh]",
-  xxsTight: "leading-[1.5vh]",
-  xxsLoose: "leading-[1.6vh]",
-
-  xsNormal: "leading-[2.2vh]",
-  xsTight: "leading-[1.7vh]",
-  xsLoose: "leading-[2.4vh]",
-
-  smNormal: "leading-[2.4vh]",
-  smTight: "leading-[1.9vh]",
-  smLoose: "leading-[2.6vh]",
-
-  mdNormal: "leading-[2.9vh]",
-  mdTight: "leading-[2.4vh]",
-  mdLoose: "leading-[3.1vh]",
-
-  lgNormal: "leading-[3.1vh]",
-  lgTight: "leading-[2.6vh]",
-  lgLoose: "leading-[3.3vh]",
-
-  xlNormal: "leading-[3.8vh]",
-  xlTight: "leading-[3.3vh]",
-  xlLoose: "leading-[4vh]",
-
-  xxlNormal: "leading-[4.3vh]",
-  xxlTight: "leading-[3.8vh]",
-  xxlLoose: "leading-[4.5vh]",
-
-  xxxlNormal: "leading-[4.8vh]",
-  xxxlTight: "leading-[4.3vh]",
-  xxxlLoose: "leading-[5vh]",
-
-  megaNormal: "leading-[5vh]",
-  megaTight: "leading-[4.5vh]",
-  megaLoose: "leading-[5.2vh]",
-
-  tooBigNormal: "leading-[5.2vh]",
-  tooBigTight: "leading-[4.7vh]",
-  tooBigLoose: "leading-[5.4vh]",
-
-  insaneNormal: "leading-[5.8vh]",
-  insaneTight: "leading-[5.3vh]",
-  insaneLoose: "leading-[6vh]",
-};
-
-// BOX SHADOWS
-export const insetShadow = "shadow-inset fullHD:shadow-insetHD";
-export const insetShadowHover =
-  "hover:shadow-inset hover:fullHD:shadow-insetHD";
-
-export const lightShadow = "shadow-dvLightShadow fullHD:shadow-dvLightShadowHD";
-export const lightShadowHover =
-  "hover:shadow-dvLightShadow hover:fullHD:shadow-dvLightShadowHD";
-
-export const subtleShadow = "shadow-subtleShadow fullHD:shadow-subtleShadowHD";
-export const subtleShadowHover =
-  "hover:shadow-subtleShadow hover:fullHD:shadow-subtleShadowHD";
-
-export const standoutShadow =
-  "shadow-standoutShadow fullHD:shadow-standoutShadowHD";
-export const standoutShadowHover =
-  "hover:shadow-standoutShadow hover:fullHD:shadow-standoutShadowHD";
-
-export const lightGlow = "shadow-lightGlow fullHD:shadow-lightGlowHD";
-export const lightGlowHover =
-  "hover:shadow-lightGlow hover:fullHD:shadow-lightGlowHD";
-
-export const shadow3D = "shadow-shadow3D fullHD:shadow-shadow3DHD";
-export const shadow3DHover =
-  "hover:shadow-shadow3D hover:fullHD:shadow-shadow3DHD";
-
-export const boxGlow = "shadow-boxGlow fullHD:shadow-boxGlowHD";
-export const boxGlowHover =
-  "hover:shadow-boxGlow hover:fullHD:shadow-boxGlowHD";
-
-export const metallicEdges =
-  "shadow-metallicEdges fullHD:shadow-metallicEdgesHD";
-export const metallicEdgesHover =
-  " hover:shadow-metallicEdges hover:fullHD:shadow-metallicEdgesHD";
-
-// TEXT SHADOWS
-export const lightTextShadow = "lightTextShadow lightTextShadowHD";
-export const lightTextShadowHover =
-  "hover:lightTextShadow hover:lightTextShadowHD";
-
-export const textShadowNone = "none none";
-export const textShadowNoneHover = "hover:none hover:none";
-
-export const textShadow = "textShadow textShadowHD";
-export const textShadowHover = "hover:textShadow hover:textShadowHD";
-
-export const subtleTextShadow = "subtleTextShadow subtleTextShadowHD";
-export const subtleTextShadowHover =
-  "hover:subtleTextShadow hover:subtleTextShadowHD";
-
-export const standoutTextShadow = "standoutTextShadow standoutTextShadowHD";
-export const standoutTextShadowHover =
-  "hover:standoutTextShadow hover:standoutTextShadowHD";
-
-export const textGlow = "textGlow textGlowHD";
-export const textGlowHover = "hover:textGlow hover:textGlowHD";
-
-export const textFog = "textFog textFogHD";
-export const textFogHover = "hover:textFog hover:textFogHD";
-
-export const boldText = "boldText boldTextHD";
-export const boldTextHover = "hover:boldText hover:boldTextHD";
-
-export const boldTextGlow = "boldTextGlow boldTextGlowHD";
-export const boldTextGlowHover = "hover:boldTextGlow hover:boldTextGlowHD";
-
-export const boldTextShadowDarkBlue =
-  "bold-text-shadow-darkBlue fullHD:bolder-text-shadow-darkBlue";
 
 // COMPLEX BACKGROUNDS
 export const col100Bgs = {
@@ -687,25 +573,17 @@ export const col900Bgs = {
   bg54: "bg-col-900 bg-radial6op75",
 };
 
-// TRANSITIONS
-export const transition300 = `transition-all duration-300 ease-in-out`;
-export const transition400 = `transition-all duration-400 ease-in-out`;
-export const transition500 = `transition-all duration-500 ease-in-out`;
-export const transition600 = `transition-all duration-600 ease-in-out`;
-export const transition700 = `transition-all duration-700 ease-in-out`;
-export const transition800 = `transition-all duration-800 ease-in-out`;
-
 // BUTTON STYLES
-// export const normalButtonColors = `bg-col-900 text-col-100 text-stroke-5-col900 ${textShadow} hover:bg-col-100 hover:text-col-900 hover:textShadow border-[0.2vh] md:border-[0.3vh] border-solid border-col-700 hover:border-col-500 ${transition700} ${subtleShadow}`;
+// export const normalButtonColors = `bg-col-900 text-col-100 text-stroke-5-col900 textShadowhover:bg-col-100 hover:text-col-900 hover:textShadow border-[0.2vh] md:border-[0.3vh] border-solid border-col-700 hover:border-col-500 ${transition700} subtleShadow`;
 export const normalButtonColors = "bg-col-900 hover:bg-col-300";
-export const negativeButtonColors = `bg-red-400 text-col-800 text-stroke-3-col100 ${lightTextShadow} hover:bg-red-300 hover:text-col-800 border-[0.2vh] border-solid border-col-900 hover:border-[0.2vh] hover:border-solid hover:border-col-800 ${transition500} `;
+export const negativeButtonColors = `bg-red-400 text-col-800 text-stroke-3-col100 lightTextShadow hover:bg-red-300 hover:text-col-800 border-[0.2vh] border-solid border-col-900 hover:border-[0.2vh] hover:border-solid hover:border-col-800 transition-500 `;
 export const normalButtonPadding = `px-[1.5vh] py-[0.5vh]`;
 export const smallButtonPadding = `px-[1.5vh] py-[0.2vh]`;
-export const smallButtonBase = `w-fit ${normalButtonColors} h-[3vh] font-semibold ${subtleShadow} text-md ${metallicEdgesHover}`;
-export const normalButtonBase = `w-fit ${normalButtonColors} h-[4vh] font-semibold ${subtleShadow} text-[2vh] align-center ${metallicEdgesHover}`;
+export const smallButtonBase = `w-fit ${normalButtonColors} h-[3vh] font-semibold subtleShadow text-md hover:metallicEdges`;
+export const normalButtonBase = `w-fit ${normalButtonColors} h-[4vh] font-semibold subtleShadow text-[2vh] align-center hover:metallicEdges`;
 export const isUnstyledStyles = `w-fit flex-shrink-0 font-semibold items-center rounded-none`;
-export const negativeStyles = `w-fit ${negativeButtonColors} ${subtleShadow} h-[4vh] text-lg font-semibold ${metallicEdgesHover}`;
-export const negativeSmallStyles = `w-fit  ${negativeButtonColors} ${subtleShadow} h-[3vh] text-md font-semibold ${metallicEdgesHover}`;
+export const negativeStyles = `w-fit ${negativeButtonColors} subtleShadow h-[4vh] text-lg font-semibold hover:metallicEdges`;
+export const negativeSmallStyles = `w-fit  ${negativeButtonColors} subtleShadow h-[3vh] text-md font-semibold hover:metallicEdges`;
 export const buttonGradientRadius = "rounded-[0.4vh]";
 
 // MAIN COMPONENT DEFAULTS
@@ -714,11 +592,11 @@ export const navPadding = "pt-[5vh]";
 export const footerHeight = "h-[4vh]";
 export const footerPadding = "pb-[4vh]";
 export const contentHeight = "h-[91vh] min-h-[91vh]";
-export const inputStyles = `w-full ${col100Bgs.bg22} ${insetShadow} text-col-900 px-[1vh] py-[0.5vh] pr-[2vh] border-[0.2vh] border-solid border-col-700 focus:outline-none focus:border-col-200 ${transition400} rounded-[1vh]`;
-export const textAreaStyles = `${col100Bgs.bg22} ${insetShadow} text-col-900 pl-[1.3vh] pr-[2vh] py-[0.7vh] border-[0.2vh] border-solid border-col-700 focus:outline-none focus:border-col-200 ${transition400}`;
+export const inputStyles = `w-full ${col100Bgs.bg22} insetShadow text-col-900 px-[1vh] py-[0.5vh] pr-[2vh] border-[0.2vh] border-solid border-col-700 focus:outline-none focus:border-col-200 transition-400 rounded-[1vh]`;
+export const textAreaStyles = `${col100Bgs.bg22} insetShadow text-col-900 pl-[1.3vh] pr-[2vh] py-[0.7vh] border-[0.2vh] border-solid border-col-700 focus:outline-none focus:border-col-200 transition-400`;
 export const buttonDefaultRadius = "rounded-[0.7vh]";
 export const iconButtonDefaultRadius = "rounded-[0.5vh] md:rounded-[0.6vh]";
-export const DateTimePickerStyles = `text-md absolute mt-[1vh] p-[1.5vh] w-[25vh] px-[1.5vh] justify-center items-center ${textShadow}  bg-col-800 ${shadow3D} z-20`;
+export const DateTimePickerStyles = `text-md absolute mt-[1vh] p-[1.5vh] w-[25vh] px-[1.5vh] justify-center items-center textShadow bg-col-800 shadow3D z-20`;
 export const DateTimePickerLabelStyles = `text-col-400 font-semibold`;
 export const PanelDefaults = `h-fit min-h-[91vh] xl:w-50% xl:h-[91vh] xl:overflow-y-hidden justify-center`;
 export const PanelContainerHeights = `h-fit min-h-full xl:h-full`;
@@ -728,55 +606,15 @@ export const scaleItem = `hover:cursor-pointer hover:transform hover:scale-101 t
 export const scaleItemLg = `hover:cursor-pointer hover:transform hover:scale-102 transition-all duration-500`;
 export const scaleItemXl = `hover:cursor-pointer hover:transform hover:scale-105 transition-all duration-500`;
 export const scaleItemXxl = `hover:cursor-pointer hover:transform hover:scale-107 transition-all duration-500`;
-export const cursiveText = `font-cursive text-col-400 ${textShadow}`;
+export const cursiveText = `font-cursive text-col-400 textShadow`;
 export const verticalAlign = `h-full items-center`;
 
 // BORDERS
-export const border100 = "border-solid border-[0.2vh] border-col-100";
-export const hoverBorder100 =
-  "hover:border-solid hover:border-[0.2vh] hover:border-col-100";
-export const borderBottom100 = "border-solid border-b-[0.2vh] border-col-100";
-export const border200 = "border-solid border-[0.2vh] border-col-200";
-export const hoverborder200 =
-  "hover:border-solid hover:border-[0.2vh] hover:border-col-200";
-export const borderBottom200 = "border-solid border-b-[0.2vh] border-col-200";
-export const border300 = "border-solid border-[0.2vh] border-col-300";
-export const hoverBorder300 =
-  "hover:border-solid hover:border-[0.2vh] hover:border-col-300";
-export const borderBottom300 = "border-solid border-b-[0.2vh] border-col-300";
-export const border400 = "border-solid border-[0.2vh] border-col-400";
-export const hoverBorder400 =
-  "hover:border-solid hover:border-[0.2vh] hover:border-col-400";
-export const borderBottom400 = "border-solid border-b-[0.2vh] border-col-400";
-export const border500 = "border-solid border-[0.2vh] border-col-500";
-export const hoverBorder500 =
-  "hover:border-solid hover:border-[0.2vh] hover:border-col-500";
-export const borderBottom500 = "border-solid border-b-[0.2vh] border-col-500";
-export const border600 = "border-solid border-[0.2vh] border-col-600";
-export const hoverBorder600 =
-  "hover:border-solid hover:border-[0.2vh] hover:border-col-600";
-export const borderBottom600 = "border-solid border-b-[0.2vh] border-col-600";
-export const border700 = "border-solid border-[0.2vh] border-col-700";
-export const hoverBorder700 =
-  "hover:border-solid hover:border-[0.2vh] hover:border-col-700";
-export const borderBottom700 = "border-solid border-b-[0.2vh] border-col-700";
-export const border800 = "border-solid border-[0.2vh] border-col-800";
-export const hoverBorder800 =
-  "hover:border-solid hover:border-[0.2vh] hover:border-col-800";
-export const borderBottom800 = "border-solid border-b-[0.2vh] border-col-800";
-export const border900 = "border-[0.2vh] border-solid border-col-900";
-export const hoverBorder900 =
-  "hover:border-solid hover:border-[0.2vh] hover:border-col-900";
-export const borderBottom900 = "border-solid border-b-[0.2vh] border-col-900";
-export const border970 = "border-solid border-[0.2vh] border-col-970";
-export const hoverBorder970 =
-  "hover:border-[0.2vh] hover:border-solid hover:border-col-970";
-export const borderBottom970 = "border-solid border-b-[0.2vh] border-col-970";
 
 // OVERLAYS
 export const defaultOverlayColor = "bg-col-850";
 export const defaultOverlayBlur = "backdrop-blur-md";
-export const insetOverlay = `${insetShadow} bg-col-930`;
+export const insetOverlay = `insetShadow bg-col-930`;
 
 // ICONS
 export const DefaultIcon = MdInsertEmoticon;

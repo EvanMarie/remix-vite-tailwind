@@ -24,13 +24,13 @@ export default function TagBadge({
 }: TagBadgeProps) {
   return (
     <Flex
-      className={`pl-[0.3vh] w-fit h-fit ${bgColor} bg-darkVioletGrad ${subtleShadow} ${className}`}
+      className={`pl-[0.3vh] w-fit h-fit ${bgColor} bg-darkVioletGrad subtleShadow ${className}`}
     >
       <HStack
         className={`w-full h-full justify-between items-center flex-1 gap-[0.1vh]`}
       >
         <Text
-          className={`text-[1.6vh] leading-[2vh] lowercase ${color} ${textShadow}`}
+          className={`text-[1.6vh] leading-[2vh] lowercase ${color} textShadow`}
         >
           {tag}
         </Text>

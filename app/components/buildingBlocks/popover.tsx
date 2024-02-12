@@ -104,13 +104,13 @@ export default function Popover({
             animate="visible"
             exit="hidden"
             variants={centerVariants}
-            className={`absolute z-30  ${shadow3D} ${w} ${h} min-w-[300px] ${placementClasses[placement]}`}
+            className={`absolute z-30  shadow3D ${w} ${h} min-w-[300px] ${placementClasses[placement]}`}
           >
             <Flex
-              className={`w-full h-full  ${shadow3D} relative bg-dt-990 bg-darkenGrad`}
+              className={`w-full h-full  shadow3D relative bg-dt-990 bg-darkenGrad`}
             >
               <VStack
-                className={`w-full h-full justify-start items-center ${subtleShadow} gap-[0px]`}
+                className={`w-full h-full justify-start items-center subtleShadow gap-[0px]`}
               >
                 <HStack className=" w-full justify-between rounded-b-none bg-dt-900 p-[0.7vh] pl-[1vh] border-b-[0.1vh] border-dt-125">
                   {" "}
