@@ -193,6 +193,109 @@ const customBackgroundsPlugin = plugin(function ({ addUtilities, theme }) {
   addUtilities(customBackgroundUtilities, ["responsive", "hover"]);
 });
 
+const customBordersPlugin = plugin(function ({ addUtilities, theme }) {
+  // Define the sizes with corresponding border widths
+  const sizes = {
+    sm: "0.1vh",
+    md: "0.2vh",
+    lg: "0.3vh",
+    xl: "0.4vh",
+  };
+
+  // Colors to iterate over
+  const colorKeys = [
+    "100",
+    "190",
+    "180",
+    "170",
+    "160",
+    "150",
+    "200",
+    "290",
+    "280",
+    "270",
+    "260",
+    "250",
+    "300",
+    "390",
+    "380",
+    "370",
+    "360",
+    "350",
+    "400",
+    "490",
+    "480",
+    "470",
+    "460",
+    "450",
+    "500",
+    "590",
+    "580",
+    "570",
+    "560",
+    "550",
+    "600",
+    "690",
+    "680",
+    "670",
+    "660",
+    "650",
+    "700",
+    "790",
+    "780",
+    "770",
+    "760",
+    "750",
+    "800",
+    "890",
+    "880",
+    "870",
+    "860",
+    "850",
+    "900",
+    "990",
+    "980",
+    "970",
+    "960",
+    "950",
+  ];
+
+  const borderUtilities = {};
+
+  // Iterate over each size
+  Object.entries(sizes).forEach(([size, borderWidth]) => {
+    // For each color
+    colorKeys.forEach((color) => {
+      const colorKey = `col.${color}`;
+      const borderColor = theme(`colors.${colorKey}`, "currentColor");
+
+      // Generate utility for each size and color
+      borderUtilities[`.border-${color}-${size}`] = {
+        borderWidth: borderWidth,
+        borderStyle: "solid",
+        borderColor: borderColor,
+      };
+
+      // Optional: Generate hover state utilities if needed
+      borderUtilities[`.hover\\:border-${color}-${size}:hover`] = {
+        borderWidth: borderWidth,
+        borderStyle: "solid",
+        borderColor: borderColor,
+      };
+
+      // Optional: Generate utilities for specific sides if needed (e.g., bottom border)
+      borderUtilities[`.border-b-${color}-${size}`] = {
+        borderBottomWidth: borderWidth,
+        borderStyle: "solid",
+        borderBottomColor: borderColor,
+      };
+    });
+  });
+
+  // Add the generated utilities to Tailwind
+  addUtilities(borderUtilities, ["responsive", "hover"]);
+});
+
 export default {
   content: ["./app/**/*.{tsx,ts,jsx,js}"],
   theme: {
@@ -2062,7 +2165,6 @@ export default {
 
       addUtilities(newUtilities, ["responsive", "hover", "focus"]);
     }),
-
     // TEXT STROKE PLUGIN
     plugin(function ({ addUtilities, theme, e }) {
       const newUtilities = {};
@@ -2081,7 +2183,6 @@ export default {
 
       addUtilities(newUtilities, ["responsive", "hover", "focus"]);
     }),
-
     // TRANSITIONS PLUGIN
     plugin(function ({ addUtilities }) {
       const transitionUtilities = {
@@ -2103,55 +2204,15 @@ export default {
         ".transition-800": {
           transition: "all 800ms ease-in-out",
         },
+        ".transition-900": {
+          transition: "all 900ms ease-in-out",
+        },
+        ".transition-1000": {
+          transition: "all 1000ms ease-in-out",
+        },
       };
       addUtilities(transitionUtilities, ["responsive", "hover", "focus"]);
     }),
-
-    // BORDERS PLUGIN
-    plugin(function ({ addUtilities, theme }) {
-      const borderUtilities = {};
-
-      // Iterate through each border style you want to create
-      [
-        "100",
-        "200",
-        "300",
-        "400",
-        "500",
-        "600",
-        "700",
-        "800",
-        "900",
-        "970",
-      ].forEach((border) => {
-        const colorKey = `col.${border}`; // Construct the color key path
-        const borderColor = theme(`colors.${colorKey}`, "currentColor"); // Use 'currentColor' as fallback
-
-        // Base border style
-        borderUtilities[`.border-${border}`] = {
-          borderWidth: "0.2vh",
-          borderStyle: "solid",
-          borderColor: borderColor,
-        };
-
-        // Hover state
-        borderUtilities[`.hover\\:border-${border}:hover`] = {
-          borderWidth: "0.2vh",
-          borderStyle: "solid",
-          borderColor: borderColor,
-        };
-
-        // Bottom border style
-        borderUtilities[`.border-b-${border}`] = {
-          borderBottomWidth: "0.2vh",
-          borderStyle: "solid",
-          borderBottomColor: borderColor,
-        };
-      });
-
-      addUtilities(borderUtilities, ["responsive", "hover"]);
-    }),
-
     // BOX SHADOW PLUGIN
     plugin(function ({ addUtilities, theme }) {
       const boxShadows = theme("boxShadow");
@@ -2265,6 +2326,7 @@ export default {
           textStrokeColor: theme("colors.col.900"),
           textStrokeWidth: "0.2vh",
           textDecoration: "none",
+          fontSize: theme("fontSize.md"),
           fontWeight: 600,
           transition: "all 400ms ease-in-out",
           "-webkit-text-stroke-width": "0.06vh",
@@ -2284,5 +2346,6 @@ export default {
     typographyPlugin,
     customBackgroundsPlugin,
     buttonStyles,
+    customBordersPlugin,
   ],
 };

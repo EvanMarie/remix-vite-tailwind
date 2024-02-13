@@ -25,6 +25,31 @@ import {
 } from "styles";
 import IconButton from "~/components/buildingBlocks/iconButton";
 import Box from "~/components/buildingBlocks/box";
+import {
+  allColors,
+  allColorsRGB,
+  colors100,
+  colors200,
+  colors300,
+  colors400,
+  colors500,
+  colors600,
+  colors700,
+  colors800,
+  colors900,
+  gradients,
+} from "./components/colorsBackgrounds";
+import BorderExamples from "./components/borderExamples";
+
+export function StyleExampleBox({
+  className,
+  text,
+}: {
+  className: string;
+  text: string;
+}) {
+  return <Flex className={`px-[1vh] py-[0.5vh] ${className}`}>{text}</Flex>;
+}
 
 export default function Design() {
   function TestBox({
@@ -77,214 +102,6 @@ export default function Design() {
     );
   }
 
-  const allColors = [
-    "bg-col-100",
-    "bg-col-200",
-    "bg-col-300",
-    "bg-col-400",
-    "bg-col-500",
-    "bg-col-600",
-    "bg-col-700",
-    "bg-col-800",
-    "bg-col-900",
-  ];
-
-  // REQUIRES THEME ADJUSTMENTS
-  const allColorsRGB = [
-    { code: "bg-col-100", rgb: "rgb(228, 237, 245)" },
-    { code: "bg-col-200", rgb: "rgb(208, 226, 242)" },
-    { code: "bg-col-300", rgb: "rgb(217, 181, 173)" },
-    { code: "bg-col-400", rgb: "rgb(167, 189, 217)" },
-    { code: "bg-col-500", rgb: "rgb(84, 123, 171)" },
-    { code: "bg-col-600", rgb: "rgb(97, 116, 140)" },
-    { code: "bg-col-700", rgb: "rgb(41, 60, 84)" },
-    { code: "bg-col-800", rgb: "rgb(1, 42, 94)" },
-    { code: "bg-col-900", rgb: "rgb(1, 17, 38)" },
-  ];
-  const colors100 = [
-    "bg-col-100",
-    "bg-col-110",
-    "bg-col-120",
-    "bg-col-130",
-    "bg-col-140",
-    "bg-col-150",
-    "bg-col-160",
-    "bg-col-170",
-    "bg-col-180",
-    "bg-col-190",
-  ];
-  const colors200 = [
-    "bg-col-200",
-    "bg-col-210",
-    "bg-col-220",
-    "bg-col-230",
-    "bg-col-240",
-    "bg-col-250",
-    "bg-col-260",
-    "bg-col-270",
-    "bg-col-280",
-    "bg-col-290",
-  ];
-  const colors300 = [
-    "bg-col-300",
-    "bg-col-310",
-    "bg-col-320",
-    "bg-col-330",
-    "bg-col-340",
-    "bg-col-350",
-    "bg-col-360",
-    "bg-col-370",
-    "bg-col-380",
-    "bg-col-390",
-  ];
-  const colors400 = [
-    "bg-col-400",
-    "bg-col-410",
-    "bg-col-420",
-    "bg-col-430",
-    "bg-col-440",
-    "bg-col-450",
-    "bg-col-460",
-    "bg-col-470",
-    "bg-col-480",
-    "bg-col-490",
-  ];
-  const colors500 = [
-    "bg-col-500",
-    "bg-col-510",
-    "bg-col-520",
-    "bg-col-530",
-    "bg-col-540",
-    "bg-col-550",
-    "bg-col-560",
-    "bg-col-570",
-    "bg-col-580",
-    "bg-col-590",
-  ];
-  const colors600 = [
-    "bg-col-600",
-    "bg-col-610",
-    "bg-col-620",
-    "bg-col-630",
-    "bg-col-640",
-    "bg-col-650",
-    "bg-col-660",
-    "bg-col-670",
-    "bg-col-680",
-    "bg-col-690",
-  ];
-  const colors700 = [
-    "bg-col-700",
-    "bg-col-710",
-    "bg-col-720",
-    "bg-col-730",
-    "bg-col-740",
-    "bg-col-750",
-    "bg-col-760",
-    "bg-col-770",
-    "bg-col-780",
-    "bg-col-790",
-  ];
-  const colors800 = [
-    "bg-col-800",
-    "bg-col-810",
-    "bg-col-820",
-    "bg-col-830",
-    "bg-col-840",
-    "bg-col-850",
-    "bg-col-860",
-    "bg-col-870",
-    "bg-col-880",
-    "bg-col-890",
-  ];
-  const colors900 = [
-    "bg-col-900",
-    "bg-col-910",
-    "bg-col-920",
-    "bg-col-930",
-    "bg-col-940",
-    "bg-col-950",
-    "bg-col-960",
-    "bg-col-970",
-    "bg-col-980",
-    "bg-col-990",
-  ];
-
-  const gradients = [
-    "bg-linear1",
-    "bg-linear1op25",
-    "bg-linear1op50",
-    "bg-linear1op75",
-    "bg-linear2",
-    "bg-linear2op25",
-    "bg-linear2op50",
-    "bg-linear2op75",
-    "bg-linear3",
-    "bg-linear3op25",
-    "bg-linear3op50",
-    "bg-linear3op75",
-    "bg-linear4",
-    "bg-linear4op25",
-    "bg-linear4op50",
-    "bg-linear4op75",
-    "bg-linear5",
-    "bg-linear5op25",
-    "bg-linear5op50",
-    "bg-linear5op75",
-    "bg-linear6",
-    "bg-linear6op25",
-    "bg-linear6op50",
-    "bg-linear6op75",
-    "bg-diagonal1",
-    "bg-diagonal1op25",
-    "bg-diagonal1op50",
-    "bg-diagonal1op75",
-    "bg-diagonal2",
-    "bg-diagonal2op25",
-    "bg-diagonal2op50",
-    "bg-diagonal2op75",
-    "bg-diagonal3",
-    "bg-diagonal3op25",
-    "bg-diagonal3op50",
-    "bg-diagonal3op75",
-    "bg-diagonal4",
-    "bg-diagonal4op25",
-    "bg-diagonal4op50",
-    "bg-diagonal4op75",
-    "bg-diagonal5",
-    "bg-diagonal5op25",
-    "bg-diagonal5op50",
-    "bg-diagonal5op75",
-    "bg-diagonal6",
-    "bg-diagonal6op25",
-    "bg-diagonal6op50",
-    "bg-diagonal6op75",
-    "bg-radial1",
-    "bg-radial1op25",
-    "bg-radial1op50",
-    "bg-radial1op75",
-    "bg-radial2",
-    "bg-radial2op25",
-    "bg-radial2op50",
-    "bg-radial2op75",
-    "bg-radial3",
-    "bg-radial3op25",
-    "bg-radial3op50",
-    "bg-radial3op75",
-    "bg-radial4",
-    "bg-radial4op25",
-    "bg-radial4op50",
-    "bg-radial4op75",
-    "bg-radial5",
-    "bg-radial5op25",
-    "bg-radial5op50",
-    "bg-radial5op75",
-    "bg-radial6",
-    "bg-radial6op25",
-    "bg-radial6op50",
-    "bg-radial6op75",
-  ];
-
   return (
     <FlexFull className="h-full overflow-y-auto justify-center">
       <NavContainer className="text-[2.5vh]">
@@ -293,7 +110,7 @@ export default function Design() {
         <NavLink to="#rgb">RBG</NavLink>
         <NavLink to="#gradients">Grads</NavLink>
         <NavLink to="#complexbackgrounds">BGs</NavLink>
-        <NavLink to="#examples">Mixed</NavLink>
+        <NavLink to="#examples">Styles</NavLink>
       </NavContainer>
       <VStackFull
         className="h-fit px-[2vh] pt-[5.5vh] pb-[2vh]"
@@ -576,21 +393,66 @@ export default function Design() {
         </VStackFull>
 
         <VStackFull>
-          <SectionHeading id="examples" heading="Mixed Examples" />
-          <div className="p-[1vh] bg-gray-400 textGlow">
-            This text will have a light text shadow or an HD version on fullHD
-            screens.
-          </div>
-          <div className="lightShadow hover:metallicEdges transition-800 bg-black text-white p-[1vh]">
-            This has className="lightShadow hover:metallicEdges transition-800"
-          </div>
-          <Box className="p-[1vh] border-900 bg-col-200">
-            This has className="border-900"
-          </Box>
-          <Flex className="justify-center p-[1vh] shadow3D border-200 text-col-100">
-            {" "}
-            This has className="shadow3D border-200"
-          </Flex>
+          <SectionHeading id="examples" heading="Borders" />
+          <Wrap className="bg-col-800 p-[1vh] shadow3D gap-[1vh] w-full justify-around">
+            <BorderExamples startIndex={0} endIndex={95} />
+          </Wrap>
+          <Wrap className="bg-col-300 p-[1vh] shadow3D gap-[1vh] w-full justify-around">
+            <BorderExamples startIndex={96} endIndex={215} />
+          </Wrap>
+          <SectionHeading id="" heading="Transitions" />
+          <Wrap className="bg-col-600 p-[1vh] shadow3D gap-[3vh] justify-evenly">
+            <StyleExampleBox
+              className="transition-300 bg-col-200 hover:bg-col-900 hover:text-col-100 subtleShadow"
+              text="className='transition-300'"
+            />
+            <StyleExampleBox
+              className="transition-400 bg-col-200 hover:bg-col-900 hover:text-col-100 subtleShadow"
+              text="className='transition-400'"
+            />
+            <StyleExampleBox
+              className="transition-500 bg-col-200 hover:bg-col-900 hover:text-col-100 subtleShadow"
+              text="className='transition-500'"
+            />
+            <StyleExampleBox
+              className="transition-600 bg-col-200 hover:bg-col-900 hover:text-col-100 subtleShadow"
+              text="className='transition-600'"
+            />
+            <StyleExampleBox
+              className="transition-700 bg-col-200 hover:bg-col-900 hover:text-col-100 subtleShadow"
+              text="className='transition-700'"
+            />
+            <StyleExampleBox
+              className="transition-800 bg-col-200 hover:bg-col-900 hover:text-col-100 subtleShadow"
+              text="className='transition-800'"
+            />
+            <StyleExampleBox
+              className="transition-900 bg-col-200 hover:bg-col-900 hover:text-col-100 subtleShadow"
+              text="className='transition-900'"
+            />
+            <StyleExampleBox
+              className="transition-1000 bg-col-200 hover:bg-col-900 hover:text-col-100 subtleShadow"
+              text="className='transition-1000'"
+            />
+          </Wrap>
+          <SectionHeading id="" heading="Mixed Styles" />
+          <VStackFull className="bg-col-500 p-[1vh] shadow3D">
+            <div className="p-[1vh] bg-gray-400 textGlow">
+              This text will have a light text shadow or an HD version on fullHD
+              screens.
+            </div>
+            <div className="lightShadow hover:metallicEdges transition-800 bg-black text-white p-[1vh]">
+              This has className="lightShadow hover:metallicEdges
+              transition-800"
+            </div>
+            <Box className="p-[1vh] border-900 bg-col-200">
+              This has className="border-900"
+            </Box>
+            <Flex className="justify-center p-[1vh] shadow3D border-200 text-col-100">
+              {" "}
+              This has className="shadow3D border-200"
+            </Flex>
+          </VStackFull>
         </VStackFull>
       </VStackFull>
     </FlexFull>
