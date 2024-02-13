@@ -7,7 +7,7 @@ export default function TextRoute() {
   function Button({ className }: { className?: string }) {
     return (
       <button>
-        <Flex className={`normalButtonStyles ${className}`}>Test Button</Flex>
+        <Flex className={`smallButtonStyles ${className}`}>Test Button</Flex>
       </button>
     );
   }

@@ -12,30 +12,43 @@ const plugin = require("tailwindcss/plugin");
 // });
 
 const buttonStyles = plugin(function ({ addUtilities, theme }) {
-  const utilities = {
-    ".normalButtonStyles": {
-      width: "fit-content",
-      lineHeight: "2.1vh",
-      padding: "0 1.5vh",
-      backgroundColor: theme("colors.col.700"),
-      height: "3.5vh",
-      fontSize: "2.1vh",
-      justifyContent: "center",
-      alignItems: "center",
-      color: theme("colors.col.100"),
-      borderWidth: "0.2vh",
-      borderColor: theme("colors.col.500"),
-      boxShadow: theme("boxShadow.subtleShadow"),
-      transition: "all 0.4s ease-in-out",
-      "&:hover": {
-        backgroundColor: theme("colors.col.300"),
-        color: theme("colors.col.900"),
-        borderColor: theme("colors.col.970"),
-        boxShadow: theme("boxShadow.metallicEdges"),
-        textShadow: theme("textShadow.textGlow"),
-      },
+  // Define base styles for buttons
+  const baseButtonStyles = {
+    width: "fit-content",
+    lineHeight: "2.1vh",
+    padding: "0 1.5vh",
+    backgroundColor: theme("colors.col.700"),
+    justifyContent: "center",
+    alignItems: "center",
+    color: theme("colors.col.100"),
+    borderWidth: "0.2vh",
+    borderColor: theme("colors.col.500"),
+    boxShadow: theme("boxShadow.subtleShadow"),
+    transition: "all 0.4s ease-in-out",
+    "&:hover": {
+      backgroundColor: theme("colors.col.300"),
+      color: theme("colors.col.900"),
+      borderColor: theme("colors.col.970"),
+      boxShadow: theme("boxShadow.metallicEdges"),
+      textShadow: theme("textShadow.textGlow"),
     },
   };
+
+  // Utilities object to hold all button styles
+  const utilities = {
+    ".normalButtonStyles": {
+      ...baseButtonStyles,
+      fontSize: "2.1vh",
+      height: "3.5vh",
+    },
+    ".smallButtonStyles": {
+      ...baseButtonStyles,
+      fontSize: "1.6vh",
+      height: "2.7vh",
+      lineHeight: "1.6vh", // Adjusting line height for small button
+    },
+  };
+
   addUtilities(utilities, ["responsive", "hover"]);
 });
 
@@ -1477,7 +1490,7 @@ export default {
         115: "1.15",
       },
       fontFamily: {
-        sans: ["Hind Madurai", "sans-serif"],
+        sans: ["Lato", "sans-serif"],
         cursive: ["Waiting for the Sunrise", "cursive"],
       },
       fontSize: {
