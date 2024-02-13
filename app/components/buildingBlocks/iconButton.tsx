@@ -1,211 +1,113 @@
-// import React, { forwardRef, type MouseEventHandler } from "react";
-// import { Spinner } from "./spinner";
-// import Tooltip, { TooltipPlacement } from "./tooltip";
-// import {
-//   subtleShadow,
-//   subtleShadowHover,
-//   leading,
-//   lightTextShadowHover,
-//   normalButtonColors,
-//   negativeButtonColors,
-//   metallicEdgesHover,
-//   iconButtonDefaultRadius,
-//   DefaultIcon,
-// } from "styles";
-// import Text from "./text";
-// import HStack from "./hStack";
-// import Flex from "./flex";
-// import { NavLink } from "@remix-run/react";
+import { MouseEventHandler } from "react";
+import HStack from "./hStack";
+import FlexFull from "./flexFull";
+import BouncingDots from "../specialty/bouncingDots";
+import { Spinner } from "./spinner";
+import Icon from "./icon";
+import { NavLink } from "@remix-run/react";
 
-// interface IconButtonProps extends React.HTMLProps<HTMLButtonElement> {
-//   icon?: React.ComponentType<{ className?: string }>;
-//   onClick?: MouseEventHandler<HTMLButtonElement>;
-//   className?: string;
-//   iconSize?: string;
-//   isLoading?: boolean;
-//   isDisabled?: boolean;
-//   isLiked?: boolean;
-//   isMinimal?: boolean;
-//   isUnstyled?: boolean;
-//   noStyles?: boolean;
-//   isSmall?: boolean;
-//   isNegative?: boolean;
-//   isNegativeSmall?: boolean;
-//   isActive?: boolean;
-//   label?: string;
-//   to?: string;
-//   pos?: "absolute" | "relative" | "fixed" | "sticky" | "static" | "inherit";
-//   t?: string;
-//   l?: string;
-//   r?: string;
-//   b?: string;
-//   textLeft?: string;
-//   textRight?: string;
-//   textStyles?: string;
-//   type?: "button" | "submit" | "reset";
-//   textButtonPadding?: string;
-//   buttonWidth?: string;
-//   textButtonIconSize?: string;
-//   buttonHeight?: string;
-//   buttonRadius?: string;
-//   tooltipPlacement?: TooltipPlacement;
-// }
+export default function IconButton({
+  className,
+  buttonText = "",
+  onClick,
+  iconLeft,
+  iconRight,
+  ref,
+  htmlType = "button",
+  iconSize,
+  isLoading,
+  isDisabled,
+  type = "normal",
+  width = "w-fit",
+  to,
+}: {
+  className?: string;
+  buttonText?: string;
+  ref?: React.MutableRefObject<HTMLButtonElement | null>;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
+  iconLeft?: React.ComponentType<{ className?: string }>;
+  iconRight?: React.ComponentType<{ className?: string }>;
+  iconSize?: string;
+  iconButtonStyles?: string;
+  isLoading?: boolean;
+  isDisabled?: boolean;
+  htmlType?: "button" | "submit" | "reset";
+  to?: string;
+  width?: string;
+  type?:
+    | "normal"
+    | "smallNormal"
+    | "negative"
+    | "smallNegative"
+    | "unstyled"
+    | "smallUnstyled"
+    | "icon"
+    | "smallIcon";
+}) {
+  const buttonClass =
+    type === "normal"
+      ? "normalButtonStyles"
+      : type === "smallNormal"
+      ? "smallNormalButtonStyles"
+      : type === "negative"
+      ? "negativeButtonStyles"
+      : type === "smallNegative"
+      ? "smallNegativeButtonStyles"
+      : type === "unstyled"
+      ? "unstyledButtonStyles"
+      : "smallUnstyledButtonStyles";
 
-// const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
-//   (
-//     {
-//       icon: Icon = DefaultIcon,
-//       to,
-//       onClick,
-//       className = "",
-//       iconSize = "text-[2.5vh]",
-//       isLoading = false,
-//       isMinimal = false,
-//       isSmall = false,
-//       isDisabled = false,
-//       isUnstyled = false,
-//       isLiked = false,
-//       noStyles = false,
-//       textButtonIconSize = "text-[2vh]",
-//       label,
-//       isNegative = false,
-//       isNegativeSmall = false,
-//       buttonWidth = "w-[3.7vh]",
-//       buttonHeight = "h-[3.7vh]",
-//       buttonRadius = iconButtonDefaultRadius,
-//       pos,
-//       t,
-//       l,
-//       r,
-//       b,
-//       type = "button",
-//       tooltipPlacement = "bottomRight",
-//       textLeft,
-//       textRight,
-//       textButtonPadding = isMinimal ? "px-[0.8vh]" : "px-[1vh] py-[0.4vh]",
-//       textStyles = isSmall
-//         ? `${leading.xsTight} text-[1.7vh]`
-//         : isMinimal
-//         ? `${leading.xxsTight} text-[1.5vh]`
-//         : `${leading.xsTight} text-[1.9vh] md:text-[2.2vh]`,
-//       ...props
-//     },
-//     ref
-//   ) => {
-//     const useButtonHeight = textLeft || textRight ? "h-fit" : buttonHeight;
-//     const fullStyle = `${normalButtonColors} text-[1.5vh] md:text-[2vh] leading-[3.5vh] lg:text-[2.3vh] lg:leading-[3.5vh] ${
-//       textLeft || textRight ? "w-fit" : buttonWidth
-//     }  ${useButtonHeight} `;
-//     const isSmallStyles = `${normalButtonColors} text-[1.5vh] leading-[2.5vh] md:text-[2vh] md:leading-[3vh] ${
-//       textLeft || textRight ? "w-fit px-[0.2vh]" : "w-[2.8vh] md:w-[3.2vh]"
-//     } h-[2.8vh] md:h-[3.5vh]`;
-//     const negativeStyles = `text-[2vh] leading-[3.5vh] lg:text-[2.3vh] lg:leading-[3.5vh] fullHD:p-[1vh] ${
-//       textLeft || textRight ? "w-fit" : buttonWidth
-//     }  ${buttonHeight} ${negativeButtonColors} hover:metallicEdges`;
-//     const negativeSmallStyles = `text-[1.7vh] leading-[3vh] ${
-//       textLeft || textRight ? "w-fit px-[0.5vh]" : "w-[3.2vh]"
-//     } h-[3.2vh] ${negativeButtonColors} hover:metallicEdges`;
-//     const unstyledStyles = `text-[2.5vh] leading-[3.5vh] ${
-//       textLeft || textRight ? "w-fit" : "w-[2.8vh]"
-//     } h-[2.8vh] text-dt-100 hover:text-dt-300 transition duration-500 ease-in-out z-10`;
-//     const noStylesStyles = "";
-//     const isLikedStyle = `text-[1.7vh] leading-[3vh] ${
-//       textLeft || textRight ? "w-fit px-[0.5vh]" : "w-[3.2vh]"
-//     } h-[3.2vh] text-dt-700 bg-dt-400 border subtleShadow border-solid border-[0.2vh] border-dt-400 transition duration-500 ease-in-out hover:bg-dt-400 hover:text-dt-900 hover:border-dt-900 ${subtleShadowHover} ${lightTextShadowHover}`;
+  const displayIconSize = iconSize
+    ? iconSize
+    : type === "normal"
+    ? "text-[1.7vh]"
+    : type === "smallNormal"
+    ? "text-[1.3vh]"
+    : type === "negative"
+    ? "text-[1.7vh]"
+    : type === "smallNegative"
+    ? "text-[1.7vh]"
+    : type === "unstyled"
+    ? "text-[1.7vh]"
+    : "text-[1.3vh]";
 
-//     const buttonStyles = isSmall
-//       ? isSmallStyles
-//       : isUnstyled
-//       ? unstyledStyles
-//       : isNegative
-//       ? negativeStyles
-//       : isLiked
-//       ? isLikedStyle
-//       : isNegativeSmall
-//       ? negativeSmallStyles
-//       : noStyles
-//       ? noStylesStyles
-//       : fullStyle;
+  function ButtonInsides() {
+    return (
+      <button onClick={onClick} disabled={isDisabled} type={htmlType} ref={ref}>
+        <HStack className={`${buttonClass} ${width} ${className} relative`}>
+          {isLoading &&
+            buttonText !== "" &&
+            type !== "unstyled" &&
+            type !== "smallUnstyled" && (
+              <FlexFull className="absolute top-0 left-0 h-full justify-center items-center z-10 bg-col-980">
+                <BouncingDots
+                  dotCount={3}
+                  color="white"
+                  dotSize={7}
+                  speed="3s"
+                />
+              </FlexFull>
+            )}
+          {isLoading && (type === "icon" || type === "smallIcon") && (
+            <Spinner />
+          )}
+          {iconLeft && <Icon icon={iconLeft} iconSize={displayIconSize} />}
+          {buttonText}
+          {iconRight && <Icon icon={iconRight} iconSize={displayIconSize} />}
+        </HStack>
+      </button>
+    );
+  }
 
-//     const useIconSize =
-//       isSmall || isLiked
-//         ? "text-[1.5vh] md:text-[2vh]"
-//         : isMinimal
-//         ? "text-[2.2vh]"
-//         : iconSize;
-
-//     function ButtonInsides() {
-//       return (
-//         <Flex
-//           className={`flex flex-shrink-0 font-semibold justify-center items-center disabled:opacity-40 disabled:read-only disabled:pointer-events-none ${buttonRadius} ${buttonStyles} ${className}`}
-//         >
-//           <Flex
-//             className={`w-full h-full justify-center items-center ${buttonRadius}`}
-//           >
-//             {isLoading ? (
-//               <Spinner />
-//             ) : (
-//               <>
-//                 {textLeft ? (
-//                   <HStack
-//                     gap={isMinimal ? `gap-[0.1vh]` : `gap-[0.8vh]`}
-//                     className={`w-fit ${textButtonPadding} items-center ${buttonRadius} `}
-//                   >
-//                     {" "}
-//                     <Flex>
-//                       <Text className={`${textStyles}`}>{textLeft}</Text>
-//                     </Flex>
-//                     <div className={`${textButtonIconSize}`}>
-//                       <Icon className="rounded-none" />
-//                     </div>
-//                   </HStack>
-//                 ) : textRight ? (
-//                   <HStack
-//                     gap={isMinimal ? `gap-[0.1vh]` : `gap-[0.3vh]`}
-//                     className={`w-fit ${textButtonPadding} items-center ${buttonRadius} `}
-//                   >
-//                     <div className={`${textButtonIconSize}`}>
-//                       <Icon className="rounded-none" />
-//                     </div>
-//                     <Flex>
-//                       <Text className={`${textStyles}`}>{textRight}</Text>
-//                     </Flex>
-//                   </HStack>
-//                 ) : (
-//                   <div className={`${useIconSize} ${iconButtonDefaultRadius}`}>
-//                     <Icon className="rounded-none" />
-//                   </div>
-//                 )}
-//               </>
-//             )}
-//           </Flex>
-//         </Flex>
-//       );
-//     }
-//     return (
-//       <div className={`${pos} ${t} ${r} ${l} ${b}`}>
-//         <Tooltip label={isDisabled ? null : label} placement={tooltipPlacement}>
-//           <button
-//             ref={ref}
-//             type={type}
-//             onClick={onClick}
-//             disabled={isDisabled || isLoading}
-//             {...props}
-//           >
-//             {to ? (
-//               <NavLink to={to} className="w-full h-full">
-//                 <ButtonInsides />
-//               </NavLink>
-//             ) : (
-//               <ButtonInsides />
-//             )}
-//           </button>
-//         </Tooltip>
-//       </div>
-//     );
-//   }
-// );
-
-// IconButton.displayName = "IconButton"; // Set the display name
-
-// export default IconButton;
+  return (
+    <>
+      {to ? (
+        <NavLink to={to}>
+          <ButtonInsides />
+        </NavLink>
+      ) : (
+        <ButtonInsides />
+      )}
+    </>
+  );
+}

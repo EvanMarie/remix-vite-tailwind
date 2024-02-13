@@ -1,104 +1,11 @@
-import { NavLink } from "@remix-run/react";
-import { MouseEventHandler } from "react";
 import { StarFilledIcon } from "styles";
 import Box from "~/components/buildingBlocks/box";
-import FlexFull from "~/components/buildingBlocks/flexFull";
-import HStack from "~/components/buildingBlocks/hStack";
-import Icon from "~/components/buildingBlocks/icon";
-import { Spinner } from "~/components/buildingBlocks/spinner";
+import Button from "~/components/buildingBlocks/button";
+import Flex from "~/components/buildingBlocks/flex";
 import Text from "~/components/buildingBlocks/textComponents";
 import VStackFull from "~/components/buildingBlocks/vStackFull";
-import BouncingDots from "~/components/specialty/bouncingDots";
 
 export default function TextRoute() {
-  function Button({
-    className,
-    buttonText = "",
-    onClick,
-    iconLeft,
-    iconRight,
-    iconSize = "text-[1.8vh]",
-    isLoading,
-    isDisabled,
-    type = "normal",
-    width = "w-fit",
-    to,
-  }: {
-    className?: string;
-    buttonText?: string;
-    onClick?: MouseEventHandler<HTMLButtonElement>;
-    iconLeft?: React.ComponentType<{ className?: string }>;
-    iconRight?: React.ComponentType<{ className?: string }>;
-    iconSize?: string;
-    iconButtonStyles?: string;
-    isLoading?: boolean;
-    isDisabled?: boolean;
-    to?: string;
-    width?: string;
-    type?:
-      | "normal"
-      | "smallNormal"
-      | "negative"
-      | "smallNegative"
-      | "unstyled"
-      | "smallUnstyled"
-      | "icon"
-      | "smallIcon";
-  }) {
-    const buttonClass =
-      type === "normal"
-        ? "normalButtonStyles"
-        : type === "smallNormal"
-        ? "smallNormalButtonStyles"
-        : type === "negative"
-        ? "negativeButtonStyles"
-        : type === "smallNegative"
-        ? "smallNegativeButtonStyles"
-        : type === "unstyled"
-        ? "unstyledButtonStyles"
-        : "smallUnstyledButtonStyles";
-
-    function ButtonInsides() {
-      return (
-        <button onClick={onClick} disabled={isDisabled}>
-          <HStack className={`${buttonClass} ${width} ${className} relative`}>
-            {isLoading &&
-              buttonText !== "" &&
-              type !== "unstyled" &&
-              type !== "smallUnstyled" && (
-                <FlexFull className="absolute top-0 left-0 h-full justify-center items-center z-10 bg-col-980">
-                  <BouncingDots
-                    dotCount={3}
-                    color="white"
-                    dotSize={7}
-                    speed="3s"
-                  />
-                </FlexFull>
-              )}
-            {isLoading && (type === "icon" || type === "smallIcon") && (
-              <Spinner />
-            )}
-            {iconLeft && <Icon icon={iconLeft} iconSize={iconSize} />}
-            {buttonText}
-            {iconRight && <Icon icon={iconRight} iconSize={iconSize} />}
-          </HStack>
-        </button>
-      );
-    }
-
-    return (
-      <>
-        {to ? (
-          <NavLink to={to}>
-            <ButtonInsides />
-          </NavLink>
-        ) : (
-          <ButtonInsides />
-        )}
-      </>
-    );
-  }
-
   return (
     <VStackFull className="justify-center p-[2vh]">
       This
@@ -133,6 +40,7 @@ export default function TextRoute() {
         <Text className="text-too-big-tight">text-too-big-tight</Text>
         <Text className="text-insane-tight">text-insane-tight</Text>
       </VStackFull>
+      <Flex className="justify-center p-[1vh] shadow3D"> This</Flex>
     </VStackFull>
   );
 }

@@ -1,89 +1,113 @@
-import type { ReactNode, MouseEventHandler } from "react";
-import {
-  buttonDefaultRadius,
-  isUnstyledStyles,
-  negativeSmallStyles,
-  negativeStyles,
-  normalButtonBase,
-  normalButtonPadding,
-  smallButtonBase,
-  smallButtonPadding,
-} from "styles";
+import { MouseEventHandler } from "react";
+import HStack from "./hStack";
+import FlexFull from "./flexFull";
 import BouncingDots from "../specialty/bouncingDots";
-import Flex from "./flex";
+import { Spinner } from "./spinner";
+import Icon from "./icon";
 import { NavLink } from "@remix-run/react";
 
-interface ButtonProps {
-  type?: "button" | "submit" | "reset";
-  w?: string;
-  children: ReactNode;
-  onClick?: MouseEventHandler<HTMLButtonElement>;
-  buttonClassName?: string;
-  ref?: React.MutableRefObject<HTMLButtonElement | null>;
-  className?: string;
-  isLoading?: boolean;
-  isDisabled?: boolean;
-  isSmall?: boolean;
-  isUnstyled?: boolean;
-  isNegative?: boolean;
-  isNegativeSmall?: boolean;
-  textWrap?: boolean;
-  to?: string;
-}
-
 export default function Button({
-  children,
-  type = "button",
+  className,
+  buttonText = "",
   onClick,
-  buttonClassName = "",
+  iconLeft,
+  iconRight,
+  ref,
+  htmlType = "button",
+  iconSize,
   isLoading,
   isDisabled,
-  w = "w-fit",
-  isSmall = false,
-  isUnstyled = false,
-  isNegative = false,
-  className = "",
-  isNegativeSmall = false,
-  ref,
+  type = "normal",
+  width = "w-fit",
   to,
-  textWrap = false,
-  ...props
-}: ButtonProps) {
-  const buttonClass = textWrap ? "" : "whitespace-nowrap";
-  const padding =
-    isNegativeSmall || isSmall ? smallButtonPadding : normalButtonPadding;
+}: {
+  className?: string;
+  buttonText?: string;
+  ref?: React.MutableRefObject<HTMLButtonElement | null>;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
+  iconLeft?: React.ComponentType<{ className?: string }>;
+  iconRight?: React.ComponentType<{ className?: string }>;
+  iconSize?: string;
+  iconButtonStyles?: string;
+  isLoading?: boolean;
+  isDisabled?: boolean;
+  htmlType?: "button" | "submit" | "reset";
+  to?: string;
+  width?: string;
+  type?:
+    | "normal"
+    | "smallNormal"
+    | "negative"
+    | "smallNegative"
+    | "unstyled"
+    | "smallUnstyled"
+    | "icon"
+    | "smallIcon";
+}) {
+  const buttonClass =
+    type === "normal"
+      ? "normalButtonStyles"
+      : type === "smallNormal"
+      ? "smallNormalButtonStyles"
+      : type === "negative"
+      ? "negativeButtonStyles"
+      : type === "smallNegative"
+      ? "smallNegativeButtonStyles"
+      : type === "unstyled"
+      ? "unstyledButtonStyles"
+      : "smallUnstyledButtonStyles";
+
+  const displayIconSize = iconSize
+    ? iconSize
+    : type === "normal"
+    ? "text-[1.7vh]"
+    : type === "smallNormal"
+    ? "text-[1.3vh]"
+    : type === "negative"
+    ? "text-[1.7vh]"
+    : type === "smallNegative"
+    ? "text-[1.7vh]"
+    : type === "unstyled"
+    ? "text-[1.7vh]"
+    : "text-[1.3vh]";
+
+  function ButtonInsides() {
+    return (
+      <button onClick={onClick} disabled={isDisabled} type={htmlType} ref={ref}>
+        <HStack className={`${buttonClass} ${width} ${className} relative`}>
+          {isLoading &&
+            buttonText !== "" &&
+            type !== "unstyled" &&
+            type !== "smallUnstyled" && (
+              <FlexFull className="absolute top-0 left-0 h-full justify-center items-center z-10 bg-col-980">
+                <BouncingDots
+                  dotCount={3}
+                  color="white"
+                  dotSize={7}
+                  speed="3s"
+                />
+              </FlexFull>
+            )}
+          {isLoading && (type === "icon" || type === "smallIcon") && (
+            <Spinner />
+          )}
+          {iconLeft && <Icon icon={iconLeft} iconSize={displayIconSize} />}
+          {buttonText}
+          {iconRight && <Icon icon={iconRight} iconSize={displayIconSize} />}
+        </HStack>
+      </button>
+    );
+  }
 
   return (
-    <button
-      ref={ref}
-      type={type}
-      onClick={onClick}
-      disabled={isDisabled || isLoading}
-      {...props}
-    >
+    <>
       {to ? (
-        <NavLink to={to} className={`w-full h-full overflow-hidden`}>
-          <Flex
-            className={`${w} overflow-hidden ${buttonDefaultRadius} ${buttonClass} ${
-              isSmall
-                ? smallButtonBase
-                : isUnstyled
-                ? isUnstyledStyles
-                : isNegative
-                ? negativeStyles
-                : isNegativeSmall
-                ? negativeSmallStyles
-                : normalButtonBase
-            } ${buttonClassName}`}
-          >
-            {isLoading ? <BouncingDots /> : children}
-          </Flex>
+        <NavLink to={to}>
+          <ButtonInsides />
         </NavLink>
       ) : (
-        <Flex className={`${padding} ${className} `}>
-          {isLoading ? <BouncingDots /> : children}
-        </Flex>
+        <ButtonInsides />
       )}
-    </button>
+    </>
   );
 }

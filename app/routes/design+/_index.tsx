@@ -13,7 +13,6 @@ import VStackFull from "~/components/buildingBlocks/vStackFull";
 import Wrap from "~/components/buildingBlocks/wrap";
 import {
   StarHollowIcon,
-  border900,
   col100Bgs,
   col200Bgs,
   col300Bgs,
@@ -23,11 +22,6 @@ import {
   col700Bgs,
   col800Bgs,
   col900Bgs,
-  hoverBorder100,
-  lightTextShadow,
-  subtleShadow,
-  textShadow,
-  transition500,
 } from "styles";
 import Box from "~/components/buildingBlocks/box";
 
@@ -308,21 +302,22 @@ export default function Design() {
           <Wrap className="w-full gap-[2vh] items-center">
             <button>
               <Box
-                className={`p-[1vh] bg-col-300 ${border900} hover:bg-col-700 hover:text-col-100  ${hoverBorder100} transition-500`}
+                className={`p-[1vh] bg-col-300 border900 hover:bg-col-700 hover:text-col-100  hover:border100 transition-500`}
               >
                 Test
               </Box>
-              <IconButton icon={StarHollowIcon} textRight="this" />
+              {/* <IconButton icon={StarHollowIcon} textRight="this" /> */}
             </button>
-            <Button>Normal</Button> <Button isSmall>Normal Small</Button>
-            <Button isNegative>Negative</Button>
-            <Button isNegativeSmall>Negative Small</Button>
-            <Button isUnstyled>Unstyled</Button>
-            <IconButton icon={StarHollowIcon} />
+            <Button buttonText="Normal" />{" "}
+            <Button type="smallNormal" buttonText="NormalButton" />
+            <Button type="negative" buttonText="Negative" />
+            <Button type="smallNegative" buttonText="Negative Small" />
+            <Button type="unstyled" buttonText="Unstyled" />
+            {/* <IconButton icon={StarHollowIcon} />
             <IconButton icon={StarHollowIcon} isSmall />
             <IconButton icon={StarHollowIcon} isNegative />
             <IconButton icon={StarHollowIcon} isNegativeSmall />
-            <IconButton icon={StarHollowIcon} isUnstyled />
+            <IconButton icon={StarHollowIcon} isUnstyled /> */}
           </Wrap>
         </VStack>
         <VStackFull gap="gap-[1vh]">
