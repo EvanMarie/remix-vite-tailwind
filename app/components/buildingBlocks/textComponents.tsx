@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import { textShadow } from "styles";
 
 interface TextProps {
   children?: ReactNode;
@@ -36,7 +35,7 @@ export function TextXS({
   children,
   className = "",
   noOfLines,
-  shadow = textShadow,
+  shadow = "textShadow",
 }: TextProps) {
   const style: React.CSSProperties = {};
 
@@ -62,7 +61,7 @@ export function TextSM({
   children,
   className = "",
   noOfLines,
-  shadow = textShadow,
+  shadow = "textShadow",
 }: TextProps) {
   const style: React.CSSProperties = {};
 
@@ -88,7 +87,7 @@ export function TextMD({
   children,
   className = "",
   noOfLines,
-  shadow = textShadow,
+  shadow = "textShadow",
 }: TextProps) {
   const style: React.CSSProperties = {};
 
@@ -114,7 +113,7 @@ export function TextLG({
   children,
   className = "",
   noOfLines,
-  shadow = textShadow,
+  shadow = "textShadow",
 }: TextProps) {
   const style: React.CSSProperties = {};
 
@@ -140,7 +139,7 @@ export function TextXL({
   children,
   className = "",
   noOfLines,
-  shadow = textShadow,
+  shadow = "textShadow",
 }: TextProps) {
   const style: React.CSSProperties = {};
 
@@ -166,7 +165,7 @@ export function Text2XL({
   children,
   className = "",
   noOfLines,
-  shadow = textShadow,
+  shadow = "textShadow",
 }: TextProps) {
   const style: React.CSSProperties = {};
 
@@ -192,7 +191,7 @@ export function Text3XL({
   children,
   className = "",
   noOfLines,
-  shadow = textShadow,
+  shadow = "textShadow",
 }: TextProps) {
   const style: React.CSSProperties = {};
 
@@ -218,7 +217,7 @@ export function Text4XL({
   children,
   className = "",
   noOfLines,
-  shadow = textShadow,
+  shadow = "textShadow",
 }: TextProps) {
   const style: React.CSSProperties = {};
 
@@ -244,7 +243,7 @@ export function Text5XL({
   children,
   className = "",
   noOfLines,
-  shadow = textShadow,
+  shadow = "textShadow",
 }: TextProps) {
   const style: React.CSSProperties = {};
 
@@ -270,7 +269,7 @@ export function Text6XL({
   children,
   className = "",
   noOfLines,
-  shadow = textShadow,
+  shadow = "textShadow",
 }: TextProps) {
   const style: React.CSSProperties = {};
 
@@ -304,7 +303,7 @@ export function Heading3XL({
   noOfLines,
   cursive = true,
   color = "text-dt-500",
-  shadow = textShadow,
+  shadow = "textShadow",
 }: ExtendedTextProps) {
   const style: React.CSSProperties = {};
 
@@ -333,7 +332,7 @@ export function Heading2XL({
   noOfLines,
   cursive = true,
   color = "text-dt-500",
-  shadow = textShadow,
+  shadow = "textShadow",
 }: ExtendedTextProps) {
   const style: React.CSSProperties = {};
 
@@ -362,7 +361,7 @@ export function HeadingXL({
   noOfLines,
   cursive = true,
   color = "text-dt-500",
-  shadow = textShadow,
+  shadow = "textShadow",
 }: ExtendedTextProps) {
   const style: React.CSSProperties = {};
 
@@ -391,7 +390,7 @@ export function HeadingLG({
   noOfLines,
   cursive = true,
   color = "text-dt-500",
-  shadow = textShadow,
+  shadow = "textShadow",
 }: ExtendedTextProps) {
   const style: React.CSSProperties = {};
 
@@ -420,7 +419,7 @@ export function HeadingMD({
   noOfLines,
   cursive = true,
   color = "text-dt-500",
-  shadow = textShadow,
+  shadow = "textShadow",
   leading = "leading-[4.3vh]",
 }: ExtendedTextProps) {
   const style: React.CSSProperties = {};
@@ -450,7 +449,7 @@ export function HeadingSM({
   noOfLines,
   cursive = true,
   color = "text-dt-500",
-  shadow = textShadow,
+  shadow = "textShadow",
 }: ExtendedTextProps) {
   const style: React.CSSProperties = {};
 
@@ -479,7 +478,7 @@ export function HeadingXS({
   noOfLines,
   cursive = true,
   color = "text-dt-500",
-  shadow = textShadow,
+  shadow = "textShadow",
 }: ExtendedTextProps) {
   const style: React.CSSProperties = {};
 
