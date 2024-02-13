@@ -173,6 +173,26 @@ const typographyPlugin = plugin(function ({ addUtilities }) {
   addUtilities(utilities, ["responsive", "hover"]);
 });
 
+const customBackgroundsPlugin = plugin(function ({ addUtilities, theme }) {
+  // Define custom background utilities based on your groups
+  const customBackgroundUtilities = {
+    // Example for bg1: "bg-col-100 bg-linear1op25"
+    ".bg-col-100-bg-linear1op25": {
+      backgroundColor: theme("colors.col.100"), // Assuming 'col.100' is defined in your colors
+      backgroundImage: theme("backgroundImage.linear1op25"), // Assuming this is defined in your theme
+    },
+    // Follow the same pattern for other backgrounds...
+    ".bg-col-100-bg-linear1op50": {
+      backgroundColor: theme("colors.col.100"),
+      backgroundImage: theme("backgroundImage.linear1op50"),
+    },
+    // Add more custom classes based on your needs
+  };
+
+  // Add the utilities to Tailwind
+  addUtilities(customBackgroundUtilities, ["responsive", "hover"]);
+});
+
 export default {
   content: ["./app/**/*.{tsx,ts,jsx,js}"],
   theme: {
@@ -485,6 +505,10 @@ export default {
         "100vw": "100vw",
       },
       height: {
+        // standardized container heights
+        nav: "5vh", // Navigation height
+        footer: "4vh", // Footer height
+        content: "91vh", // Content height
         "0%": "0%",
         "1%": "1%",
         "2%": "2%",
@@ -741,6 +765,13 @@ export default {
         "98vh": "98vh",
         "99vh": "99vh",
         "100vh": "100vh",
+      },
+      minHeight: {
+        content: "91vh", // Minimum content height
+      },
+      padding: {
+        nav: "5vh", // Navigation top padding
+        footer: "4vh", // Footer bottom padding
       },
       spacing: {
         "1px": "1px",
@@ -1544,7 +1575,6 @@ export default {
         "799px": "799px",
         "800px": "800px",
       },
-
       transition: ["hover", "focus"],
       duration: ["hover", "focus"],
       scale: {
@@ -2153,7 +2183,106 @@ export default {
 
       addUtilities(newUtilities, ["responsive", "hover", "focus"]);
     }),
+    // SCALE ITEM PLUGIN
+    plugin(function ({ addUtilities }) {
+      const newUtilities = {
+        ".scale-item-xs": {
+          "@apply hover:cursor-pointer hover:scale-101 transition-all duration-500":
+            {},
+        },
+        ".scale-item-sm": {
+          "@apply hover:cursor-pointer hover:scale-102 transition-all duration-500":
+            {},
+        },
+        ".scale-item-md": {
+          "@apply hover:cursor-pointer hover:scale-103 transition-all duration-500":
+            {},
+        },
+        ".scale-item-lg": {
+          "@apply hover:cursor-pointer hover:scale-104 transition-all duration-500":
+            {},
+        },
+        ".scale-item-xl": {
+          "@apply hover:cursor-pointer hover:scale-105 transition-all duration-500":
+            {},
+        },
+        ".scale-item-xxl": {
+          "@apply hover:cursor-pointer hover:scale-107 transition-all duration-500":
+            {},
+        },
+      };
+
+      // Add the utilities to Tailwind
+      addUtilities(newUtilities, ["responsive", "hover"]);
+    }),
+    // INPUT AND TEXTAREA PLUGIN
+    plugin(function ({ addComponents, theme }) {
+      const newComponents = {
+        ".input-styles": {
+          width: "100%", // Full width
+          backgroundColor: theme("colors.col-100.22"), // Assuming '22' is a valid color opacity or variant
+          boxShadow: theme("boxShadow.insetShadow"),
+          color: theme("colors.col-900"),
+          padding: `${theme("spacing.1")} ${theme("spacing.2")}`,
+          paddingRight: theme("spacing.2"),
+          borderWidth: theme("borderWidth.2"),
+          borderStyle: "solid",
+          borderColor: theme("colors.col-700"),
+          outline: "none",
+          "&:focus": {
+            borderColor: theme("colors.col-200"),
+          },
+          transition: "border-color 0.4s ease-in-out",
+          borderRadius: theme("borderRadius.1vh"),
+        },
+        ".textarea-styles": {
+          backgroundColor: theme("colors.col-100.22"), // Assuming '22' is a specific variant
+          boxShadow: theme("boxShadow.insetShadow"),
+          color: theme("colors.col-900"),
+          paddingLeft: theme("spacing.1.3"),
+          paddingRight: theme("spacing.2"),
+          paddingTop: theme("spacing.0.7"),
+          paddingBottom: theme("spacing.0.7"),
+          borderWidth: theme("borderWidth.2"),
+          borderStyle: "solid",
+          borderColor: theme("colors.col-700"),
+          outline: "none",
+          "&:focus": {
+            borderColor: theme("colors.col-200"),
+          },
+          transition: "border-color 0.4s ease-in-out",
+        },
+      };
+
+      addComponents(newComponents);
+    }),
+    // LINKS PLUGIN
+    plugin(function ({ addBase, theme }) {
+      addBase({
+        a: {
+          color: theme("colors.col.600"),
+          textShadow: theme("textShadow.lightTextShadow"),
+          textStrokeColor: theme("colors.col.900"),
+          textStrokeWidth: "0.2vh",
+          textDecoration: "none",
+          fontWeight: 600,
+          transition: "all 400ms ease-in-out",
+          "-webkit-text-stroke-width": "0.06vh",
+          "-webkit-text-stroke-color": theme(`colors.col.900`, "currentColor"), // Use the border color for stroke color on hover
+          "&:hover": {
+            color: theme("colors.col.500"),
+            textDecoration: "none",
+            textShadow: theme("textShadow.textGlow"),
+          },
+          // You can add more pseudo-classes like focus or active with similar syntax
+          "&:focus": {
+            outline: "none",
+          },
+        },
+      });
+    }),
     typographyPlugin,
+    customBackgroundsPlugin,
     buttonStyles,
   ],
 };

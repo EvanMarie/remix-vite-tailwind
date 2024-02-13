@@ -58,7 +58,6 @@ import { TbActivityHeartbeat, TbStar, TbStarFilled } from "react-icons/tb";
 export const imageFallback = "";
 export const defaultAvatar = "/images/avatars/creature1.png";
 
-
 // COMPLEX BACKGROUNDS
 export const col100Bgs = {
   bg1: "bg-col-100 bg-linear1op25",
@@ -573,28 +572,9 @@ export const col900Bgs = {
   bg54: "bg-col-900 bg-radial6op75",
 };
 
-// BUTTON STYLES
-// export const normalButtonColors = `bg-col-900 text-col-100 text-stroke-5-col900 textShadowhover:bg-col-100 hover:text-col-900 hover:textShadow border-[0.2vh] md:border-[0.3vh] border-solid border-col-700 hover:border-col-500 ${transition700} subtleShadow`;
-export const normalButtonColors = "bg-col-900 hover:bg-col-300";
-export const negativeButtonColors = `bg-red-400 text-col-800 text-stroke-3-col100 lightTextShadow hover:bg-red-300 hover:text-col-800 border-[0.2vh] border-solid border-col-900 hover:border-[0.2vh] hover:border-solid hover:border-col-800 transition-500 `;
-export const normalButtonPadding = `px-[1.5vh] py-[0.5vh]`;
-export const smallButtonPadding = `px-[1.5vh] py-[0.2vh]`;
-export const smallButtonBase = `w-fit ${normalButtonColors} h-[3vh] font-semibold subtleShadow text-md hover:metallicEdges`;
-export const normalButtonBase = `w-fit ${normalButtonColors} h-[4vh] font-semibold subtleShadow text-[2vh] align-center hover:metallicEdges`;
-export const isUnstyledStyles = `w-fit flex-shrink-0 font-semibold items-center rounded-none`;
-export const negativeStyles = `w-fit ${negativeButtonColors} subtleShadow h-[4vh] text-lg font-semibold hover:metallicEdges`;
-export const negativeSmallStyles = `w-fit  ${negativeButtonColors} subtleShadow h-[3vh] text-md font-semibold hover:metallicEdges`;
-export const buttonGradientRadius = "rounded-[0.4vh]";
-
 // MAIN COMPONENT DEFAULTS
-export const navHeight = "h-[5vh]";
-export const navPadding = "pt-[5vh]";
-export const footerHeight = "h-[4vh]";
-export const footerPadding = "pb-[4vh]";
-export const contentHeight = "h-[91vh] min-h-[91vh]";
 export const inputStyles = `w-full ${col100Bgs.bg22} insetShadow text-col-900 px-[1vh] py-[0.5vh] pr-[2vh] border-[0.2vh] border-solid border-col-700 focus:outline-none focus:border-col-200 transition-400 rounded-[1vh]`;
 export const textAreaStyles = `${col100Bgs.bg22} insetShadow text-col-900 pl-[1.3vh] pr-[2vh] py-[0.7vh] border-[0.2vh] border-solid border-col-700 focus:outline-none focus:border-col-200 transition-400`;
-export const buttonDefaultRadius = "rounded-[0.7vh]";
 export const iconButtonDefaultRadius = "rounded-[0.5vh] md:rounded-[0.6vh]";
 export const DateTimePickerStyles = `text-md absolute mt-[1vh] p-[1.5vh] w-[25vh] px-[1.5vh] justify-center items-center textShadow bg-col-800 shadow3D z-20`;
 export const DateTimePickerLabelStyles = `text-col-400 font-semibold`;

@@ -24,6 +24,7 @@ import {
   col900Bgs,
 } from "styles";
 import IconButton from "~/components/buildingBlocks/iconButton";
+import Box from "~/components/buildingBlocks/box";
 
 export default function Design() {
   function TestBox({
@@ -66,7 +67,7 @@ export default function Design() {
   function SectionHeading({ id, heading }: { id: string; heading: string }) {
     return (
       <>
-        <div id={id} className="h-[4.5vh] text-transparent">
+        <div id={id} className="h-[2.5vh] text-transparent">
           This
         </div>
         <Flex className="w-full justify-center pt-[2vh] pb-[1vh]">
@@ -286,12 +287,13 @@ export default function Design() {
 
   return (
     <FlexFull className="h-full overflow-y-auto justify-center">
-      <NavContainer>
-        <NavLink to="#colorscheme">Color Scheme</NavLink>
-        <NavLink to="#rgb">RBG Equivalents</NavLink>
-        <NavLink to="#gradients">Gradients</NavLink>
-        <NavLink to="#complexbackgrounds">Complex Backgrounds</NavLink>
+      <NavContainer className="text-[2.5vh]">
         <NavLink to="#buttons">Buttons</NavLink>
+        <NavLink to="#colorscheme">Colors</NavLink>
+        <NavLink to="#rgb">RBG</NavLink>
+        <NavLink to="#gradients">Grads</NavLink>
+        <NavLink to="#complexbackgrounds">BGs</NavLink>
+        <NavLink to="#examples">Mixed</NavLink>
       </NavContainer>
       <VStackFull
         className="h-fit px-[2vh] pt-[5.5vh] pb-[2vh]"
@@ -573,7 +575,23 @@ export default function Design() {
           </Wrap>
         </VStackFull>
 
-        <FlexFull className=" bg-black">This</FlexFull>
+        <VStackFull>
+          <SectionHeading id="examples" heading="Mixed Examples" />
+          <div className="p-[1vh] bg-gray-400 textGlow">
+            This text will have a light text shadow or an HD version on fullHD
+            screens.
+          </div>
+          <div className="lightShadow hover:metallicEdges transition-800 bg-black text-white p-[1vh]">
+            This has className="lightShadow hover:metallicEdges transition-800"
+          </div>
+          <Box className="p-[1vh] border-900 bg-col-200">
+            This has className="border-900"
+          </Box>
+          <Flex className="justify-center p-[1vh] shadow3D border-200 text-col-100">
+            {" "}
+            This has className="shadow3D border-200"
+          </Flex>
+        </VStackFull>
       </VStackFull>
     </FlexFull>
   );
