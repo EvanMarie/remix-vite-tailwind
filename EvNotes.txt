@@ -1,0 +1,5 @@
+February 13, 2024
+
+- Finish button component
+- Create Icon Button from button or its own
+- figure out the errors in console

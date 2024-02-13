@@ -1,7 +1,7 @@
+import { NavLink } from "@remix-run/react";
 import { MouseEventHandler } from "react";
 import { StarFilledIcon } from "styles";
 import Box from "~/components/buildingBlocks/box";
-import Flex from "~/components/buildingBlocks/flex";
 import FlexFull from "~/components/buildingBlocks/flexFull";
 import HStack from "~/components/buildingBlocks/hStack";
 import Icon from "~/components/buildingBlocks/icon";
@@ -15,20 +15,26 @@ export default function TextRoute() {
     className,
     buttonText = "",
     onClick,
-    icon,
+    iconLeft,
+    iconRight,
     iconSize = "text-[1.8vh]",
-    isLoading = true,
+    isLoading,
     isDisabled,
     type = "normal",
+    width = "w-fit",
+    to,
   }: {
     className?: string;
     buttonText?: string;
     onClick?: MouseEventHandler<HTMLButtonElement>;
-    icon?: React.ComponentType<{ className?: string }>;
+    iconLeft?: React.ComponentType<{ className?: string }>;
+    iconRight?: React.ComponentType<{ className?: string }>;
     iconSize?: string;
     iconButtonStyles?: string;
     isLoading?: boolean;
     isDisabled?: boolean;
+    to?: string;
+    width?: string;
     type?:
       | "normal"
       | "smallNormal"
@@ -52,36 +58,55 @@ export default function TextRoute() {
         ? "unstyledButtonStyles"
         : "smallUnstyledButtonStyles";
 
-    return (
-      <button onClick={onClick} disabled={isDisabled}>
-        <HStack className={`${buttonClass} ${className} relative`}>
-          {isLoading &&
-            buttonText !== "" &&
-            type !== "unstyled" &&
-            type !== "smallUnstyled" && (
-              <FlexFull className="absolute top-0 left-0 h-full justify-center items-center z-10 bg-col-980">
-                <BouncingDots
-                  dotCount={3}
-                  color="white"
-                  dotSize={7}
-                  speed="3s"
-                />
-              </FlexFull>
+    function ButtonInsides() {
+      return (
+        <button onClick={onClick} disabled={isDisabled}>
+          <HStack className={`${buttonClass} ${width} ${className} relative`}>
+            {isLoading &&
+              buttonText !== "" &&
+              type !== "unstyled" &&
+              type !== "smallUnstyled" && (
+                <FlexFull className="absolute top-0 left-0 h-full justify-center items-center z-10 bg-col-980">
+                  <BouncingDots
+                    dotCount={3}
+                    color="white"
+                    dotSize={7}
+                    speed="3s"
+                  />
+                </FlexFull>
+              )}
+            {isLoading && (type === "icon" || type === "smallIcon") && (
+              <Spinner />
             )}
-          {isLoading && (type === "icon" || type === "smallIcon") && (
-            <Spinner />
-          )}
-          {icon && <Icon icon={icon} iconSize={iconSize} />}
-          {buttonText}
-        </HStack>
-      </button>
+            {iconLeft && <Icon icon={iconLeft} iconSize={iconSize} />}
+            {buttonText}
+            {iconRight && <Icon icon={iconRight} iconSize={iconSize} />}
+          </HStack>
+        </button>
+      );
+    }
+
+    return (
+      <>
+        {to ? (
+          <NavLink to={to}>
+            <ButtonInsides />
+          </NavLink>
+        ) : (
+          <ButtonInsides />
+        )}
+      </>
     );
   }
 
   return (
     <VStackFull className="justify-center p-[2vh]">
       This
-      <Button icon={StarFilledIcon} />
+      <Button
+        iconLeft={StarFilledIcon}
+        buttonText="this"
+        onClick={() => console.log("THIS!")}
+      />
       <VStackFull className={`lightGlow`}>
         <Text>Blah blah blah</Text>
         <Text>Blah blah blah</Text>

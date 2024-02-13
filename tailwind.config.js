@@ -14,8 +14,8 @@ const plugin = require("tailwindcss/plugin");
 const buttonStyles = plugin(function ({ addUtilities, theme }) {
   // Base styles for all buttons, excluding shadow properties
   const baseButtonStyles = {
-    width: "fit-content",
-    padding: "0 1.5vh",
+    // width: "fit-content",
+    padding: "0 1vh",
     justifyContent: "center",
     alignItems: "center",
     borderWidth: "0.2vh",
@@ -121,66 +121,6 @@ const buttonStyles = plugin(function ({ addUtilities, theme }) {
     ),
     ".unstyledButtonStyle": generateUnstyledButtonStyles("2.1vh", "3.5vh"),
     ".smallUnstyledButtonStyle": generateUnstyledButtonStyles("1.6vh", "2.7vh"),
-    ".iconButtonStyles": {
-      fontSize: "2.1vh",
-      width: "3.5vh",
-      height: "3.5vh",
-      backgroundColor: theme("colors.700", "transparent"),
-      color: theme("colors.100", "currentColor"),
-      borderColor: theme(`colors.${borderColor}`, "transparent"),
-      boxShadow: theme("boxShadow.subtleShadow"),
-      "&:hover": {
-        backgroundColor: "transparent",
-        color: "currentColor",
-        borderColor: "transparent",
-        boxShadow: "none",
-      },
-    },
-    ".smallIconButtonStyles": {
-      fontSize: "1.6vh",
-      width: "2.7vh",
-      height: "2.7vh",
-      backgroundColor: "transparent",
-      color: "currentColor",
-      borderColor: "transparent",
-      boxShadow: "none",
-      "&:hover": {
-        backgroundColor: "transparent",
-        color: "currentColor",
-        borderColor: "transparent",
-        boxShadow: "none",
-      },
-    },
-    ".negativeIconButtonStyles": {
-      fontSize: "2.1vh",
-      width: "3.5vh",
-      height: "3.5vh",
-      backgroundColor: theme("colors.700", "transparent"),
-      color: theme("colors.100", "currentColor"),
-      borderColor: theme(`colors.500`, "transparent"),
-      boxShadow: theme("boxShadow.subtleShadow"),
-      "&:hover": {
-        backgroundColor: "transparent",
-        color: "currentColor",
-        borderColor: "transparent",
-        boxShadow: "none",
-      },
-    },
-    ".smallNegativeIconButtonStyles": {
-      fontSize: "1.6vh",
-      width: "2.7vh",
-      height: "2.7vh",
-      backgroundColor: "transparent",
-      color: "currentColor",
-      borderColor: "transparent",
-      boxShadow: "none",
-      "&:hover": {
-        backgroundColor: "transparent",
-        color: "currentColor",
-        borderColor: "transparent",
-        boxShadow: "none",
-      },
-    },
   };
 
   addUtilities(utilities, ["responsive", "hover"]);
