@@ -2,7 +2,6 @@ import { NavLink } from "@remix-run/react";
 import Button from "~/components/buildingBlocks/button";
 import Flex from "~/components/buildingBlocks/flex";
 import FlexFull from "~/components/buildingBlocks/flexFull";
-import IconButton from "~/components/buildingBlocks/iconButton";
 import NavContainer from "~/components/buildingBlocks/navContainer";
 import Text, {
   HeadingMD,
@@ -12,6 +11,7 @@ import VStack from "~/components/buildingBlocks/vStack";
 import VStackFull from "~/components/buildingBlocks/vStackFull";
 import Wrap from "~/components/buildingBlocks/wrap";
 import {
+  StarFilledIcon,
   StarHollowIcon,
   col100Bgs,
   col200Bgs,
@@ -23,8 +23,7 @@ import {
   col800Bgs,
   col900Bgs,
 } from "styles";
-import Box from "~/components/buildingBlocks/box";
-import Icon from "~/components/buildingBlocks/icon";
+import IconButton from "~/components/buildingBlocks/iconButton";
 
 export default function Design() {
   function TestBox({
@@ -40,19 +39,19 @@ export default function Design() {
       bg.startsWith("bg-col-9") ||
       bg.startsWith("bg-col-800") ||
       bg.startsWith("bg-col-700") ||
-      bg.startsWith("bg-col-600");
+      bg.startsWith("bg-col-600") ||
+      bg.startsWith("bg-col-5");
 
     const isDarkFont =
       bg.startsWith("bg-col-1") ||
       bg.startsWith("bg-col-2") ||
       bg.startsWith("bg-col-3") ||
-      bg.startsWith("bg-col-4") ||
-      bg.startsWith("bg-col-5");
+      bg.startsWith("bg-col-4");
 
     const fontColor = isLightFont
-      ? `text-col-100 textShadow`
+      ? `text-col-100  text-stroke-4-col900 textShadow`
       : isDarkFont
-      ? `text-col-900 lightTextShadow`
+      ? `text-col-900  text-stroke-4-col900 lightTextShadow`
       : `text-col-100 textShadow`;
 
     return (
@@ -301,14 +300,12 @@ export default function Design() {
         <VStack className="w-90% pb-[3vh]">
           <SectionHeading id="buttons" heading="Buttons" />
           <Wrap className="w-full gap-[2vh] items-center">
-            <StarHollowIcon className="text-[5vh]" />
-            <Icon icon={StarHollowIcon} iconClassName="text-[5vh]" />
             <Button buttonText="Normal" />{" "}
             <Button type="smallNormal" buttonText="NormalButton" />
             <Button type="negative" buttonText="Negative" />
             <Button type="smallNegative" buttonText="Negative Small" />
             <Button type="unstyled" buttonText="Unstyled" />
-            <Button type="smallUnstyled" buttonText="Unstyled" />
+            <Button type="smallUnstyled" buttonText="Unstyled Small" />
             <Button buttonText="Normal Icon Left" iconLeft={StarHollowIcon} />
             <Button
               buttonText="Small Icon Right"
@@ -320,11 +317,17 @@ export default function Design() {
               type="negative"
               iconLeft={StarHollowIcon}
             />
-            {/* <IconButton icon={StarHollowIcon} />
-            <IconButton icon={StarHollowIcon} isSmall />
-            <IconButton icon={StarHollowIcon} isNegative />
-            <IconButton icon={StarHollowIcon} isNegativeSmall />
-            <IconButton icon={StarHollowIcon} isUnstyled /> */}
+            <Button
+              buttonText="Small Negative Icon Right"
+              type="smallNegative"
+              iconRight={StarHollowIcon}
+            />
+            <IconButton icon={StarFilledIcon} />{" "}
+            <IconButton type="smallNormal" icon={StarFilledIcon} />
+            <IconButton type="negative" icon={StarFilledIcon} />
+            <IconButton type="smallNegative" icon={StarFilledIcon} />
+            <IconButton type="unstyled" icon={StarFilledIcon} />
+            <IconButton type="smallUnstyled" icon={StarFilledIcon} />
           </Wrap>
         </VStack>
         <VStackFull gap="gap-[1vh]">

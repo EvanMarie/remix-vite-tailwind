@@ -9,6 +9,7 @@ import { NavLink } from "@remix-run/react";
 export default function Button({
   className,
   buttonText = "",
+  padding = "px-[1vh] py-[0px]",
   onClick,
   iconLeft,
   iconRight,
@@ -23,6 +24,7 @@ export default function Button({
 }: {
   className?: string;
   buttonText?: string;
+  padding?: string;
   ref?: React.MutableRefObject<HTMLButtonElement | null>;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   iconLeft?: React.ComponentType<{ className?: string }>;
@@ -72,7 +74,9 @@ export default function Button({
   function ButtonInsides() {
     return (
       <button onClick={onClick} disabled={isDisabled} type={htmlType} ref={ref}>
-        <HStack className={`${buttonClass} ${width} ${className} relative`}>
+        <HStack
+          className={`${buttonClass} ${width} ${className} ${padding} relative`}
+        >
           {isLoading &&
             buttonText !== "" &&
             type !== "unstyled" &&

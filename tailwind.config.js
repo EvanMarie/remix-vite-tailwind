@@ -14,8 +14,6 @@ const plugin = require("tailwindcss/plugin");
 const buttonStyles = plugin(function ({ addUtilities, theme }) {
   // Base styles for all buttons, excluding shadow properties
   const baseButtonStyles = {
-    // width: "fit-content",
-    padding: "0 1vh",
     justifyContent: "center",
     alignItems: "center",
     borderWidth: "0.2vh",
@@ -80,8 +78,8 @@ const buttonStyles = plugin(function ({ addUtilities, theme }) {
   // Utilities for specific button types
   const utilities = {
     ".normalButtonStyles": generateButtonStyles(
-      "2.1vh",
-      "3.5vh",
+      "2.1vh", // fontSize
+      "3.5vh", // height
       "col.700", // bgColor
       "col.100", // color
       "col.500", // borderColor
@@ -90,8 +88,8 @@ const buttonStyles = plugin(function ({ addUtilities, theme }) {
       "col.970" //hoverBorderColor
     ),
     ".smallButtonStyles": generateButtonStyles(
-      "1.6vh",
-      "2.7vh",
+      "1.6vh", // fontSize
+      "2.9vh", // height
       "col.700", // bgColor
       "col.100", // color
       "col.500", // borderColor
@@ -100,8 +98,8 @@ const buttonStyles = plugin(function ({ addUtilities, theme }) {
       "col.970" //hoverBorderColor
     ),
     ".negativeButtonStyles": generateButtonStyles(
-      "2.1vh",
-      "3.5vh",
+      "2.1vh", // fontSize
+      "3.5vh", // height
       "red.400", // bgColor
       "col.100", // color
       "red.800", // borderColor
@@ -110,8 +108,8 @@ const buttonStyles = plugin(function ({ addUtilities, theme }) {
       "red.800" //hoverBorderColor
     ),
     ".smallNegativeButtonStyles": generateButtonStyles(
-      "1.6vh",
-      "2.7vh",
+      "1.6vh", // fontSize
+      "2.9vh", // height
       "red.400", // bgColor
       "col.100", // color
       "red.800", // borderColor
@@ -122,7 +120,7 @@ const buttonStyles = plugin(function ({ addUtilities, theme }) {
     ".unstyledButtonStyles": generateUnstyledButtonStyles("2.1vh", "3.5vh"),
     ".smallUnstyledButtonStyles": generateUnstyledButtonStyles(
       "1.6vh",
-      "2.7vh"
+      "2.9vh"
     ),
   };
 
