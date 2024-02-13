@@ -1,13 +1,79 @@
+import { MouseEventHandler } from "react";
+import { StarFilledIcon } from "styles";
 import Box from "~/components/buildingBlocks/box";
 import Flex from "~/components/buildingBlocks/flex";
+import FlexFull from "~/components/buildingBlocks/flexFull";
+import HStack from "~/components/buildingBlocks/hStack";
+import Icon from "~/components/buildingBlocks/icon";
+import { Spinner } from "~/components/buildingBlocks/spinner";
 import Text from "~/components/buildingBlocks/textComponents";
 import VStackFull from "~/components/buildingBlocks/vStackFull";
+import BouncingDots from "~/components/specialty/bouncingDots";
 
 export default function TextRoute() {
-  function Button({ className }: { className?: string }) {
+  function Button({
+    className,
+    buttonText = "",
+    onClick,
+    icon,
+    iconSize = "text-[1.8vh]",
+    isLoading = true,
+    isDisabled,
+    type = "normal",
+  }: {
+    className?: string;
+    buttonText?: string;
+    onClick?: MouseEventHandler<HTMLButtonElement>;
+    icon?: React.ComponentType<{ className?: string }>;
+    iconSize?: string;
+    iconButtonStyles?: string;
+    isLoading?: boolean;
+    isDisabled?: boolean;
+    type?:
+      | "normal"
+      | "smallNormal"
+      | "negative"
+      | "smallNegative"
+      | "unstyled"
+      | "smallUnstyled"
+      | "icon"
+      | "smallIcon";
+  }) {
+    const buttonClass =
+      type === "normal"
+        ? "normalButtonStyles"
+        : type === "smallNormal"
+        ? "smallNormalButtonStyles"
+        : type === "negative"
+        ? "negativeButtonStyles"
+        : type === "smallNegative"
+        ? "smallNegativeButtonStyles"
+        : type === "unstyled"
+        ? "unstyledButtonStyles"
+        : "smallUnstyledButtonStyles";
+
     return (
-      <button>
-        <Flex className={`smallButtonStyles ${className}`}>Test Button</Flex>
+      <button onClick={onClick} disabled={isDisabled}>
+        <HStack className={`${buttonClass} ${className} relative`}>
+          {isLoading &&
+            buttonText !== "" &&
+            type !== "unstyled" &&
+            type !== "smallUnstyled" && (
+              <FlexFull className="absolute top-0 left-0 h-full justify-center items-center z-10 bg-col-980">
+                <BouncingDots
+                  dotCount={3}
+                  color="white"
+                  dotSize={7}
+                  speed="3s"
+                />
+              </FlexFull>
+            )}
+          {isLoading && (type === "icon" || type === "smallIcon") && (
+            <Spinner />
+          )}
+          {icon && <Icon icon={icon} iconSize={iconSize} />}
+          {buttonText}
+        </HStack>
       </button>
     );
   }
@@ -15,7 +81,7 @@ export default function TextRoute() {
   return (
     <VStackFull className="justify-center p-[2vh]">
       This
-      <Button />
+      <Button icon={StarFilledIcon} />
       <VStackFull className={`lightGlow`}>
         <Text>Blah blah blah</Text>
         <Text>Blah blah blah</Text>

@@ -12,40 +12,174 @@ const plugin = require("tailwindcss/plugin");
 // });
 
 const buttonStyles = plugin(function ({ addUtilities, theme }) {
-  // Define base styles for buttons
+  // Base styles for all buttons, excluding shadow properties
   const baseButtonStyles = {
     width: "fit-content",
-    lineHeight: "2.1vh",
     padding: "0 1.5vh",
-    backgroundColor: theme("colors.col.700"),
     justifyContent: "center",
     alignItems: "center",
-    color: theme("colors.col.100"),
     borderWidth: "0.2vh",
-    borderColor: theme("colors.col.500"),
-    boxShadow: theme("boxShadow.subtleShadow"),
     transition: "all 0.4s ease-in-out",
-    "&:hover": {
-      backgroundColor: theme("colors.col.300"),
-      color: theme("colors.col.900"),
-      borderColor: theme("colors.col.970"),
-      boxShadow: theme("boxShadow.metallicEdges"),
-      textShadow: theme("textShadow.textGlow"),
-    },
   };
 
-  // Utilities object to hold all button styles
+  // Function to generate button styles with specific colors and shadows
+  function generateButtonStyles(
+    fontSize,
+    height,
+    bgColor,
+    color,
+    borderColor,
+    hoverBgColor,
+    hoverColor,
+    hoverBorderColor,
+    hoverTextStrokeWidth = "0.1vh"
+  ) {
+    return {
+      ...baseButtonStyles,
+      fontSize,
+      height,
+      backgroundColor: theme(`colors.${bgColor}`, "transparent"),
+      color: theme(`colors.${color}`, "currentColor"),
+      borderColor: theme(`colors.${borderColor}`, "transparent"),
+      boxShadow: theme("boxShadow.subtleShadow"),
+      textShadow: theme("textShadow.textShadow"),
+      "&:hover": {
+        backgroundColor: theme(`colors.${hoverBgColor}`, "transparent"),
+        color: theme(`colors.${hoverColor}`, "currentColor"),
+        borderColor: theme(`colors.${hoverBorderColor}`, "transparent"),
+        boxShadow: theme("boxShadow.metallicEdges"),
+        textShadow: theme("textShadow.lightTextShadow"),
+        "-webkit-text-stroke-width": hoverTextStrokeWidth,
+        "-webkit-text-stroke-color": theme(
+          `colors.${hoverBorderColor}`,
+          "currentColor"
+        ), // Use the border color for stroke color on hover
+      },
+    };
+  }
+
+  // Function to generate unstyled button styles without shadows
+  function generateUnstyledButtonStyles(fontSize, height) {
+    return {
+      ...baseButtonStyles,
+      fontSize,
+      height,
+      backgroundColor: "transparent",
+      color: "currentColor",
+      borderColor: "transparent",
+      boxShadow: "none", // No box shadow for unstyled buttons
+      "&:hover": {
+        backgroundColor: "transparent",
+        color: "currentColor",
+        borderColor: "transparent",
+        boxShadow: "none", // No box shadow on hover for unstyled buttons
+      },
+    };
+  }
+
+  // Utilities for specific button types
   const utilities = {
-    ".normalButtonStyles": {
-      ...baseButtonStyles,
+    ".normalButtonStyles": generateButtonStyles(
+      "2.1vh",
+      "3.5vh",
+      "col.700", // bgColor
+      "col.100", // color
+      "col.500", // borderColor
+      "col.300", // hoverBgColor
+      "col.900", // hoverColor
+      "col.970" //hoverBorderColor
+    ),
+    ".smallButtonStyles": generateButtonStyles(
+      "1.6vh",
+      "2.7vh",
+      "col.700", // bgColor
+      "col.100", // color
+      "col.500", // borderColor
+      "col.300", // hoverBgColor
+      "col.900", // hoverColor
+      "col.970" //hoverBorderColor
+    ),
+    ".negativeButtonStyles": generateButtonStyles(
+      "2.1vh",
+      "3.5vh",
+      "red.400", // bgColor
+      "col.100", // color
+      "red.800", // borderColor
+      "col.200", // hoverBgColor
+      "red.800", // hoverColor
+      "red.800" //hoverBorderColor
+    ),
+    ".smallNegativeButtonStyles": generateButtonStyles(
+      "1.6vh",
+      "2.7vh",
+      "red.400", // bgColor
+      "col.100", // color
+      "red.800", // borderColor
+      "col.200", // hoverBgColor
+      "red.800", // hoverColor
+      "red.800" //hoverBorderColor
+    ),
+    ".unstyledButtonStyle": generateUnstyledButtonStyles("2.1vh", "3.5vh"),
+    ".smallUnstyledButtonStyle": generateUnstyledButtonStyles("1.6vh", "2.7vh"),
+    ".iconButtonStyles": {
       fontSize: "2.1vh",
+      width: "3.5vh",
       height: "3.5vh",
+      backgroundColor: theme("colors.700", "transparent"),
+      color: theme("colors.100", "currentColor"),
+      borderColor: theme(`colors.${borderColor}`, "transparent"),
+      boxShadow: theme("boxShadow.subtleShadow"),
+      "&:hover": {
+        backgroundColor: "transparent",
+        color: "currentColor",
+        borderColor: "transparent",
+        boxShadow: "none",
+      },
     },
-    ".smallButtonStyles": {
-      ...baseButtonStyles,
+    ".smallIconButtonStyles": {
       fontSize: "1.6vh",
+      width: "2.7vh",
       height: "2.7vh",
-      lineHeight: "1.6vh", // Adjusting line height for small button
+      backgroundColor: "transparent",
+      color: "currentColor",
+      borderColor: "transparent",
+      boxShadow: "none",
+      "&:hover": {
+        backgroundColor: "transparent",
+        color: "currentColor",
+        borderColor: "transparent",
+        boxShadow: "none",
+      },
+    },
+    ".negativeIconButtonStyles": {
+      fontSize: "2.1vh",
+      width: "3.5vh",
+      height: "3.5vh",
+      backgroundColor: theme("colors.700", "transparent"),
+      color: theme("colors.100", "currentColor"),
+      borderColor: theme(`colors.500`, "transparent"),
+      boxShadow: theme("boxShadow.subtleShadow"),
+      "&:hover": {
+        backgroundColor: "transparent",
+        color: "currentColor",
+        borderColor: "transparent",
+        boxShadow: "none",
+      },
+    },
+    ".smallNegativeIconButtonStyles": {
+      fontSize: "1.6vh",
+      width: "2.7vh",
+      height: "2.7vh",
+      backgroundColor: "transparent",
+      color: "currentColor",
+      borderColor: "transparent",
+      boxShadow: "none",
+      "&:hover": {
+        backgroundColor: "transparent",
+        color: "currentColor",
+        borderColor: "transparent",
+        boxShadow: "none",
+      },
     },
   };
 

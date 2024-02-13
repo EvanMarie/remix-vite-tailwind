@@ -1,5 +1,3 @@
-import React from "react";
-
 const bounceAnimation = `
 @keyframes bounce {
   0%, 100% {
@@ -14,12 +12,14 @@ interface BouncingDotsProps {
   color?: string;
   dotSize?: number;
   dotCount?: number;
+  speed?: string;
 }
 
 export default function BouncingDots({
   color = "cyan",
   dotSize = 10,
   dotCount = 5,
+  speed = "4s",
 }: BouncingDotsProps) {
   const dots = Array.from({ length: dotCount });
 
@@ -45,7 +45,9 @@ export default function BouncingDots({
               boxShadow: "2px 2px 2px black",
               display: "inline-block",
               // The delay is also adjusted to make sure it's positive
-              animation: `bounce 4s ${0.5 * index}s infinite ease-in-out both`,
+              animation: `bounce ${speed} ${
+                0.5 * index
+              }s infinite ease-in-out both`,
             }}
           />
         ))}
