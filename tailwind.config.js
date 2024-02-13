@@ -119,8 +119,11 @@ const buttonStyles = plugin(function ({ addUtilities, theme }) {
       "red.800", // hoverColor
       "red.800" //hoverBorderColor
     ),
-    ".unstyledButtonStyle": generateUnstyledButtonStyles("2.1vh", "3.5vh"),
-    ".smallUnstyledButtonStyle": generateUnstyledButtonStyles("1.6vh", "2.7vh"),
+    ".unstyledButtonStyles": generateUnstyledButtonStyles("2.1vh", "3.5vh"),
+    ".smallUnstyledButtonStyles": generateUnstyledButtonStyles(
+      "1.6vh",
+      "2.7vh"
+    ),
   };
 
   addUtilities(utilities, ["responsive", "hover"]);

@@ -24,6 +24,7 @@ import {
   col900Bgs,
 } from "styles";
 import Box from "~/components/buildingBlocks/box";
+import Icon from "~/components/buildingBlocks/icon";
 
 export default function Design() {
   function TestBox({
@@ -300,19 +301,25 @@ export default function Design() {
         <VStack className="w-90% pb-[3vh]">
           <SectionHeading id="buttons" heading="Buttons" />
           <Wrap className="w-full gap-[2vh] items-center">
-            <button>
-              <Box
-                className={`p-[1vh] bg-col-300 border900 hover:bg-col-700 hover:text-col-100  hover:border100 transition-500`}
-              >
-                Test
-              </Box>
-              {/* <IconButton icon={StarHollowIcon} textRight="this" /> */}
-            </button>
+            <StarHollowIcon className="text-[5vh]" />
+            <Icon icon={StarHollowIcon} iconClassName="text-[5vh]" />
             <Button buttonText="Normal" />{" "}
             <Button type="smallNormal" buttonText="NormalButton" />
             <Button type="negative" buttonText="Negative" />
             <Button type="smallNegative" buttonText="Negative Small" />
             <Button type="unstyled" buttonText="Unstyled" />
+            <Button type="smallUnstyled" buttonText="Unstyled" />
+            <Button buttonText="Normal Icon Left" iconLeft={StarHollowIcon} />
+            <Button
+              buttonText="Small Icon Right"
+              iconRight={StarHollowIcon}
+              type="smallNormal"
+            />
+            <Button
+              buttonText="Negative Icon Left"
+              type="negative"
+              iconLeft={StarHollowIcon}
+            />
             {/* <IconButton icon={StarHollowIcon} />
             <IconButton icon={StarHollowIcon} isSmall />
             <IconButton icon={StarHollowIcon} isNegative />

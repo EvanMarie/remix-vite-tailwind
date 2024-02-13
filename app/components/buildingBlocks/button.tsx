@@ -14,7 +14,7 @@ export default function Button({
   iconRight,
   ref,
   htmlType = "button",
-  iconSize,
+  iconStyle,
   isLoading,
   isDisabled,
   type = "normal",
@@ -27,8 +27,7 @@ export default function Button({
   onClick?: MouseEventHandler<HTMLButtonElement>;
   iconLeft?: React.ComponentType<{ className?: string }>;
   iconRight?: React.ComponentType<{ className?: string }>;
-  iconSize?: string;
-  iconButtonStyles?: string;
+  iconStyle?: string;
   isLoading?: boolean;
   isDisabled?: boolean;
   htmlType?: "button" | "submit" | "reset";
@@ -48,7 +47,7 @@ export default function Button({
     type === "normal"
       ? "normalButtonStyles"
       : type === "smallNormal"
-      ? "smallNormalButtonStyles"
+      ? "smallButtonStyles"
       : type === "negative"
       ? "negativeButtonStyles"
       : type === "smallNegative"
@@ -57,19 +56,18 @@ export default function Button({
       ? "unstyledButtonStyles"
       : "smallUnstyledButtonStyles";
 
-  const displayIconSize = iconSize
-    ? iconSize
-    : type === "normal"
-    ? "text-[1.7vh]"
-    : type === "smallNormal"
-    ? "text-[1.3vh]"
-    : type === "negative"
-    ? "text-[1.7vh]"
-    : type === "smallNegative"
-    ? "text-[1.7vh]"
-    : type === "unstyled"
-    ? "text-[1.7vh]"
-    : "text-[1.3vh]";
+  const displayIconSize =
+    type === "normal"
+      ? "text-[2.3vh]"
+      : type === "smallNormal"
+      ? "text-[1.7vh]"
+      : type === "negative"
+      ? "text-[2.3vh]"
+      : type === "smallNegative"
+      ? "text-[1.7vh]"
+      : type === "unstyled"
+      ? "text-[2.3vh]"
+      : "text-[1.7vh]";
 
   function ButtonInsides() {
     return (
@@ -91,9 +89,19 @@ export default function Button({
           {isLoading && (type === "icon" || type === "smallIcon") && (
             <Spinner />
           )}
-          {iconLeft && <Icon icon={iconLeft} iconSize={displayIconSize} />}
+          {iconLeft && (
+            <Icon
+              icon={iconLeft}
+              iconClassName={`${displayIconSize} ${iconStyle}`}
+            />
+          )}
           {buttonText}
-          {iconRight && <Icon icon={iconRight} iconSize={displayIconSize} />}
+          {iconRight && (
+            <Icon
+              icon={iconRight}
+              iconClassName={`${displayIconSize} ${iconStyle}`}
+            />
+          )}
         </HStack>
       </button>
     );
