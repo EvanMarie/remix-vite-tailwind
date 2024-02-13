@@ -14,8 +14,6 @@ export default function IconButton({
   isLoading,
   isDisabled,
   type = "normal",
-  width = "w-[3.5vh]",
-  height = "h-[3.5vh]",
   to,
 }: {
   containerClassName?: string;
@@ -27,8 +25,7 @@ export default function IconButton({
   isDisabled?: boolean;
   htmlType?: "button" | "submit" | "reset";
   to?: string;
-  width?: string;
-  height?: string;
+
   type?:
     | "normal"
     | "smallNormal"
@@ -41,7 +38,7 @@ export default function IconButton({
     type === "normal"
       ? "normalButtonStyles"
       : type === "smallNormal"
-      ? "smallNormalButtonStyles"
+      ? "smallButtonStyles"
       : type === "negative"
       ? "negativeButtonStyles"
       : type === "smallNegative"
@@ -54,20 +51,33 @@ export default function IconButton({
     type === "normal"
       ? "text-[2.5vh]"
       : type === "smallNormal"
-      ? "text-[2vh]"
+      ? "text-[1.6vh]"
       : type === "negative"
-      ? "text-[2.5vh]"
+      ? "text-[2.5vh] "
       : type === "smallNegative"
-      ? "text-[2vh]"
+      ? "text-[1.6vh]"
       : type === "unstyled"
       ? "text-[2.5vh]"
-      : "text-[2vh]";
+      : "text-[1.6vh]";
+
+  const iconButtonSize =
+    type === "normal"
+      ? "w-[3.5vh] h-[3.5vh]"
+      : type === "smallNormal"
+      ? "w-[3vh] h-[3vh]"
+      : type === "negative"
+      ? " w-[3.5vh] h-[3.5vh]"
+      : type === "smallNegative"
+      ? "w-[3vh] h-[3vh]"
+      : type === "unstyled"
+      ? "w-[3.5vh] h-[3.5vh]"
+      : "text-[2vh] w-[3vh] h-[3vh]";
 
   function ButtonInsides() {
     return (
       <button onClick={onClick} disabled={isDisabled} type={htmlType} ref={ref}>
         <Flex
-          className={`${width} ${height} ${containerClassName} ${buttonClass}`}
+          className={`${iconButtonSize} ${containerClassName} ${buttonClass}`}
         >
           {isLoading ? (
             <Spinner />
