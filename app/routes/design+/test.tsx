@@ -1,13 +1,13 @@
 import Box from "~/components/buildingBlocks/box";
+import Flex from "~/components/buildingBlocks/flex";
 import Text from "~/components/buildingBlocks/textComponents";
 import VStackFull from "~/components/buildingBlocks/vStackFull";
 
 export default function TextRoute() {
-  function Button() {
-    const normalButton = `w-fit h-[3.5vh] px-[1.5vh] py-[0.5vh] bg-col-700 text-col-100 hover:bg-col-300 hover:text-col-900 border-500 hover:border-970 subtleShadow hover:metallicEdges hover:textGlow transition-400`;
+  function Button({ className }: { className?: string }) {
     return (
       <button>
-        <Box className={normalButton}>Test Button</Box>
+        <Flex className={`normalButtonStyles ${className}`}>Test Button</Flex>
       </button>
     );
   }

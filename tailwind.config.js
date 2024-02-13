@@ -2,6 +2,43 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const plugin = require("tailwindcss/plugin");
 
+// MAKING A PLUGIN:
+// const NameOfPlugin = plugin(function ({ addUtilities }) {
+//   const utilities = {
+//     ".className": { styles },
+//   };
+
+//   addUtilities(utilities, ["responsive", "hover"]);
+// });
+
+const buttonStyles = plugin(function ({ addUtilities, theme }) {
+  const utilities = {
+    ".normalButtonStyles": {
+      width: "fit-content",
+      lineHeight: "2.1vh",
+      padding: "0 1.5vh",
+      backgroundColor: theme("colors.col.700"),
+      height: "3.5vh",
+      fontSize: "2.1vh",
+      justifyContent: "center",
+      alignItems: "center",
+      color: theme("colors.col.100"),
+      borderWidth: "0.2vh",
+      borderColor: theme("colors.col.500"),
+      boxShadow: theme("boxShadow.subtleShadow"),
+      transition: "all 0.4s ease-in-out",
+      "&:hover": {
+        backgroundColor: theme("colors.col.300"),
+        color: theme("colors.col.900"),
+        borderColor: theme("colors.col.970"),
+        boxShadow: theme("boxShadow.metallicEdges"),
+        textShadow: theme("textShadow.textGlow"),
+      },
+    },
+  };
+  addUtilities(utilities, ["responsive", "hover"]);
+});
+
 const typographyPlugin = plugin(function ({ addUtilities }) {
   const utilities = {
     ".text-xs-normal": { fontSize: "1.2vh", lineHeight: "1.8vh" },
@@ -2029,5 +2066,6 @@ export default {
       addUtilities(newUtilities, ["responsive", "hover", "focus"]);
     }),
     typographyPlugin,
+    buttonStyles,
   ],
 };

@@ -32,6 +32,7 @@ export default function App() {
         <Links />
       </head>
       <body
+        className="bg-col-400"
         style={{
           width: "100%",
           maxHeight: "100svh",
