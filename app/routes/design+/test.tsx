@@ -5,7 +5,8 @@ import Button from "~/components/buildingBlocks/button";
 import Flex from "~/components/buildingBlocks/flex";
 import Text from "~/components/buildingBlocks/textComponents";
 import VStackFull from "~/components/buildingBlocks/vStackFull";
-import { shadowNames } from "./components/boxShadows";
+import { shadowsDarkBack, shadowsLightBack } from "./components/boxShadows";
+import Wrap from "~/components/buildingBlocks/wrap";
 
 export default function TextRoute() {
   return (
@@ -18,13 +19,7 @@ export default function TextRoute() {
         buttonText="this"
         onClick={() => console.log("THIS!")}
       />
-      <VStackFull className={`lightGlow bg-col-200 p-[1vh]`}>
-        {shadowNames.map((shadow) => (
-          <Box className={shadow} key={shadow}>
-            <Text>{shadow}</Text>
-          </Box>
-        ))}
-      </VStackFull>
+
       <Flex className="justify-center p-[1vh] shadow3D border-200 text-col-100">
         {" "}
         This has className="shadow3D border-200"

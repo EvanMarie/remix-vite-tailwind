@@ -11,7 +11,7 @@ import Wrap from "../wrap";
 import TagBadge from "./tagBadge";
 import HStack from "../hStack";
 import Button from "../button";
-import { subtleShadow, textShadow, inputStyles, tagColors } from "styles";
+import { shadowNarrowNormal, textShadow, inputStyles, tagColors } from "styles";
 import { HeadingSM } from "../textComponents";
 
 interface TagsInputProps {
@@ -92,7 +92,7 @@ export default function TagsInput({
           </Button>
         </HStack>
         <Flex
-          className={`w-full overflow-y-auto overflow-x-hidden subtleShadow ${inputStyles} ${wrapHeight}`}
+          className={`w-full overflow-y-auto overflow-x-hidden shadowNarrowNormal ${inputStyles} ${wrapHeight}`}
         >
           <Wrap
             className={`w-full h-full gap-x-[1vh] gap-y-[1vh] justify-start p-[1vh]`}

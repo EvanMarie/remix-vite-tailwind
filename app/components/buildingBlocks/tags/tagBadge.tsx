@@ -1,6 +1,11 @@
 import HStack from "../hStack";
 import Text from "../text";
-import { AltCloseIcon, cardColors, textShadow, subtleShadow } from "styles";
+import {
+  AltCloseIcon,
+  cardColors,
+  textShadow,
+  shadowNarrowNormal,
+} from "styles";
 import IconButton from "../iconButton";
 import Flex from "../flex";
 interface TagBadgeProps {
@@ -24,7 +29,7 @@ export default function TagBadge({
 }: TagBadgeProps) {
   return (
     <Flex
-      className={`pl-[0.3vh] w-fit h-fit ${bgColor} bg-darkVioletGrad subtleShadow ${className}`}
+      className={`pl-[0.3vh] w-fit h-fit ${bgColor} bg-darkVioletGrad shadowNarrowNormal ${className}`}
     >
       <HStack
         className={`w-full h-full justify-between items-center flex-1 gap-[0.1vh]`}

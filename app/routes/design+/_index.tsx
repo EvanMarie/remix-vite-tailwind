@@ -3,7 +3,6 @@ import { NavLink } from "@remix-run/react";
 import Button from "~/components/buildingBlocks/button";
 import Flex from "~/components/buildingBlocks/flex";
 import FlexFull from "~/components/buildingBlocks/flexFull";
-import NavContainer from "~/components/buildingBlocks/navContainer";
 import Text, {
   HeadingMD,
   HeadingXL,
@@ -40,6 +39,7 @@ import Box from "~/components/buildingBlocks/box";
 import BorderExamples from "./components/borderExamples";
 import TransformBg from "./components/transformBgObject";
 import { textExamples } from "./components/textExamples";
+import { shadowsDarkBack, shadowsLightBack } from "./components/boxShadows";
 
 export function StyleExampleBox({
   className,
@@ -49,6 +49,22 @@ export function StyleExampleBox({
   text: string;
 }) {
   return <Flex className={`px-[1vh] py-[0.5vh] ${className}`}>{text}</Flex>;
+}
+
+export function StyledExampleWrap({
+  bg = "bg-col-700",
+  children,
+}: {
+  bg?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <Wrap
+      className={`${bg} px-[1vh] py-[2vh] shadowNarrowNormal gap-y-[2vh] gap-x-[3vh] w-full justify-around`}
+    >
+      {children}
+    </Wrap>
+  );
 }
 
 export default function Design() {
@@ -82,7 +98,7 @@ export default function Design() {
 
     return (
       <Flex
-        className={`h-[5vh] ${w} font-bold ${bg} subtleShadow ${fontColor} justify-center items-center`}
+        className={`h-[5vh] ${w} font-bold ${bg} shadowNarrowNormal ${fontColor} justify-center items-center`}
       >
         <Text>{children}</Text>
       </Flex>
@@ -92,7 +108,7 @@ export default function Design() {
   function SectionHeading({ id, heading }: { id: string; heading: string }) {
     return (
       <>
-        <div id={id} className="h-[2.5vh] text-transparent">
+        <div id={id} className="h-[5.5vh] text-transparent">
           This
         </div>
         <Flex className="w-full justify-center pt-[2vh] pb-[1vh]">
@@ -104,118 +120,108 @@ export default function Design() {
 
   return (
     <FlexFull className="h-full overflow-y-auto justify-center">
-      <NavContainer className="text-[2.5vh]">
-        <NavLink className="text-[2.1vh]" to="#colorscheme">
-          Colors
-        </NavLink>
-        <NavLink className="text-[2.1vh]" to="#rgb">
-          RBG
-        </NavLink>
-        <NavLink className="text-[2.1vh]" to="#gradients">
-          Grads
-        </NavLink>
-        <NavLink className="text-[2.1vh]" to="#complexbackgrounds">
-          BGs
-        </NavLink>
-        <NavLink className="text-[2.1vh]" to="#buttons">
-          Buttons
-        </NavLink>
-        <NavLink className="text-[2.1vh]" to="#examples">
-          Styles
-        </NavLink>
-        <NavLink className="text-[2.1vh]" to="#text">
-          Text
-        </NavLink>
-      </NavContainer>
+      <FlexFull className="fixed top-0 left-0 p-[1vh] bg-col-200">
+        <Wrap className="w-full gap-x-[5vh] gap-y-[1vh] justify-around">
+          <NavLink to="#colorscheme">Colors</NavLink>
+          <NavLink to="#rgb">RBG</NavLink>
+          <NavLink to="#gradients">Grads</NavLink>
+          <NavLink to="#complexbackgrounds">BGs</NavLink>
+          <NavLink to="#buttons">Buttons</NavLink>
+          <NavLink to="#transitions">Transitions</NavLink>
+          <NavLink to="#shadow">Shadows</NavLink>
+          <NavLink to="#borders">Borders</NavLink>
+          <NavLink to="#text">Text</NavLink>
+        </Wrap>
+      </FlexFull>
       <VStackFull
         className="h-fit px-[2vh] pt-[5.5vh] pb-[2vh]"
         gap="gap-[2vh]"
       >
         <VStackFull gap="gap-[1vh]">
           <SectionHeading id="colorscheme" heading="Color Scheme" />
-          <Wrap className="w-full justify-around gap-[2vh] bg-col-100 p-[1vh]">
+          <StyledExampleWrap bg="bg-white">
             {allColors.map((color: string, index: number) => (
               <TestBox key={index} bg={color}>
                 {" "}
                 {color}
               </TestBox>
             ))}
-          </Wrap>
+          </StyledExampleWrap>
 
-          <Wrap className="w-full justify-around gap-[2vh] bg-col-900 p-[1vh]">
+          <StyledExampleWrap>
             {colors100.map((color: string, index: number) => (
               <TestBox key={index} bg={color}>
                 {" "}
                 {color}
               </TestBox>
             ))}
-          </Wrap>
-          <Wrap className="w-full justify-around gap-[2vh] bg-col-900 p-[1vh]">
+          </StyledExampleWrap>
+          <StyledExampleWrap>
             {colors200.map((color: string, index: number) => (
               <TestBox key={index} bg={color}>
                 {" "}
                 {color}
               </TestBox>
             ))}
-          </Wrap>
-          <Wrap className="w-full justify-around gap-[2vh] bg-col-900 p-[1vh]">
+          </StyledExampleWrap>
+          <StyledExampleWrap>
             {colors300.map((color: string, index: number) => (
               <TestBox key={index} bg={color}>
                 {" "}
                 {color}
               </TestBox>
             ))}
-          </Wrap>
-          <Wrap className="w-full justify-around gap-[2vh] bg-col-900 p-[1vh]">
+          </StyledExampleWrap>
+          <StyledExampleWrap>
             {colors400.map((color: string, index: number) => (
               <TestBox key={index} bg={color}>
                 {" "}
                 {color}
               </TestBox>
             ))}
-          </Wrap>
-          <Wrap className="w-full justify-around gap-[2vh] bg-col-900 p-[1vh]">
+          </StyledExampleWrap>
+          <StyledExampleWrap>
             {colors500.map((color: string, index: number) => (
               <TestBox key={index} bg={color}>
                 {" "}
                 {color}
               </TestBox>
             ))}
-          </Wrap>
-          <Wrap className="w-full justify-around gap-[2vh] bg-col-100 p-[1vh]">
+          </StyledExampleWrap>
+          <StyledExampleWrap>
             {colors600.map((color: string, index: number) => (
               <TestBox key={index} bg={color}>
                 {" "}
                 {color}
               </TestBox>
             ))}
-          </Wrap>
-          <Wrap className="w-full justify-around gap-[2vh] bg-col-100 p-[1vh]">
+          </StyledExampleWrap>
+          <StyledExampleWrap bg="bg-col-500">
             {colors700.map((color: string, index: number) => (
               <TestBox key={index} bg={color}>
                 {" "}
                 {color}
               </TestBox>
             ))}
-          </Wrap>
-          <Wrap className="w-full justify-around gap-[2vh] bg-col-100 p-[1vh]">
+          </StyledExampleWrap>
+          <StyledExampleWrap bg="bg-col-500">
             {colors800.map((color: string, index: number) => (
               <TestBox key={index} bg={color}>
                 {" "}
                 {color}
               </TestBox>
             ))}
-          </Wrap>
-          <Wrap className="w-full justify-around gap-[2vh] bg-col-100 p-[1vh]">
+          </StyledExampleWrap>
+          <StyledExampleWrap bg="bg-col-500">
             {colors900.map((color: string, index: number) => (
               <TestBox key={index} bg={color}>
                 {" "}
                 {color}
               </TestBox>
             ))}
-          </Wrap>
+          </StyledExampleWrap>
           <SectionHeading id="rgb" heading="RBG Equivalents" />
-          <Wrap className="w-[90vw] justify-around gap-[2vh] bg-col-100 p-[1vh]">
+          <StyledExampleWrap bg="bg-white">
             {allColorsRGB.map(
               (color: { code: string; rgb: string }, index: number) => (
                 <TestBox key={index} bg={color.code} w="w-[30vh]">
@@ -224,18 +230,18 @@ export default function Design() {
                 </TestBox>
               )
             )}
-          </Wrap>
+          </StyledExampleWrap>
         </VStackFull>
         <VStackFull className="h-fit" gap="gap-[2vh]">
           <SectionHeading id="gradients" heading="Gradients & Opacities" />
-          <Wrap className="w-[90vw] justify-around gap-[2vh] bg-col-100 p-[1vh] mb-[2vh]">
+          <StyledExampleWrap bg="bg-white">
             {gradients.map((gradient: string, index: number) => (
               <TestBox key={index} bg={gradient} w="w-[24vh]">
                 {" "}
                 {gradient}
               </TestBox>
             ))}
-          </Wrap>
+          </StyledExampleWrap>
         </VStackFull>
         <VStackFull className="h-fit" gap="gap-[2vh]">
           <SectionHeading
@@ -245,7 +251,7 @@ export default function Design() {
           <HeadingMD cursive={false} color="text-col-100">
             col100Bgs
           </HeadingMD>
-          <Wrap className="w-[90vw] justify-around gap-[2vh] bg-col-100 p-[1vh] mb-[2vh]">
+          <StyledExampleWrap>
             {Object.values(col100Bgs).map(
               (background: string, index: number) => (
                 <TestBox key={index} bg={background} w="w-[24vh]">
@@ -254,11 +260,11 @@ export default function Design() {
                 </TestBox>
               )
             )}
-          </Wrap>
+          </StyledExampleWrap>
           <HeadingMD cursive={false} color="text-col-100">
             col200Bgs
           </HeadingMD>
-          <Wrap className="w-[90vw] justify-around gap-[2vh] bg-col-100 p-[1vh] mb-[2vh]">
+          <StyledExampleWrap>
             {Object.values(col200Bgs).map(
               (background: string, index: number) => (
                 <TestBox key={index} bg={background} w="w-[24vh]">
@@ -267,11 +273,11 @@ export default function Design() {
                 </TestBox>
               )
             )}
-          </Wrap>
+          </StyledExampleWrap>
           <HeadingMD cursive={false} color="text-col-100">
             col300Bgs
           </HeadingMD>
-          <Wrap className="w-[90vw] justify-around gap-[2vh] bg-col-100 p-[1vh] mb-[2vh]">
+          <StyledExampleWrap>
             {Object.values(col300Bgs).map(
               (background: string, index: number) => (
                 <TestBox key={index} bg={background} w="w-[24vh]">
@@ -280,11 +286,11 @@ export default function Design() {
                 </TestBox>
               )
             )}
-          </Wrap>
+          </StyledExampleWrap>
           <HeadingMD cursive={false} color="text-col-100">
             col400Bgs
           </HeadingMD>
-          <Wrap className="w-[90vw] justify-around gap-[2vh] bg-col-100 p-[1vh] mb-[2vh]">
+          <StyledExampleWrap>
             {Object.values(col100Bgs).map(
               (background: string, index: number) => (
                 <TestBox key={index} bg={background} w="w-[24vh]">
@@ -292,11 +298,10 @@ export default function Design() {
                 </TestBox>
               )
             )}
-          </Wrap>
-          <HeadingMD cursive={false} color="text-col-100">
-            col400Bgs
-          </HeadingMD>
-          <Wrap className="w-[90vw] justify-around gap-[2vh] bg-col-100 p-[1vh] mb-[2vh]">
+          </StyledExampleWrap>
+          <HeadingMD cursive={false} color="text-col-100" />
+          col400Bgs
+          <StyledExampleWrap>
             {Object.values(col400Bgs).map(
               (background: string, index: number) => (
                 <TestBox key={index} bg={background} w="w-[24vh]">
@@ -304,11 +309,11 @@ export default function Design() {
                 </TestBox>
               )
             )}
-          </Wrap>
+          </StyledExampleWrap>
           <HeadingMD cursive={false} color="text-col-100">
             col500Bgs
           </HeadingMD>
-          <Wrap className="w-[90vw] justify-around gap-[2vh] bg-col-100 p-[1vh] mb-[2vh]">
+          <StyledExampleWrap>
             {Object.values(col500Bgs).map(
               (background: string, index: number) => (
                 <TestBox key={index} bg={background} w="w-[24vh]">
@@ -316,11 +321,11 @@ export default function Design() {
                 </TestBox>
               )
             )}
-          </Wrap>
+          </StyledExampleWrap>
           <HeadingMD cursive={false} color="text-col-100">
             col600Bgs
           </HeadingMD>
-          <Wrap className="w-[90vw] justify-around gap-[2vh] bg-col-100 p-[1vh] mb-[2vh]">
+          <StyledExampleWrap>
             {Object.values(col600Bgs).map(
               (background: string, index: number) => (
                 <TestBox key={index} bg={background} w="w-[24vh]">
@@ -328,12 +333,11 @@ export default function Design() {
                 </TestBox>
               )
             )}
-          </Wrap>
+          </StyledExampleWrap>
           <HeadingMD cursive={false} color="text-col-100">
             col700Bgs
           </HeadingMD>
-
-          <Wrap className="w-[90vw] justify-around gap-[2vh] bg-col-100 p-[1vh] mb-[2vh]">
+          <StyledExampleWrap bg="bg-col-500">
             {Object.values(col700Bgs).map(
               (background: string, index: number) => (
                 <TestBox key={index} bg={background} w="w-[24vh]">
@@ -341,11 +345,11 @@ export default function Design() {
                 </TestBox>
               )
             )}
-          </Wrap>
+          </StyledExampleWrap>
           <HeadingMD cursive={false} color="text-col-100">
             col800Bgs
           </HeadingMD>
-          <Wrap className="w-[90vw] justify-around gap-[2vh] bg-col-100 p-[1vh] mb-[2vh]">
+          <StyledExampleWrap>
             {Object.values(col800Bgs).map(
               (background: string, index: number) => (
                 <TestBox key={index} bg={background} w="w-[24vh]">
@@ -353,12 +357,11 @@ export default function Design() {
                 </TestBox>
               )
             )}
-          </Wrap>
+          </StyledExampleWrap>
           <HeadingMD cursive={false} color="text-col-100">
             col900Bgs
           </HeadingMD>
-
-          <Wrap className="w-[90vw] justify-around gap-[2vh] bg-col-100 p-[1vh] mb-[2vh]">
+          <StyledExampleWrap>
             {Object.values(col900Bgs).map(
               (background: string, index: number) => (
                 <TestBox key={index} bg={background} w="w-[24vh]">
@@ -366,11 +369,11 @@ export default function Design() {
                 </TestBox>
               )
             )}
-          </Wrap>
+          </StyledExampleWrap>
         </VStackFull>
-        <VStack className="w-90% pb-[3vh]">
+        <VStackFull className="w-90% pb-[3vh]">
           <SectionHeading id="buttons" heading="Buttons" />
-          <Wrap className="w-full gap-[2vh] items-center">
+          <StyledExampleWrap bg="bg-col-200">
             <Button buttonText="Normal" />{" "}
             <Button type="smallNormal" buttonText="NormalButton" />
             <Button type="negative" buttonText="Negative" />
@@ -399,115 +402,82 @@ export default function Design() {
             <IconButton type="smallNegative" icon={StarFilledIcon} />
             <IconButton type="unstyled" icon={StarFilledIcon} />
             <IconButton type="smallUnstyled" icon={StarFilledIcon} />
-          </Wrap>
-        </VStack>
+          </StyledExampleWrap>
+        </VStackFull>
         <VStackFull>
-          <SectionHeading id="examples" heading="Transitions" />
-          <Wrap className="bg-col-600 p-[1vh] shadow3D gap-[3vh] justify-evenly">
+          <SectionHeading id="transitions" heading="Transitions" />
+          <StyledExampleWrap>
             <StyleExampleBox
-              className="transition-300 bg-col-200 hover:bg-col-900 hover:text-col-100 subtleShadow"
+              className="transition-300 bg-col-200 hover:bg-col-900 hover:text-col-100 shadowNarrowNormal"
               text="className='transition-300'"
             />
             <StyleExampleBox
-              className="transition-400 bg-col-200 hover:bg-col-900 hover:text-col-100 subtleShadow"
+              className="transition-400 bg-col-200 hover:bg-col-900 hover:text-col-100 shadowNarrowNormal"
               text="className='transition-400'"
             />
             <StyleExampleBox
-              className="transition-500 bg-col-200 hover:bg-col-900 hover:text-col-100 subtleShadow"
+              className="transition-500 bg-col-200 hover:bg-col-900 hover:text-col-100 shadowNarrowNormal"
               text="className='transition-500'"
             />
             <StyleExampleBox
-              className="transition-600 bg-col-200 hover:bg-col-900 hover:text-col-100 subtleShadow"
+              className="transition-600 bg-col-200 hover:bg-col-900 hover:text-col-100 shadowNarrowNormal"
               text="className='transition-600'"
             />
             <StyleExampleBox
-              className="transition-700 bg-col-200 hover:bg-col-900 hover:text-col-100 subtleShadow"
+              className="transition-700 bg-col-200 hover:bg-col-900 hover:text-col-100 shadowNarrowNormal"
               text="className='transition-700'"
             />
             <StyleExampleBox
-              className="transition-800 bg-col-200 hover:bg-col-900 hover:text-col-100 subtleShadow"
+              className="transition-800 bg-col-200 hover:bg-col-900 hover:text-col-100 shadowNarrowNormal"
               text="className='transition-800'"
             />
             <StyleExampleBox
-              className="transition-900 bg-col-200 hover:bg-col-900 hover:text-col-100 subtleShadow"
+              className="transition-900 bg-col-200 hover:bg-col-900 hover:text-col-100 shadowNarrowNormal"
               text="className='transition-900'"
             />
             <StyleExampleBox
-              className="transition-1000 bg-col-200 hover:bg-col-900 hover:text-col-100 subtleShadow"
+              className="transition-1000 bg-col-200 hover:bg-col-900 hover:text-col-100 shadowNarrowNormal"
               text="className='transition-1000'"
             />
-          </Wrap>
-          <SectionHeading id="" heading="Shadows" />
-          <Wrap className="bg-col-300 p-[1vh] shadow3D gap-[3vh] justify-evenly w-full">
-            <StyleExampleBox
-              className="bg-col-400 subtleShadow"
-              text="className='subtleShadow'"
-            />
-            <StyleExampleBox
-              className="bg-col-400 insetShadow"
-              text="className='insetShadow'"
-            />
-            <StyleExampleBox
-              className="bg-col-400 lightShadow"
-              text="className='lightShadow'"
-            />
-            <StyleExampleBox
-              className="bg-col-400 standoutShadow"
-              text="className='standoutShadow'"
-            />
-            <StyleExampleBox
-              className="bg-col-400 shadow3D"
-              text="className='shadow3D'"
-            />
-            <StyleExampleBox
-              className="bg-col-400 boxGlow"
-              text="className='boxGlow'"
-            />{" "}
-            <StyleExampleBox
-              className="bg-col-400 lightGlow"
-              text="className='lightGlow'"
-            />{" "}
-            <StyleExampleBox
-              className="bg-col-400 metallicEdges"
-              text="className='metallicEdges'"
-            />
-          </Wrap>
-          <SectionHeading id="" heading="Borders" />
-          <Wrap className="bg-col-800 p-[1vh] shadow3D gap-[1vh] w-full justify-around">
-            <BorderExamples startIndex={0} endIndex={95} />
-          </Wrap>
-          <Wrap className="bg-col-300 p-[1vh] shadow3D gap-[1vh] w-full justify-around">
-            <BorderExamples startIndex={96} endIndex={215} />
-          </Wrap>
-
-          <SectionHeading id="" heading="Mixed Styles" />
-          <VStackFull className="bg-col-500 p-[1vh] shadow3D">
-            <div className="p-[1vh] bg-gray-400 textGlow">
-              This text will have a light text shadow or an HD version on fullHD
-              screens.
-            </div>
-            <div className="lightShadow hover:metallicEdges transition-800 bg-black text-white p-[1vh]">
-              This has className="lightShadow hover:metallicEdges
-              transition-800"
-            </div>
-            <Box className="p-[1vh] border-900 bg-col-200">
-              This has className="border-900"
-            </Box>
-            <Flex className="justify-center p-[1vh] shadow3D border-200 text-col-100">
-              {" "}
-              This has className="shadow3D border-200"
-            </Flex>
+          </StyledExampleWrap>
+          <SectionHeading id="shadow" heading="Shadows" />
+          <VStackFull>
+            {" "}
+            <StyledExampleWrap bg="bg-col-100">
+              {shadowsLightBack.map((shadow) => (
+                <Box className={shadow} key={shadow}>
+                  <Text className="p-[1vh]">{shadow}</Text>
+                </Box>
+              ))}
+            </StyledExampleWrap>
+            <StyledExampleWrap bg="bg-col-800">
+              {shadowsDarkBack.map((shadow) => (
+                <Box className={shadow} key={shadow}>
+                  <Text className="text-col-100 p-[1vh]">{shadow}</Text>
+                </Box>
+              ))}
+            </StyledExampleWrap>
           </VStackFull>
+          <SectionHeading id="borders" heading="Borders" />
+          <StyledExampleWrap>
+            <BorderExamples startIndex={0} endIndex={95} />
+          </StyledExampleWrap>
+          <StyledExampleWrap bg="bg-col-200">
+            <BorderExamples startIndex={96} endIndex={215} />
+          </StyledExampleWrap>
+
           <SectionHeading id="text" heading="Text" />
-          <Wrap className="bg-col-200 p-[1vh] shadow3D w-full gap-[2vh] justify-around items-center">
+          <StyledExampleWrap>
             {textExamples.map((textExample, index) => (
-              <Box key={index} className="bg-col-700 text-col-100 testShadow">
+              <Box
+                key={index}
+                className="bg-col-500 text-col-100 shadowNarrowNormal"
+              >
                 <Text className={`${textExample} `}>{textExample}</Text>
               </Box>
             ))}
-          </Wrap>
+          </StyledExampleWrap>
         </VStackFull>
-        <Flex className="insetOverlay">This</Flex>
       </VStackFull>
     </FlexFull>
   );

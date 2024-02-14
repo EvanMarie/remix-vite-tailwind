@@ -39,7 +39,7 @@ const buttonStyles = plugin(function ({ addUtilities, theme }) {
       backgroundColor: theme(`colors.${bgColor}`, "transparent"),
       color: theme(`colors.${color}`, "currentColor"),
       borderColor: theme(`colors.${borderColor}`, "transparent"),
-      boxShadow: theme("boxShadow.subtleShadow"),
+      boxShadow: theme("boxShadow.shadowNarrowNormal"),
       textShadow: theme("textShadow.textShadow"),
       "&:hover": {
         backgroundColor: theme(`colors.${hoverBgColor}`, "transparent"),
@@ -1778,7 +1778,10 @@ export default {
         lightShadowNormal: "0.2vh 0.2vh 0.6vh rgba(240, 240, 240, 0.9)",
         lightShadowLoose: "0.2vh 0.2vh 0.9vh rgba(240, 240, 240, 0.9)",
         lightShadowLooser: "0.2vh 0.2vh 1.2vh rgba(240, 240, 240, 0.9)",
-        standoutShadow: "rgb(38, 57, 77) 0px 20px 30px -10px",
+        standoutShadowSm: "rgb(38, 57, 77) 0px 0.3vh 1.5vh -0.4vh",
+        standoutShadowMd: "rgb(38, 57, 77) 0px 0.5vh 2.5vh -0.4vh",
+        standoutShadowLg: "rgb(38, 57, 77) 0px 1vh 4.5vh -0.6vh",
+        standoutShadowXl: "rgb(38, 57, 77) 0px 0.8vh 3.5vh -0.5vh",
         shadow3DXs:
           "rgba(0, 0, 0, 0.17) 0px -0.1vh 0.1vh 0px inset, rgba(0, 0, 0, 0.15) 0px -0.15vh 0.15vh 0px inset, rgba(0, 0, 0, 0.1) 0px -0.4vh 0.2vh 0px inset, rgba(0, 0, 0, 0.06) 0px 0.01vh 0.1vh, rgba(0, 0, 0, 0.09) 0px 0.02vh 0.1vh, rgba(0, 0, 0, 0.09) 0px 0.1vh 0.02vh, rgba(0, 0, 0, 0.09) 0px 0.05vh 0.04vh, rgba(0, 0, 0, 0.09) 0px 0.15vh 0.1vh",
         shadow3DSm:
@@ -1793,10 +1796,22 @@ export default {
         lightGlowMd: "0 0 0.2vh #FFF, 0 0 2px #ebd7d5, 0 0 0.6vh #FFF",
         lightGlowLg: "0 0 0.3vh #FFF, 0 0 3px #ebd7d5, 0 0 0.9vh #FFF",
         lightGlowXl: "0 0 0.4vh #FFF, 0 0 4px #ebd7d5, 0 0 1.2vh #FFF",
-        boxGlow:
-          "#00FFFF 0px 0px 5px, #00FFFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, 8px 2px 6px rgba(0,0,0,0);",
-        metallicEdges:
-          "#000 1px 1px 1px, white 0px 0px 1px,  rgb(208, 226, 242) 0px 0px 2px, #00FFFF 0px 0px 3px, #FFF 0px 0px 4px, rgb(84, 123, 171) 0px 0px 5px, rgb(208, 226, 242) 0px 0px 6px, 8px 2px 6px rgba(0,0,0,0);",
+        boxGlowSm:
+          "#00FFFF 0px 0px 0.2vh, #00FFFF 0px 0px 0.4vh, #FFF 0px 0px 0.6vh, #d5f5f0 0px 0px 0.8vh, #d5f5f0 0px 0px 1.2vh, 0.8vh 0.2vh 0.6vh rgba(0,0,0,0);",
+        boxGlowMd:
+          "#00FFFF 0px 0px 0.3vh, #00FFFF 0px 0px 0.6vh, #FFF 0px 0px 0.9vh, #d5f5f0 0px 0px 1.2vh, #d5f5f0 0px 0px 1.8vh, 0.8vh 0.2vh 0.6vh rgba(0,0,0,0);",
+        boxGlowLg:
+          "#00FFFF 0px 0px 0.5vh, #00FFFF 0px 0px 1vh, #FFF 0px 0px 1.5vh, #d5f5f0 0px 0px 2vh, #d5f5f0 0px 0px 3vh, 0.8vh 0.2vh 0.6vh rgba(0,0,0,0);",
+        boxGlowXl:
+          "#00FFFF 0px 0px 0.7vh, #00FFFF 0px 0px 1.4vh, #FFF 0px 0px 2.1vh, #d5f5f0 0px 0px 2.8vh, #d5f5f0 0px 0px 4.2vh, 0.8vh 0.2vh 0.6vh rgba(0,0,0,0);",
+        metallicEdgesSm:
+          "#000 0.05vh 0.05vh 0.05vh, black 0px 0px 0.2vh, #FFF 0px 0px 0.1vh, #FFF 0px 0px 0.2vh, #FFF 0px 0px 0.3vh, #FFF 0px 0px 0.4vh, #FFF 0px 0px 0.5vh, 0.8vh 0.2vh 0.6vh rgba(0,0,0,0);",
+        metallicEdgesMd:
+          "#000 0.1vh 0.1vh 0.1vh, white 0px 0px 0.1vh, rgb(208, 226, 242) 0px 0px 0.2vh, #00FFFF 0px 0px 0.3vh, #FFF 0px 0px 0.4vh, #e3fcf9 0px 0px 0.5vh, #e3fcf9 0px 0px 0.6vh, 0.8vh 0.2vh 0.6vh rgba(0,0,0,0);",
+        metallicEdgesLg:
+          "#000 0.2vh 0.2vh 0.2vh, white 0px 0px 0.2vh, #00FFFF 0px 0px 4px, #00FFFF 0px 0px 6px, #FFF 0px 0px 8px, #d5f5f0 0px 0px 1vh, #d5f5f0 0px 0px 1.2vh, 0.8vh 0.2vh 0.6vh rgba(0,0,0,0);",
+        metallicEdgesXl:
+          "#000 0.3vh 0.3vh 0.3vh, white 0px 0px 0.3vh, #00FFFF 0px 0px 0.6vh, #00FFFF 0px 0px 0.9vh, #FFF 0px 0px 1vh, #d5f5f0 0px 0px 1.2vh, #d5f5f0 0px 0px 1.4vh, 0.8vh 0.2vh 0.6vh rgba(0,0,0,0);",
       },
       textShadow: {
         noShadow: "none",

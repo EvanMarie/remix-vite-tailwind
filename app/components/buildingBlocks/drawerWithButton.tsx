@@ -10,7 +10,7 @@ import { CloseButton } from "./closeButton";
 import {
   defaultOverlayBlur,
   defaultOverlayColor,
-  subtleShadow,
+  shadowNarrowNormal,
   leading,
 } from "styles";
 import useEscapeKey from "~/utils/useEscapeKey";
@@ -201,7 +201,7 @@ export default function DrawerWithButton({
               <motion.div
                 className={`fixed ${drawerPositionClass(
                   slideDirection
-                )} subtleShadow z-50 ${drawerHeight} ${className} ${drawerWidth}`}
+                )} shadowNarrowNormal z-50 ${drawerHeight} ${className} ${drawerWidth}`}
                 style={style}
                 variants={variants}
                 transition={{

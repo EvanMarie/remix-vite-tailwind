@@ -4,7 +4,11 @@ import React from "react";
 import VStack from "./vStack";
 import { CloseTextButton } from "./closeTextButton";
 import Flex from "./flex";
-import { defaultOverlayBlur, defaultOverlayColor, subtleShadow } from "styles";
+import {
+  defaultOverlayBlur,
+  defaultOverlayColor,
+  shadowNarrowNormal,
+} from "styles";
 import useEscapeKey from "~/utils/useEscapeKey";
 import Portal from "./portal";
 import { CloseButton } from "./closeButton";
@@ -130,7 +134,7 @@ export default function Drawer({
             <motion.div
               className={`fixed ${drawerPositionClass(
                 slideDirection
-              )} subtleShadow z-50 ${drawerHeight} ${drawerClassName} ${drawerWidth}`}
+              )} shadowNarrowNormal z-50 ${drawerHeight} ${drawerClassName} ${drawerWidth}`}
               style={style}
               variants={variants}
               transition={{

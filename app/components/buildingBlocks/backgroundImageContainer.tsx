@@ -1,4 +1,4 @@
-import { containerBackgroundImage1, subtleShadow } from "styles";
+import { containerBackgroundImage1, shadowNarrowNormal } from "styles";
 import Box from "./box";
 import Image from "./image";
 import Flex from "./flex";
@@ -36,7 +36,7 @@ export default function BackgroundImage({
   objectFit = "cover",
   objectPosition = "object-center",
   innerContainerStyles = "",
-  shadow = subtleShadow,
+  shadow = shadowNarrowNormal,
   showOverlay = true,
   bgOverlayColor = "bg-dt-990",
   bgOverlayGradient = "bg-darkenPurpleGrad",

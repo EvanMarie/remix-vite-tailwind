@@ -6,7 +6,7 @@ import Box from "./box";
 import VStack from "./vStack";
 import HStack from "./hStack";
 import { HeadingSM } from "./textComponents";
-import { subtleShadow, shadow3D } from "styles";
+import { shadowNarrowNormal, shadow3D } from "styles";
 
 // Placement classes for different positions
 const placementClasses: Record<string, string> = {
@@ -110,7 +110,7 @@ export default function Popover({
               className={`w-full h-full  shadow3D relative bg-dt-990 bg-darkenGrad`}
             >
               <VStack
-                className={`w-full h-full justify-start items-center subtleShadow gap-[0px]`}
+                className={`w-full h-full justify-start items-center shadowNarrowNormal gap-[0px]`}
               >
                 <HStack className=" w-full justify-between rounded-b-none bg-dt-900 p-[0.7vh] pl-[1vh] border-b-[0.1vh] border-dt-125">
                   {" "}

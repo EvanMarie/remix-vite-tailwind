@@ -29,7 +29,7 @@ export default function NavContainer({
 
   return (
     <Flex
-      className={`fixed ${locationStyle} left-0 ${h} w-full z-50 items-center justify-center subtleShadow rounded-b-[0.7vh] ${className}`}
+      className={`fixed ${locationStyle} left-0 ${h} w-full z-50 items-center justify-center shadowNarrowNormal rounded-b-[0.7vh] ${className}`}
     >
       <HStack
         className={`w-full h-full px-[1vh] ${alignment} ${bg} rounded-none `}

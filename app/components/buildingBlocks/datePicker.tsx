@@ -17,7 +17,7 @@ import {
   DateTimePickerStyles,
   inputStyles,
   lightTextShadow,
-  subtleShadow,
+  shadowNarrowNormal,
   textShadow,
   transition400,
   verticalAlign,
@@ -188,14 +188,14 @@ export default function DatePicker({
               <Button
                 isUnstyled
                 onClick={goToToday}
-                className={`text-[1.6vh] leading-[1.6vh] h-[2.5vh] px-[0.5vh] bg-dt-700 hover:bg-dt-600 flex items-center subtleShadow textShadowtransition-400`}
+                className={`text-[1.6vh] leading-[1.6vh] h-[2.5vh] px-[0.5vh] bg-dt-700 hover:bg-dt-600 flex items-center shadowNarrowNormal textShadowtransition-400`}
               >
                 Today{" "}
               </Button>
               <Button
                 isUnstyled
                 onClick={() => setIsEditDate(false)}
-                className={`text-[1.6vh] leading-[1.6vh] h-[2.5vh] px-[0.2vh] bg-dt-400 text-dt-900 hover:bg-dt-200 flex items-center subtleShadow lightTextShadow transition-400`}
+                className={`text-[1.6vh] leading-[1.6vh] h-[2.5vh] px-[0.2vh] bg-dt-400 text-dt-900 hover:bg-dt-200 flex items-center shadowNarrowNormal lightTextShadow transition-400`}
               >
                 <HStack gap={`gap-[0px] ${verticalAlign} pb-[0.5vh]`}>
                   <Icon icon={CloseIcon} />

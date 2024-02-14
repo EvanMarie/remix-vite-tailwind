@@ -6,7 +6,7 @@ import {
 import Box from "~/components/buildingBlocks/box";
 import HStack from "~/components/buildingBlocks/hStack";
 import Text from "~/components/buildingBlocks/text";
-import { subtleShadow } from "styles";
+import { shadowNarrowNormal } from "styles";
 
 interface CheckboxProps {
   label: string;
@@ -72,7 +72,7 @@ export default function Checkbox({
   } else if (checked) {
     backgroundColor = checkedBg;
     textColorClass = checkedColor;
-    boxShadowClass = subtleShadow;
+    boxShadowClass = shadowNarrowNormal;
   } else if (isHovered) {
     backgroundColor = hoveredBg;
     textColorClass = hoveredColor;
