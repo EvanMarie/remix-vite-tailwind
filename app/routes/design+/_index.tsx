@@ -453,7 +453,7 @@ export default function Design() {
             </Flex>
           </VStackFull>
           <SectionHeading id="text" heading="Text" />
-          <VStackFull className="bg-col-400 p-[1vh] shadow3D">
+          <VStackFull className="bg-col-200 p-[1vh] shadow3D">
             {textExamples.map((textExample, index) => (
               <Box key={index} className="bg-col-700 text-col-100">
                 <Text className={`${textExample} `}>{textExample}</Text>

@@ -1,5 +1,5 @@
+/* eslint-disable react/no-unescaped-entities */
 import { StarFilledIcon } from "styles";
-import Box from "~/components/buildingBlocks/box";
 import Button from "~/components/buildingBlocks/button";
 import Flex from "~/components/buildingBlocks/flex";
 import Text from "~/components/buildingBlocks/textComponents";
@@ -18,8 +18,6 @@ export default function TextRoute() {
         onClick={() => console.log("THIS!")}
       />
       <VStackFull className={`lightGlow`}>
-
-
         <Text className={`text-xs-tight ${textBg}`}>text-xs-tight</Text>
         <Text className={`text-xs-normal ${textBg}`}>text-xs-normal</Text>
         <Text className={`text-xs-loose  ${textBg}`}>text-xs-loose</Text>
