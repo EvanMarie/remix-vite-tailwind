@@ -1758,8 +1758,8 @@ export default {
         ultraHD: "3840px",
       },
       boxShadow: {
-        inset: "inset 0 0 10px rgba(0, 0, 0, 0.9)",
-        insetHD: "inset 0 0 20px rgba(0, 0, 0, 0.9)",
+        insetShadow: "inset 0 0 10px rgba(0, 0, 0, 0.9)",
+        insetShadowHD: "inset 0 0 20px rgba(0, 0, 0, 0.9)",
         lightShadow: "1px 1px 2px rgba(240, 240, 240, 0.9)",
         lightShadowHD: "2px 2px 4px rgba(240, 240, 240, 0.9)",
         subtleShadow:
@@ -2307,6 +2307,19 @@ export default {
 
       // Add the utilities to Tailwind
       addUtilities(newUtilities, ["responsive", "hover"]);
+    }),
+    // OVERLAYS PLUGIN
+    plugin(function ({ addBase, theme }) {
+      addBase({
+        ".defaultOverlay": {
+          backgroundColor: theme("colors.col.850"), // Accessing your theme colors
+          backdropFilter: "blur(4px)", // Example - use 'backdrop-blur-md' directly if appropriate
+        },
+        ".insetOverlay": {
+          boxShadow: "inset 0 0 10px rgba(0, 0, 0, 0.5)", // Example - adjust as needed
+          backgroundColor: theme("colors.col.930"),
+        },
+      });
     }),
     // INPUT AND TEXTAREA PLUGIN
     plugin(function ({ addComponents, theme }) {
