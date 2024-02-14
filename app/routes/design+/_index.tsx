@@ -11,21 +11,7 @@ import Text, {
 import VStack from "~/components/buildingBlocks/vStack";
 import VStackFull from "~/components/buildingBlocks/vStackFull";
 import Wrap from "~/components/buildingBlocks/wrap";
-import {
-  StarFilledIcon,
-  StarHollowIcon,
-  col100Bgs,
-  col200Bgs,
-  col300Bgs,
-  col400Bgs,
-  col500Bgs,
-  col600Bgs,
-  col700Bgs,
-  col800Bgs,
-  col900Bgs,
-} from "styles";
-import IconButton from "~/components/buildingBlocks/iconButton";
-import Box from "~/components/buildingBlocks/box";
+import { StarFilledIcon, StarHollowIcon } from "styles";
 import {
   allColors,
   allColorsRGB,
@@ -39,7 +25,18 @@ import {
   colors800,
   colors900,
   gradients,
+  col100Bgs,
+  col200Bgs,
+  col300Bgs,
+  col400Bgs,
+  col500Bgs,
+  col600Bgs,
+  col700Bgs,
+  col800Bgs,
+  col900Bgs,
 } from "./components/colorsBackgrounds";
+import IconButton from "~/components/buildingBlocks/iconButton";
+import Box from "~/components/buildingBlocks/box";
 import BorderExamples from "./components/borderExamples";
 import TransformBg from "./components/transformBgObject";
 import { textExamples } from "./components/textExamples";
@@ -108,51 +105,32 @@ export default function Design() {
   return (
     <FlexFull className="h-full overflow-y-auto justify-center">
       <NavContainer className="text-[2.5vh]">
-        <NavLink to="#buttons">Buttons</NavLink>
-        <NavLink to="#colorscheme">Colors</NavLink>
-        <NavLink to="#rgb">RBG</NavLink>
-        <NavLink to="#gradients">Grads</NavLink>
-        <NavLink to="#complexbackgrounds">BGs</NavLink>
-        <NavLink to="#examples">Styles</NavLink>
-        <NavLink to="#text">Text</NavLink>
+        <NavLink className="text-[2.1vh]" to="#colorscheme">
+          Colors
+        </NavLink>
+        <NavLink className="text-[2.1vh]" to="#rgb">
+          RBG
+        </NavLink>
+        <NavLink className="text-[2.1vh]" to="#gradients">
+          Grads
+        </NavLink>
+        <NavLink className="text-[2.1vh]" to="#complexbackgrounds">
+          BGs
+        </NavLink>
+        <NavLink className="text-[2.1vh]" to="#buttons">
+          Buttons
+        </NavLink>
+        <NavLink className="text-[2.1vh]" to="#examples">
+          Styles
+        </NavLink>
+        <NavLink className="text-[2.1vh]" to="#text">
+          Text
+        </NavLink>
       </NavContainer>
       <VStackFull
         className="h-fit px-[2vh] pt-[5.5vh] pb-[2vh]"
         gap="gap-[2vh]"
       >
-        <VStack className="w-90% pb-[3vh]">
-          <SectionHeading id="buttons" heading="Buttons" />
-          <Wrap className="w-full gap-[2vh] items-center">
-            <Button buttonText="Normal" />{" "}
-            <Button type="smallNormal" buttonText="NormalButton" />
-            <Button type="negative" buttonText="Negative" />
-            <Button type="smallNegative" buttonText="Negative Small" />
-            <Button type="unstyled" buttonText="Unstyled" />
-            <Button type="smallUnstyled" buttonText="Unstyled Small" />
-            <Button buttonText="Normal Icon Left" iconLeft={StarHollowIcon} />
-            <Button
-              buttonText="Small Icon Right"
-              iconRight={StarHollowIcon}
-              type="smallNormal"
-            />
-            <Button
-              buttonText="Negative Icon Left"
-              type="negative"
-              iconLeft={StarHollowIcon}
-            />
-            <Button
-              buttonText="Small Negative Icon Right"
-              type="smallNegative"
-              iconRight={StarHollowIcon}
-            />
-            <IconButton icon={StarFilledIcon} />{" "}
-            <IconButton type="smallNormal" icon={StarFilledIcon} />
-            <IconButton type="negative" icon={StarFilledIcon} />
-            <IconButton type="smallNegative" icon={StarFilledIcon} />
-            <IconButton type="unstyled" icon={StarFilledIcon} />
-            <IconButton type="smallUnstyled" icon={StarFilledIcon} />
-          </Wrap>
-        </VStack>
         <VStackFull gap="gap-[1vh]">
           <SectionHeading id="colorscheme" heading="Color Scheme" />
           <Wrap className="w-full justify-around gap-[2vh] bg-col-100 p-[1vh]">
@@ -390,7 +368,39 @@ export default function Design() {
             )}
           </Wrap>
         </VStackFull>
-
+        <VStack className="w-90% pb-[3vh]">
+          <SectionHeading id="buttons" heading="Buttons" />
+          <Wrap className="w-full gap-[2vh] items-center">
+            <Button buttonText="Normal" />{" "}
+            <Button type="smallNormal" buttonText="NormalButton" />
+            <Button type="negative" buttonText="Negative" />
+            <Button type="smallNegative" buttonText="Negative Small" />
+            <Button type="unstyled" buttonText="Unstyled" />
+            <Button type="smallUnstyled" buttonText="Unstyled Small" />
+            <Button buttonText="Normal Icon Left" iconLeft={StarHollowIcon} />
+            <Button
+              buttonText="Small Icon Right"
+              iconRight={StarHollowIcon}
+              type="smallNormal"
+            />
+            <Button
+              buttonText="Negative Icon Left"
+              type="negative"
+              iconLeft={StarHollowIcon}
+            />
+            <Button
+              buttonText="Small Negative Icon Right"
+              type="smallNegative"
+              iconRight={StarHollowIcon}
+            />
+            <IconButton icon={StarFilledIcon} />{" "}
+            <IconButton type="smallNormal" icon={StarFilledIcon} />
+            <IconButton type="negative" icon={StarFilledIcon} />
+            <IconButton type="smallNegative" icon={StarFilledIcon} />
+            <IconButton type="unstyled" icon={StarFilledIcon} />
+            <IconButton type="smallUnstyled" icon={StarFilledIcon} />
+          </Wrap>
+        </VStack>
         <VStackFull>
           <SectionHeading id="examples" heading="Borders" />
           <Wrap className="bg-col-800 p-[1vh] shadow3D gap-[1vh] w-full justify-around">
@@ -453,13 +463,13 @@ export default function Design() {
             </Flex>
           </VStackFull>
           <SectionHeading id="text" heading="Text" />
-          <VStackFull className="bg-col-200 p-[1vh] shadow3D">
+          <Wrap className="bg-col-200 p-[1vh] shadow3D w-full gap-[2vh] justify-around items-center">
             {textExamples.map((textExample, index) => (
               <Box key={index} className="bg-col-700 text-col-100">
                 <Text className={`${textExample} `}>{textExample}</Text>
               </Box>
             ))}
-          </VStackFull>
+          </Wrap>
         </VStackFull>
       </VStackFull>
     </FlexFull>
