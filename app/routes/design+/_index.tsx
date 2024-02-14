@@ -437,6 +437,7 @@ export default function Design() {
           </Wrap>
           <SectionHeading id="" heading="Mixed Styles" />
           <VStackFull className="bg-col-500 p-[1vh] shadow3D">
+            <Flex className="bg-col-700-bg-linear1op75 p-[4vh]">THIS</Flex>
             <div className="p-[1vh] bg-gray-400 textGlow">
               This text will have a light text shadow or an HD version on fullHD
               screens.
@@ -453,6 +454,7 @@ export default function Design() {
               This has className="shadow3D border-200"
             </Flex>
           </VStackFull>
+          <Flex className="bg-300-linear5op25 p-[4vh]">THIS</Flex>
         </VStackFull>
       </VStackFull>
     </FlexFull>

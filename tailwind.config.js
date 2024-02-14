@@ -174,23 +174,26 @@ const typographyPlugin = plugin(function ({ addUtilities }) {
 });
 
 const customBackgroundsPlugin = plugin(function ({ addUtilities, theme }) {
-  // Define custom background utilities based on your groups
-  const customBackgroundUtilities = {
-    // Example for bg1: "bg-col-100 bg-linear1op25"
-    ".bg-col-100-bg-linear1op25": {
-      backgroundColor: theme("colors.col.100"), // Assuming 'col.100' is defined in your colors
-      backgroundImage: theme("backgroundImage.linear1op25"), // Assuming this is defined in your theme
-    },
-    // Follow the same pattern for other backgrounds...
-    ".bg-col-100-bg-linear1op50": {
-      backgroundColor: theme("colors.col.100"),
-      backgroundImage: theme("backgroundImage.linear1op50"),
-    },
-    // Add more custom classes based on your needs
+  const generateBackgroundUtilities = () => {
+    const utilities = {};
+    // Assuming you have defined your colors under 'colors.col' and gradients under 'backgroundImage'
+    const colors = theme("colors.col", {});
+    const gradients = theme("backgroundImage", {});
+
+    Object.keys(colors).forEach((color) => {
+      Object.keys(gradients).forEach((gradient) => {
+        const className = `.bg-${color}-${gradient.replace(/\./g, "-")}`; // Sanitizing class name
+        utilities[className] = {
+          backgroundColor: colors[color],
+          backgroundImage: gradients[gradient],
+        };
+      });
+    });
+
+    return utilities;
   };
 
-  // Add the utilities to Tailwind
-  addUtilities(customBackgroundUtilities, ["responsive", "hover"]);
+  addUtilities(generateBackgroundUtilities(), ["responsive", "hover"]);
 });
 
 const customBordersPlugin = plugin(function ({ addUtilities, theme }) {
@@ -2343,6 +2346,7 @@ export default {
         },
       });
     }),
+
     typographyPlugin,
     customBackgroundsPlugin,
     buttonStyles,
