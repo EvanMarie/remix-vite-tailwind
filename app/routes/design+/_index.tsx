@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { NavLink } from "@remix-run/react";
 import Button from "~/components/buildingBlocks/button";
 import Flex from "~/components/buildingBlocks/flex";
@@ -40,6 +41,8 @@ import {
   gradients,
 } from "./components/colorsBackgrounds";
 import BorderExamples from "./components/borderExamples";
+import TransformBg from "./components/transformBgObject";
+import { textExamples } from "./components/textExamples";
 
 export function StyleExampleBox({
   className,
@@ -111,6 +114,7 @@ export default function Design() {
         <NavLink to="#gradients">Grads</NavLink>
         <NavLink to="#complexbackgrounds">BGs</NavLink>
         <NavLink to="#examples">Styles</NavLink>
+        <NavLink to="#text">Text</NavLink>
       </NavContainer>
       <VStackFull
         className="h-fit px-[2vh] pt-[5.5vh] pb-[2vh]"
@@ -268,7 +272,7 @@ export default function Design() {
               (background: string, index: number) => (
                 <TestBox key={index} bg={background} w="w-[24vh]">
                   {" "}
-                  col100Bgs.bg{index + 1}
+                  <TransformBg value={background} />
                 </TestBox>
               )
             )}
@@ -281,7 +285,7 @@ export default function Design() {
               (background: string, index: number) => (
                 <TestBox key={index} bg={background} w="w-[24vh]">
                   {" "}
-                  col200Bgs.bg{index + 1}
+                  <TransformBg value={background} />
                 </TestBox>
               )
             )}
@@ -294,20 +298,19 @@ export default function Design() {
               (background: string, index: number) => (
                 <TestBox key={index} bg={background} w="w-[24vh]">
                   {" "}
-                  col300Bgs.bg{index + 1}
+                  <TransformBg value={background} />
                 </TestBox>
               )
             )}
           </Wrap>
           <HeadingMD cursive={false} color="text-col-100">
-            col100Bgs
+            col400Bgs
           </HeadingMD>
           <Wrap className="w-[90vw] justify-around gap-[2vh] bg-col-100 p-[1vh] mb-[2vh]">
             {Object.values(col100Bgs).map(
               (background: string, index: number) => (
                 <TestBox key={index} bg={background} w="w-[24vh]">
-                  {" "}
-                  col400Bgs.bg{index + 1}
+                  <TransformBg value={background} />
                 </TestBox>
               )
             )}
@@ -319,8 +322,7 @@ export default function Design() {
             {Object.values(col400Bgs).map(
               (background: string, index: number) => (
                 <TestBox key={index} bg={background} w="w-[24vh]">
-                  {" "}
-                  col400Bgs.bg{index + 1}
+                  <TransformBg value={background} />
                 </TestBox>
               )
             )}
@@ -332,8 +334,7 @@ export default function Design() {
             {Object.values(col500Bgs).map(
               (background: string, index: number) => (
                 <TestBox key={index} bg={background} w="w-[24vh]">
-                  {" "}
-                  col500Bgs.bg{index + 1}
+                  <TransformBg value={background} />
                 </TestBox>
               )
             )}
@@ -345,8 +346,7 @@ export default function Design() {
             {Object.values(col600Bgs).map(
               (background: string, index: number) => (
                 <TestBox key={index} bg={background} w="w-[24vh]">
-                  {" "}
-                  col600Bgs.bg{index + 1}
+                  <TransformBg value={background} />
                 </TestBox>
               )
             )}
@@ -354,12 +354,12 @@ export default function Design() {
           <HeadingMD cursive={false} color="text-col-100">
             col700Bgs
           </HeadingMD>
+
           <Wrap className="w-[90vw] justify-around gap-[2vh] bg-col-100 p-[1vh] mb-[2vh]">
             {Object.values(col700Bgs).map(
               (background: string, index: number) => (
                 <TestBox key={index} bg={background} w="w-[24vh]">
-                  {" "}
-                  col700Bgs.bg{index + 1}
+                  <TransformBg value={background} />
                 </TestBox>
               )
             )}
@@ -371,8 +371,7 @@ export default function Design() {
             {Object.values(col800Bgs).map(
               (background: string, index: number) => (
                 <TestBox key={index} bg={background} w="w-[24vh]">
-                  {" "}
-                  col800Bgs.bg{index + 1}
+                  <TransformBg value={background} />
                 </TestBox>
               )
             )}
@@ -380,12 +379,12 @@ export default function Design() {
           <HeadingMD cursive={false} color="text-col-100">
             col900Bgs
           </HeadingMD>
+
           <Wrap className="w-[90vw] justify-around gap-[2vh] bg-col-100 p-[1vh] mb-[2vh]">
             {Object.values(col900Bgs).map(
               (background: string, index: number) => (
                 <TestBox key={index} bg={background} w="w-[24vh]">
-                  {" "}
-                  col900Bgs.bg{index + 1}
+                  <TransformBg value={background} />
                 </TestBox>
               )
             )}
@@ -437,7 +436,6 @@ export default function Design() {
           </Wrap>
           <SectionHeading id="" heading="Mixed Styles" />
           <VStackFull className="bg-col-500 p-[1vh] shadow3D">
-            <Flex className="bg-col-700-bg-linear1op75 p-[4vh]">THIS</Flex>
             <div className="p-[1vh] bg-gray-400 textGlow">
               This text will have a light text shadow or an HD version on fullHD
               screens.
@@ -454,7 +452,14 @@ export default function Design() {
               This has className="shadow3D border-200"
             </Flex>
           </VStackFull>
-          <Flex className="bg-300-linear5op25 p-[4vh]">THIS</Flex>
+          <SectionHeading id="text" heading="Text" />
+          <VStackFull className="bg-col-400 p-[1vh] shadow3D">
+            {textExamples.map((textExample, index) => (
+              <Box key={index} className="bg-col-700 text-col-100">
+                <Text className={`${textExample} `}>{textExample}</Text>
+              </Box>
+            ))}
+          </VStackFull>
         </VStackFull>
       </VStackFull>
     </FlexFull>

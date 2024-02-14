@@ -130,20 +130,20 @@ const buttonStyles = plugin(function ({ addUtilities, theme }) {
 const typographyPlugin = plugin(function ({ addUtilities }) {
   const utilities = {
     ".text-xs-normal": { fontSize: "1.2vh", lineHeight: "1.8vh" },
-    ".text-xs-tight": { fontSize: "1.2vh", lineHeight: "1.5vh" },
-    ".text-xs-loose": { fontSize: "1.2vh", lineHeight: "1.6vh" },
+    ".text-xs-tight": { fontSize: "1.2vh", lineHeight: "1.4vh" },
+    ".text-xs-loose": { fontSize: "1.2vh", lineHeight: "2.2vh" },
 
-    ".text-sm-normal": { fontSize: "1.5vh", lineHeight: "2.2vh" },
+    ".text-sm-normal": { fontSize: "1.5vh", lineHeight: "2.1vh" },
     ".text-sm-tight": { fontSize: "1.5vh", lineHeight: "1.7vh" },
-    ".text-sm-loose": { fontSize: "1.5vh", lineHeight: "2.4vh" },
+    ".text-sm-loose": { fontSize: "1.5vh", lineHeight: "2.5vh" },
 
-    ".text-md-normal": { fontSize: "1.7vh", lineHeight: "2.4vh" },
+    ".text-md-normal": { fontSize: "1.7vh", lineHeight: "2.3vh" },
     ".text-md-tight": { fontSize: "1.7vh", lineHeight: "1.9vh" },
-    ".text-md-loose": { fontSize: "1.7vh", lineHeight: "2.6vh" },
+    ".text-md-loose": { fontSize: "1.7vh", lineHeight: "2.7vh" },
 
-    ".text-lg-normal": { fontSize: "2.4vh", lineHeight: "3.1vh" },
+    ".text-lg-normal": { fontSize: "2.4vh", lineHeight: "3vh" },
     ".text-lg-tight": { fontSize: "2.4vh", lineHeight: "2.6vh" },
-    ".text-lg-loose": { fontSize: "2.4vh", lineHeight: "3.3vh" },
+    ".text-lg-loose": { fontSize: "2.4vh", lineHeight: "3.4vh" },
 
     ".text-xl-normal": { fontSize: "3.1vh", lineHeight: "3.8vh" },
     ".text-xl-tight": { fontSize: "3.1vh", lineHeight: "3.3vh" },
