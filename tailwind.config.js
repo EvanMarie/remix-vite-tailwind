@@ -1758,30 +1758,45 @@ export default {
         ultraHD: "3840px",
       },
       boxShadow: {
-        insetShadow: "inset 0 0 10px rgba(0, 0, 0, 0.9)",
-        insetShadowHD: "inset 0 0 20px rgba(0, 0, 0, 0.9)",
-        lightShadow: "1px 1px 2px rgba(240, 240, 240, 0.9)",
-        lightShadowHD: "2px 2px 4px rgba(240, 240, 240, 0.9)",
-        subtleShadow:
-          "rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px",
-        subtleShadowHD:
-          "rgba(0, 0, 0, 0.07) 1px 2px 4px, rgba(0, 0, 0, 0.07) 1px 3px 5px, rgba(0, 0, 0, 0.07) 2px 6px 10px, rgba(0, 0, 0, 0.07) 2px 10x 20px, rgba(0, 0, 0, 0.07) 2px 32px 60px, rgba(0, 0, 0, 0.07) 2px 64px 100px",
+        shadowNarrowTight: "0.1vh 0.1vh 0.3vh rgba(0, 0, 0, 0.9)",
+        shadowNarrowNormal: "0.1vh 0.1vh 0.6vh rgba(0, 0, 0, 0.9)",
+        shadowNarrowLoose: "0.1vh 0.1vh 0.9vh rgba(0, 0, 0, 0.9)",
+        shadowNarrowLooser: "0.1vh 0.1vh 1.2vh rgba(0, 0, 0, 0.9)",
+        shadowBroadTight: "0.2vh 0.2vh 0.3vh rgba(0, 0, 0, 0.9)",
+        shadowBroadNormal: "0.2vh 0.2vh 0.6vh rgba(0, 0, 0, 0.9)",
+        shadowBroadLoose: "0.2vh 0.2vh 0.9vh rgba(0, 0, 0, 0.9)",
+        shadowBroadLooser: "0.2vh 0.2vh 0.9vh rgba(0, 0, 0, 0.9)",
+        shadowWideTight: "0.3vh 0.3vh 0.3vh rgba(0, 0, 0, 0.9)",
+        shadowWideNormal: "0.3vh 0.3vh 0.6vh rgba(0, 0, 0, 0.9)",
+        shadowWideLoose: "0.3vh 0.3vh 0.9vh rgba(0, 0, 0, 0.9)",
+        shadowWideLooser: "0.3vh 0.3vh 0.9vh rgba(0, 0, 0, 0.9)",
+        insetShadowSm: "inset 0 0 0.3vh rgba(0, 0, 0, 0.9)",
+        insetShadowMd: "inset 0 0 0.6vh rgba(0, 0, 0, 0.9)",
+        insetShadowLg: "inset 0 0 0.9vh rgba(0, 0, 0, 0.9)",
+        insetShadowXl: "inset 0 0 1.2vh rgba(0, 0, 0, 0.9)",
+        lightShadowTight: "0.2vh 0.2vh 0.3vh rgba(240, 240, 240, 0.9)",
+        lightShadowNormal: "0.2vh 0.2vh 0.6vh rgba(240, 240, 240, 0.9)",
+        lightShadowLoose: "0.2vh 0.2vh 0.9vh rgba(240, 240, 240, 0.9)",
+        lightShadowLooser: "0.2vh 0.2vh 1.2vh rgba(240, 240, 240, 0.9)",
         standoutShadow: "rgb(38, 57, 77) 0px 20px 30px -10px",
-        standoutShadowHD: "rgb(38, 57, 77) 0px 40px 60px -20px",
-        lightGlow: "0 0 1px #FFF, 0 0 1px #D67AFF, 0 0 3px #FFF",
-        lightGlowHD: "0 0 2px #FFF, 0 0 2px #D67AFF, 0 0 6px #FFF",
-        shadow3D:
-          "rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px",
-        shadow3DHD:
-          "rgba(0, 0, 0, 0.17) 0px -46px 50px 0px inset, rgba(0, 0, 0, 0.15) 0px -72px 60px 0px inset, rgba(0, 0, 0, 0.1) 0px -158px 80px 0px inset, rgba(0, 0, 0, 0.06) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px",
+        shadow3DXs:
+          "rgba(0, 0, 0, 0.17) 0px -0.1vh 0.1vh 0px inset, rgba(0, 0, 0, 0.15) 0px -0.15vh 0.15vh 0px inset, rgba(0, 0, 0, 0.1) 0px -0.4vh 0.2vh 0px inset, rgba(0, 0, 0, 0.06) 0px 0.01vh 0.1vh, rgba(0, 0, 0, 0.09) 0px 0.02vh 0.1vh, rgba(0, 0, 0, 0.09) 0px 0.1vh 0.02vh, rgba(0, 0, 0, 0.09) 0px 0.05vh 0.04vh, rgba(0, 0, 0, 0.09) 0px 0.15vh 0.1vh",
+        shadow3DSm:
+          "rgba(0, 0, 0, 0.17) 0px -0.3vh 0.3vh 0px inset, rgba(0, 0, 0, 0.15) 0px -0.3vh 0.3vh 0px inset, rgba(0, 0, 0, 0.1) 0px -0.8vh 0.4vh 0px inset, rgba(0, 0, 0, 0.06) 0px 0.02vh 0.2vh, rgba(0, 0, 0, 0.09) 0px 0.04vh 0.2vh, rgba(0, 0, 0, 0.09) 0px 0.2vh 0.04vh, rgba(0, 0, 0, 0.09) 0px 0.1vh 0.08vh, rgba(0, 0, 0, 0.09) 0px 0.3vh 0.2vh",
+        shadow3DMd:
+          "rgba(0, 0, 0, 0.17) 0px -0.6vh 0.6vh 0px inset, rgba(0, 0, 0, 0.15) 0px -0.45vh 0.45vh 0px inset, rgba(0, 0, 0, 0.1) 0px -1.2vh 0.6vh 0px inset, rgba(0, 0, 0, 0.06) 0px 0.1vh 0.5vh, rgba(0, 0, 0, 0.09) 0px 0.1vh 0.2vh, rgba(0, 0, 0, 0.09) 0px 0.3vh 0.04vh, rgba(0, 0, 0, 0.09) 0px 0.15vh 0.08vh, rgba(0, 0, 0, 0.09) 0px 0.4vh 0.3vh",
+        shadow3DLg:
+          "rgba(0, 0, 0, 0.17) 0px -0.9vh 0.9vh 0px inset, rgba(0, 0, 0, 0.15) 0px -0.6vh 0.6vh 0px inset, rgba(0, 0, 0, 0.1) 0px -1.6vh 0.8vh 0px inset, rgba(0, 0, 0, 0.06) 0px 0.03vh 0.6vh, rgba(0, 0, 0, 0.09) 0px 0.2vh 0.2vh, rgba(0, 0, 0, 0.09) 0px 0.4vh 0.04vh, rgba(0, 0, 0, 0.09) 0px 0.2vh 0.08vh, rgba(0, 0, 0, 0.09) 0px 0.5vh 0.4vh",
+        shadow3DXl:
+          "rgba(0, 0, 0, 0.17) 0px -2vh 2vh 0px inset, rgba(0, 0, 0, 0.15) 0px -3vh 3vh 0px inset, rgba(0, 0, 0, 0.1) 0px -8vh 4vh 0px inset, rgba(0, 0, 0, 0.06) 0px 0.2vh 0.1vh, rgba(0, 0, 0, 0.09) 0px 0.5vh 0.2vh, rgba(0, 0, 0, 0.09) 0px 0.8vh 0.4vh, rgba(0, 0, 0, 0.09) 0px 1.5vh 0.8vh, rgba(0, 0, 0, 0.09) 0px 3vh 2vh",
+        lightGlowSm: "0 0 0.1vh #FFF, 0 0 1px #ebd7d5, 0 0 0.3vh #FFF",
+        lightGlowMd: "0 0 0.2vh #FFF, 0 0 2px #ebd7d5, 0 0 0.6vh #FFF",
+        lightGlowLg: "0 0 0.3vh #FFF, 0 0 3px #ebd7d5, 0 0 0.9vh #FFF",
+        lightGlowXl: "0 0 0.4vh #FFF, 0 0 4px #ebd7d5, 0 0 1.2vh #FFF",
         boxGlow:
           "#00FFFF 0px 0px 5px, #00FFFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, 8px 2px 6px rgba(0,0,0,0);",
-        boxGlowHD:
-          "#00FFFF 0px 0px 10px, #00FFFF 0px 0px 15px, #FFF 0px 0px 20px, #FF2D95 0px 0px 25px, #FF2D95 0px 0px 35px, 8px 2px 6px rgba(0,0,0,0);",
         metallicEdges:
           "#000 1px 1px 1px, white 0px 0px 1px,  rgb(208, 226, 242) 0px 0px 2px, #00FFFF 0px 0px 3px, #FFF 0px 0px 4px, rgb(84, 123, 171) 0px 0px 5px, rgb(208, 226, 242) 0px 0px 6px, 8px 2px 6px rgba(0,0,0,0);",
-        metallicEdgesHD:
-          "#000 2px 2px 2px, white 0px 0px 2px,  rgb(208, 226, 242) 0px 0px 4px, #00FFFF 0px 0px 6px, #FFF 0px 0px 8px, rgb(162, 242, 190) 0px 0px 10px, rgb(208, 226, 242) 0px 0px 12px, 8px 2px 6px rgba(0,0,0,0);",
       },
       textShadow: {
         noShadow: "none",
@@ -2295,7 +2310,7 @@ export default {
           "@apply hover:cursor-pointer hover:scale-104 transition-all duration-500":
             {},
         },
-        ".scale-item-xl": {
+        ".scale-item-Looser": {
           "@apply hover:cursor-pointer hover:scale-105 transition-all duration-500":
             {},
         },

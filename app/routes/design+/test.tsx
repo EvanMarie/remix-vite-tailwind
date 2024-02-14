@@ -1,14 +1,15 @@
 /* eslint-disable react/no-unescaped-entities */
 import { StarFilledIcon } from "styles";
+import Box from "~/components/buildingBlocks/box";
 import Button from "~/components/buildingBlocks/button";
 import Flex from "~/components/buildingBlocks/flex";
 import Text from "~/components/buildingBlocks/textComponents";
 import VStackFull from "~/components/buildingBlocks/vStackFull";
+import { shadowNames } from "./components/boxShadows";
 
 export default function TextRoute() {
-  const textBg = "bg-col-200 px-[1vh]";
   return (
-    <VStackFull className="h-full justify-center p-[2vh] bg-col-600">
+    <VStackFull className="h-full p-[2vh] bg-col-600 overflow-y-auto">
       <Flex className="p-[1vh] bg-col-500 text-col-100 shadow3D scale-item-lg">
         This
       </Flex>
@@ -17,21 +18,12 @@ export default function TextRoute() {
         buttonText="this"
         onClick={() => console.log("THIS!")}
       />
-      <VStackFull className={`lightGlow`}>
-        <Text className={`text-xs-tight ${textBg}`}>text-xs-tight</Text>
-        <Text className={`text-xs-normal ${textBg}`}>text-xs-normal</Text>
-        <Text className={`text-xs-loose  ${textBg}`}>text-xs-loose</Text>
-        <Text className={`text-sm-tight ${textBg}`}>text-sm-tight</Text>
-        <Text className={`text-md-tight ${textBg}`}>text-md-tight</Text>
-        <Text className={`text-lg-tight ${textBg}`}>text-lg-tight</Text>
-        <Text className={`text-xl-tight ${textBg}`}>text-xl-tight</Text>
-        <Text className={`text-xxl-tight ${textBg}`}>text-xxl-tight</Text>
-        <Text className={`text-xxxl-tight ${textBg}`}>text-xxxl-tight</Text>
-        <Text className={`text-mega-tight ${textBg}`}>text-mega-tight</Text>
-        <Text className={`text-too-big-tight ${textBg}`}>
-          text-too-big-tight
-        </Text>
-        <Text className={`text-insane-tight ${textBg}`}>text-insane-tight</Text>
+      <VStackFull className={`lightGlow bg-col-200 p-[1vh]`}>
+        {shadowNames.map((shadow) => (
+          <Box className={shadow} key={shadow}>
+            <Text>{shadow}</Text>
+          </Box>
+        ))}
       </VStackFull>
       <Flex className="justify-center p-[1vh] shadow3D border-200 text-col-100">
         {" "}

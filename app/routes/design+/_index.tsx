@@ -402,14 +402,7 @@ export default function Design() {
           </Wrap>
         </VStack>
         <VStackFull>
-          <SectionHeading id="examples" heading="Borders" />
-          <Wrap className="bg-col-800 p-[1vh] shadow3D gap-[1vh] w-full justify-around">
-            <BorderExamples startIndex={0} endIndex={95} />
-          </Wrap>
-          <Wrap className="bg-col-300 p-[1vh] shadow3D gap-[1vh] w-full justify-around">
-            <BorderExamples startIndex={96} endIndex={215} />
-          </Wrap>
-          <SectionHeading id="" heading="Transitions" />
+          <SectionHeading id="examples" heading="Transitions" />
           <Wrap className="bg-col-600 p-[1vh] shadow3D gap-[3vh] justify-evenly">
             <StyleExampleBox
               className="transition-300 bg-col-200 hover:bg-col-900 hover:text-col-100 subtleShadow"
@@ -444,6 +437,49 @@ export default function Design() {
               text="className='transition-1000'"
             />
           </Wrap>
+          <SectionHeading id="" heading="Shadows" />
+          <Wrap className="bg-col-300 p-[1vh] shadow3D gap-[3vh] justify-evenly w-full">
+            <StyleExampleBox
+              className="bg-col-400 subtleShadow"
+              text="className='subtleShadow'"
+            />
+            <StyleExampleBox
+              className="bg-col-400 insetShadow"
+              text="className='insetShadow'"
+            />
+            <StyleExampleBox
+              className="bg-col-400 lightShadow"
+              text="className='lightShadow'"
+            />
+            <StyleExampleBox
+              className="bg-col-400 standoutShadow"
+              text="className='standoutShadow'"
+            />
+            <StyleExampleBox
+              className="bg-col-400 shadow3D"
+              text="className='shadow3D'"
+            />
+            <StyleExampleBox
+              className="bg-col-400 boxGlow"
+              text="className='boxGlow'"
+            />{" "}
+            <StyleExampleBox
+              className="bg-col-400 lightGlow"
+              text="className='lightGlow'"
+            />{" "}
+            <StyleExampleBox
+              className="bg-col-400 metallicEdges"
+              text="className='metallicEdges'"
+            />
+          </Wrap>
+          <SectionHeading id="" heading="Borders" />
+          <Wrap className="bg-col-800 p-[1vh] shadow3D gap-[1vh] w-full justify-around">
+            <BorderExamples startIndex={0} endIndex={95} />
+          </Wrap>
+          <Wrap className="bg-col-300 p-[1vh] shadow3D gap-[1vh] w-full justify-around">
+            <BorderExamples startIndex={96} endIndex={215} />
+          </Wrap>
+
           <SectionHeading id="" heading="Mixed Styles" />
           <VStackFull className="bg-col-500 p-[1vh] shadow3D">
             <div className="p-[1vh] bg-gray-400 textGlow">
@@ -465,7 +501,7 @@ export default function Design() {
           <SectionHeading id="text" heading="Text" />
           <Wrap className="bg-col-200 p-[1vh] shadow3D w-full gap-[2vh] justify-around items-center">
             {textExamples.map((textExample, index) => (
-              <Box key={index} className="bg-col-700 text-col-100">
+              <Box key={index} className="bg-col-700 text-col-100 testShadow">
                 <Text className={`${textExample} `}>{textExample}</Text>
               </Box>
             ))}
