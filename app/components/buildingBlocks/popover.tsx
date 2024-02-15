@@ -5,7 +5,7 @@ import { CloseButton } from "./closeButton";
 import Box from "./box";
 import VStack from "./vStack";
 import HStack from "./hStack";
-import { HeadingSM } from "./textComponents";
+import Heading from "./headingText";
 
 // Placement classes for different positions
 const placementClasses: Record<string, string> = {
@@ -25,7 +25,7 @@ interface PopoverProps {
   content: React.ReactNode;
   w?: string;
   h?: string;
-  heading?: React.ReactNode;
+  heading?: string;
   placement?:
     | "top"
     | "bottom"
@@ -126,7 +126,7 @@ export default function Popover({
               >
                 <HStack className=" w-full justify-between rounded-b-none bg-col-900 p-[0.7vh] pl-[1vh] border-b-[0.1vh] border-col-125">
                   {" "}
-                  <HeadingSM noOfLines={1}>{heading ? heading : ""} </HeadingSM>
+                  <Heading noOfLines={1} text={heading ? heading : ""} />
                   <Box className="absolute top-[1vh] right-[1vh]">
                     <CloseButton onClose={() => setIsOpen(false)} />
                   </Box>

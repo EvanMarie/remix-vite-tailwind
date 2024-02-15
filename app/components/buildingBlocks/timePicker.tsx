@@ -7,12 +7,12 @@ import {
   DateTimePickerLabelStyles,
   DateTimePickerStyles,
 } from "styles";
-import Text from "./textComponents";
 import HStackFull from "./hStackFull";
 import VStackFull from "./vStackFull";
 import useEscapeKey from "~/utils/useEscapeKey";
 import { CloseButton } from "./closeButton";
 import Transition from "./transition";
+import Text from "./text";
 
 interface TimePickerProps {
   selectedTime: Date;

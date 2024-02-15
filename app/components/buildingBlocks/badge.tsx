@@ -1,6 +1,6 @@
 // Badge.tsx
 import React from "react";
-import Text from "./textComponents";
+import Text from "./text";
 
 interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {
   variant?: "solid" | "subtle" | "outline";

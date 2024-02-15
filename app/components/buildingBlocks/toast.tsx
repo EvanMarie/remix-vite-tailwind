@@ -3,8 +3,8 @@ import Flex from "./flex";
 import { motion } from "framer-motion";
 
 import VStack from "./vStack";
-import Text from "./textComponents";
 import Box from "./box";
+import Text from "./text";
 
 export const useToast = () => {
   const [isToastVisible, setIsToastVisible] = useState(false);

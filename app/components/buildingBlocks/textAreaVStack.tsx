@@ -1,7 +1,7 @@
 import React from "react";
 import TextArea from "./textArea";
 import VStack from "./vStack";
-import Heading from "./newTextComponents";
+import Heading from "./headingText";
 import Box from "./box";
 
 // Update the onChange type to be more generic

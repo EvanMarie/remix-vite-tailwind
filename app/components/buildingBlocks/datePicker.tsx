@@ -5,7 +5,6 @@ import Flex from "~/components/buildingBlocks/flex";
 import HStackFull from "~/components/buildingBlocks/hStackFull";
 import Icon from "~/components/buildingBlocks/icon";
 import IconButton from "~/components/buildingBlocks/iconButton";
-import Text from "~/components/buildingBlocks/textComponents";
 import VStack from "~/components/buildingBlocks/vStack";
 import {
   ArrowLeftIcon,
@@ -18,6 +17,7 @@ import {
 import useEscapeKey from "~/utils/useEscapeKey";
 import FlexFull from "./flexFull";
 import Transition from "./transition";
+import Text from "./text";
 
 // Assuming Box, Icon, VStack, CalendarIcon, inputStyles, and shadow3D are correctly imported
 

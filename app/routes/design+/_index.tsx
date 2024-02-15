@@ -3,7 +3,6 @@ import { NavLink } from "@remix-run/react";
 import Button from "~/components/buildingBlocks/button";
 import Flex from "~/components/buildingBlocks/flex";
 import FlexFull from "~/components/buildingBlocks/flexFull";
-import Text from "~/components/buildingBlocks/textComponents";
 import VStackFull from "~/components/buildingBlocks/vStackFull";
 import Wrap from "~/components/buildingBlocks/wrap";
 import {
@@ -39,7 +38,8 @@ import { GoSmiley } from "react-icons/go";
 import { textShadows } from "./components/text";
 import ComponentExamples from "./components/componentExamples";
 import { textStrokeDarkBg, textStrokeLightBg } from "./components/textStroke";
-import Heading from "~/components/buildingBlocks/newTextComponents";
+import Heading from "~/components/buildingBlocks/headingText";
+import Text from "~/components/buildingBlocks/text";
 
 export function StyleExampleBox({
   className,

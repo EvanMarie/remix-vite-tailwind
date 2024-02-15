@@ -1,7 +1,8 @@
 import Flex from "./flex";
 import VStack from "./vStack";
 import Transition, { type TransitionType } from "./transition";
-import { HeadingLG, HeadingXL, TextMD } from "./textComponents";
+import Heading from "./headingText";
+import Text from "./text";
 
 export function ColumnsPageHeader({
   title,
@@ -16,14 +17,14 @@ export function ColumnsPageHeader({
         <Flex
           className={`w-full h-fit flex-shrink-0 px-[2vw] pt-1 justify-center`}
         >
-          <HeadingXL shadow="textFog">{title}</HeadingXL>
+          <Heading shadow="textFog" text={title} />
         </Flex>
       )}
       {subtitle && (
         <Flex
           className={`w-95% h-fit flex-shrink-0 justify-center bg-col-975 px-[1vw] py-[1vh] rounded-[1vw] shadow3DLg fullHD:w-90% quadHD:w-85% ultraHD:w-80% `}
         >
-          <TextMD>{subtitle}</TextMD>
+          <Text>{subtitle}</Text>
         </Flex>
       )}
     </VStack>
@@ -169,7 +170,7 @@ export function ColumnsPageColumn({
                 <Flex
                   className={`w-full h-fit flex-shrink-0 rounded-b-none bg-col-900 border-b-2 border-b-col-225 px-[2vw] ${headingColor}`}
                 >
-                  <HeadingLG>{heading}</HeadingLG>
+                  <Heading text={heading} />
                 </Flex>
               )}
               <VStack

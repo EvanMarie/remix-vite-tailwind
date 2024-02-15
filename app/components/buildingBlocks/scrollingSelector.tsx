@@ -1,10 +1,11 @@
 import Button from "./button";
 import FlexFull from "./flexFull";
-import Text, { HeadingMD } from "./textComponents";
 import VStackFull from "./vStackFull";
 import { useState } from "react";
 import Box from "./box";
 import { GetFromLink } from "~/utils/pathUtils";
+import Heading from "./headingText";
+import Text from "./text";
 
 export default function ScrollingSelector({
   options,
@@ -42,7 +43,7 @@ export default function ScrollingSelector({
   return (
     <FlexFull className={`${bg} ${border}`}>
       <VStackFull className={`p-[2vh] pb-[1vh]`}>
-        <HeadingMD>{heading}</HeadingMD>
+        <Heading text={heading} />
         <FlexFull
           className={`h-full max-h-full overflow-y-auto justify-center insetOverlay ${border}`}
         >

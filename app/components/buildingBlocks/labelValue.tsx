@@ -1,6 +1,6 @@
-import Text from "./textComponents";
 import VStack from "./vStack";
 import Flex from "./flex";
+import Text from "./text";
 
 interface LabelValueProps {
   label?: string;

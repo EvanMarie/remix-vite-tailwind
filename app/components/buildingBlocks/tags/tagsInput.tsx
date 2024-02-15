@@ -1,4 +1,4 @@
-import React, {
+import {
   useState,
   useEffect,
   type KeyboardEvent,
@@ -11,8 +11,7 @@ import Wrap from "../wrap";
 import TagBadge from "./tagBadge";
 import HStack from "../hStack";
 import Button from "../button";
-import { shadowNarrowNormal, textShadow, inputStyles, tagColors } from "styles";
-import { HeadingSM } from "../textComponents";
+import Heading from "../headingText";
 
 interface TagsInputProps {
   onTagsChange: (tags: string[]) => void;
@@ -87,19 +86,17 @@ export default function TagsInput({
             onKeyDown={handleInputKeyDown}
             onChange={handleInputChange}
           />
-          <Button width="w-fit" onClick={handleAddTag}>
-            Add
-          </Button>
+          <Button width="w-fit" onClick={handleAddTag} buttonText="Add" />
         </HStack>
         <Flex
-          className={`w-full overflow-y-auto overflow-x-hidden shadowNarrowNormal ${inputStyles} ${wrapHeight}`}
+          className={`w-full overflow-y-auto overflow-x-hidden shadowNarrowNormal inputStyles ${wrapHeight}`}
         >
           <Wrap
             className={`w-full h-full gap-x-[1vh] gap-y-[1vh] justify-start p-[1vh]`}
           >
             {localTags.length === 0 && (
               <Flex className={`text-sm h-fit w-fit textShadow`}>
-                <HeadingSM>There are currently no tags.</HeadingSM>
+                <Heading text="There are currently no tags." />
               </Flex>
             )}
             {localTags.map((tag, index) => (
@@ -108,7 +105,8 @@ export default function TagsInput({
                 tag={tag}
                 onClick={removeTag}
                 index={index}
-                bgColor={tagColors[index % tagColors.length]}
+                bgColor="bg-col-200"
+                // bgColor={tagColors[index % tagColors.length]}
               />
             ))}
           </Wrap>

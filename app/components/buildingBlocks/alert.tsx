@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Text, { Heading2XL } from "./textComponents";
 import Button from "./button";
 import HStack from "./hStack";
 import Flex from "./flex";
@@ -8,6 +7,8 @@ import VStack from "./vStack";
 import VStackFull from "./vStackFull";
 import Image from "./image";
 import Box from "./box";
+import Heading from "./headingText";
+import Text from "./text";
 
 const sizeClasses = {
   xs: "w-full h-1/3 md:w-64 md:h-1/2",
@@ -96,9 +97,12 @@ export default function Alert({
         <VStack className="w-full h-full justify-between ">
           {/* Header */}
           <HStack className="w-full items-center bg-col-990 rounded-b-none p-[1vh] gap-2 md:gap-[1vw]">
-            <Heading2XL color="text-col-400" shadow="textFog">
-              {title}
-            </Heading2XL>
+            <Heading
+              color="text-col-400"
+              shadow="textFog"
+              text={title}
+              layout="text-insane-normal"
+            />
           </HStack>
 
           <HStack

@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 import Box from "./box";
 import Input from "./input";
-import Heading from "./newTextComponents";
+import Heading from "./headingText";
 import VStack from "./vStack";
 import ValidatedInput from "./validatedInput";
 
