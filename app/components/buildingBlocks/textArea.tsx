@@ -1,5 +1,4 @@
 import React from "react";
-import { textAreaStyles } from "styles";
 
 interface TextAreaProps
   extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
@@ -28,7 +27,7 @@ export default function TextArea({
       defaultValue={defaultValue}
       // eslint-disable-next-line jsx-a11y/no-autofocus
       autoFocus={autoFocus}
-      className={`w-full ${resize} ${textAreaHeight} ${textAreaWidth} ${textAreaStyles} ${className} `}
+      className={`w-full ${resize} ${textAreaHeight} ${textAreaWidth} textAreaStyles ${className} `}
       style={style}
       {...props}
     />

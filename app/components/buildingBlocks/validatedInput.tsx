@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import Input from "./input";
-import ImageIcon from "../specialty/imageIcon";
 import VStack from "./vStack";
-import { textShadow } from "styles";
 
 interface ValidatedInputProps {
   defaultValue?: string;
@@ -27,8 +25,6 @@ export default function ValidatedInput({
   isRequired = false,
   name = "",
   id = "",
-  onChange,
-  onValidityChange,
   placeholder = "",
 }: ValidatedInputProps) {
   const [inputValue, setInputValue] = useState(defaultValue);
@@ -39,7 +35,7 @@ export default function ValidatedInput({
     ? `border-pinkest shadow-[0_0_0_1px_lilac] ${additionalStyles}`
     : `${additionalStyles}`;
   const textColorClass = isInvalid ? `text-col-400` : `text-col-175`;
-  const textShadowClass = isInvalid ? textShadow : "text-shadow-none";
+  const textShadowClass = isInvalid ? "textShadow" : "text-shadow-none";
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
@@ -72,7 +68,6 @@ export default function ValidatedInput({
         <div className="flex space-x-1">
           {isInvalid && fieldTooLong && (
             <>
-              <ImageIcon keyword="warning" h="h-[22px]" w="w-[22px]" />
               <span
                 className={`${textColorClass} ${textShadowClass}  ${baseTextStyle}`}
               >

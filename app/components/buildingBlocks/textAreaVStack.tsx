@@ -2,7 +2,6 @@ import React from "react";
 import { HeadingMD, HeadingSM } from "./textComponents";
 import TextArea from "./textArea";
 import VStack from "./vStack";
-import { textFog } from "styles";
 
 // Update the onChange type to be more generic
 interface TextAreaVStackProps {
@@ -53,7 +52,7 @@ export default function TextAreaVStack({
     >
       {labelSize === "small" ? (
         <HeadingSM
-          shadow={textFog}
+          shadow="textFog"
           cursive={labelIsCursive}
           color={labelColor}
           className={`${labelClassName}`}
@@ -63,7 +62,7 @@ export default function TextAreaVStack({
       ) : (
         <>
           <HeadingMD
-            shadow={textFog}
+            shadow="textFog"
             color={labelColor}
             className={`hidden md:flex pb-[1vh] ${labelClassName}`}
             cursive={labelIsCursive}
@@ -71,7 +70,7 @@ export default function TextAreaVStack({
             {label}
           </HeadingMD>
           <HeadingSM
-            shadow={textFog}
+            shadow="textFog"
             color={labelColor}
             className={`flex md:hidden ${labelClassName}`}
             cursive={labelIsCursive}

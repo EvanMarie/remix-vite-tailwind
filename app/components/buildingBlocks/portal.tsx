@@ -6,7 +6,7 @@ interface PortalProps {
   children: ReactNode;
 }
 
-const Portal: React.FC<PortalProps> = ({ children }) => {
+const Portal: React.FC<PortalProps> = ({ children }: PortalProps) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {

@@ -5,7 +5,6 @@ import { CloseTextButton } from "./closeTextButton";
 import Flex from "./flex";
 import { CloseButton } from "./closeButton";
 import Box from "./box";
-import { defaultOverlayBlur, defaultOverlayColor } from "styles";
 import Portal from "./portal";
 import IconButton from "./iconButton";
 
@@ -26,8 +25,8 @@ export default function ModalWithButton({
   icon: Icon,
   label,
   children,
-  overlayBlur = defaultOverlayBlur,
-  overlayColor = defaultOverlayColor,
+  overlayBlur = "defaultOverlayBlur",
+  overlayColor = "defaultOverlayColor",
   maxWidth = "max-w-[1300px]",
 }: ModalProps) {
   const [isModalOpen, setModalOpen] = useState(false);

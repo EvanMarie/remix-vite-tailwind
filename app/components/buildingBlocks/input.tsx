@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 import React from "react";
-import { inputStyles } from "styles";
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   className?: string;
@@ -21,7 +20,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           defaultValue={defaultValue}
           autoFocus={autoFocus}
           ref={ref}
-          className={`${inputStyles} ${className}`}
+          className={`inputStyles ${className}`}
           style={style}
           {...props}
         />

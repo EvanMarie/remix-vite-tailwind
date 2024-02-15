@@ -1,33 +1,17 @@
 import IconButton from "./iconButton";
 import { NavLink } from "@remix-run/react";
-import { ExpandIcon } from "styles";
 import type { TooltipPlacement } from "./tooltip";
+import { ExpandIcon } from "styles";
 
 export default function ExpandButton({
   expandLink,
-  pos,
-  t,
-  b,
-  l,
-  r,
-  className = "",
-  style,
   tooltipPlacement = "top",
+  containerClassName,
+  iconClassName,
 }: {
   expandLink: string;
-  pos?:
-    | "relative"
-    | "fixed"
-    | "absolute"
-    | "sticky"
-    | "static"
-    | "inherit"
-    | undefined;
-  t?: string;
-  b?: string;
-  l?: string;
-  r?: string;
-  className?: string;
+  containerClassName?: string;
+  iconClassName?: string;
   tooltipPlacement?: TooltipPlacement;
   style?: React.CSSProperties;
 }) {
@@ -36,13 +20,8 @@ export default function ExpandButton({
       <IconButton
         label="expand"
         icon={ExpandIcon}
-        pos={pos}
-        t={t}
-        b={b}
-        r={r}
-        l={l}
-        className={className}
-        style={style}
+        containerClassName={containerClassName}
+        iconClassName={iconClassName}
         tooltipPlacement={tooltipPlacement}
       />
     </NavLink>

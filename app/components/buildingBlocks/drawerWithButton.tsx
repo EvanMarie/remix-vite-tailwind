@@ -7,7 +7,6 @@ import Flex from "./flex";
 import IconButton from "./iconButton";
 import Portal from "./portal";
 import { CloseButton } from "./closeButton";
-import { defaultOverlayBlur, defaultOverlayColor } from "styles";
 import useEscapeKey from "~/utils/useEscapeKey";
 import { TooltipPlacement } from "./tooltip";
 import { ButtonType } from "./button";
@@ -55,8 +54,8 @@ export default function DrawerWithButton({
   drawerWidth = "w-[400px] ultraHD:w-[800px]",
   drawerBg = "bg-col-700",
   drawerHeight = "h-100vh",
-  overlayBlur = defaultOverlayBlur,
-  overlayColor = defaultOverlayColor,
+  overlayBlur = "defaultOverlayBlur",
+  overlayColor = "defaultOverlayColor",
   buttonTooltipPlacement = "bottomRight",
 
   ...props

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Transition from "./transition";
-import { shadowNarrowNormal, leading, lightTextShadow } from "styles";
 
 export type TooltipPlacement =
   | "top"
@@ -99,7 +98,7 @@ export default function Tooltip({
           >
             <Transition>
               <div
-                className={`text-[1.8vh] ${leading.smTight} lightTextShadow justify-center px-2 py-[0px] pt-[0.1vh] pb-[0px] z-30 ${w} ${bg} ${color} font-semibold shadowNarrowNormal whitespace-nowrap`}
+                className={`text-sm-tight lightTextShadow justify-center px-2 py-[0px] pt-[0.1vh] pb-[0px] z-30 ${w} ${bg} ${color} font-semibold shadowNarrowNormal whitespace-nowrap`}
               >
                 {label}
               </div>

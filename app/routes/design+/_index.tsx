@@ -9,7 +9,6 @@ import Text, {
 } from "~/components/buildingBlocks/textComponents";
 import VStackFull from "~/components/buildingBlocks/vStackFull";
 import Wrap from "~/components/buildingBlocks/wrap";
-import { StarFilledIcon, StarHollowIcon } from "styles";
 import {
   allColors,
   allColorsRGB,
@@ -39,6 +38,8 @@ import BorderExamples from "./components/borderExamples";
 import TransformBg from "./components/transformBgObject";
 import { textExamples } from "./components/textExamples";
 import { shadowsDarkBack, shadowsLightBack } from "./components/boxShadows";
+import { GoSmiley } from "react-icons/go";
+import { textShadows } from "./components/text";
 
 export function StyleExampleBox({
   className,
@@ -379,28 +380,28 @@ export default function Design() {
             <Button type="smallNegative" buttonText="Negative Small" />
             <Button type="unstyled" buttonText="Unstyled" />
             <Button type="smallUnstyled" buttonText="Unstyled Small" />
-            <Button buttonText="Normal Icon Left" iconLeft={StarHollowIcon} />
+            <Button buttonText="Normal Icon Left" iconLeft={GoSmiley} />
             <Button
               buttonText="Small Icon Right"
-              iconRight={StarHollowIcon}
+              iconRight={GoSmiley}
               type="smallNormal"
             />
             <Button
               buttonText="Negative Icon Left"
               type="negative"
-              iconLeft={StarHollowIcon}
+              iconLeft={GoSmiley}
             />
             <Button
               buttonText="Small Negative Icon Right"
               type="smallNegative"
-              iconRight={StarHollowIcon}
+              iconRight={GoSmiley}
             />
-            <IconButton icon={StarFilledIcon} />{" "}
-            <IconButton type="smallNormal" icon={StarFilledIcon} />
-            <IconButton type="negative" icon={StarFilledIcon} />
-            <IconButton type="smallNegative" icon={StarFilledIcon} />
-            <IconButton type="unstyled" icon={StarFilledIcon} />
-            <IconButton type="smallUnstyled" icon={StarFilledIcon} />
+            <IconButton icon={GoSmiley} />{" "}
+            <IconButton type="smallNormal" icon={GoSmiley} />
+            <IconButton type="negative" icon={GoSmiley} />
+            <IconButton type="smallNegative" icon={GoSmiley} />
+            <IconButton type="unstyled" icon={GoSmiley} />
+            <IconButton type="smallUnstyled" icon={GoSmiley} />
           </StyledExampleWrap>
         </VStackFull>
         <VStackFull>
@@ -473,6 +474,22 @@ export default function Design() {
                 className="bg-col-500 text-col-100 shadowNarrowNormal"
               >
                 <Text className={`${textExample} `}>{textExample}</Text>
+              </Box>
+            ))}
+          </StyledExampleWrap>
+
+          <SectionHeading id="text" heading="Text Shadow" />
+          <StyledExampleWrap>
+            {textShadows.map((shadow, index) => (
+              <Box
+                key={index}
+                className={
+                  shadow === "textFog"
+                    ? "text-col-100 bg-col-200 shadowNarrowNormal p-[1vh]"
+                    : "text-col-900 bg-col-200 shadowNarrowNormal p-[1vh]"
+                }
+              >
+                <Text className={`${shadow} `}>{shadow}</Text>
               </Box>
             ))}
           </StyledExampleWrap>

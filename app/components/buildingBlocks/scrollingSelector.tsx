@@ -1,4 +1,3 @@
-import { insetOverlay } from "styles";
 import Button from "./button";
 import FlexFull from "./flexFull";
 import Text, { HeadingMD } from "./textComponents";
@@ -45,7 +44,7 @@ export default function ScrollingSelector({
       <VStackFull className={`p-[2vh] pb-[1vh]`}>
         <HeadingMD>{heading}</HeadingMD>
         <FlexFull
-          className={`h-full max-h-full overflow-y-auto justify-center ${insetOverlay} ${border}`}
+          className={`h-full max-h-full overflow-y-auto justify-center insetOverlay ${border}`}
         >
           <VStackFull className={`h-fit px-[2vh] py-[1vh]`} gap="gap-[0.5vh]">
             {mapSelections.map((option) => (

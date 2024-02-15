@@ -5,6 +5,7 @@ interface HStackProps {
   gap?: string;
   className?: string;
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  onKeyDown?: (event: React.KeyboardEvent<HTMLDivElement>) => void;
   style?: React.CSSProperties;
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
@@ -18,6 +19,7 @@ const HStack = React.forwardRef<HTMLDivElement, HStackProps>(
     {
       children,
       onClick = () => ({}),
+      onKeyDown,
       gap = "gap-2",
       className = "",
       style = {},
@@ -30,8 +32,11 @@ const HStack = React.forwardRef<HTMLDivElement, HStackProps>(
   ) => {
     return (
       <div
+        role="button"
+        tabIndex={0}
         className={`flex flex-row ${gap} ${className}`}
         onClick={onClick}
+        onKeyDown={onKeyDown}
         ref={ref}
         style={style}
         onMouseEnter={onMouseEnter}

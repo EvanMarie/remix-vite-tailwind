@@ -1,5 +1,4 @@
 /* eslint-disable jsx-a11y/no-autofocus */
-import { textFog } from "styles";
 import Input from "./input";
 import { HeadingMD, HeadingSM } from "./textComponents";
 import VStack from "./vStack";
@@ -56,7 +55,7 @@ export default function InputVStack({
     >
       {labelSize === "small" ? (
         <HeadingSM
-          shadow={textFog}
+          shadow="textFog"
           cursive={labelIsCursive}
           color={labelColor}
           className={`${labelClassName}`}
@@ -66,7 +65,7 @@ export default function InputVStack({
       ) : (
         <>
           <HeadingMD
-            shadow={textFog}
+            shadow="textFog"
             color={labelColor}
             className={`hidden md:flex pb-[1vh] ${labelClassName}`}
             cursive={labelIsCursive}
@@ -74,7 +73,7 @@ export default function InputVStack({
             {label}
           </HeadingMD>
           <HeadingSM
-            shadow={textFog}
+            shadow="textFog"
             color={labelColor}
             className={`flex md:hidden ${labelClassName}`}
             cursive={labelIsCursive}

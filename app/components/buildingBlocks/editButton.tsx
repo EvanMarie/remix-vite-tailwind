@@ -1,40 +1,20 @@
 import IconButton from "./iconButton";
 import { useNavigate } from "@remix-run/react";
 import { EditIcon } from "styles";
+import { ButtonType } from "./button";
 
 export default function EditButton({
   editLink,
-  pos,
-  t,
-  b,
-  l,
-  r,
+  buttonType = "normal",
   className = "",
-  style,
   tooltipPlacement = "bottomLeft",
-  isMinimal,
-  isInteraction,
-  iconSize,
+  iconClassName,
   onClick,
 }: {
   editLink?: string;
-  pos?:
-    | "relative"
-    | "fixed"
-    | "absolute"
-    | "sticky"
-    | "static"
-    | "inherit"
-    | undefined;
-  t?: string;
-  b?: string;
-  l?: string;
-  r?: string;
   className?: string;
-  style?: React.CSSProperties;
-  isMinimal?: boolean;
-  isInteraction?: boolean;
-  iconSize?: string;
+  iconClassName: string;
+  buttonType?: ButtonType;
   onClick?: () => void;
   tooltipPlacement?:
     | "top"
@@ -50,19 +30,12 @@ export default function EditButton({
   return (
     <IconButton
       label="edit"
-      iconSize={iconSize}
+      iconClassName={iconClassName}
       icon={EditIcon}
-      pos={pos}
-      t={t}
-      b={b}
-      r={r}
-      l={l}
-      className={className}
-      style={style}
+      containerClassName={className}
       onClick={onClick ? onClick : () => navigate(editLink || "")}
       tooltipPlacement={tooltipPlacement}
-      isMinimal={isMinimal}
-      isInteraction={isInteraction}
+      type={buttonType}
     />
   );
 }

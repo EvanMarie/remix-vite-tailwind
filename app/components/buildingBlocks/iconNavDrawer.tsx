@@ -2,10 +2,9 @@
 import { motion, AnimatePresence } from "framer-motion";
 import React from "react";
 import VStack from "../buildingBlocks/vStack";
-import { IoIosClose } from "react-icons/io/index.js";
 import Box from "../buildingBlocks/box";
-import { shadow3D } from "styles";
-import useEscapeKey from "~/lib/useEscape";
+import useEscapeKey from "~/utils/useEscapeKey";
+import { CloseIcon } from "styles";
 
 interface IconDrawerProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
@@ -23,7 +22,6 @@ export default function IconDrawer({
   onClose,
   children,
   setDrawerOpen,
-  ...props
 }: IconDrawerProps) {
   // Animation variants for sliding in and out
   const variants = {
@@ -56,7 +54,6 @@ export default function IconDrawer({
             initial="closed"
             animate="open"
             exit="closed"
-            {...(props as any)}
           >
             <VStack
               className="w-full h-full justify-between relative bg-cyanBack border-l-3 border-col-900"
@@ -67,7 +64,7 @@ export default function IconDrawer({
                 onClick={() => setDrawerOpen(false)}
                 className="absolute top-1 right-1 border-2 border-col-175"
               >
-                <IoIosClose size="20px" />
+                <CloseIcon size="text-[2vh]" />
               </Box>
             </VStack>
           </motion.div>

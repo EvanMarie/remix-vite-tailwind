@@ -4,7 +4,6 @@ import React from "react";
 import VStack from "./vStack";
 import { CloseTextButton } from "./closeTextButton";
 import Flex from "./flex";
-import { defaultOverlayBlur, defaultOverlayColor } from "styles";
 import useEscapeKey from "~/utils/useEscapeKey";
 import Portal from "./portal";
 import { CloseButton } from "./closeButton";
@@ -37,8 +36,8 @@ export default function Drawer({
   drawerClassName = "",
   drawerBg = "bg-col-700",
   slideDirection = "right",
-  overlayBlur = defaultOverlayBlur,
-  overlayColor = defaultOverlayColor,
+  overlayBlur = "defaultOverlayBlur",
+  overlayColor = "defaultOverlayColor",
   children,
   setDrawerOpen,
   ...props

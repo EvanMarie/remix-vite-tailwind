@@ -4,9 +4,10 @@ import React from "react";
 import { CloseTextButton } from "./closeTextButton";
 import Flex from "./flex";
 import { CloseButton } from "./closeButton";
-import { defaultOverlayBlur, defaultOverlayColor } from "styles";
 import Portal from "./portal";
 import useEscapeKey from "~/utils/useEscapeKey";
+import Box from "./box";
+import { ButtonType } from "./button";
 
 interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
   modalContentClassName?: string;
@@ -32,8 +33,8 @@ interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
   topCloseButtonTop?: string;
   topCloseButtonRight?: string;
   topCloseButtonSize?: string;
-  topCloseButtonIsSmall?: boolean;
-  topCloseButtonIsUnstyled?: boolean;
+  topCloseButtonType?: ButtonType;
+  closeButtonType?: ButtonType;
 }
 
 export default function Modal({
@@ -50,16 +51,15 @@ export default function Modal({
   topCloseButtonRight = "right-[1vh]",
   topCloseButtonTop = "top-[1vh]",
   topCloseButtonSize = "text-[3.5vh]",
-  topCloseButtonIsSmall = false,
-  topCloseButtonIsUnstyled = false,
+  topCloseButtonType = "unstyled",
   contentBgOverlay = "",
   showBottomClose = true,
   maxWidth,
-  overlayBlur = defaultOverlayBlur,
+  overlayBlur = "defaultOverlayBlur",
   bottomPadding = "pb-[1vh]",
-  overlayColor = defaultOverlayColor,
+  overlayColor = "defaultOverlayColor",
   contentBg = "bg-cyanBack bg-darkVioletGrad`",
-  bottomCloseIsSmall = false,
+  closeButtonType = "smallNormal",
   footerBorder = "border-t-2 border-col-850",
   // overflow,
   ...props
@@ -117,15 +117,15 @@ export default function Modal({
                 }
               >
                 {showTopClose && (
-                  <CloseButton
-                    onClose={onClose}
-                    t={topCloseButtonTop}
-                    r={topCloseButtonRight}
-                    iconSize={topCloseButtonSize}
-                    buttonRadius="rounded-full"
-                    isSmall={topCloseButtonIsSmall}
-                    isUnstyled={topCloseButtonIsUnstyled}
-                  />
+                  <Box
+                    className={`${topCloseButtonRight} ${topCloseButtonTop}`}
+                  >
+                    <CloseButton
+                      onClose={onClose}
+                      iconClassName={topCloseButtonSize}
+                      type={topCloseButtonType}
+                    />
+                  </Box>
                 )}
 
                 {children}
@@ -134,10 +134,7 @@ export default function Modal({
                   <Flex
                     className={`fixed bottom-0 left-0 w-full h-[4vh] items-center rounded-t-none ${footerBorder} justify-center flex-shrink-0 absolute bottom-0 left-0 ${bottomPadding} ${modalFooterClassName}`}
                   >
-                    <CloseTextButton
-                      onClose={onClose}
-                      isSmall={bottomCloseIsSmall}
-                    />
+                    <CloseTextButton onClose={onClose} type={closeButtonType} />
                   </Flex>
                 )}
               </Flex>

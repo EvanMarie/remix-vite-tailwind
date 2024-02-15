@@ -7,8 +7,6 @@ import {
   ClockIcon,
   DateTimePickerLabelStyles,
   DateTimePickerStyles,
-  inputStyles,
-  insetShadow,
 } from "styles";
 import Text from "./textComponents";
 import HStackFull from "./hStackFull";
@@ -45,7 +43,7 @@ const ScrollableSelector = ({
       >
         {items.map((item) => (
           <Button
-            isUnstyled
+            type="unstyled"
             key={item}
             onClick={() => onSelect(item)}
             className={`${
@@ -53,9 +51,8 @@ const ScrollableSelector = ({
                 ? "bg-col-400 text-col-900"
                 : "hover:bg-col-200 hover:text-col-900"
             }`}
-          >
-            {item < 10 ? `0${item}` : item}
-          </Button>
+            buttonText={String(item < 10 ? `0${item}` : item)}
+          />
         ))}
       </VStackFull>
     </VStack>
@@ -87,7 +84,7 @@ const TimePicker = ({
       <Box className="relative">
         <Icon
           icon={ClockIcon}
-          className="absolute top-[0.8vh] right-[1.1vh] text-col-900 hover:cursor-pointer"
+          containerClassName="absolute top-[0.8vh] right-[1.1vh] text-col-900 hover:cursor-pointer"
           onClick={() => {
             setIsEditTime(!isEditTime);
             setIsEditDate(false);
@@ -99,7 +96,7 @@ const TimePicker = ({
           value={`${hour % 12 === 0 ? 12 : hour % 12}:${
             minute < 10 ? `0${minute}` : minute
           } ${isPM ? "PM" : "AM"}`}
-          className={`form-input ${inputStyles} font-semibold w-[18vh] lg:w-[25vh] cursor-pointer`}
+          className={`form-input inputStyles font-semibold w-[18vh] lg:w-[25vh] cursor-pointer`}
           onClick={() => {
             setIsEditTime(!isEditTime);
             setIsEditDate(false);
@@ -125,32 +122,29 @@ const TimePicker = ({
               <VStack className="w-20% pt-[4.5vh] pl-[1vh] h-[27vh] justify-between items-end">
                 <VStack className="pr-[1.5vh]">
                   <Button
-                    isUnstyled
+                    type="unstyled"
                     onClick={toggleAmPm}
                     className={`w-full px-[0.7vh] ${
                       isPM
                         ? "bg-col-400 text-col-900"
                         : "hover:bg-col-200 hover:text-col-900"
                     }`}
-                  >
-                    am
-                  </Button>
+                    buttonText="am"
+                  />
                   <Button
-                    isUnstyled
+                    type="unstyled"
                     onClick={toggleAmPm}
                     className={`w-full px-[0.7vh] ${
                       !isPM
                         ? "bg-col-400 text-col-900"
                         : "hover:bg-col-200 hover:text-col-900"
                     }`}
-                  >
-                    pm
-                  </Button>
+                    buttonText="pm"
+                  />
                 </VStack>
                 <CloseButton
-                  isSmall
+                  type="smallNormal"
                   onClose={() => setIsEditTime(false)}
-                  pos="inherit"
                 />
               </VStack>
             </HStackFull>
