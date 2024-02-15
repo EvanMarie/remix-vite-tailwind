@@ -47,7 +47,7 @@ const Calendar = ({ selectedDate, onSelect }: CalendarProps) => {
   const days = weekDays.map((day, index) => (
     <div
       key={index}
-      className="p-[0.1vh] text-center font-semibold text-col-500 w-[3vh] h-[2.5vh] flex-shrink-0 flex justify-center items-center"
+      className="p-[0.1vh] text-center font-semibold text-col-300 w-[3vh] h-[2.5vh] flex-shrink-0 flex justify-center items-center"
     >
       {day}
     </div>
@@ -72,10 +72,10 @@ const Calendar = ({ selectedDate, onSelect }: CalendarProps) => {
         <button
           key={day}
           disabled={isPast}
-          className={`py-[0.1vh] px-[0.3vh] w-full h-full text-center ${
+          className={`py-[0.1vh] px-[0.4vh] w-full h-full text-center flex justify-center  ${
             isPast
-              ? "text-col-120 hover:bg-transparent cursor-not-allowed"
-              : "hover:bg-col-200 hover:text-col-900"
+              ? "text-col-140 hover:bg-transparent cursor-not-allowed"
+              : "hover:bg-col-200 hover:text-col-900 hover:shadowNarrowNormal"
           }`}
           onClick={() => !isPast && onSelect(dayDate)}
         >
@@ -87,7 +87,7 @@ const Calendar = ({ selectedDate, onSelect }: CalendarProps) => {
 
   return (
     <div
-      className={`w-[24vh] grid grid-cols-7 gap-y-[0.7vh] gap-x-[1.5vh] px-[1.5vh] justify-center items-center  textShadow`}
+      className={`w-[24vh] grid grid-cols-7 gap-y-[0.7vh] gap-x-[1.5vh] px-[1.5vh] justify-center items-center textShadow`}
     >
       {days}
     </div>
@@ -185,9 +185,8 @@ export default function DatePicker({
                 buttonText="Today"
               />
               <Button
-                type="unstyled"
+                type="smallNormal"
                 onClick={() => setIsEditDate(false)}
-                className={`text-[1.6vh] leading-[1.6vh] h-[2.5vh] px-[0.2vh] bg-col-400 text-col-900 hover:bg-col-200 flex items-center shadowNarrowNormal lightTextShadow transition-400`}
                 iconLeft={CloseIcon}
                 buttonText="Close"
               />

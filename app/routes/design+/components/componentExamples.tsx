@@ -50,8 +50,8 @@ export default function ComponentExamples() {
   }
 
   return (
-    <Wrap className="w-full justify-around gap-[3vh] items-center">
-      <Wrap className="w-full items-center flex-shrink-0 justify-around">
+    <Flex className="w-full justify-around items-center">
+      <Wrap className="w-full items-center justify-around">
         <Button buttonText="Alert" onClick={openAlert} />
         <ComponentContainer headerText="Avatar">
           <Avatar src="/images/fallbackAvatar.png" size="xxl" />
@@ -73,12 +73,10 @@ export default function ComponentExamples() {
             <Checkbox label="Checked" isChecked />
           </VStack>
         </ComponentContainer>
-      </Wrap>
-      <Flex className="flex-shrink-0 w-fit">
         <ComponentContainer>
           <InputDateTime containerHeight="h-[38vh]" />
         </ComponentContainer>
-      </Flex>
+      </Wrap>
 
       {isAlertOpen && (
         <Alert
@@ -95,6 +93,6 @@ export default function ComponentExamples() {
           bodyTextSize="text-[2.5vh]"
         />
       )}
-    </Wrap>
+    </Flex>
   );
 }

@@ -38,21 +38,21 @@ const ScrollableSelector = ({
     <VStack className="w-35%" gap="gap-[0.5vh]">
       <Text className={`${DateTimePickerLabelStyles}`}>{label}</Text>
       <VStackFull
-        className={`overflow-auto h-[23vh] max-h-[25vh] items-start insetShadow bg-col-740`}
+        className={`overflow-auto h-[23vh] max-h-[25vh] py-[1vh] items-start insetShadowMd bg-col-740`}
         gap="gap-[0.7vh]"
       >
         {items.map((item) => (
-          <Button
-            type="unstyled"
+          <button
             key={item}
             onClick={() => onSelect(item)}
-            className={`${
+            className={` px-[0.4vh] ${
               item === selectedItem
-                ? "bg-col-400 text-col-900"
+                ? "bg-col-200 text-col-900 transition-300"
                 : "hover:bg-col-200 hover:text-col-900"
             }`}
-            buttonText={String(item < 10 ? `0${item}` : item)}
-          />
+          >
+            {String(item < 10 ? `0${item}` : item)}
+          </button>
         ))}
       </VStackFull>
     </VStack>
@@ -121,26 +121,26 @@ const TimePicker = ({
               />
               <VStack className="w-20% pt-[4.5vh] pl-[1vh] h-[27vh] justify-between items-end">
                 <VStack className="pr-[1.5vh]">
-                  <Button
-                    type="unstyled"
+                  <button
                     onClick={toggleAmPm}
                     className={`w-full px-[0.7vh] ${
                       isPM
-                        ? "bg-col-400 text-col-900"
-                        : "hover:bg-col-200 hover:text-col-900"
+                        ? "bg-transparent text-col-100 hover:bg-col-200 hover:text-col-900 transition-300"
+                        : "bg-col-200 text-col-900 hover:bg-col-200 hover:text-col-900"
                     }`}
-                    buttonText="am"
-                  />
-                  <Button
-                    type="unstyled"
+                  >
+                    am
+                  </button>
+                  <button
                     onClick={toggleAmPm}
-                    className={`w-full px-[0.7vh] ${
+                    className={`w-full px-[0.5vh] ${
                       !isPM
-                        ? "bg-col-400 text-col-900"
-                        : "hover:bg-col-200 hover:text-col-900"
+                        ? "bg-transparent text-col-100 hover:bg-col-200 hover:text-col-900 transition-300"
+                        : "bg-col-200 text-col-900 hover:bg-col-200 hover:text-col-900"
                     }`}
-                    buttonText="pm"
-                  />
+                  >
+                    pm
+                  </button>
                 </VStack>
                 <CloseButton
                   type="smallNormal"
