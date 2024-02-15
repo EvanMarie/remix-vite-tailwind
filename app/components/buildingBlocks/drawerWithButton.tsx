@@ -1,16 +1,12 @@
 // FramerMotionDrawer.tsx
 import { motion, AnimatePresence } from "framer-motion";
 import React, { useState } from "react";
-import VStack from "./vStack";
-import { CloseTextButton } from "./closeTextButton";
-import Flex from "./flex";
 import IconButton from "./iconButton";
 import Portal from "./portal";
-import { CloseButton } from "./closeButton";
 import useEscapeKey from "~/utils/useEscapeKey";
 import { TooltipPlacement } from "./tooltip";
 import { ButtonType } from "./button";
-import Box from "./box";
+import DrawerContent from "./drawerContent";
 
 interface DrawerProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
@@ -176,25 +172,14 @@ export default function DrawerWithButton({
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 {...(props as any)}
               >
-                <VStack
-                  className={`w-full h-full justify-between relative ${drawerBg} border-l-3 border-col-900`}
-                  gap="gap-0"
+                <DrawerContent
+                  showTopButton={showTopButton}
+                  showBottomButton={showBottomButton}
+                  setDrawerOpen={setDrawerOpen}
+                  drawerBg={drawerBg}
                 >
-                  <Flex className="w-full h-full relative">
-                    {showTopButton && (
-                      <Box className="absolute top-[1vh] right-[1vh]">
-                        <CloseButton onClose={() => setDrawerOpen(false)} />
-                      </Box>
-                    )}
-                    {showBottomButton && (
-                      <Flex className="w-full h-[6vh] bg-darkGrayBack rounded-t-none border-t-2 border-col-850 justify-center fixed bottom-0 left-0 items-center">
-                        <CloseTextButton onClose={() => setDrawerOpen(false)} />
-                      </Flex>
-                    )}
-
-                    <Flex className="w-full h-full pb-[6vh]">{children}</Flex>
-                  </Flex>
-                </VStack>
+                  {children}
+                </DrawerContent>
               </motion.div>
             </>
           )}

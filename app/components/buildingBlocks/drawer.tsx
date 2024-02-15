@@ -1,12 +1,9 @@
 // FramerMotionDrawer.tsx
 import { motion, AnimatePresence } from "framer-motion";
 import React from "react";
-import VStack from "./vStack";
-import { CloseTextButton } from "./closeTextButton";
-import Flex from "./flex";
 import useEscapeKey from "~/utils/useEscapeKey";
 import Portal from "./portal";
-import { CloseButton } from "./closeButton";
+import DrawerContent from "./drawerContent";
 
 interface DrawerProps extends React.HTMLAttributes<HTMLDivElement> {
   style?: React.CSSProperties;
@@ -37,7 +34,7 @@ export default function Drawer({
   drawerBg = "bg-col-700",
   slideDirection = "right",
   overlayBlur = "defaultOverlayBlur",
-  overlayColor = "defaultOverlayColor",
+  overlayColor = "defaultOverlay",
   children,
   setDrawerOpen,
   ...props
@@ -111,7 +108,7 @@ export default function Drawer({
         return "top-0 right-0";
     }
   };
-  const bottomPadding = showBottomButton ? "pb-[6vh]" : "pb-0";
+
   return (
     <Portal>
       <AnimatePresence>
@@ -144,25 +141,14 @@ export default function Drawer({
               // eslint-disable-next-line @typescript-eslint/no-explicit-any
               {...(props as any)}
             >
-              <VStack
-                className={`w-full h-full justify-between relative ${drawerBg} border-l-3 border-col-900`}
-                gap="gap-0"
+              <DrawerContent
+                showTopButton={showTopButton}
+                showBottomButton={showBottomButton}
+                setDrawerOpen={setDrawerOpen}
+                drawerBg={drawerBg}
               >
-                <Flex className="w-full h-full relative">
-                  {showTopButton && (
-                    <CloseButton onClose={() => setDrawerOpen(false)} />
-                  )}
-                  {showBottomButton && (
-                    <Flex className="w-full h-[6vh] bg-darkGrayBack rounded-t-none border-t-2 border-col-850 justify-center fixed bottom-0 left-0 items-center">
-                      <CloseTextButton onClose={() => setDrawerOpen(false)} />
-                    </Flex>
-                  )}
-
-                  <Flex className={`w-full h-full ${bottomPadding}`}>
-                    {children}
-                  </Flex>
-                </Flex>
-              </VStack>
+                {children}
+              </DrawerContent>
             </motion.div>
           </>
         )}

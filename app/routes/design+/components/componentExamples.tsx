@@ -1,5 +1,7 @@
 import { useRef, useState } from "react";
 import { BiMenu } from "react-icons/bi";
+import { ExpandIcon } from "styles";
+import { DrawerSlideDirection } from "types";
 import Alert from "~/components/buildingBlocks/alert";
 import { Avatar } from "~/components/buildingBlocks/avatar";
 import BackgroundImageContainer from "~/components/buildingBlocks/backgroundImageContainer";
@@ -14,6 +16,7 @@ import HStackFull from "~/components/buildingBlocks/hStackFull";
 import Input from "~/components/buildingBlocks/input";
 import InputDateTime from "~/components/buildingBlocks/inputDateTIme";
 import InputVStack from "~/components/buildingBlocks/inputVStack";
+import ModalWithButton from "~/components/buildingBlocks/modalWithButton";
 import Text from "~/components/buildingBlocks/text";
 import TextArea from "~/components/buildingBlocks/textArea";
 import TextAreaVStack from "~/components/buildingBlocks/textAreaVStack";
@@ -65,6 +68,17 @@ export default function ComponentExamples() {
     );
   }
 
+  const drawerTypes = [
+    "right",
+    "top-right",
+    "bottom-right",
+    "bottom-center",
+    "left",
+    "bottom-left",
+    "top-left",
+    "top-center",
+  ];
+
   return (
     <Flex className="w-full justify-around items-center">
       <Wrap className="w-full items-center justify-around gap-[3vh]">
@@ -94,66 +108,22 @@ export default function ComponentExamples() {
         </ComponentContainer>
         <ComponentContainer headerText="Drawer With Button">
           <VStackFull>
-            <HStackFull className="justify-between">
-              <Text>right</Text>
-              <DrawerWithButton icon={BiMenu} buttonType="smallNormal" />
-            </HStackFull>
-            <HStackFull className="justify-between">
-              <Text>top-right</Text>
-              <DrawerWithButton
-                icon={BiMenu}
-                slideDirection="top-right"
-                buttonType="smallNormal"
-              />
-            </HStackFull>
-            <HStackFull className="justify-between">
-              <Text>bottom-right</Text>
-              <DrawerWithButton
-                icon={BiMenu}
-                slideDirection="bottom-right"
-                buttonType="smallNormal"
-              />
-            </HStackFull>
-            <HStackFull className="justify-between">
-              <Text>top-center</Text>
-              <DrawerWithButton
-                icon={BiMenu}
-                slideDirection="top-center"
-                buttonType="smallNormal"
-              />
-            </HStackFull>
-            <HStackFull className="justify-between">
-              <Text>left</Text>
-              <DrawerWithButton
-                icon={BiMenu}
-                slideDirection="left"
-                buttonType="smallNormal"
-              />
-            </HStackFull>
-            <HStackFull className="justify-between">
-              <Text>top-left</Text>
-              <DrawerWithButton
-                icon={BiMenu}
-                slideDirection="top-left"
-                buttonType="smallNormal"
-              />
-            </HStackFull>
-            <HStackFull className="justify-between">
-              <Text>bottom-left</Text>
-              <DrawerWithButton
-                icon={BiMenu}
-                slideDirection="bottom-left"
-                buttonType="smallNormal"
-              />
-            </HStackFull>
-            <HStackFull className="justify-between">
-              <Text>bottom-center</Text>
-              <DrawerWithButton
-                icon={BiMenu}
-                slideDirection="bottom-center"
-                buttonType="smallNormal"
-              />
-            </HStackFull>
+            {drawerTypes.map((type) => (
+              <HStackFull key={type} className="justify-between">
+                <Text>{type}</Text>
+                <DrawerWithButton
+                  icon={BiMenu}
+                  buttonType="smallNormal"
+                  slideDirection={type as DrawerSlideDirection}
+                >
+                  <FlexFull className="h-full justify-center items-center">
+                    <Text className="text-xxl-loose text-col-100 textShadow">
+                      {type}
+                    </Text>
+                  </FlexFull>
+                </DrawerWithButton>
+              </HStackFull>
+            ))}
           </VStackFull>
         </ComponentContainer>
         <VStack gap="gap-[2vh]">
@@ -182,6 +152,17 @@ export default function ComponentExamples() {
             </Box>
           </ComponentContainer>
         </VStack>
+        <ComponentContainer headerText="Modal" className="w-[20vh] h-[10vh]">
+          <FlexFull className="justify-center">
+            <ModalWithButton icon={ExpandIcon}>
+              <FlexFull className="h-full bg-col-700 justify-center items-center rounded-b-none">
+                <Text className="text-mega-normal text-col-100 textShadow">
+                  This is a lovely Modal!
+                </Text>
+              </FlexFull>
+            </ModalWithButton>
+          </FlexFull>
+        </ComponentContainer>
       </Wrap>
 
       {isAlertOpen && (

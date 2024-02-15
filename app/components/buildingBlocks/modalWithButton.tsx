@@ -1,22 +1,23 @@
 // FramerMotionModal.tsx
 import { motion, AnimatePresence } from "framer-motion";
-import React, { useEffect, useState } from "react";
-import { CloseTextButton } from "./closeTextButton";
-import Flex from "./flex";
-import { CloseButton } from "./closeButton";
-import Box from "./box";
+import React, { useState } from "react";
 import Portal from "./portal";
 import IconButton from "./iconButton";
+import ModalContent from "./modalContent";
+import useEscapeKey from "~/utils/useEscapeKey";
 
 interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
-  maxWidth?: string;
+  modalSize?: string;
   icon: React.ComponentType;
   label?: string;
   overlayBlur?: string;
   overlayColor?: string;
+  showTopClose?: boolean;
+  showBottomClose?: boolean;
+  footerClassName?: string;
 }
 
 export default function ModalWithButton({
@@ -26,8 +27,11 @@ export default function ModalWithButton({
   label,
   children,
   overlayBlur = "defaultOverlayBlur",
-  overlayColor = "defaultOverlayColor",
-  maxWidth = "max-w-[1300px]",
+  overlayColor = "defaultOverlay",
+  modalSize = "w-full h-full lg:w-94% lg:h-94%",
+  showTopClose = true,
+  showBottomClose = true,
+  footerClassName,
 }: ModalProps) {
   const [isModalOpen, setModalOpen] = useState(false);
   // Animation variants for scaling in and out
@@ -44,22 +48,12 @@ export default function ModalWithButton({
     },
   };
 
-  // Handle escape key press
-  useEffect(() => {
-    const handleKeyPress = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setModalOpen(false);
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyPress);
-    return () => window.removeEventListener("keydown", handleKeyPress);
-  }, [setModalOpen]);
+  useEscapeKey(() => setModalOpen(false));
 
   return (
     <>
       {" "}
-      {Icon && label && (
+      {Icon && (
         <IconButton
           icon={Icon}
           label={label}
@@ -72,42 +66,30 @@ export default function ModalWithButton({
             <>
               {/* Overlay */}
               <motion.div
-                className={`fixed inset-0 w-screen h-screen ${overlayColor} ${overlayBlur} z-60`}
+                className={`fixed inset-0 w-screen h-screen ${overlayColor} ${overlayBlur}`}
                 onClick={() => setModalOpen(false)}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                style={{ maxHeight: "100svh" }}
+                style={{ maxHeight: "100svh", zIndex: 50 }}
               />
               {/* Modal */}
               <motion.div
-                className={`w-full h-full ${maxWidth} fixed inset-0 m-auto shadow3DMd  z-50 lg:w-94% lg:h-94% ${className}`}
+                className={`fixed inset-0 m-auto z-50 ${modalSize} ${className}`}
                 style={{ ...style, maxHeight: "100svh" }}
                 variants={variants}
                 initial="closed"
                 animate="open"
                 exit="closed"
               >
-                <Flex className="w-full h-full relative ">
-                  <CloseButton onClose={() => setModalOpen(false)} />
-
-                  <Flex className="w-full h-full justify-between bg-cyanBack border-l-3 border-col-900">
-                    <Flex className="h-full w-full flex-1 bg-cyanBack border-l-3 border-col-900 ">
-                      <Box className="w-full h-full pb-[50px] rounded-b-none">
-                        <Box
-                          className={`w-full h-full shadow3DMd textShadowrounded-b-none bg-darkVioletGrad border-b-970-md overflow-y-auto`}
-                        >
-                          <Flex className="w-full h-full flex-col items-center rounded-b-none gap-5">
-                            {children}
-                          </Flex>
-                        </Box>
-                      </Box>
-                    </Flex>
-                    <Flex className="w-full h-[50px] bg-darkGrayBack rounded-t-none border-t-2 border-col-850 justify-center flex-shrink-0 absolute bottom-0 left-0">
-                      <CloseTextButton onClose={() => setModalOpen(false)} />
-                    </Flex>
-                  </Flex>
-                </Flex>
+                <ModalContent
+                  setModalOpen={setModalOpen}
+                  showBottomClose={showBottomClose}
+                  showTopClose={showTopClose}
+                  footerClassName={footerClassName}
+                >
+                  {children}
+                </ModalContent>
               </motion.div>
             </>
           )}

@@ -59,3 +59,16 @@ export type TextShadows =
   | "textGlow"
   | "boldText"
   | "boldTextGlow";
+
+
+  export type DrawerSlideDirection =
+    | "right"
+    | "top-right"
+    | "bottom-right"
+    | "bottom-center"
+    | "left"
+    | "bottom-left"
+    | "top-left"
+    | "top-center"
+    | "bottom"
+    | "top";
