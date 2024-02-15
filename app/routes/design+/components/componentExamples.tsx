@@ -5,6 +5,8 @@ import BackgroundImageContainer from "~/components/buildingBlocks/backgroundImag
 import Badge from "~/components/buildingBlocks/badge";
 import Button from "~/components/buildingBlocks/button";
 import Checkbox from "~/components/buildingBlocks/checkBox";
+import Flex from "~/components/buildingBlocks/flex";
+import InputDateTime from "~/components/buildingBlocks/inputDateTIme";
 import Text from "~/components/buildingBlocks/textComponents";
 import VStack from "~/components/buildingBlocks/vStack";
 import Wrap from "~/components/buildingBlocks/wrap";
@@ -48,25 +50,35 @@ export default function ComponentExamples() {
   }
 
   return (
-    <Wrap className="w-full justify-around gap-y-[3vh] items-center">
-      <Button buttonText="Alert" onClick={openAlert} />
-      <ComponentContainer headerText="Avatar">
-        <Avatar src="/images/fallbackAvatar.png" size="xxl" />
-      </ComponentContainer>
-
-      <BackgroundImageContainer
-        w="w-[15vh]"
-        image="/images/fallbackAvatar.png"
-        containerClassName="shadowNarrowTight"
-      >
-        <Text className="font-bold text-col-100 textFog">Background Image</Text>
-      </BackgroundImageContainer>
-      <Badge label="Badge" />
-      <ComponentContainer headerText="Checkbox">
-        <Checkbox label="Checkbox" />
-        <Checkbox label="Disabled" isDisabled />
-        <Checkbox label="Checked" isChecked />
-      </ComponentContainer>
+    <Wrap className="w-full justify-around gap-[3vh] items-center">
+      <Wrap className="w-full items-center flex-shrink-0 justify-around">
+        <Button buttonText="Alert" onClick={openAlert} />
+        <ComponentContainer headerText="Avatar">
+          <Avatar src="/images/fallbackAvatar.png" size="xxl" />
+        </ComponentContainer>
+        <BackgroundImageContainer
+          w="w-[15vh]"
+          image="/images/fallbackAvatar.png"
+          containerClassName="shadowNarrowTight"
+        >
+          <Text className="font-bold text-col-100 textFog">
+            Background Image
+          </Text>
+        </BackgroundImageContainer>
+        <Badge label="Badge" />
+        <ComponentContainer>
+          <VStack>
+            <Checkbox label="Checkbox" />
+            <Checkbox label="Disabled" isDisabled />
+            <Checkbox label="Checked" isChecked />
+          </VStack>
+        </ComponentContainer>
+      </Wrap>
+      <Flex className="flex-shrink-0 w-fit">
+        <ComponentContainer>
+          <InputDateTime containerHeight="h-[38vh]" />
+        </ComponentContainer>
+      </Flex>
 
       {isAlertOpen && (
         <Alert
