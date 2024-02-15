@@ -1,4 +1,8 @@
 import type { ReactNode } from "react";
+import { TextLayout, TextShadows } from "types";
+
+const HeadingTextColor = "text-col-800";
+const HeadingShadow = "textShadow";
 
 interface TextProps {
   children?: ReactNode;
@@ -302,7 +306,7 @@ export function Heading3XL({
   className = "",
   noOfLines,
   cursive = true,
-  color = "text-col-500",
+  color = HeadingTextColor,
   shadow = "textShadow",
 }: ExtendedTextProps) {
   const style: React.CSSProperties = {};
@@ -316,8 +320,8 @@ export function Heading3XL({
   }
 
   const textClassName = cursive
-    ? `font-cursive text-[6.5vh] leading-[7.5vh] ${color} ${shadow} ${className}`
-    : `text-[6.5vh] leading-[7.5vh] ${color} ${shadow} ${className}`;
+    ? `font-cursive text-insane-normal ${color} ${shadow} ${className}`
+    : `text-insane-normal ${color} ${shadow} ${className}`;
 
   return (
     <h1 className={textClassName} style={style}>
@@ -331,8 +335,8 @@ export function Heading2XL({
   className = "",
   noOfLines,
   cursive = true,
-  color = "text-col-500",
-  shadow = "textShadow",
+  color = HeadingTextColor,
+  shadow = HeadingShadow,
 }: ExtendedTextProps) {
   const style: React.CSSProperties = {};
 
@@ -345,8 +349,8 @@ export function Heading2XL({
   }
 
   const textClassName = cursive
-    ? `font-cursive text-[5.5vh] leading-[6.3vh] ${color} ${shadow} ${className}`
-    : `text-[5.5vh] leading-[6.3vh] ${color} ${shadow} ${className}`;
+    ? `font-cursive text-too-big-normal ${color} ${shadow} ${className}`
+    : `text-too-big-normal ${color} ${shadow} ${className}`;
 
   return (
     <h1 className={textClassName} style={style}>
@@ -360,8 +364,8 @@ export function HeadingXL({
   className = "",
   noOfLines,
   cursive = true,
-  color = "text-col-500",
-  shadow = "textShadow",
+  color = HeadingTextColor,
+  shadow = HeadingShadow,
 }: ExtendedTextProps) {
   const style: React.CSSProperties = {};
 
@@ -374,8 +378,8 @@ export function HeadingXL({
   }
 
   const textClassName = cursive
-    ? `font-cursive text-[5vh] leading-[5.8vh] ${color} ${shadow} ${className}`
-    : `text-[5vh] leading-[5.8vh] ${color} ${shadow} ${className}`;
+    ? `font-cursive text-mega-normal${color} ${shadow} ${className}`
+    : `text-mega-normal ${color} ${shadow} ${className}`;
 
   return (
     <h1 className={textClassName} style={style}>
@@ -389,8 +393,8 @@ export function HeadingLG({
   className = "",
   noOfLines,
   cursive = true,
-  color = "text-col-500",
-  shadow = "textShadow",
+  color = HeadingTextColor,
+  shadow = HeadingShadow,
 }: ExtendedTextProps) {
   const style: React.CSSProperties = {};
 
@@ -418,8 +422,8 @@ export function HeadingMD({
   className = "",
   noOfLines,
   cursive = true,
-  color = "text-col-500",
-  shadow = "textShadow",
+  color = HeadingTextColor,
+  shadow = HeadingShadow,
   leading = "leading-[4.3vh]",
 }: ExtendedTextProps) {
   const style: React.CSSProperties = {};
@@ -448,8 +452,8 @@ export function HeadingSM({
   className = "",
   noOfLines,
   cursive = true,
-  color = "text-col-500",
-  shadow = "textShadow",
+  color = HeadingTextColor,
+  shadow = HeadingShadow,
 }: ExtendedTextProps) {
   const style: React.CSSProperties = {};
 
@@ -477,8 +481,8 @@ export function HeadingXS({
   className = "",
   noOfLines,
   cursive = true,
-  color = "text-col-500",
-  shadow = "textShadow",
+  color = HeadingTextColor,
+  shadow = HeadingShadow,
 }: ExtendedTextProps) {
   const style: React.CSSProperties = {};
 
@@ -497,6 +501,37 @@ export function HeadingXS({
   return (
     <h1 className={textClassName} style={style}>
       {children}
+    </h1>
+  );
+}
+
+interface TextProps {
+  text?: string;
+  noOfLines?: number;
+  shadow?: TextShadows;
+  layout?: TextLayout;
+}
+
+export function Heading({
+  text,
+  layout = "text-md-normal",
+  noOfLines = 1,
+  shadow = "textShadow",
+  className,
+}: TextProps) {
+  const style: React.CSSProperties = {};
+
+  if (noOfLines) {
+    style.overflow = "hidden";
+    style.textOverflow = "ellipsis";
+    style.display = "-webkit-box";
+    style.WebkitLineClamp = noOfLines;
+    style.WebkitBoxOrient = "vertical";
+  }
+
+  return (
+    <h1 className={`${layout} ${shadow} ${className}`} style={style}>
+      {text}
     </h1>
   );
 }

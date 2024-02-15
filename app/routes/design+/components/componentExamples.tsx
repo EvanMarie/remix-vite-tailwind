@@ -13,7 +13,9 @@ import FlexFull from "~/components/buildingBlocks/flexFull";
 import HStackFull from "~/components/buildingBlocks/hStackFull";
 import Input from "~/components/buildingBlocks/input";
 import InputDateTime from "~/components/buildingBlocks/inputDateTIme";
+import InputVStack from "~/components/buildingBlocks/inputVStack";
 import TextArea from "~/components/buildingBlocks/textArea";
+import TextAreaVStack from "~/components/buildingBlocks/textAreaVStack";
 import Text from "~/components/buildingBlocks/textComponents";
 import VStack from "~/components/buildingBlocks/vStack";
 import VStackFull from "~/components/buildingBlocks/vStackFull";
@@ -154,7 +156,7 @@ export default function ComponentExamples() {
             </HStackFull>
           </VStackFull>
         </ComponentContainer>
-        <VStackFull gap="gap-[2vh]">
+        <VStack gap="gap-[2vh]">
           {" "}
           <ComponentContainer headerText="Input">
             <Box className="w-[25vh]">
@@ -166,7 +168,20 @@ export default function ComponentExamples() {
               <TextArea />
             </Box>
           </ComponentContainer>
-        </VStackFull>
+        </VStack>
+        <VStack gap="gap-[2vh]">
+          {" "}
+          <ComponentContainer headerText="InputVStack">
+            <Box className="w-[25vh]">
+              <InputVStack label="Input Label" />
+            </Box>
+          </ComponentContainer>
+          <ComponentContainer headerText="TextAreaVStack">
+            <Box className="w-[25vh]">
+              <TextAreaVStack label="Text Area Label" />
+            </Box>
+          </ComponentContainer>
+        </VStack>
       </Wrap>
 
       {isAlertOpen && (

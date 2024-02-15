@@ -3,10 +3,7 @@ import { NavLink } from "@remix-run/react";
 import Button from "~/components/buildingBlocks/button";
 import Flex from "~/components/buildingBlocks/flex";
 import FlexFull from "~/components/buildingBlocks/flexFull";
-import Text, {
-  HeadingMD,
-  HeadingXL,
-} from "~/components/buildingBlocks/textComponents";
+import Text from "~/components/buildingBlocks/textComponents";
 import VStackFull from "~/components/buildingBlocks/vStackFull";
 import Wrap from "~/components/buildingBlocks/wrap";
 import {
@@ -42,6 +39,7 @@ import { GoSmiley } from "react-icons/go";
 import { textShadows } from "./components/text";
 import ComponentExamples from "./components/componentExamples";
 import { textStrokeDarkBg, textStrokeLightBg } from "./components/textStroke";
+import Heading from "~/components/buildingBlocks/newTextComponents";
 
 export function StyleExampleBox({
   className,
@@ -114,12 +112,12 @@ export default function Design() {
           This
         </div>
         <Flex className="w-full justify-center pt-[2vh] pb-[1vh]">
-          <HeadingXL
-            color="text-col-700 text-stroke-13-col700"
+          <Heading
+            color="text-col-800 text-stroke-4-col900"
             shadow="textGlow"
-          >
-            {heading}
-          </HeadingXL>
+            text={heading}
+            layout="text-too-big-normal"
+          />
         </Flex>
       </>
     );
@@ -259,9 +257,14 @@ export default function Design() {
             id="complexbackgrounds"
             heading="Complex Backgrounds"
           />
-          <HeadingMD cursive={false} color="text-col-100">
-            col100Bgs
-          </HeadingMD>
+          <Heading
+            isCursive={false}
+            color="text-col-900"
+            shadow="lightTextShadow"
+            layout="text-lg-normal"
+            text="col100Bgs"
+          />
+
           <StyledExampleWrap>
             {Object.values(col100Bgs).map(
               (background: string, index: number) => (
@@ -272,9 +275,14 @@ export default function Design() {
               )
             )}
           </StyledExampleWrap>
-          <HeadingMD cursive={false} color="text-col-100">
-            col200Bgs
-          </HeadingMD>
+          <Heading
+            isCursive={false}
+            color="text-col-900"
+            shadow="lightTextShadow"
+            layout="text-lg-normal"
+            text="col200Bgs"
+          />
+
           <StyledExampleWrap>
             {Object.values(col200Bgs).map(
               (background: string, index: number) => (
@@ -285,9 +293,14 @@ export default function Design() {
               )
             )}
           </StyledExampleWrap>
-          <HeadingMD cursive={false} color="text-col-100">
-            col300Bgs
-          </HeadingMD>
+          <Heading
+            isCursive={false}
+            color="text-col-900"
+            shadow="lightTextShadow"
+            layout="text-lg-normal"
+            text="col300Bgs"
+          />
+
           <StyledExampleWrap>
             {Object.values(col300Bgs).map(
               (background: string, index: number) => (
@@ -298,9 +311,14 @@ export default function Design() {
               )
             )}
           </StyledExampleWrap>
-          <HeadingMD cursive={false} color="text-col-100">
-            col400Bgs
-          </HeadingMD>
+          <Heading
+            isCursive={false}
+            color="text-col-900"
+            shadow="lightTextShadow"
+            layout="text-lg-normal"
+            text="col400Bgs"
+          />
+
           <StyledExampleWrap>
             {Object.values(col100Bgs).map(
               (background: string, index: number) => (
@@ -310,8 +328,14 @@ export default function Design() {
               )
             )}
           </StyledExampleWrap>
-          <HeadingMD cursive={false} color="text-col-100" />
-          col400Bgs
+          <Heading
+            isCursive={false}
+            color="text-col-900"
+            shadow="lightTextShadow"
+            layout="text-lg-normal"
+            text="col400Bgs"
+          />
+
           <StyledExampleWrap>
             {Object.values(col400Bgs).map(
               (background: string, index: number) => (
@@ -321,9 +345,14 @@ export default function Design() {
               )
             )}
           </StyledExampleWrap>
-          <HeadingMD cursive={false} color="text-col-100">
-            col500Bgs
-          </HeadingMD>
+          <Heading
+            isCursive={false}
+            color="text-col-900"
+            shadow="lightTextShadow"
+            layout="text-lg-normal"
+            text="col500Bgs"
+          />
+
           <StyledExampleWrap>
             {Object.values(col500Bgs).map(
               (background: string, index: number) => (
@@ -333,9 +362,14 @@ export default function Design() {
               )
             )}
           </StyledExampleWrap>
-          <HeadingMD cursive={false} color="text-col-100">
-            col600Bgs
-          </HeadingMD>
+          <Heading
+            isCursive={false}
+            color="text-col-900"
+            shadow="lightTextShadow"
+            layout="text-lg-normal"
+            text="col600Bgs"
+          />
+
           <StyledExampleWrap>
             {Object.values(col600Bgs).map(
               (background: string, index: number) => (
@@ -345,9 +379,14 @@ export default function Design() {
               )
             )}
           </StyledExampleWrap>
-          <HeadingMD cursive={false} color="text-col-100">
-            col700Bgs
-          </HeadingMD>
+          <Heading
+            isCursive={false}
+            color="text-col-900"
+            shadow="lightTextShadow"
+            layout="text-lg-normal"
+            text="col700Bgs"
+          />
+
           <StyledExampleWrap bg="bg-col-500">
             {Object.values(col700Bgs).map(
               (background: string, index: number) => (
@@ -357,9 +396,14 @@ export default function Design() {
               )
             )}
           </StyledExampleWrap>
-          <HeadingMD cursive={false} color="text-col-100">
-            col800Bgs
-          </HeadingMD>
+          <Heading
+            isCursive={false}
+            color="text-col-900"
+            shadow="lightTextShadow"
+            layout="text-lg-normal"
+            text="col800Bgs"
+          />
+
           <StyledExampleWrap>
             {Object.values(col800Bgs).map(
               (background: string, index: number) => (
@@ -369,9 +413,14 @@ export default function Design() {
               )
             )}
           </StyledExampleWrap>
-          <HeadingMD cursive={false} color="text-col-100">
-            col900Bgs
-          </HeadingMD>
+          <Heading
+            isCursive={false}
+            color="text-col-900"
+            shadow="lightTextShadow"
+            layout="text-lg-normal"
+            text="col900Bgs"
+          />
+
           <StyledExampleWrap>
             {Object.values(col900Bgs).map(
               (background: string, index: number) => (

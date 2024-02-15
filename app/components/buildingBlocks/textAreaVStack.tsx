@@ -1,7 +1,8 @@
 import React from "react";
-import { HeadingMD, HeadingSM } from "./textComponents";
 import TextArea from "./textArea";
 import VStack from "./vStack";
+import Heading from "./newTextComponents";
+import Box from "./box";
 
 // Update the onChange type to be more generic
 interface TextAreaVStackProps {
@@ -48,35 +49,36 @@ export default function TextAreaVStack({
       className={`w-full ${className}`}
       align="start"
       style={style}
-      gap="gap-[0.1vh]"
+      gap="gap-[0px]"
     >
       {labelSize === "small" ? (
-        <HeadingSM
-          shadow="textFog"
-          cursive={labelIsCursive}
+        <Heading
+          isCursive={labelIsCursive}
           color={labelColor}
           className={`${labelClassName}`}
-        >
-          {label}
-        </HeadingSM>
+          layout="text-md-normal"
+          text={label}
+        />
       ) : (
         <>
-          <HeadingMD
-            shadow="textFog"
-            color={labelColor}
-            className={`hidden md:flex pb-[1vh] ${labelClassName}`}
-            cursive={labelIsCursive}
-          >
-            {label}
-          </HeadingMD>
-          <HeadingSM
-            shadow="textFog"
-            color={labelColor}
-            className={`flex md:hidden ${labelClassName}`}
-            cursive={labelIsCursive}
-          >
-            {label}
-          </HeadingSM>
+          <Box className="hidden md:flex w-full">
+            <Heading
+              isCursive={labelIsCursive}
+              color={labelColor}
+              className={`${labelClassName}`}
+              layout="text-lg-tight"
+              text={label}
+            />
+          </Box>
+          <Box className="flex md:hidden w-full">
+            <Heading
+              isCursive={labelIsCursive}
+              color={labelColor}
+              className={` ${labelClassName}`}
+              layout="text-md-tight"
+              text={label}
+            />
+          </Box>
         </>
       )}
 

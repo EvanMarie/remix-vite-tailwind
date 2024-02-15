@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/no-autofocus */
+import Box from "./box";
 import Input from "./input";
-import { HeadingMD, HeadingSM } from "./textComponents";
+import Heading from "./newTextComponents";
 import VStack from "./vStack";
 import ValidatedInput from "./validatedInput";
 
@@ -51,35 +52,36 @@ export default function InputVStack({
       className={` leading-1rem w-full ${className}`}
       align="start"
       style={style}
-      gap="gap-[0.1vh]"
+      gap="gap-[0px]"
     >
       {labelSize === "small" ? (
-        <HeadingSM
-          shadow="textFog"
-          cursive={labelIsCursive}
+        <Heading
+          isCursive={labelIsCursive}
           color={labelColor}
           className={`${labelClassName}`}
-        >
-          {label}
-        </HeadingSM>
+          layout="text-md-normal"
+          text={label}
+        />
       ) : (
         <>
-          <HeadingMD
-            shadow="textFog"
-            color={labelColor}
-            className={`hidden md:flex pb-[1vh] ${labelClassName}`}
-            cursive={labelIsCursive}
-          >
-            {label}
-          </HeadingMD>
-          <HeadingSM
-            shadow="textFog"
-            color={labelColor}
-            className={`flex md:hidden ${labelClassName}`}
-            cursive={labelIsCursive}
-          >
-            {label}
-          </HeadingSM>
+          <Box className="hidden md:flex w-full">
+            <Heading
+              isCursive={labelIsCursive}
+              color={labelColor}
+              className={`${labelClassName}`}
+              layout="text-lg-tight"
+              text={label}
+            />
+          </Box>
+          <Box className="flex md:hidden w-full">
+            <Heading
+              isCursive={labelIsCursive}
+              color={labelColor}
+              className={` ${labelClassName}`}
+              layout="text-md-tight"
+              text={label}
+            />
+          </Box>
         </>
       )}
 
