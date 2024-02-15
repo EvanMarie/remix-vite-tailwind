@@ -40,6 +40,7 @@ import { textExamples } from "./components/textExamples";
 import { shadowsDarkBack, shadowsLightBack } from "./components/boxShadows";
 import { GoSmiley } from "react-icons/go";
 import { textShadows } from "./components/text";
+import ComponentExamples from "./components/componentExamples";
 
 export function StyleExampleBox({
   className,
@@ -108,7 +109,7 @@ export default function Design() {
   function SectionHeading({ id, heading }: { id: string; heading: string }) {
     return (
       <>
-        <div id={id} className="h-[5.5vh] text-transparent">
+        <div id={id} className="h-[5.5vh] xl:h-[3.5vh] text-transparent">
           This
         </div>
         <Flex className="w-full justify-center pt-[2vh] pb-[1vh]">
@@ -131,10 +132,11 @@ export default function Design() {
           <NavLink to="#shadow">Shadows</NavLink>
           <NavLink to="#borders">Borders</NavLink>
           <NavLink to="#text">Text</NavLink>
+          <NavLink to="#components">Components</NavLink>
         </Wrap>
       </FlexFull>
       <VStackFull
-        className="h-fit px-[2vh] pt-[5.5vh] pb-[2vh]"
+        className="h-fit px-[2vh] pt-[5.5vh] xl:pt-[3.5vh] pb-[2vh]"
         gap="gap-[2vh]"
       >
         <VStackFull gap="gap-[1vh]">
@@ -147,7 +149,6 @@ export default function Design() {
               </TestBox>
             ))}
           </StyledExampleWrap>
-
           <StyledExampleWrap>
             {colors100.map((color: string, index: number) => (
               <TestBox key={index} bg={color}>
@@ -492,6 +493,11 @@ export default function Design() {
                 <Text className={`${shadow} `}>{shadow}</Text>
               </Box>
             ))}
+          </StyledExampleWrap>
+
+          <SectionHeading id="components" heading="Components" />
+          <StyledExampleWrap>
+            <ComponentExamples />
           </StyledExampleWrap>
         </VStackFull>
       </VStackFull>
