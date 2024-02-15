@@ -59,7 +59,7 @@ export default function ComponentExamples() {
         image="/images/fallbackAvatar.png"
         containerClassName="shadowNarrowTight"
       >
-        <Text className="font-bold textGlow">Background Image</Text>
+        <Text className="font-bold text-col-100 textFog">Background Image</Text>
       </BackgroundImageContainer>
       <Badge label="Badge" />
       <ComponentContainer headerText="Checkbox">

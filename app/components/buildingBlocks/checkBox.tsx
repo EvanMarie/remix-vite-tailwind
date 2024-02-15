@@ -34,7 +34,7 @@ export default function Checkbox({
   textSize = "text-[1.7vh]",
   textColor = "text-col-100",
   bgColor = "transparent",
-  checkedBg = "bg-col-475",
+  checkedBg = "bg-col-100",
   checkedColor = "text-col-900",
   hoveredBg = `hover:cursor-pointer ${
     isChecked ? "checkedBg" : "hover:bg-transparent"
@@ -42,7 +42,7 @@ export default function Checkbox({
   hoveredColor = "hover:text-col-400 transition duration-300 ease-in-out",
   disabledBg = "bg-col-825 hovered:bg-col-825",
   disabledColor = "text-col-125 hovered:text-col-125",
-  p = "px-[0.2vh] py-[0px]",
+  p = "pl-[pr-[0.2vh] py-[0px]",
   className = "",
   containerWidth = "w-full",
   onDisabledClick,
