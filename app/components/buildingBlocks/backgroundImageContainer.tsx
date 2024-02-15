@@ -25,7 +25,7 @@ interface BackgroundImageProps {
   p?: string;
 }
 
-export default function BackgroundImage({
+export default function BackgroundImageContainer({
   image,
   containerClassName = "",
   imageClassName = "",
@@ -38,9 +38,9 @@ export default function BackgroundImage({
   innerContainerStyles = "",
   shadow = "shadowNarrowNormal",
   showOverlay = true,
-  bgOverlayColor = "bg-col-990",
+  bgOverlayColor = "bg-col-920",
   bgOverlayGradient = "bg-darkenPurpleGrad",
-  overlayBlur = "backdrop-blur-[6px]",
+  overlayBlur = "backdrop-blur-[2px]",
   overlayStyles,
   children,
   rounded,

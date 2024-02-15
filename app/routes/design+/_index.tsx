@@ -482,7 +482,7 @@ export default function Design() {
             {textExamples.map((textExample, index) => (
               <Box
                 key={index}
-                className="bg-col-500 h-fit text-col-100 shadowNarrowNormal"
+                className="bg-col-500 h-fit text-col-100 shadowNarrowNormal px-[1vh]"
               >
                 <Text className={`${textExample} `}>{textExample}</Text>
               </Box>

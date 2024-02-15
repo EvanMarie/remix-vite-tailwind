@@ -17,8 +17,8 @@ export default function Badge({
   style,
   rounded = "md",
   label,
-  bgColor = "bg-col-400",
-  textColor = "text-col-900",
+  bgColor = "bg-col-300",
+  textColor = "text-col-900 lightTextShadow",
   ...props
 }: BadgeProps) {
   const baseClasses = `px-[1vh] py-[0.1vh] text-xs-tight font-semibold`;

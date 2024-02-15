@@ -1,7 +1,13 @@
 import { useRef, useState } from "react";
 import Alert from "~/components/buildingBlocks/alert";
 import { Avatar } from "~/components/buildingBlocks/avatar";
+import BackgroundImageContainer from "~/components/buildingBlocks/backgroundImageContainer";
+import Badge from "~/components/buildingBlocks/badge";
 import Button from "~/components/buildingBlocks/button";
+import Checkbox from "~/components/buildingBlocks/checkBox";
+import Text from "~/components/buildingBlocks/textComponents";
+import VStack from "~/components/buildingBlocks/vStack";
+import Wrap from "~/components/buildingBlocks/wrap";
 
 export default function ComponentExamples() {
   const onConfirm = () => {
@@ -18,10 +24,49 @@ export default function ComponentExamples() {
   const closeAlert = () => {
     setIsAlertOpen(false);
   };
+
+  function ComponentContainer({
+    children,
+    className,
+    bg = "bg-col-200",
+    headerText,
+  }: {
+    children?: React.ReactNode;
+    className?: string;
+    bg?: string;
+    headerText?: string;
+  }) {
+    return (
+      <VStack
+        gap="gap-[0px]"
+        className={`p-[1vh] h-fit ${bg} shadowNarrowTight ${className}`}
+      >
+        <Text>{headerText}</Text>
+        {children}
+      </VStack>
+    );
+  }
+
   return (
-    <>
+    <Wrap className="w-full justify-around gap-y-[3vh] items-center">
       <Button buttonText="Alert" onClick={openAlert} />
-      <Avatar src="/fallbackImage.png" size="xl" />
+      <ComponentContainer headerText="Avatar">
+        <Avatar src="/images/fallbackAvatar.png" size="xxl" />
+      </ComponentContainer>
+
+      <BackgroundImageContainer
+        w="w-[15vh]"
+        image="/images/fallbackAvatar.png"
+        containerClassName="shadowNarrowTight"
+      >
+        <Text className="font-bold textGlow">Background Image</Text>
+      </BackgroundImageContainer>
+      <Badge label="Badge" />
+      <ComponentContainer headerText="Checkbox">
+        <Checkbox label="Checkbox" />
+        <Checkbox label="Disabled" isDisabled />
+        <Checkbox label="Checked" isChecked />
+      </ComponentContainer>
 
       {isAlertOpen && (
         <Alert
@@ -38,6 +83,6 @@ export default function ComponentExamples() {
           bodyTextSize="text-[2.5vh]"
         />
       )}
-    </>
+    </Wrap>
   );
 }
