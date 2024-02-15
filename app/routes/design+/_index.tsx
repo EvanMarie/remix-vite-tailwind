@@ -41,6 +41,7 @@ import { shadowsDarkBack, shadowsLightBack } from "./components/boxShadows";
 import { GoSmiley } from "react-icons/go";
 import { textShadows } from "./components/text";
 import ComponentExamples from "./components/componentExamples";
+import { textStrokeDarkBg, textStrokeLightBg } from "./components/textStroke";
 
 export function StyleExampleBox({
   className,
@@ -113,7 +114,12 @@ export default function Design() {
           This
         </div>
         <Flex className="w-full justify-center pt-[2vh] pb-[1vh]">
-          <HeadingXL>{heading}</HeadingXL>
+          <HeadingXL
+            color="text-col-700 text-stroke-13-col700"
+            shadow="textGlow"
+          >
+            {heading}
+          </HeadingXL>
         </Flex>
       </>
     );
@@ -472,14 +478,14 @@ export default function Design() {
             {textExamples.map((textExample, index) => (
               <Box
                 key={index}
-                className="bg-col-500 text-col-100 shadowNarrowNormal"
+                className="bg-col-500 h-fit text-col-100 shadowNarrowNormal"
               >
                 <Text className={`${textExample} `}>{textExample}</Text>
               </Box>
             ))}
           </StyledExampleWrap>
 
-          <SectionHeading id="text" heading="Text Shadow" />
+          <SectionHeading id="" heading="Text Shadow" />
           <StyledExampleWrap>
             {textShadows.map((shadow, index) => (
               <Box
@@ -491,6 +497,26 @@ export default function Design() {
                 }
               >
                 <Text className={`${shadow} `}>{shadow}</Text>
+              </Box>
+            ))}
+          </StyledExampleWrap>
+          <SectionHeading id="" heading="Text Stroke" />
+          <StyledExampleWrap>
+            {textStrokeDarkBg.map((combo, index) => (
+              <Box key={index} className="font-bold">
+                <Text className={`${combo} text-xxl-normal text-col-700`}>
+                  {combo}
+                </Text>
+              </Box>
+            ))}
+          </StyledExampleWrap>
+
+          <StyledExampleWrap bg="bg-col-300">
+            {textStrokeLightBg.map((combo, index) => (
+              <Box key={index} className="font-bold">
+                <Text className={`${combo} text-xxl-normal text-col-300`}>
+                  {combo}
+                </Text>
               </Box>
             ))}
           </StyledExampleWrap>
