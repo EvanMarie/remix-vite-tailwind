@@ -1,14 +1,19 @@
 import { useRef, useState } from "react";
+import { BiMenu } from "react-icons/bi";
 import Alert from "~/components/buildingBlocks/alert";
 import { Avatar } from "~/components/buildingBlocks/avatar";
 import BackgroundImageContainer from "~/components/buildingBlocks/backgroundImageContainer";
 import Badge from "~/components/buildingBlocks/badge";
 import Button from "~/components/buildingBlocks/button";
 import Checkbox from "~/components/buildingBlocks/checkBox";
+import DrawerWithButton from "~/components/buildingBlocks/drawerWithButton";
 import Flex from "~/components/buildingBlocks/flex";
+import FlexFull from "~/components/buildingBlocks/flexFull";
+import HStackFull from "~/components/buildingBlocks/hStackFull";
 import InputDateTime from "~/components/buildingBlocks/inputDateTIme";
 import Text from "~/components/buildingBlocks/textComponents";
 import VStack from "~/components/buildingBlocks/vStack";
+import VStackFull from "~/components/buildingBlocks/vStackFull";
 import Wrap from "~/components/buildingBlocks/wrap";
 
 export default function ComponentExamples() {
@@ -41,17 +46,23 @@ export default function ComponentExamples() {
     return (
       <VStack
         gap="gap-[0px]"
-        className={`p-[1vh] h-fit ${bg} shadowNarrowTight ${className}`}
+        className={`h-fit ${bg} shadowNarrowLoose ${className}`}
       >
-        <Text>{headerText}</Text>
-        {children}
+        {headerText && (
+          <FlexFull className="px-[1vh] py-[0.5vh] bg-col-970 rounded-b-none">
+            <Text className="font-semibold text-col-100 textShadow">
+              {headerText}
+            </Text>
+          </FlexFull>
+        )}
+        <FlexFull className="px-[1vh] py-[0.5vh] ">{children}</FlexFull>
       </VStack>
     );
   }
 
   return (
     <Flex className="w-full justify-around items-center">
-      <Wrap className="w-full items-center justify-around">
+      <Wrap className="w-full items-center justify-around gap-[3vh]">
         <Button buttonText="Alert" onClick={openAlert} />
         <ComponentContainer headerText="Avatar">
           <Avatar src="/images/fallbackAvatar.png" size="xxl" />
@@ -73,8 +84,72 @@ export default function ComponentExamples() {
             <Checkbox label="Checked" isChecked />
           </VStack>
         </ComponentContainer>
-        <ComponentContainer>
+        <ComponentContainer headerText="Date Time Picker">
           <InputDateTime containerHeight="h-[38vh]" />
+        </ComponentContainer>
+        <ComponentContainer headerText="Drawer With Button">
+          <VStackFull>
+            <HStackFull className="justify-between">
+              <Text>right</Text>
+              <DrawerWithButton icon={BiMenu} buttonType="smallNormal" />
+            </HStackFull>
+            <HStackFull className="justify-between">
+              <Text>top-right</Text>
+              <DrawerWithButton
+                icon={BiMenu}
+                slideDirection="top-right"
+                buttonType="smallNormal"
+              />
+            </HStackFull>
+            <HStackFull className="justify-between">
+              <Text>bottom-right</Text>
+              <DrawerWithButton
+                icon={BiMenu}
+                slideDirection="bottom-right"
+                buttonType="smallNormal"
+              />
+            </HStackFull>
+            <HStackFull className="justify-between">
+              <Text>top-center</Text>
+              <DrawerWithButton
+                icon={BiMenu}
+                slideDirection="top-center"
+                buttonType="smallNormal"
+              />
+            </HStackFull>
+            <HStackFull className="justify-between">
+              <Text>left</Text>
+              <DrawerWithButton
+                icon={BiMenu}
+                slideDirection="left"
+                buttonType="smallNormal"
+              />
+            </HStackFull>
+            <HStackFull className="justify-between">
+              <Text>top-left</Text>
+              <DrawerWithButton
+                icon={BiMenu}
+                slideDirection="top-left"
+                buttonType="smallNormal"
+              />
+            </HStackFull>
+            <HStackFull className="justify-between">
+              <Text>bottom-left</Text>
+              <DrawerWithButton
+                icon={BiMenu}
+                slideDirection="bottom-left"
+                buttonType="smallNormal"
+              />
+            </HStackFull>
+            <HStackFull className="justify-between">
+              <Text>bottom-center</Text>
+              <DrawerWithButton
+                icon={BiMenu}
+                slideDirection="bottom-center"
+                buttonType="smallNormal"
+              />
+            </HStackFull>
+          </VStackFull>
         </ComponentContainer>
       </Wrap>
 

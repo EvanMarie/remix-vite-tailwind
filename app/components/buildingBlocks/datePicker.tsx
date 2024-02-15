@@ -135,6 +135,7 @@ export default function DatePicker({
   };
 
   useEscapeKey(() => setIsEditDate(false));
+  const zIndex = isEditDate ? "z-20" : "z-0";
   return (
     <div className="relative">
       <Box className="relative">
@@ -160,7 +161,7 @@ export default function DatePicker({
       </Box>
       {isEditDate && (
         <Transition>
-          <VStack className={`${DateTimePickerStyles} left-0`}>
+          <VStack className={`${DateTimePickerStyles} left-0 ${zIndex}`}>
             <FlexFull className="justify-between mb-[0.5vh] items-center">
               <IconButton
                 type="smallNormal"

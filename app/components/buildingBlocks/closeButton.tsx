@@ -6,7 +6,7 @@ export function CloseButton({
   onClose,
   className,
   iconClassName = "text-[2.5vh]",
-  type = "unstyled",
+  type = "smallNormal",
 }: {
   onClose: () => void;
   className?: string;

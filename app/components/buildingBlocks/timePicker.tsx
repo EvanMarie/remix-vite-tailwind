@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import Box from "~/components/buildingBlocks/box";
 import Icon from "~/components/buildingBlocks/icon";
 import VStack from "~/components/buildingBlocks/vStack";
-import Button from "~/components/buildingBlocks/button"; // Assuming you have this
 import {
   ClockIcon,
   DateTimePickerLabelStyles,
@@ -70,7 +69,7 @@ const TimePicker = ({
   const [hour, setHour] = useState(selectedTime.getHours());
   const [minute, setMinute] = useState(selectedTime.getMinutes());
   const [isPM, setIsPM] = useState(selectedTime.getHours() >= 12);
-
+  const zIndex = isEditTime ? "z-20" : "";
   useEffect(() => {
     const newTime = new Date(selectedTime);
     newTime.setHours(isPM ? hour + 12 : hour, minute);
@@ -105,7 +104,7 @@ const TimePicker = ({
       </Box>
       {isEditTime && (
         <Transition>
-          <VStack className={`${DateTimePickerStyles} right-0`}>
+          <VStack className={`${DateTimePickerStyles} right-0 ${zIndex}`}>
             <HStackFull className="justify-evenly items-stretch">
               <ScrollableSelector
                 label="hour"

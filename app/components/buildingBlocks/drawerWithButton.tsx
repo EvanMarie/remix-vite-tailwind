@@ -10,6 +10,7 @@ import { CloseButton } from "./closeButton";
 import useEscapeKey from "~/utils/useEscapeKey";
 import { TooltipPlacement } from "./tooltip";
 import { ButtonType } from "./button";
+import Box from "./box";
 
 interface DrawerProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
@@ -53,9 +54,9 @@ export default function DrawerWithButton({
   showTopButton = true,
   drawerWidth = "w-[400px] ultraHD:w-[800px]",
   drawerBg = "bg-col-700",
-  drawerHeight = "h-100vh",
+  drawerHeight = "h-full",
   overlayBlur = "defaultOverlayBlur",
-  overlayColor = "defaultOverlayColor",
+  overlayColor = "defaultOverlay",
   buttonTooltipPlacement = "bottomRight",
 
   ...props
@@ -123,9 +124,9 @@ export default function DrawerWithButton({
       case "bottom-center":
         return "bottom-0 left-1/2 -translate-x-1/2";
       case "left":
-        return "left-0 top-1/2 -translate-y-1/2";
+        return "left-0 top-0 -translate-y-1/2";
       case "right":
-        return "right-0 top-1/2 -translate-y-1/2";
+        return "right-0 top-0 -translate-y-1/2";
       default:
         return "top-0 right-0";
     }
@@ -181,7 +182,9 @@ export default function DrawerWithButton({
                 >
                   <Flex className="w-full h-full relative">
                     {showTopButton && (
-                      <CloseButton onClose={() => setDrawerOpen(false)} />
+                      <Box className="absolute top-[1vh] right-[1vh]">
+                        <CloseButton onClose={() => setDrawerOpen(false)} />
+                      </Box>
                     )}
                     {showBottomButton && (
                       <Flex className="w-full h-[6vh] bg-darkGrayBack rounded-t-none border-t-2 border-col-850 justify-center fixed bottom-0 left-0 items-center">

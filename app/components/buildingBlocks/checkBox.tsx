@@ -39,7 +39,7 @@ export default function Checkbox({
   hoveredBg = `hover:cursor-pointer ${
     isChecked ? "checkedBg" : "hover:bg-transparent"
   } transition duration-300 ease-in-out`,
-  hoveredColor = "hover:text-col-400 transition-300",
+  hoveredColor = "hover:text-col-900 transition-300",
   disabledBg = "bg-col-850 hover:bg-col-860 transition-300",
   disabledColor = "text-col-160 hover:text-col-180",
   p = "pl-[0.5vh] pr-[0.2vh] py-[0px]",
