@@ -40,7 +40,7 @@ const ScrollableSelector = ({
     <VStack className="w-35%" gap="gap-[0.5vh]">
       <Text className={`${DateTimePickerLabelStyles}`}>{label}</Text>
       <VStackFull
-        className={`overflow-auto h-[23vh] max-h-[25vh] items-start insetShadow bg-dt-740`}
+        className={`overflow-auto h-[23vh] max-h-[25vh] items-start insetShadow bg-col-740`}
         gap="gap-[0.7vh]"
       >
         {items.map((item) => (
@@ -50,8 +50,8 @@ const ScrollableSelector = ({
             onClick={() => onSelect(item)}
             className={`${
               item === selectedItem
-                ? "bg-dt-400 text-dt-900"
-                : "hover:bg-dt-200 hover:text-dt-900"
+                ? "bg-col-400 text-col-900"
+                : "hover:bg-col-200 hover:text-col-900"
             }`}
           >
             {item < 10 ? `0${item}` : item}
@@ -87,7 +87,7 @@ const TimePicker = ({
       <Box className="relative">
         <Icon
           icon={ClockIcon}
-          className="absolute top-[0.8vh] right-[1.1vh] text-dt-900 hover:cursor-pointer"
+          className="absolute top-[0.8vh] right-[1.1vh] text-col-900 hover:cursor-pointer"
           onClick={() => {
             setIsEditTime(!isEditTime);
             setIsEditDate(false);
@@ -129,8 +129,8 @@ const TimePicker = ({
                     onClick={toggleAmPm}
                     className={`w-full px-[0.7vh] ${
                       isPM
-                        ? "bg-dt-400 text-dt-900"
-                        : "hover:bg-dt-200 hover:text-dt-900"
+                        ? "bg-col-400 text-col-900"
+                        : "hover:bg-col-200 hover:text-col-900"
                     }`}
                   >
                     am
@@ -140,8 +140,8 @@ const TimePicker = ({
                     onClick={toggleAmPm}
                     className={`w-full px-[0.7vh] ${
                       !isPM
-                        ? "bg-dt-400 text-dt-900"
-                        : "hover:bg-dt-200 hover:text-dt-900"
+                        ? "bg-col-400 text-col-900"
+                        : "hover:bg-col-200 hover:text-col-900"
                     }`}
                   >
                     pm

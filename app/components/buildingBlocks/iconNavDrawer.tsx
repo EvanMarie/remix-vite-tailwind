@@ -42,7 +42,7 @@ export default function IconDrawer({
         <>
           {/* Overlay */}
           <motion.div
-            className="fixed inset-0 bg-dt-975 backdrop-blur-sm bg- z-40"
+            className="fixed inset-0 bg-col-975 backdrop-blur-sm bg- z-40"
             onClick={onClose}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -59,13 +59,13 @@ export default function IconDrawer({
             {...(props as any)}
           >
             <VStack
-              className="w-full h-full justify-between relative bg-cyanBack border-l-3 border-dt-900"
+              className="w-full h-full justify-between relative bg-cyanBack border-l-3 border-col-900"
               gap="gap-0"
             >
               {children}
               <Box
                 onClick={() => setDrawerOpen(false)}
-                className="absolute top-1 right-1 border-2 border-dt-175"
+                className="absolute top-1 right-1 border-2 border-col-175"
               >
                 <IoIosClose size="20px" />
               </Box>

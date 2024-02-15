@@ -1,12 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import {
-  defaultOverlayBlur,
-  defaultOverlayColor,
-  shadowNarrowNormal,
-  textFog,
-  lightTextShadow,
-} from "styles";
 import Text, { Heading2XL } from "./textComponents";
 import Button from "./button";
 import HStack from "./hStack";
@@ -86,7 +79,7 @@ export default function Alert({
 
   return (
     <motion.div
-      className={`fixed inset-0 overflow-hidden ${defaultOverlayBlur} ${defaultOverlayColor} flex justify-center items-center rounded-[0px]`}
+      className={`fixed inset-0 overflow-hidden defaultOverlayBlur defaultOverlayColor flex justify-center items-center rounded-[0px]`}
       variants={backdropVariants}
       initial="hidden"
       animate="visible"
@@ -102,14 +95,14 @@ export default function Alert({
       >
         <VStack className="w-full h-full justify-between ">
           {/* Header */}
-          <HStack className="w-full items-center bg-dt-990 rounded-b-none p-[1vh] gap-2 md:gap-[1vw]">
-            <Heading2XL color="text-dt-400" shadow={textFog}>
+          <HStack className="w-full items-center bg-col-990 rounded-b-none p-[1vh] gap-2 md:gap-[1vw]">
+            <Heading2XL color="text-col-400" shadow="textFog">
               {title}
             </Heading2XL>
           </HStack>
 
           <HStack
-            className={`w-full h-full justify-between text-dt-900 `}
+            className={`w-full h-full justify-between text-col-900 `}
             gap="gap-[0px]"
           >
             <VStackFull className="h-full justify-center p-[1vh] items-center">
@@ -130,12 +123,16 @@ export default function Alert({
                 </Text>
               </Flex>
               <HStack className="justify-end gap-[2vw] p-[1vh]">
-                <Button ref={cancelRef} onClick={onClose}>
-                  {cancelButtonText}
-                </Button>
-                <Button onClick={onConfirmClick} isNegative>
-                  {confirmButtonText}
-                </Button>
+                <Button
+                  ref={cancelRef}
+                  onClick={onClose}
+                  buttonText={cancelButtonText}
+                />
+                <Button
+                  onClick={onConfirmClick}
+                  type="negative"
+                  buttonText={confirmButtonText}
+                />
               </HStack>
             </VStackFull>
           </HStack>

@@ -2,9 +2,16 @@ import { MouseEventHandler } from "react";
 import HStack from "./hStack";
 import FlexFull from "./flexFull";
 import BouncingDots from "../specialty/bouncingDots";
-import { Spinner } from "./spinner";
 import Icon from "./icon";
 import { NavLink } from "@remix-run/react";
+
+export type ButtonType =
+  | "normal"
+  | "smallNormal"
+  | "negative"
+  | "smallNegative"
+  | "unstyled"
+  | "smallUnstyled";
 
 export default function Button({
   className,
@@ -41,9 +48,7 @@ export default function Button({
     | "negative"
     | "smallNegative"
     | "unstyled"
-    | "smallUnstyled"
-    | "icon"
-    | "smallIcon";
+    | "smallUnstyled";
 }) {
   const buttonClass =
     type === "normal"
@@ -90,9 +95,7 @@ export default function Button({
                 />
               </FlexFull>
             )}
-          {isLoading && (type === "icon" || type === "smallIcon") && (
-            <Spinner />
-          )}
+
           {iconLeft && (
             <Icon
               icon={iconLeft}

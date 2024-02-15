@@ -3,6 +3,7 @@ import { Spinner } from "./spinner";
 import Icon from "./icon";
 import { NavLink } from "@remix-run/react";
 import Flex from "./flex";
+import Tooltip, { TooltipPlacement } from "./tooltip";
 
 export default function IconButton({
   icon,
@@ -14,6 +15,8 @@ export default function IconButton({
   isLoading,
   isDisabled,
   type = "normal",
+  tooltipPlacement,
+  label,
   to,
 }: {
   containerClassName?: string;
@@ -22,6 +25,8 @@ export default function IconButton({
   ref?: React.MutableRefObject<HTMLButtonElement | null>;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   isLoading?: boolean;
+  label?: string;
+  tooltipPlacement?: TooltipPlacement;
   isDisabled?: boolean;
   htmlType?: "button" | "submit" | "reset";
   to?: string;
@@ -75,21 +80,28 @@ export default function IconButton({
 
   function ButtonInsides() {
     return (
-      <button onClick={onClick} disabled={isDisabled} type={htmlType} ref={ref}>
-        <Flex
-          className={`${iconButtonSize} ${containerClassName} ${buttonClass}`}
+      <Tooltip label={label} placement={tooltipPlacement}>
+        <button
+          onClick={onClick}
+          disabled={isDisabled}
+          type={htmlType}
+          ref={ref}
         >
-          {isLoading ? (
-            <Spinner />
-          ) : (
-            <Icon
-              icon={icon}
-              iconClassName={`${displayIconSize} ${iconClassName}`}
-              containerClassName={`flex w-full h-full justify-center items-center`}
-            />
-          )}
-        </Flex>
-      </button>
+          <Flex
+            className={`${iconButtonSize} ${containerClassName} ${buttonClass}`}
+          >
+            {isLoading ? (
+              <Spinner />
+            ) : (
+              <Icon
+                icon={icon}
+                iconClassName={`${displayIconSize} ${iconClassName}`}
+                containerClassName={`flex w-full h-full justify-center items-center`}
+              />
+            )}
+          </Flex>
+        </button>
+      </Tooltip>
     );
   }
 

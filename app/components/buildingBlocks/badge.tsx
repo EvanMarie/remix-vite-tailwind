@@ -1,7 +1,6 @@
 // Badge.tsx
 import React from "react";
 import Text from "./textComponents";
-import { shadowNarrowNormal, leading } from "styles";
 
 interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {
   variant?: "solid" | "subtle" | "outline";
@@ -17,13 +16,12 @@ export default function Badge({
   className = "",
   style,
   rounded = "md",
-  children,
   label,
-  bgColor = "bg-dt-400",
-  textColor = "text-dt-900",
+  bgColor = "bg-col-400",
+  textColor = "text-col-900",
   ...props
 }: BadgeProps) {
-  const baseClasses = `px-[1vh] py-[0.1vh] text-xs font-semibold ${leading.xxsTight}`;
+  const baseClasses = `px-[1vh] py-[0.1vh] text-xs-tight font-semibold`;
 
   // Merge Tailwind classes with the provided className prop
   const badgeClasses = `shadowNarrowNormal ${baseClasses} ${rounded}  ${bgColor} ${textColor} ${className}`;

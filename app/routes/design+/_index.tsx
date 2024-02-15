@@ -7,7 +7,6 @@ import Text, {
   HeadingMD,
   HeadingXL,
 } from "~/components/buildingBlocks/textComponents";
-import VStack from "~/components/buildingBlocks/vStack";
 import VStackFull from "~/components/buildingBlocks/vStackFull";
 import Wrap from "~/components/buildingBlocks/wrap";
 import { StarFilledIcon, StarHollowIcon } from "styles";

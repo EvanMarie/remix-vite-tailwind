@@ -20,7 +20,7 @@ interface TagBadgeProps {
 
 export default function TagBadge({
   tag,
-  color = "text-dt-100",
+  color = "text-col-100",
   textShadow = textShadow,
   onClick,
   index,

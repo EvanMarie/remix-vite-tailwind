@@ -28,8 +28,8 @@ interface TooltipProps {
 
 export default function Tooltip({
   label,
-  bg = "bg-dt-200",
-  color = "text-dt-900",
+  bg = "bg-col-200",
+  color = "text-col-900",
   w = "w-auto",
   children,
   placement = "bottomRight",

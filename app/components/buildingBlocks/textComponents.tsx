@@ -302,7 +302,7 @@ export function Heading3XL({
   className = "",
   noOfLines,
   cursive = true,
-  color = "text-dt-500",
+  color = "text-col-500",
   shadow = "textShadow",
 }: ExtendedTextProps) {
   const style: React.CSSProperties = {};
@@ -331,7 +331,7 @@ export function Heading2XL({
   className = "",
   noOfLines,
   cursive = true,
-  color = "text-dt-500",
+  color = "text-col-500",
   shadow = "textShadow",
 }: ExtendedTextProps) {
   const style: React.CSSProperties = {};
@@ -360,7 +360,7 @@ export function HeadingXL({
   className = "",
   noOfLines,
   cursive = true,
-  color = "text-dt-500",
+  color = "text-col-500",
   shadow = "textShadow",
 }: ExtendedTextProps) {
   const style: React.CSSProperties = {};
@@ -389,7 +389,7 @@ export function HeadingLG({
   className = "",
   noOfLines,
   cursive = true,
-  color = "text-dt-500",
+  color = "text-col-500",
   shadow = "textShadow",
 }: ExtendedTextProps) {
   const style: React.CSSProperties = {};
@@ -418,7 +418,7 @@ export function HeadingMD({
   className = "",
   noOfLines,
   cursive = true,
-  color = "text-dt-500",
+  color = "text-col-500",
   shadow = "textShadow",
   leading = "leading-[4.3vh]",
 }: ExtendedTextProps) {
@@ -448,7 +448,7 @@ export function HeadingSM({
   className = "",
   noOfLines,
   cursive = true,
-  color = "text-dt-500",
+  color = "text-col-500",
   shadow = "textShadow",
 }: ExtendedTextProps) {
   const style: React.CSSProperties = {};
@@ -477,7 +477,7 @@ export function HeadingXS({
   className = "",
   noOfLines,
   cursive = true,
-  color = "text-dt-500",
+  color = "text-col-500",
   shadow = "textShadow",
 }: ExtendedTextProps) {
   const style: React.CSSProperties = {};

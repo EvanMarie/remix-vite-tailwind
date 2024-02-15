@@ -8,6 +8,7 @@ interface BoxProps {
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
   ref?: RefObject<HTMLDivElement>;
+  onKeyDown?: (event: React.KeyboardEvent<HTMLDivElement>) => void;
 }
 
 const Box = React.forwardRef<HTMLDivElement, BoxProps>(
@@ -15,6 +16,7 @@ const Box = React.forwardRef<HTMLDivElement, BoxProps>(
     {
       children,
       onClick,
+      onKeyDown,
       style = {},
       className = "",
       onMouseEnter,
@@ -24,12 +26,15 @@ const Box = React.forwardRef<HTMLDivElement, BoxProps>(
   ) => {
     return (
       <div
+        role="button"
+        tabIndex={0}
         className={` ${className}`}
         style={{ ...style }}
         onClick={onClick}
+        onKeyDown={onKeyDown}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
-        ref={ref} // Add this line
+        ref={ref}
       >
         {children}
       </div>

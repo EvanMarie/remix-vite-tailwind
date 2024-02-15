@@ -4,7 +4,7 @@ import React from "react";
 import { CloseTextButton } from "./closeTextButton";
 import Flex from "./flex";
 import { CloseButton } from "./closeButton";
-import { defaultOverlayBlur, defaultOverlayColor, shadow3D } from "styles";
+import { defaultOverlayBlur, defaultOverlayColor } from "styles";
 import Portal from "./portal";
 import useEscapeKey from "~/utils/useEscapeKey";
 
@@ -60,7 +60,7 @@ export default function Modal({
   overlayColor = defaultOverlayColor,
   contentBg = "bg-cyanBack bg-darkVioletGrad`",
   bottomCloseIsSmall = false,
-  footerBorder = "border-t-2 border-dt-850",
+  footerBorder = "border-t-2 border-col-850",
   // overflow,
   ...props
 }: ModalProps) {
@@ -100,7 +100,7 @@ export default function Modal({
             />
             {/* Modal */}
             <motion.div
-              className={`${maxWidth} fixed inset-0 m-auto shadow3D ${modalSize} ${contentBg} ${modalContentClassName}`}
+              className={`${maxWidth} fixed inset-0 m-auto shadow3DMd ${modalSize} ${contentBg} ${modalContentClassName}`}
               style={{ ...style, zIndex: 101, maxHeight: "100svh" }}
               variants={variants}
               initial="closed"

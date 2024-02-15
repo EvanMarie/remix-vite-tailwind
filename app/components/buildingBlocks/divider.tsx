@@ -10,7 +10,7 @@ interface DividerProps {
 }
 
 export default function Divider({
-  bg = "bg-dt-350",
+  bg = "bg-col-350",
   h = "h-[1px] quadHD:h-[2px]",
   w = "w-98%",
   m = "",

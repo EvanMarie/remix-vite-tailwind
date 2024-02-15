@@ -2,7 +2,6 @@ import { useState } from "react";
 import Box from "~/components/buildingBlocks/box";
 import Button from "~/components/buildingBlocks/button";
 import Flex from "~/components/buildingBlocks/flex";
-import HStack from "~/components/buildingBlocks/hStack";
 import HStackFull from "~/components/buildingBlocks/hStackFull";
 import Icon from "~/components/buildingBlocks/icon";
 import IconButton from "~/components/buildingBlocks/iconButton";
@@ -15,12 +14,6 @@ import {
   CloseIcon,
   DateTimePickerLabelStyles,
   DateTimePickerStyles,
-  inputStyles,
-  lightTextShadow,
-  shadowNarrowNormal,
-  textShadow,
-  transition400,
-  verticalAlign,
 } from "styles";
 import useEscapeKey from "~/utils/useEscapeKey";
 import FlexFull from "./flexFull";
@@ -54,7 +47,7 @@ const Calendar = ({ selectedDate, onSelect }: CalendarProps) => {
   const days = weekDays.map((day, index) => (
     <div
       key={index}
-      className="p-[0.1vh] text-center font-semibold text-dt-500 w-[3vh] h-[2.5vh] flex-shrink-0 flex justify-center items-center"
+      className="p-[0.1vh] text-center font-semibold text-col-500 w-[3vh] h-[2.5vh] flex-shrink-0 flex justify-center items-center"
     >
       {day}
     </div>
@@ -81,8 +74,8 @@ const Calendar = ({ selectedDate, onSelect }: CalendarProps) => {
           disabled={isPast}
           className={`py-[0.1vh] px-[0.3vh] w-full h-full text-center ${
             isPast
-              ? "text-dt-120 hover:bg-transparent cursor-not-allowed"
-              : "hover:bg-dt-200 hover:text-dt-900"
+              ? "text-col-120 hover:bg-transparent cursor-not-allowed"
+              : "hover:bg-col-200 hover:text-col-900"
           }`}
           onClick={() => !isPast && onSelect(dayDate)}
         >
@@ -147,8 +140,8 @@ export default function DatePicker({
       <Box className="relative">
         <Icon
           icon={CalendarIcon}
-          className="absolute top-[0.8vh] right-[1.1vh] text-dt-900 hover:cursor-pointer"
-          iconSize="text-[2.3vh]"
+          containerClassName="absolute top-[0.8vh] right-[1.1vh] text-col-900 hover:cursor-pointer"
+          iconClassName="text-[2.3vh]"
           onClick={() => {
             setIsEditDate(!isEditDate);
             setIsEditTime(false);
@@ -158,7 +151,7 @@ export default function DatePicker({
           type="text"
           readOnly
           value={selectedDate.toISOString().substring(0, 10)}
-          className={`form-input w-[18vh] lg:w-[25vh] font-semibold ${inputStyles} cursor-pointer`}
+          className={`form-input w-[18vh] lg:w-[25vh] font-semibold inputStyles cursor-pointer`}
           onClick={() => {
             setIsEditDate(!isEditDate);
             setIsEditTime(false);
@@ -170,7 +163,7 @@ export default function DatePicker({
           <VStack className={`${DateTimePickerStyles} left-0`}>
             <FlexFull className="justify-between mb-[0.5vh] items-center">
               <IconButton
-                isSmall
+                type="smallNormal"
                 icon={ArrowLeftIcon}
                 onClick={goToPreviousMonth}
               />
@@ -178,7 +171,7 @@ export default function DatePicker({
                 {monthYearFormat}
               </Text>
               <IconButton
-                isSmall
+                type="smallNormal"
                 icon={ArrowRightIcon}
                 onClick={goToNextMonth}
               />
@@ -186,22 +179,18 @@ export default function DatePicker({
             <Calendar selectedDate={selectedDate} onSelect={handleDateSelect} />
             <HStackFull className="justify-between">
               <Button
-                isUnstyled
+                type="unstyled"
                 onClick={goToToday}
-                className={`text-[1.6vh] leading-[1.6vh] h-[2.5vh] px-[0.5vh] bg-dt-700 hover:bg-dt-600 flex items-center shadowNarrowNormal textShadowtransition-400`}
-              >
-                Today{" "}
-              </Button>
+                className={`text-[1.6vh] leading-[1.6vh] h-[2.5vh] px-[0.5vh] bg-col-700 hover:bg-col-600 flex items-center shadowNarrowNormal textShadowtransition-400`}
+                buttonText="Today"
+              />
               <Button
-                isUnstyled
+                type="unstyled"
                 onClick={() => setIsEditDate(false)}
-                className={`text-[1.6vh] leading-[1.6vh] h-[2.5vh] px-[0.2vh] bg-dt-400 text-dt-900 hover:bg-dt-200 flex items-center shadowNarrowNormal lightTextShadow transition-400`}
-              >
-                <HStack gap={`gap-[0px] ${verticalAlign} pb-[0.5vh]`}>
-                  <Icon icon={CloseIcon} />
-                  <Text>Close</Text>
-                </HStack>
-              </Button>
+                className={`text-[1.6vh] leading-[1.6vh] h-[2.5vh] px-[0.2vh] bg-col-400 text-col-900 hover:bg-col-200 flex items-center shadowNarrowNormal lightTextShadow transition-400`}
+                iconLeft={CloseIcon}
+                buttonText="Close"
+              />
             </HStackFull>
           </VStack>
         </Transition>

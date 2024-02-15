@@ -6,7 +6,6 @@ import Box from "./box";
 import VStack from "./vStack";
 import HStack from "./hStack";
 import { HeadingSM } from "./textComponents";
-import { shadowNarrowNormal, shadow3D } from "styles";
 
 // Placement classes for different positions
 const placementClasses: Record<string, string> = {
@@ -91,12 +90,25 @@ export default function Popover({
     };
   }, []);
 
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === "Enter" || event.key === " ") {
+      togglePopover();
+    }
+  };
+
   return (
     <div
       className={`relative inline-block ${isCenter ? "w-full h-full" : ""}`}
       ref={popoverRef}
     >
-      <div onClick={togglePopover}>{trigger}</div>
+      <div
+        role="button"
+        tabIndex={0}
+        onClick={togglePopover}
+        onKeyDown={handleKeyDown}
+      >
+        {trigger}
+      </div>
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -104,23 +116,19 @@ export default function Popover({
             animate="visible"
             exit="hidden"
             variants={centerVariants}
-            className={`absolute z-30  shadow3D ${w} ${h} min-w-[300px] ${placementClasses[placement]}`}
+            className={`absolute z-30  shadow3DMd ${w} ${h} min-w-[300px] ${placementClasses[placement]}`}
           >
             <Flex
-              className={`w-full h-full  shadow3D relative bg-dt-990 bg-darkenGrad`}
+              className={`w-full h-full  shadow3DMd relative bg-col-990 bg-darkenGrad`}
             >
               <VStack
                 className={`w-full h-full justify-start items-center shadowNarrowNormal gap-[0px]`}
               >
-                <HStack className=" w-full justify-between rounded-b-none bg-dt-900 p-[0.7vh] pl-[1vh] border-b-[0.1vh] border-dt-125">
+                <HStack className=" w-full justify-between rounded-b-none bg-col-900 p-[0.7vh] pl-[1vh] border-b-[0.1vh] border-col-125">
                   {" "}
                   <HeadingSM noOfLines={1}>{heading ? heading : ""} </HeadingSM>
-                  <Box>
-                    <CloseButton
-                      onClose={() => setIsOpen(false)}
-                      isMinimal
-                      pos="inherit"
-                    />
+                  <Box className="absolute top-[1vh] right-[1vh]">
+                    <CloseButton onClose={() => setIsOpen(false)} />
                   </Box>
                 </HStack>
                 <Flex className="w-full p-[1vh] max-h-[45vh] overflow-y-auto">

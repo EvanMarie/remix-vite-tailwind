@@ -1,13 +1,13 @@
-import Button from "./button";
+import Button, { ButtonType } from "./button";
 
 export function CloseTextButton({
   onClose,
   className,
-  isSmall,
+  type,
 }: {
   onClose: () => void;
   className?: string;
-  isSmall?: boolean;
+  type?: ButtonType;
 }) {
   return (
     <Button
@@ -16,11 +16,9 @@ export function CloseTextButton({
         event.stopPropagation();
         onClose();
       }}
-      isSmall={isSmall}
+      type={type}
       className={`${className}`}
-      w="w-fit"
-    >
-      Close
-    </Button>
+      buttonText="Close"
+    ></Button>
   );
 }

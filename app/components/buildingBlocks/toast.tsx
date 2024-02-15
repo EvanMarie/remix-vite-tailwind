@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { borderShadow, textShadow, shadow3D } from "styles";
+import { useEffect, useState } from "react";
 import Flex from "./flex";
 import { motion } from "framer-motion";
-import DarkViolet from "../specialty/darkViolet";
-import ImageIcon from "../specialty/imageIcon";
+
 import VStack from "./vStack";
 import Text from "./textComponents";
 import Box from "./box";
@@ -96,17 +94,13 @@ export default function Toast({
 
   return (
     <motion.div
-      className={`w-[20vw] h-[25vh] fixed ${positionClass} bg-darkVioletBack ${borderShadow} text-dt-100 textShadowrounded-lg  shadow3D z-50`}
+      className={`w-[20vw] h-[25vh] fixed ${positionClass} bg-darkVioletBack shadowBroadNormal text-col-100 textShadowrounded-lg z-50`}
       initial="hidden"
       animate="visible"
       exit="hidden"
       variants={toastVariants}
     >
       <Flex className="w-full h-full relative pt-[70px] ">
-        <DarkViolet name="5" b="bottom-0" l="left-2" w="w-[12vh]" />
-        <Box className="absolute top-[1vh] right-[1vh]">
-          <ImageIcon keyword="warning" />
-        </Box>
         <VStack className="w-full  px-4" align="end">
           <Flex className="w-full h-full justify-end items-center">
             <Box className={`text-right w-7/12 ${fontSize} ${lineHeight}`}>

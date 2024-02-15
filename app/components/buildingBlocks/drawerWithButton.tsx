@@ -7,13 +7,10 @@ import Flex from "./flex";
 import IconButton from "./iconButton";
 import Portal from "./portal";
 import { CloseButton } from "./closeButton";
-import {
-  defaultOverlayBlur,
-  defaultOverlayColor,
-  shadowNarrowNormal,
-  leading,
-} from "styles";
+import { defaultOverlayBlur, defaultOverlayColor } from "styles";
 import useEscapeKey from "~/utils/useEscapeKey";
+import { TooltipPlacement } from "./tooltip";
+import { ButtonType } from "./button";
 
 interface DrawerProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
@@ -30,65 +27,38 @@ interface DrawerProps extends React.HTMLAttributes<HTMLDivElement> {
     | "right"
     | "bottom"
     | "left";
+  buttonType?: ButtonType;
   style?: React.CSSProperties;
   children?: React.ReactNode;
   icon?: React.ComponentType;
   label?: string;
   drawerWidth?: string;
   drawerHeight?: string;
-  buttonPos?:
-    | "absolute"
-    | "relative"
-    | "fixed"
-    | "sticky"
-    | "static"
-    | "inherit";
-  buttonT?: string;
-  buttonR?: string;
-  buttonB?: string;
-  buttonL?: string;
   showBottomButton?: boolean;
   showTopButton?: boolean;
   overlayBlur?: string;
   overlayColor?: string;
   drawerBg?: string;
-  isInteractionButton?: boolean;
-  isMinimalButton?: boolean;
-  buttonTooltipPlacement?:
-    | "top"
-    | "bottom"
-    | "left"
-    | "right"
-    | "topLeft"
-    | "topRight"
-    | "bottomLeft"
-    | "bottomRight";
+  buttonTooltipPlacement?: TooltipPlacement;
 }
 
 export default function DrawerWithButton({
   className = "",
+  buttonType,
   slideDirection = "right",
   style = {},
   children,
   icon: Icon,
   label,
-  buttonPos = "inherit",
-  buttonT,
-  buttonR,
-  buttonB,
-  buttonL,
   showBottomButton = true,
   showTopButton = true,
   drawerWidth = "w-[400px] ultraHD:w-[800px]",
-  drawerBg = "bg-dt-700",
+  drawerBg = "bg-col-700",
   drawerHeight = "h-100vh",
   overlayBlur = defaultOverlayBlur,
   overlayColor = defaultOverlayColor,
   buttonTooltipPlacement = "bottomRight",
-  buttonTextLeft,
-  buttonTextRight,
-  // isInteractionButton = false,
-  isMinimalButton = false,
+
   ...props
 }: DrawerProps) {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
@@ -168,20 +138,10 @@ export default function DrawerWithButton({
     <>
       {Icon && (
         <IconButton
-          textLeft={buttonTextLeft}
-          textRight={buttonTextRight}
           icon={Icon}
-          alt={label}
           label={label}
           onClick={() => setDrawerOpen(true)}
-          pos={buttonPos}
-          t={buttonT}
-          r={buttonR}
-          b={buttonB}
-          l={buttonL}
-          // isInteraction={isInteractionButton}
-          isMinimal={isMinimalButton}
-          textStyles={`font-semibold justify-center ${leading.lgLoose}`}
+          type={buttonType as ButtonType}
           tooltipPlacement={buttonTooltipPlacement}
         />
       )}
@@ -217,7 +177,7 @@ export default function DrawerWithButton({
                 {...(props as any)}
               >
                 <VStack
-                  className={`w-full h-full justify-between relative ${drawerBg} border-l-3 border-dt-900`}
+                  className={`w-full h-full justify-between relative ${drawerBg} border-l-3 border-col-900`}
                   gap="gap-0"
                 >
                   <Flex className="w-full h-full relative">
@@ -225,7 +185,7 @@ export default function DrawerWithButton({
                       <CloseButton onClose={() => setDrawerOpen(false)} />
                     )}
                     {showBottomButton && (
-                      <Flex className="w-full h-[6vh] bg-darkGrayBack rounded-t-none border-t-2 border-dt-850 justify-center fixed bottom-0 left-0 items-center">
+                      <Flex className="w-full h-[6vh] bg-darkGrayBack rounded-t-none border-t-2 border-col-850 justify-center fixed bottom-0 left-0 items-center">
                         <CloseTextButton onClose={() => setDrawerOpen(false)} />
                       </Flex>
                     )}

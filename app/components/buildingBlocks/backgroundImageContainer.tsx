@@ -1,7 +1,7 @@
-import { containerBackgroundImage1, shadowNarrowNormal } from "styles";
 import Box from "./box";
 import Image from "./image";
 import Flex from "./flex";
+import { imageFallback } from "styles";
 
 interface BackgroundImageProps {
   image?: string;
@@ -26,7 +26,7 @@ interface BackgroundImageProps {
 }
 
 export default function BackgroundImage({
-  image = containerBackgroundImage1,
+  image,
   containerClassName = "",
   imageClassName = "",
   alt = "",
@@ -36,9 +36,9 @@ export default function BackgroundImage({
   objectFit = "cover",
   objectPosition = "object-center",
   innerContainerStyles = "",
-  shadow = shadowNarrowNormal,
+  shadow = "shadowNarrowNormal",
   showOverlay = true,
-  bgOverlayColor = "bg-dt-990",
+  bgOverlayColor = "bg-col-990",
   bgOverlayGradient = "bg-darkenPurpleGrad",
   overlayBlur = "backdrop-blur-[6px]",
   overlayStyles,
@@ -52,7 +52,7 @@ export default function BackgroundImage({
       style={style}
     >
       <Image
-        src={image}
+        src={image ? image : imageFallback}
         alt={alt}
         className={`${objectFit} ${objectPosition} w-full h-full ${rounded} ${imageClassName}`}
       />

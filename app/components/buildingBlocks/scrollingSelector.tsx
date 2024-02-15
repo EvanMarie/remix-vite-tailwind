@@ -1,28 +1,19 @@
-import {
-  insetOverlay,
-  metallicEdges,
-  scaleItem,
-  shadow3D,
-  tealBorder,
-  transition500,
-  verticalAlign,
-} from "styles";
+import { insetOverlay } from "styles";
 import Button from "./button";
 import FlexFull from "./flexFull";
 import Text, { HeadingMD } from "./textComponents";
 import VStackFull from "./vStackFull";
 import { useState } from "react";
-import HStackFull from "./hStackFull";
 import Box from "./box";
-import { GetFromLink } from "~/utils/thingUtils";
+import { GetFromLink } from "~/utils/pathUtils";
 
 export default function ScrollingSelector({
   options,
   heading,
   selectedOption,
   selectedOnTop = true,
-  bg = "bg-dt-800",
-  border = tealBorder,
+  bg = "bg-col-800",
+  border,
 }: {
   options: string[];
   heading: string;
@@ -43,9 +34,9 @@ export default function ScrollingSelector({
 
   const handButtonStyle = ({ option }: { option: string }) => {
     if (option === selected) {
-      return `py-[0.5vh] bg-dt-200 text-dt-900 hover:bg-dt-400 hover:text-dt-900`;
+      return `py-[0.5vh] bg-col-200 text-col-900 hover:bg-col-400 hover:text-col-900`;
     } else {
-      return `py-[0.5vh] bg-dt-640 font-[400] hover:bg-dt-600 hover:text-dt-900 transition-500`;
+      return `py-[0.5vh] bg-col-640 font-[400] hover:bg-col-600 hover:text-col-900 transition-500`;
     }
   };
 
@@ -58,29 +49,25 @@ export default function ScrollingSelector({
         >
           <VStackFull className={`h-fit px-[2vh] py-[1vh]`} gap="gap-[0.5vh]">
             {mapSelections.map((option) => (
-              <Button
-                isUnstyled
+              <FlexFull
                 key={option}
-                buttonClassName={`w-full shadow3D ${scaleItem}`}
-                className={handButtonStyle({ option })}
+                className={
+                  (handButtonStyle({ option }), "justify-between shadow3DMd")
+                }
                 onClick={() => handleStatusSelect(option)}
               >
-                <HStackFull className={`justify-between ${verticalAlign}`}>
-                  <Text>{option} </Text>
-                  {option === selected && (
-                    <Box className={`px-[1vh] bg-dt-770 ${metallicEdges}`}>
-                      <Text className="text-[2vh] leading-[2vh]">current</Text>
-                    </Box>
-                  )}
-                </HStackFull>
-              </Button>
+                <Text>{option} </Text>
+                {option === selected && (
+                  <Box className={`px-[1vh] bg-col-770 metallicEdgesMd`}>
+                    <Text className="text-[2vh] leading-[2vh]">current</Text>
+                  </Box>
+                )}
+              </FlexFull>
             ))}
           </VStackFull>
         </FlexFull>
         <FlexFull className="justify-center items-center">
-          <Button isSmall to={String(GetFromLink())}>
-            Save & Close
-          </Button>
+          <Button to={String(GetFromLink())} buttonText="Save & Close" />
         </FlexFull>
       </VStackFull>
     </FlexFull>

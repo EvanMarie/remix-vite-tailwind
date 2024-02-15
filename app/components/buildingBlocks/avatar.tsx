@@ -1,6 +1,6 @@
 import React, { type ReactElement } from "react";
 import Image from "./image";
-import { shadowNarrowNormal, fallBackAvatar } from "styles";
+import { defaultAvatar } from "styles";
 
 interface AvatarProps {
   name?: string;
@@ -51,17 +51,17 @@ export const Avatar = ({
     <div
       className={`${rounded} overflow-hidden flex-shrink-0 ${
         sizeClasses[size || "sm"]
-      } border-[1.5px] border-solid border-dt-400 shadowNarrowNormal flex items-center justify-center text-dt-400 bg-dt-900`}
+      } border-[1.5px] border-solid border-col-400 shadowNarrowNormal flex items-center justify-center text-col-400 bg-col-900`}
     >
       {src ? (
         <Image
           src={src || "/images/icons/profileIcon.png"}
           alt={name || ""}
-          fallbackImage={fallBackAvatar}
+          fallbackImage={defaultAvatar}
           rounded={rounded}
         />
       ) : (
-        <span className="text-dt-100">{name ? getInitials(name) : "N/A"}</span>
+        <span className="text-col-100">{name ? getInitials(name) : "N/A"}</span>
       )}
     </div>
   );

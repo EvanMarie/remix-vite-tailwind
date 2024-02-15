@@ -1,12 +1,8 @@
 import { useState } from "react";
-import {
-  MdCheckBox,
-  MdOutlineCheckBoxOutlineBlank,
-} from "react-icons/md/index.js";
+import { MdCheckBox, MdOutlineCheckBoxOutlineBlank } from "react-icons/md";
 import Box from "~/components/buildingBlocks/box";
 import HStack from "~/components/buildingBlocks/hStack";
 import Text from "~/components/buildingBlocks/text";
-import { shadowNarrowNormal } from "styles";
 
 interface CheckboxProps {
   label: string;
@@ -36,16 +32,16 @@ export default function Checkbox({
   onChange,
   checkboxSize = "text-[3vh]",
   textSize = "text-[1.7vh]",
-  textColor = "text-dt-100",
+  textColor = "text-col-100",
   bgColor = "transparent",
-  checkedBg = "bg-dt-475",
-  checkedColor = "text-dt-900",
+  checkedBg = "bg-col-475",
+  checkedColor = "text-col-900",
   hoveredBg = `hover:cursor-pointer ${
     isChecked ? "checkedBg" : "hover:bg-transparent"
   } transition duration-300 ease-in-out`,
-  hoveredColor = "hover:text-dt-400 transition duration-300 ease-in-out",
-  disabledBg = "bg-dt-825 hovered:bg-dt-825",
-  disabledColor = "text-dt-125 hovered:text-dt-125",
+  hoveredColor = "hover:text-col-400 transition duration-300 ease-in-out",
+  disabledBg = "bg-col-825 hovered:bg-col-825",
+  disabledColor = "text-col-125 hovered:text-col-125",
   p = "px-[0.2vh] py-[0px]",
   className = "",
   containerWidth = "w-full",
@@ -72,7 +68,7 @@ export default function Checkbox({
   } else if (checked) {
     backgroundColor = checkedBg;
     textColorClass = checkedColor;
-    boxShadowClass = shadowNarrowNormal;
+    boxShadowClass = "shadowNarrowNormal";
   } else if (isHovered) {
     backgroundColor = hoveredBg;
     textColorClass = hoveredColor;

@@ -4,11 +4,7 @@ import React from "react";
 import VStack from "./vStack";
 import { CloseTextButton } from "./closeTextButton";
 import Flex from "./flex";
-import {
-  defaultOverlayBlur,
-  defaultOverlayColor,
-  shadowNarrowNormal,
-} from "styles";
+import { defaultOverlayBlur, defaultOverlayColor } from "styles";
 import useEscapeKey from "~/utils/useEscapeKey";
 import Portal from "./portal";
 import { CloseButton } from "./closeButton";
@@ -39,7 +35,7 @@ export default function Drawer({
   showTopButton = true,
   showBottomButton = true,
   drawerClassName = "",
-  drawerBg = "bg-dt-700",
+  drawerBg = "bg-col-700",
   slideDirection = "right",
   overlayBlur = defaultOverlayBlur,
   overlayColor = defaultOverlayColor,
@@ -150,7 +146,7 @@ export default function Drawer({
               {...(props as any)}
             >
               <VStack
-                className={`w-full h-full justify-between relative ${drawerBg} border-l-3 border-dt-900`}
+                className={`w-full h-full justify-between relative ${drawerBg} border-l-3 border-col-900`}
                 gap="gap-0"
               >
                 <Flex className="w-full h-full relative">
@@ -158,7 +154,7 @@ export default function Drawer({
                     <CloseButton onClose={() => setDrawerOpen(false)} />
                   )}
                   {showBottomButton && (
-                    <Flex className="w-full h-[6vh] bg-darkGrayBack rounded-t-none border-t-2 border-dt-850 justify-center fixed bottom-0 left-0 items-center">
+                    <Flex className="w-full h-[6vh] bg-darkGrayBack rounded-t-none border-t-2 border-col-850 justify-center fixed bottom-0 left-0 items-center">
                       <CloseTextButton onClose={() => setDrawerOpen(false)} />
                     </Flex>
                   )}

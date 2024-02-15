@@ -42,7 +42,7 @@ export default function LabelValue({
             {label}
           </Text>
           {value && (
-            <Text className={`text-dt-100 ${valueClassName}`}>{value}</Text>
+            <Text className={`text-col-100 ${valueClassName}`}>{value}</Text>
           )}
         </VStack>
       )}

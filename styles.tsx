@@ -71,11 +71,6 @@ export const PanelContainerHeights = `h-fit min-h-full xl:h-full`;
 export const cursiveText = `font-cursive text-col-400 textShadow`;
 export const verticalAlign = `h-full items-center`;
 
-// OVERLAYS
-export const defaultOverlayColor = "bg-col-850";
-export const defaultOverlayBlur = "backdrop-blur-md";
-export const insetOverlay = `insetShadow bg-col-930`;
-
 // ICONS
 export const DefaultIcon = MdInsertEmoticon;
 export const StarHollowIcon = TbStar;

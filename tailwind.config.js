@@ -45,7 +45,7 @@ const buttonStyles = plugin(function ({ addUtilities, theme }) {
         backgroundColor: theme(`colors.${hoverBgColor}`, "transparent"),
         color: theme(`colors.${hoverColor}`, "currentColor"),
         borderColor: theme(`colors.${hoverBorderColor}`, "transparent"),
-        boxShadow: theme("boxShadow.metallicEdges"),
+        boxShadow: theme("boxShadow.metallicEdgesMd"),
         textShadow: theme("textShadow.lightTextShadow"),
         "-webkit-text-stroke-width": hoverTextStrokeWidth,
         "-webkit-text-stroke-color": theme(
@@ -1816,35 +1816,18 @@ export default {
       textShadow: {
         noShadow: "none",
         none: "",
-
-        lightTextShadow: "1px 1px 3px rgba(255, 255, 255, 0.9)",
-        lightTextShadowHD: "2px 2px 4px rgba(255, 255, 255, 0.9)",
-
-        textShadow: "2px 2px 2px rgba(0, 0, 0, 0.9)",
-        textShadowHD: "4px 4px 4px rgba(0, 0, 0, 0.9)",
-
-        subtleTextShadow: "1px 1px 2px rgba(0, 0, 0, 0.9)",
-        subtleTextShadowHD: "2px 2px 4px rgba(0, 0, 0, 0.9)",
-
-        standoutTextShadow: "3px 3px 4px rgba(0, 0, 0, 0.9)",
-        standoutTextShadowHD: "6px 6px 8px rgba(0, 0, 0, 0.9)",
-
+        lightTextShadow: "0.1vh 0.1vh 0.3vh rgba(255, 255, 255, 0.9)",
+        textShadow: "0.2vh 0.2vh 0.2vh rgba(0, 0, 0, 0.9)",
+        subtleTextShadow: "0.1vh 0.1vh 0.2vh rgba(0, 0, 0, 0.9)",
+        standoutTextShadow: "0.3vh 0.3vh 0.4vh rgba(0, 0, 0, 0.9)",
         textFog:
-          "0 0 5px #000, 0 0 10px #000, 0 0 15px #000, 0 0 20px #000, 0 0 30px #000, 0 0 40px #575757, 0 0 55px #5E5E5E, 0 0 75px #000, 2px 2px 2px rgba(0,0,0,0);",
-        textFogHD:
-          "0 0 10px #000, 0 0 15px #000, 0 0 20px #000, 0 0 25px #000, 0 0 35px #000, 0 0 50px #575757, 0 0 70px #5E5E5E, 0 0 100px #000, 2px 2px 2px rgba(0,0,0,0);",
+          "0 0 0.5vh #000, 0 0 1vh #000, 0 0 1.5vh #000, 0 0 1vh #000, 0 0 3vh #000, 0 0 4vh #575757, 0 0 5.5vh #5E5E5E, 0 0 7.5vh #000, 0.2vh 0.2vh 0.2vh rgba(0,0,0,0);",
         textGlow:
-          "#00FFFF 0px 0px 5px, #00FFFF 0px 0px 10px, #FFF 0px 0px 15px, rgb(208, 226, 242) 0px 0px 20px, rgb(208, 226, 242) 0px 0px 30px, 8px 2px 6px rgba(0,0,0,0);",
-        textGlowHD:
-          "#00FFFF 0px 0px 10px, #00FFFF 0px 0px 15px, #FFF 0px 0px 20px, rgb(208, 226, 242) 0px 0px 25px, rgb(208, 226, 242) 0px 0px 35px, 8px 2px 6px rgba(0,0,0,0);",
+          "#00FFFF 0px 0px 0.5vh, #00FFFF 0px 0px 1vh, #FFF 0px 0px 1.5vh, rgb(208, 226, 242) 0px 0px 1vh, rgb(208, 226, 242) 0px 0px 1vh, 0.8vh 0.2vh 0.6vh rgba(0,0,0,0);",
         boldText:
-          "#000 0.5px 0.5px 0.5px, black 0px 0px 5px,  #FFF 0px 0px 2px, #FFF 0px 0px 3px, #FFF 0px 0px 12px, #FFF 0px 0px 4px, #FFF 0px 0px 5px, 8px 2px 6px rgba(0,0,0,0);",
-        boldTextHD:
-          "#000 2px 2px 2px, white 0px 0px 10px,  #00FFFF 0px 0px 12px, #00FFFF 0px 0px 16px, #FFF 0px 0px 24px, #FF2D95 0px 0px 32px, #FF2D95 0px 0px 48px, 8px 2px 6px rgba(0,0,0,0);",
+          "#000 0.05vh 0.05vh 0.05vh, black 0px 0px 0.5vh,  #FFF 0px 0px 0.2vh, #FFF 0px 0px 0.3vh, #FFF 0px 0px 1.2vh, #FFF 0px 0px 0.4vh, #FFF 0px 0px 0.5vh, 0.8vh 0.2vh 0.6vh rgba(0,0,0,0);",
         boldTextGlow:
-          "#000 1px 1px 1px, white 0px 0px 7px,  #00FFFF 0px 0px 8px, #00FFFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, 8px 2px 6px rgba(0,0,0,0);",
-        boldTextGlowHD:
-          "#000 2px 2px 2px, white 0px 0px 14px,  #00FFFF 0px 0px 16px, #00FFFF 0px 0px 20px, #FFF 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 60px, 8px 2px 6px rgba(0,0,0,0);",
+          "#000 0.1vh 0.1vh 0.1vh, white 0px 0px 0.7vh,  #00FFFF 0px 0px 0.8vh, #00FFFF 0px 0px 1vh, #FFF 0px 0px 1.5vh, #FF2D95 0px 0px 1vh, #FF2D95 0px 0px 3vh, 0.8vh 0.2vh 0.6vh rgba(0,0,0,0);",
       },
       textStrokeWidth: {
         1: "0.02vh",
@@ -2354,7 +2337,7 @@ export default {
     // INPUT AND TEXTAREA PLUGIN
     plugin(function ({ addComponents, theme }) {
       const newComponents = {
-        ".input-styles": {
+        ".inputStyles": {
           width: "100%", // Full width
           backgroundColor: theme("colors.col-100.22"), // Assuming '22' is a valid color opacity or variant
           boxShadow: theme("boxShadow.insetShadow"),
@@ -2371,7 +2354,7 @@ export default {
           transition: "border-color 0.4s ease-in-out",
           borderRadius: theme("borderRadius.1vh"),
         },
-        ".textarea-styles": {
+        ".textareaStyles": {
           backgroundColor: theme("colors.col-100.22"), // Assuming '22' is a specific variant
           boxShadow: theme("boxShadow.insetShadow"),
           color: theme("colors.col-900"),

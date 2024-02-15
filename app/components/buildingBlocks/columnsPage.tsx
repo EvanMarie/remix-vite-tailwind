@@ -1,4 +1,3 @@
-import { borderShadow, colMaxWidths, shadow3D, textFog } from "styles";
 import Flex from "./flex";
 import VStack from "./vStack";
 import Transition, { type TransitionType } from "./transition";
@@ -17,12 +16,12 @@ export function ColumnsPageHeader({
         <Flex
           className={`w-full h-fit flex-shrink-0 px-[2vw] pt-1 justify-center`}
         >
-          <HeadingXL shadow={textFog}>{title}</HeadingXL>
+          <HeadingXL shadow="textFog">{title}</HeadingXL>
         </Flex>
       )}
       {subtitle && (
         <Flex
-          className={`w-95% h-fit flex-shrink-0 justify-center bg-dt-975 px-[1vw] py-[1vh] rounded-[1vw] shadow3D fullHD:w-90% quadHD:w-85% ultraHD:w-80% `}
+          className={`w-95% h-fit flex-shrink-0 justify-center bg-col-975 px-[1vw] py-[1vh] rounded-[1vw] shadow3DLg fullHD:w-90% quadHD:w-85% ultraHD:w-80% `}
         >
           <TextMD>{subtitle}</TextMD>
         </Flex>
@@ -102,9 +101,9 @@ export function ColumnsPageContainer({
 export function ColumnsPageColumn({
   children,
   heading,
-  innerColMaxW = colMaxWidths,
+  innerColMaxW,
   transitionScreen = "lg",
-  headingColor = "bg-dt-900",
+  headingColor = "bg-col-900",
   bg = "bg-calmGrayBack bg-darkCyanGrad",
   transitionType = "fade",
   transitionClassName = "",
@@ -164,11 +163,11 @@ export function ColumnsPageColumn({
           >
             {" "}
             <VStack
-              className={`w-full h-fit gap-0 ${transitionHeight} ${borderShadow} justify-start ${bg}`}
+              className={`w-full h-fit gap-0 ${transitionHeight} shadowBroadTight justify-start ${bg}`}
             >
               {heading && (
                 <Flex
-                  className={`w-full h-fit flex-shrink-0 rounded-b-none bg-dt-900 border-b-2 border-b-dt-225 px-[2vw] ${headingColor}`}
+                  className={`w-full h-fit flex-shrink-0 rounded-b-none bg-col-900 border-b-2 border-b-col-225 px-[2vw] ${headingColor}`}
                 >
                   <HeadingLG>{heading}</HeadingLG>
                 </Flex>
