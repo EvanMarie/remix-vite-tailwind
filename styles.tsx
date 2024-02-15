@@ -49,7 +49,7 @@ import {
 import { TbActivityHeartbeat } from "react-icons/tb";
 
 export const imageFallback = "";
-export const defaultAvatar = "/images/avatars/creature1.png";
+export const defaultAvatar = "/fallbackAvatar.png";
 
 // MAIN COMPONENT DEFAULTS
 export const iconButtonDefaultRadius = "rounded-[0.5vh] md:rounded-[0.6vh]";

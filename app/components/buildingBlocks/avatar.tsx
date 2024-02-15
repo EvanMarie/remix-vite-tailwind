@@ -55,7 +55,7 @@ export const Avatar = ({
     >
       {src ? (
         <Image
-          src={src || "/images/icons/profileIcon.png"}
+          src={src || "/fallbackAvatar.png"}
           alt={name || ""}
           fallbackImage={defaultAvatar}
           rounded={rounded}

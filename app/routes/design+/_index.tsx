@@ -125,6 +125,10 @@ export default function Design() {
     );
   }
 
+  // const hash = useLocation().hash;
+  // console.log(hash);
+  //  className={hash === "colorscheme" ? "shadowNarrowLooser" : ""}
+
   return (
     <FlexFull className="h-full overflow-y-auto justify-center">
       <FlexFull className="fixed top-0 left-0 p-[1vh] bg-col-200">
@@ -522,7 +526,7 @@ export default function Design() {
           </StyledExampleWrap>
 
           <SectionHeading id="components" heading="Components" />
-          <StyledExampleWrap>
+          <StyledExampleWrap bg="bg-col-600">
             <ComponentExamples />
           </StyledExampleWrap>
         </VStackFull>

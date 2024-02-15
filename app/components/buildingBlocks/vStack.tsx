@@ -7,7 +7,6 @@ interface VStackProps {
   align?: string;
   className?: string;
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
-  onKeyDown?: (event: React.KeyboardEvent<HTMLDivElement>) => void;
 }
 
 // Use React.forwardRef to forward the ref to the div element
@@ -20,16 +19,12 @@ const VStack = React.forwardRef<HTMLDivElement, VStackProps>(
       style = {},
       align = "items-center",
       onClick,
-      onKeyDown,
     },
     ref
   ) => {
     return (
       <div
-        role="button"
-        tabIndex={0}
         onClick={onClick}
-        onKeyDown={onKeyDown}
         className={`flex flex-col ${align} ${gap} ${className}`}
         ref={ref} // The forwarded ref is applied here
         style={style}

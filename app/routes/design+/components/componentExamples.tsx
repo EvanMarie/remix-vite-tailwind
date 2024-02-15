@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import Alert from "~/components/buildingBlocks/alert";
+import { Avatar } from "~/components/buildingBlocks/avatar";
 import Button from "~/components/buildingBlocks/button";
 
 export default function ComponentExamples() {
@@ -20,6 +21,7 @@ export default function ComponentExamples() {
   return (
     <>
       <Button buttonText="Alert" onClick={openAlert} />
+      <Avatar src="/fallbackImage.png" size="xl" />
 
       {isAlertOpen && (
         <Alert
