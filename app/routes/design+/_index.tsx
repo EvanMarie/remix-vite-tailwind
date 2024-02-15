@@ -131,7 +131,7 @@ export default function Design() {
 
   return (
     <FlexFull className="h-full overflow-y-auto justify-center">
-      <FlexFull className="fixed top-0 left-0 p-[1vh] bg-col-200">
+      <FlexFull className="fixed top-0 left-0 p-[1vh] bg-col-200 z-10 shadowWideLooser">
         <Wrap className="w-full gap-x-[5vh] gap-y-[1vh] justify-around">
           <NavLink to="#colorscheme">Colors</NavLink>
           <NavLink to="#rgb">RBG</NavLink>

@@ -4,13 +4,16 @@ import Alert from "~/components/buildingBlocks/alert";
 import { Avatar } from "~/components/buildingBlocks/avatar";
 import BackgroundImageContainer from "~/components/buildingBlocks/backgroundImageContainer";
 import Badge from "~/components/buildingBlocks/badge";
+import Box from "~/components/buildingBlocks/box";
 import Button from "~/components/buildingBlocks/button";
 import Checkbox from "~/components/buildingBlocks/checkBox";
 import DrawerWithButton from "~/components/buildingBlocks/drawerWithButton";
 import Flex from "~/components/buildingBlocks/flex";
 import FlexFull from "~/components/buildingBlocks/flexFull";
 import HStackFull from "~/components/buildingBlocks/hStackFull";
+import Input from "~/components/buildingBlocks/input";
 import InputDateTime from "~/components/buildingBlocks/inputDateTIme";
+import TextArea from "~/components/buildingBlocks/textArea";
 import Text from "~/components/buildingBlocks/textComponents";
 import VStack from "~/components/buildingBlocks/vStack";
 import VStackFull from "~/components/buildingBlocks/vStackFull";
@@ -151,6 +154,19 @@ export default function ComponentExamples() {
             </HStackFull>
           </VStackFull>
         </ComponentContainer>
+        <VStackFull gap="gap-[2vh]">
+          {" "}
+          <ComponentContainer headerText="Input">
+            <Box className="w-[25vh]">
+              <Input />
+            </Box>
+          </ComponentContainer>
+          <ComponentContainer headerText="TextArea">
+            <Box className="w-[25vh]">
+              <TextArea />
+            </Box>
+          </ComponentContainer>
+        </VStackFull>
       </Wrap>
 
       {isAlertOpen && (

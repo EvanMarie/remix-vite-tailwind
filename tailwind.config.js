@@ -11,6 +11,14 @@ const plugin = require("tailwindcss/plugin");
 //   addUtilities(utilities, ["responsive", "hover"]);
 // });
 
+// const NameOfPlugin = plugin(function ({ addUtilities }) {
+//   const utilities = {
+//     ".className": { styles },
+//   };
+
+//   addUtilities(utilities, ["responsive", "hover"]);
+// });
+
 const buttonStyles = plugin(function ({ addUtilities, theme }) {
   // Base styles for all buttons, excluding shadow properties
   const baseButtonStyles = {
@@ -2286,37 +2294,39 @@ export default {
       const newComponents = {
         ".inputStyles": {
           width: "100%", // Full width
-          backgroundColor: theme("colors.col-100.22"), // Assuming '22' is a valid color opacity or variant
-          boxShadow: theme("boxShadow.insetShadow"),
-          color: theme("colors.col-900"),
-          padding: `${theme("spacing.1")} ${theme("spacing.2")}`,
-          paddingRight: theme("spacing.2"),
-          borderWidth: theme("borderWidth.2"),
+          backgroundColor: theme("colors.col.200"),
+          backgroundImage: theme("backgroundImage.diagonal1op25"),
+          boxShadow: theme("boxShadow.insetShadowMd"),
+          color: theme("colors.col.900"),
+          padding: `0.4vh 1vh`,
+          borderWidth: "0.2vh",
           borderStyle: "solid",
-          borderColor: theme("colors.col-700"),
+          borderColor: theme("colors.col.400"),
           outline: "none",
           "&:focus": {
-            borderColor: theme("colors.col-200"),
+            boxShadow: theme("boxShadow.insetShadowLg"),
+            borderWidth: "0.2vh",
+            borderColor: theme("colors.col.300"),
           },
-          transition: "border-color 0.4s ease-in-out",
-          borderRadius: theme("borderRadius.1vh"),
+          transition: "all 0.4s ease-in-out",
         },
         ".textareaStyles": {
-          backgroundColor: theme("colors.col-100.22"), // Assuming '22' is a specific variant
-          boxShadow: theme("boxShadow.insetShadow"),
-          color: theme("colors.col-900"),
-          paddingLeft: theme("spacing.1.3"),
-          paddingRight: theme("spacing.2"),
-          paddingTop: theme("spacing.0.7"),
-          paddingBottom: theme("spacing.0.7"),
-          borderWidth: theme("borderWidth.2"),
+          width: "100%", // Full width
+          backgroundColor: theme("colors.col.200"),
+          backgroundImage: theme("backgroundImage.diagonal1op25"),
+          boxShadow: theme("boxShadow.insetShadowMd"),
+          color: theme("colors.col.900"),
+          padding: `0.4vh 1vh`,
+          borderWidth: "0.2vh",
           borderStyle: "solid",
-          borderColor: theme("colors.col-700"),
+          borderColor: theme("colors.col.400"),
           outline: "none",
           "&:focus": {
-            borderColor: theme("colors.col-200"),
+            boxShadow: theme("boxShadow.insetShadowLg"),
+            borderWidth: "0.2vh",
+            borderColor: theme("colors.col.300"),
           },
-          transition: "border-color 0.4s ease-in-out",
+          transition: "all 0.4s ease-in-out",
         },
       };
 

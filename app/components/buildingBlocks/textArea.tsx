@@ -27,7 +27,7 @@ export default function TextArea({
       defaultValue={defaultValue}
       // eslint-disable-next-line jsx-a11y/no-autofocus
       autoFocus={autoFocus}
-      className={`w-full ${resize} ${textAreaHeight} ${textAreaWidth} textAreaStyles ${className} `}
+      className={`w-full ${resize} ${textAreaHeight} ${textAreaWidth} textareaStyles ${className} `}
       style={style}
       {...props}
     />
