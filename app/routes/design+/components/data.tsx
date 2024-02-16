@@ -1607,3 +1607,52 @@ export const toastPositions = [
   "center-top",
   "center-center",
 ];
+
+export const tooltipPlacements = [
+  "top",
+  "bottom",
+  "left",
+  "right",
+  "topLeft",
+  "topRight",
+  "bottomLeft",
+  "bottomRight",
+  "topLeftCorner",
+  "topRightCorner",
+];
+
+export const drawerTypes = [
+  "right",
+  "top-right",
+  "bottom-right",
+  "bottom-center",
+  "left",
+  "bottom-left",
+  "top-left",
+  "top-center",
+];
+
+export const transitionTypes = [
+  "fade",
+  "scale",
+  "slide",
+  "rotate",
+  "flip",
+  "zoom",
+  "slideInLeft",
+  "slideInTopLeft",
+  "slideInBottomLeft",
+  "slideInTop",
+  "slideInTopRight",
+  "slideInRight",
+  "slideInBottomRight",
+  "slideInBottom",
+  "fadeSlideInRight",
+  "fadeSlideInLeft",
+  "fadeSlideInTopLeft",
+  "fadeSlideInBottomLeft",
+  "fadeSlideInTop",
+  "fadeSlideInTopRight",
+  "fadeSlideInBottomRight",
+  "fadeSlideInBottom",
+];

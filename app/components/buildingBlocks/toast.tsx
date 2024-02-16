@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import Flex from "./flex";
 import { motion } from "framer-motion";
-import VStack from "./vStack";
 import Text from "./text";
 
 export const useToast = () => {

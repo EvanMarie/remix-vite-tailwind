@@ -27,8 +27,8 @@ interface TooltipProps {
 
 export default function Tooltip({
   label,
-  bg = "bg-col-200",
-  color = "text-col-900",
+  bg = "bg-col-800",
+  color = "text-col-100 textShadow",
   w = "w-auto",
   children,
   placement = "bottomRight",
@@ -98,7 +98,7 @@ export default function Tooltip({
           >
             <Transition>
               <div
-                className={`text-sm-tight lightTextShadow justify-center px-2 py-[0px] pt-[0.1vh] pb-[0px] z-30 ${w} ${bg} ${color} font-semibold shadowNarrowNormal whitespace-nowrap`}
+                className={`text-md-tight justify-center px-2 py-[0.3vh]] z-30 ${w} ${bg} ${color} font-semibold shadowNarrowNormal whitespace-nowrap`}
               >
                 {label}
               </div>

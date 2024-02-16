@@ -30,7 +30,13 @@ import Toast, {
   ToastPosition,
   useToast,
 } from "~/components/buildingBlocks/toast";
-import { toastPositions } from "./data";
+import {
+  drawerTypes,
+  toastPositions,
+  tooltipPlacements,
+  transitionTypes,
+} from "./data";
+import Tooltip, { TooltipPlacement } from "~/components/buildingBlocks/tooltip";
 
 export default function ComponentExamples() {
   const onConfirm = () => {
@@ -78,17 +84,6 @@ export default function ComponentExamples() {
       </VStack>
     );
   }
-
-  const drawerTypes = [
-    "right",
-    "top-right",
-    "bottom-right",
-    "bottom-center",
-    "left",
-    "bottom-left",
-    "top-left",
-    "top-center",
-  ];
 
   const [toastPosition, setToastPosition] = useState("center-center");
 
@@ -232,6 +227,33 @@ export default function ComponentExamples() {
                 />
               ))}
             </VStack>
+          </FlexFull>
+        </ComponentContainer>
+        <ComponentContainer headerText="Tooltip" className="">
+          <FlexFull className="justify-center">
+            <Wrap className="w-full justify-around gap-[3vh] p-[2vh] lg:w-[60vw] xxl:w-[50vw]">
+              {tooltipPlacements.map((placement) => (
+                <Tooltip
+                  key={placement}
+                  placement={placement as TooltipPlacement}
+                  label={placement}
+                  bg="bg-col-800"
+                >
+                  <Flex className="justify-center bg-300-diagonal1op25 w-[23vh] shadowNarrowNormal">
+                    <Text className="text-lg-tight">{placement}</Text>
+                  </Flex>
+                </Tooltip>
+              ))}
+            </Wrap>
+          </FlexFull>
+        </ComponentContainer>
+        <ComponentContainer headerText="Transition" className="">
+          <FlexFull className="justify-center">
+            <Wrap className="w-full justify-around gap-[3vh] p-[2vh] lg:w-[60vw] xxl:w-[50vw]">
+              {transitionTypes.map((type) => (
+                <Button buttonText={type} key={type} type="smallNormal" />
+              ))}
+            </Wrap>
           </FlexFull>
         </ComponentContainer>
       </Wrap>
