@@ -40,6 +40,7 @@ import ComponentExamples from "./components/componentExamples";
 import { textStrokeDarkBg, textStrokeLightBg } from "./components/textStroke";
 import Heading from "~/components/buildingBlocks/headingText";
 import Text from "~/components/buildingBlocks/text";
+import CustomNavLink from "~/components/buildingBlocks/custonNavLink";
 
 export function StyleExampleBox({
   className,
@@ -117,30 +118,90 @@ export default function Design() {
             shadow="textGlow"
             text={heading}
             layout="text-too-big-normal"
+            className="px-[2vh]"
           />
         </Flex>
       </>
     );
   }
 
-  // const hash = useLocation().hash;
-  // console.log(hash);
-  //  className={hash === "colorscheme" ? "shadowNarrowLooser" : ""}
+  const activeStyles = "textGlow";
+  const inactiveStyles = "text-shadow";
 
   return (
     <FlexFull className="h-full overflow-y-auto justify-center">
       <FlexFull className="fixed top-0 left-0 p-[1vh] bg-col-200 z-10 shadowWideLooser">
         <Wrap className="w-full gap-x-[5vh] gap-y-[1vh] justify-around">
-          <NavLink to="#colorscheme">Colors</NavLink>
-          <NavLink to="#rgb">RBG</NavLink>
-          <NavLink to="#gradients">Grads</NavLink>
-          <NavLink to="#complexbackgrounds">BGs</NavLink>
-          <NavLink to="#buttons">Buttons</NavLink>
-          <NavLink to="#transitions">Transitions</NavLink>
-          <NavLink to="#shadow">Shadows</NavLink>
-          <NavLink to="#borders">Borders</NavLink>
-          <NavLink to="#text">Text</NavLink>
-          <NavLink to="#components">Components</NavLink>
+          <CustomNavLink
+            to="#colorscheme"
+            linkText="Colors"
+            activeStyles={activeStyles}
+            inactiveStyles={inactiveStyles}
+            useHash
+          />
+          <CustomNavLink
+            to="#rgb"
+            linkText="RBG"
+            activeStyles={activeStyles}
+            inactiveStyles={inactiveStyles}
+            useHash
+          />
+          <CustomNavLink
+            to="#gradients"
+            linkText="Gradients"
+            activeStyles={activeStyles}
+            inactiveStyles={inactiveStyles}
+            useHash
+          />
+          <CustomNavLink
+            to="#complexbackgrounds"
+            linkText="Complex Backgrounds"
+            activeStyles={activeStyles}
+            inactiveStyles={inactiveStyles}
+            useHash
+          />
+          <CustomNavLink
+            to="#buttons"
+            linkText="Buttons"
+            activeStyles={activeStyles}
+            inactiveStyles={inactiveStyles}
+            useHash
+          />
+          <CustomNavLink
+            to="#transitions"
+            linkText="Transitions"
+            activeStyles={activeStyles}
+            inactiveStyles={inactiveStyles}
+            useHash
+          />
+          <CustomNavLink
+            to="#shadow"
+            linkText="Shadows"
+            activeStyles={activeStyles}
+            inactiveStyles={inactiveStyles}
+            useHash
+          />
+          <CustomNavLink
+            to="#borders"
+            linkText="Borders"
+            activeStyles={activeStyles}
+            inactiveStyles={inactiveStyles}
+            useHash
+          />
+          <CustomNavLink
+            to="#text"
+            linkText="Text"
+            activeStyles={activeStyles}
+            inactiveStyles={inactiveStyles}
+            useHash
+          />
+          <CustomNavLink
+            to="#components"
+            linkText="Components"
+            activeStyles={activeStyles}
+            inactiveStyles={inactiveStyles}
+            useHash
+          />
         </Wrap>
       </FlexFull>
       <VStackFull

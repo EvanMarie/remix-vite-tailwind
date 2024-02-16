@@ -108,7 +108,7 @@ export default function ComponentExamples() {
         <ComponentContainer headerText="Date Time Picker">
           <InputDateTime containerHeight="h-[38vh]" />
         </ComponentContainer>
-        <ComponentContainer headerText="Drawer With Button">
+        <ComponentContainer headerText="Drawer">
           <VStackFull>
             {drawerTypes.map((type) => (
               <HStackFull key={type} className="justify-between">
