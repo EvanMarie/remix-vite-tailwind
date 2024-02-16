@@ -116,18 +116,24 @@ export default function Popover({
             animate="visible"
             exit="hidden"
             variants={centerVariants}
-            className={`absolute z-30  shadow3DMd ${w} ${h} min-w-[300px] ${placementClasses[placement]}`}
+            className={`absolute z-10 shadowNarrowLoose ${w} ${h} min-w-[300px] ${placementClasses[placement]}`}
           >
             <Flex
-              className={`w-full h-full  shadow3DMd relative bg-col-990 bg-darkenGrad`}
+              className={`w-full h-full shadow3DMd relative bg-col-300 bg-darkenGrad`}
             >
               <VStack
                 className={`w-full h-full justify-start items-center shadowNarrowNormal gap-[0px]`}
               >
-                <HStack className=" w-full justify-between rounded-b-none bg-col-900 p-[0.7vh] pl-[1vh] border-b-[0.1vh] border-col-125">
+                <HStack className=" w-full justify-between rounded-b-none bg-col-700 p-[0.7vh] pl-[1vh] border-b-[0.1vh] border-col-125">
                   {" "}
-                  <Heading noOfLines={1} text={heading ? heading : ""} />
-                  <Box className="absolute top-[1vh] right-[1vh]">
+                  <Heading
+                    layout="text-lg-tight"
+                    color="text-col-100"
+                    shadow="textShadow"
+                    noOfLines={1}
+                    text={heading ? heading : ""}
+                  />
+                  <Box className="absolute top-[0.5vh] right-[1vh]">
                     <CloseButton onClose={() => setIsOpen(false)} />
                   </Box>
                 </HStack>

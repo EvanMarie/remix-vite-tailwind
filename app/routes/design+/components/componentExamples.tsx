@@ -18,6 +18,7 @@ import InputDateTime from "~/components/buildingBlocks/inputDateTIme";
 import InputVStack from "~/components/buildingBlocks/inputVStack";
 import ModalWithButton from "~/components/buildingBlocks/modalWithButton";
 import PasswordInput from "~/components/buildingBlocks/passwordInput";
+import Popover from "~/components/buildingBlocks/popover";
 import Text from "~/components/buildingBlocks/text";
 import TextArea from "~/components/buildingBlocks/textArea";
 import TextAreaVStack from "~/components/buildingBlocks/textAreaVStack";
@@ -166,6 +167,15 @@ export default function ComponentExamples() {
         </ComponentContainer>
         <ComponentContainer headerText="Password Input" className="w-[40vh]">
           <PasswordInput />
+        </ComponentContainer>
+        <ComponentContainer headerText="Popover" className="w-[30vh]">
+          <FlexFull className="justify-center">
+            <Popover
+              trigger={<Button buttonText="popover" />}
+              content={<Flex>I am the content</Flex>}
+              heading="Popover Heading"
+            />
+          </FlexFull>
         </ComponentContainer>
       </Wrap>
 
