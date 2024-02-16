@@ -26,7 +26,7 @@ export default function PasswordInput({
       {confirm ? (
         <Heading text="Confirm Password" />
       ) : (
-        <Heading text="Password" />
+        <Heading layout="text-lg-normal" text="Password" />
       )}
       <HStack className="w-full relative" gap="gap-0">
         <Box className="relative w-full">
@@ -38,10 +38,10 @@ export default function PasswordInput({
             required
           />
         </Box>
-        <Box className="absolute right-[5px] top-1 md:top-[3px] fullHD:right-[10px] quadHD:top-[3px] ultraHD:top-[1px] ultraHD:right-[15px]">
+        <Box className="absolute right-[1vh] top-[0.2vh]">
           <IconButton
-            containerClassName="h-[25px] w-[25px] md:h-[20px] md:w-[20px] fullHD:h-[30px] fullHD:w-[30px] quadHD:h-[25px] quadHD:w-[25px] ultraHD:h-[45px] ultraHD:w-[45px]"
-            iconClassName="text-[17px] md:text-[15px] fullHD:text-[20px] ultraHD:text-[25px]"
+            type="unstyled"
+            iconClassName="text-[2.5vh]"
             label="show/hide"
             icon={show ? FaEyeSlash : FaEye}
             onClick={handleClick}

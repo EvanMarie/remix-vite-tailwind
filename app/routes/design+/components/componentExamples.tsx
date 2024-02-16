@@ -17,6 +17,7 @@ import Input from "~/components/buildingBlocks/input";
 import InputDateTime from "~/components/buildingBlocks/inputDateTIme";
 import InputVStack from "~/components/buildingBlocks/inputVStack";
 import ModalWithButton from "~/components/buildingBlocks/modalWithButton";
+import PasswordInput from "~/components/buildingBlocks/passwordInput";
 import Text from "~/components/buildingBlocks/text";
 import TextArea from "~/components/buildingBlocks/textArea";
 import TextAreaVStack from "~/components/buildingBlocks/textAreaVStack";
@@ -162,6 +163,9 @@ export default function ComponentExamples() {
               </FlexFull>
             </ModalWithButton>
           </FlexFull>
+        </ComponentContainer>
+        <ComponentContainer headerText="Password Input" className="w-[40vh]">
+          <PasswordInput />
         </ComponentContainer>
       </Wrap>
 
