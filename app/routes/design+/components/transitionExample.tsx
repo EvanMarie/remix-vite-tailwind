@@ -1,36 +1,44 @@
 // FramerMotionModal.tsx
-import { motion, AnimatePresence } from "framer-motion";
 import useEscapeKey from "~/utils/useEscapeKey";
 import Transition, {
   TransitionType,
 } from "~/components/buildingBlocks/transition";
-import Portal from "~/components/buildingBlocks/portal";
-import Flex from "~/components/buildingBlocks/flex";
+import Text from "~/components/buildingBlocks/text";
+import FlexFull from "~/components/buildingBlocks/flexFull";
+import Button from "~/components/buildingBlocks/button";
+import VStack from "~/components/buildingBlocks/vStack";
 
 export default function TransitionExample({
   transitionType,
-  isTransitionOpen,
-  setTransitionOpen,
+  isOpen,
+  closeTransition,
 }: {
   transitionType: TransitionType;
   isOpen: boolean;
+  closeTransition: () => void;
 }) {
-  useEscapeKey(() => setTransitionOpen(false));
+  useEscapeKey(() => closeTransition());
+  console.log("IsOpen: ", isOpen);
 
   return (
-    <Portal>
-      <AnimatePresence>
-        {isTransitionOpen && (
-          <Transition
-            type={transitionType}
-            className="w-full h-full justify-center items-center defaultOverlay"
-          >
-            <Flex className="p-[3vh] bg-500-radial3op50 text-col-100">
-              This
-            </Flex>
+    <>
+      {isOpen && (
+        <FlexFull
+          className="w-full h-full justify-center items-center bg-linear4op75 defaultOverlayBlur absolute top-0 left-0 z-20"
+          onClick={() => closeTransition()}
+        >
+          <Transition type={transitionType} duration={0.6} delay={0.3}>
+            <VStack className="p-[3vh] bg-600-linear6op75 text-col-100 shadowWideLooser">
+              <Text className="text-xl-looser">
+                transition type = &#34;{transitionType}&#34;
+              </Text>
+            </VStack>
           </Transition>
-        )}
-      </AnimatePresence>
-    </Portal>
+          <FlexFull className="fixed bottom-0 left-0 h-[6vh] justify-center items-center">
+            <Button buttonText="close" onClick={() => closeTransition()} />
+          </FlexFull>
+        </FlexFull>
+      )}
+    </>
   );
 }

@@ -38,6 +38,7 @@ import {
 } from "./data";
 import Tooltip, { TooltipPlacement } from "~/components/buildingBlocks/tooltip";
 import TransitionExample from "./transitionExample";
+import { TransitionType } from "~/components/buildingBlocks/transition";
 
 export default function ComponentExamples() {
   const onConfirm = () => {
@@ -89,6 +90,12 @@ export default function ComponentExamples() {
   const [toastPosition, setToastPosition] = useState("center-center");
   const [isTransitionOpen, setIsTransitionOpen] = useState(false);
   const [transitionType, setTransitionType] = useState("fade");
+  const handleTransitionClick = (transitionType: TransitionType) => {
+    setTransitionType(transitionType);
+    setIsTransitionOpen(true);
+    console.log(isTransitionOpen, transitionType);
+  };
+
   return (
     <Flex className="w-full justify-around items-center">
       <Wrap className="w-full items-center justify-around gap-[3vh]">
@@ -253,7 +260,12 @@ export default function ComponentExamples() {
           <FlexFull className="justify-center">
             <Wrap className="w-full justify-around gap-[1.5vh] p-[2vh] lg:w-[60vw] xxl:w-[50vw]">
               {transitionTypes.map((type) => (
-                <Button buttonText={type} key={type} type="smallNormal" />
+                <Button
+                  buttonText={type}
+                  key={type}
+                  type="smallNormal"
+                  onClick={() => handleTransitionClick(type as TransitionType)}
+                />
               ))}
             </Wrap>
           </FlexFull>
@@ -284,7 +296,11 @@ export default function ComponentExamples() {
         />
       )}
       {isTransitionOpen && (
-        <TransitionExample transitionType={"fade"} isOpen={isTransitionOpen} />
+        <TransitionExample
+          isOpen={isTransitionOpen}
+          closeTransition={() => setIsTransitionOpen(false)}
+          transitionType={transitionType as TransitionType}
+        />
       )}
     </Flex>
   );

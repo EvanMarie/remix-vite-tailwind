@@ -35,6 +35,7 @@ interface TransitionProps {
   duration?: number;
   style?: object;
   onClick?: () => void;
+  key?: string;
 }
 
 const transitionVariants: Record<TransitionType, Variants> = {
@@ -160,11 +161,12 @@ export default function Transition({
   style = {},
   duration = 0.5,
   onClick,
+  key,
 }: TransitionProps) {
   return (
     <motion.div
       className={`flex justify-center overflow-hidden ${className}`}
-      key={type}
+      key={key}
       variants={transitionVariants[type]}
       initial="initial"
       animate="animate"

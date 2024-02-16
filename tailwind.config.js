@@ -2287,6 +2287,9 @@ export default {
           boxShadow: "inset 0 0 10px rgba(0, 0, 0, 0.5)", // Example - adjust as needed
           backgroundColor: theme("colors.col.930"),
         },
+        ".defaultOverlayBlur": {
+          backdropFilter: "blur(4px)",
+        },
       });
     }),
     // INPUT AND TEXTAREA PLUGIN
