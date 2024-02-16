@@ -19,12 +19,14 @@ import InputVStack from "~/components/buildingBlocks/inputVStack";
 import ModalWithButton from "~/components/buildingBlocks/modalWithButton";
 import PasswordInput from "~/components/buildingBlocks/passwordInput";
 import Popover from "~/components/buildingBlocks/popover";
+import ScrollingSelector from "~/components/buildingBlocks/scrollingSelector";
 import Text from "~/components/buildingBlocks/text";
 import TextArea from "~/components/buildingBlocks/textArea";
 import TextAreaVStack from "~/components/buildingBlocks/textAreaVStack";
 import VStack from "~/components/buildingBlocks/vStack";
 import VStackFull from "~/components/buildingBlocks/vStackFull";
 import Wrap from "~/components/buildingBlocks/wrap";
+import Toast, { useToast } from "~/components/buildingBlocks/toast";
 
 export default function ComponentExamples() {
   const onConfirm = () => {
@@ -32,12 +34,15 @@ export default function ComponentExamples() {
     setIsAlertOpen(false);
   };
 
+  const [externalSelected, setExternalSelection] = useState<string | undefined>(
+    "optionSix"
+  );
   const [isAlertOpen, setIsAlertOpen] = useState(false);
   const cancelRef = useRef<HTMLButtonElement | null>(null);
   const openAlert = () => {
     setIsAlertOpen(true);
   };
-
+  const { isToastVisible, showToast, hideToast } = useToast();
   const closeAlert = () => {
     setIsAlertOpen(false);
   };
@@ -45,7 +50,7 @@ export default function ComponentExamples() {
   function ComponentContainer({
     children,
     className,
-    bg = "bg-col-200",
+    bg = "bg-100-diagonal2op25",
     headerText,
   }: {
     children?: React.ReactNode;
@@ -59,7 +64,7 @@ export default function ComponentExamples() {
         className={`h-fit ${bg} shadowNarrowLoose ${className}`}
       >
         {headerText && (
-          <FlexFull className="px-[1vh] py-[0.5vh] bg-col-970 rounded-b-none">
+          <FlexFull className="px-[1vh] py-[0.5vh] bg-100-linear6op75 rounded-b-none">
             <Text className="font-semibold text-col-100 textShadow">
               {headerText}
             </Text>
@@ -171,14 +176,54 @@ export default function ComponentExamples() {
         <ComponentContainer headerText="Popover" className="w-[30vh]">
           <FlexFull className="justify-center">
             <Popover
-              trigger={<Button buttonText="popover" />}
+              trigger={<Button buttonText="Popover" />}
               content={<Flex>I am the content</Flex>}
               heading="Popover Heading"
             />
           </FlexFull>
         </ComponentContainer>
+        <ComponentContainer headerText="Select Menu" className="w-[30vh]">
+          <VStackFull>
+            <HStackFull>
+              <Text className="font-bold">Selected:</Text>
+              <Text>{externalSelected}</Text>
+            </HStackFull>
+            <FlexFull className="justify-center h-[30vh]">
+              <ScrollingSelector
+                setExternalSelection={setExternalSelection}
+                selectedOption={externalSelected}
+                selectedOnTop={false}
+                showClose={false}
+                options={[
+                  "option one",
+                  "optionTwo",
+                  "optionThree",
+                  "optionFour",
+                  "optionFive",
+                  "optionSix",
+                  "optionSeven",
+                  "optionEight",
+                  "optionNine",
+                  "optionTen",
+                ]}
+              />
+            </FlexFull>
+          </VStackFull>
+        </ComponentContainer>
+        <ComponentContainer headerText="Toast" className="w-[30vh]">
+          <FlexFull className="justify-center">
+            <Button buttonText="Toast" onClick={() => showToast()} />
+          </FlexFull>
+        </ComponentContainer>
       </Wrap>
-
+      {isToastVisible && (
+        <Toast
+          message="I am so toasty."
+          isVisible={isToastVisible}
+          duration={5000}
+          onClose={hideToast}
+        />
+      )}
       {isAlertOpen && (
         <Alert
           isAlertOpen={isAlertOpen}

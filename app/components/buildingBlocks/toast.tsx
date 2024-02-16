@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 import Flex from "./flex";
 import { motion } from "framer-motion";
-
 import VStack from "./vStack";
-import Box from "./box";
 import Text from "./text";
 
 export const useToast = () => {
@@ -44,18 +42,26 @@ interface ToastProps {
   lineHeight?: string;
   noOfLines?: number;
   onClose: () => void;
-  position?: ToastPosition; // Use the defined type here
+  position?: ToastPosition;
+  containerClassName?: string;
+  contentClassName?: string;
+  textClassName?: string;
+  toastSize?: string;
+  bg?: string;
 }
 
 export default function Toast({
-  fontSize = "text-[2vh] leading-[2.5vh]",
-  lineHeight = "leading-[30px]",
   noOfLines = 4,
   message,
   isVisible,
   duration = 4000,
   onClose,
   position = "center-center",
+  toastSize = "w-fit h-fit",
+  containerClassName = "",
+  bg = "bg-100-linear6op75 shadowBroadNormal",
+  contentClassName = "justify-center items-center p-[4vh]",
+  textClassName = "text-col-100 text-lg-normal ",
 }: ToastProps) {
   const [show, setShow] = useState(isVisible);
 
@@ -94,20 +100,16 @@ export default function Toast({
 
   return (
     <motion.div
-      className={`w-[20vw] h-[25vh] fixed ${positionClass} bg-darkVioletBack shadowBroadNormal text-col-100 textShadowrounded-lg z-50`}
+      className={`fixed ${positionClass} z-20 ${bg} ${toastSize} ${containerClassName}`}
       initial="hidden"
       animate="visible"
       exit="hidden"
       variants={toastVariants}
     >
-      <Flex className="w-full h-full relative pt-[70px] ">
-        <VStack className="w-full  px-4" align="end">
-          <Flex className="w-full h-full justify-end items-center">
-            <Box className={`text-right w-7/12 ${fontSize} ${lineHeight}`}>
-              <Text noOfLines={noOfLines}>{message}</Text>
-            </Box>
-          </Flex>
-        </VStack>
+      <Flex className={`w-full h-full ${contentClassName}`}>
+        <Text noOfLines={noOfLines} className={`${textClassName}`}>
+          {message}
+        </Text>
       </Flex>
     </motion.div>
   );

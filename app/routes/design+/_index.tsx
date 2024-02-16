@@ -1,11 +1,11 @@
 /* eslint-disable react/no-unescaped-entities */
-import { NavLink } from "@remix-run/react";
 import Button from "~/components/buildingBlocks/button";
 import Flex from "~/components/buildingBlocks/flex";
 import FlexFull from "~/components/buildingBlocks/flexFull";
 import VStackFull from "~/components/buildingBlocks/vStackFull";
 import Wrap from "~/components/buildingBlocks/wrap";
 import {
+  textShadows,
   allColors,
   allColorsRGB,
   colors100,
@@ -27,17 +27,18 @@ import {
   col700Bgs,
   col800Bgs,
   col900Bgs,
-} from "./components/colorsBackgrounds";
+  shadowsDarkBack,
+  shadowsLightBack,
+  textStrokeDarkBg,
+  textStrokeLightBg,
+  textExamples,
+} from "./components/data";
 import IconButton from "~/components/buildingBlocks/iconButton";
 import Box from "~/components/buildingBlocks/box";
 import BorderExamples from "./components/borderExamples";
 import TransformBg from "./components/transformBgObject";
-import { textExamples } from "./components/textExamples";
-import { shadowsDarkBack, shadowsLightBack } from "./components/boxShadows";
 import { GoSmiley } from "react-icons/go";
-import { textShadows } from "./components/text";
 import ComponentExamples from "./components/componentExamples";
-import { textStrokeDarkBg, textStrokeLightBg } from "./components/textStroke";
 import Heading from "~/components/buildingBlocks/headingText";
 import Text from "~/components/buildingBlocks/text";
 import CustomNavLink from "~/components/buildingBlocks/custonNavLink";
