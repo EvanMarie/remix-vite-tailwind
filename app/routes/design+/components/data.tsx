@@ -1595,3 +1595,15 @@ export const shadowsDarkBack = [
   "metallicEdgesLg",
   "metallicEdgesXl",
 ];
+
+export const toastPositions = [
+  "top-left",
+  "top-right",
+  "bottom-left",
+  "bottom-right",
+  "center-right",
+  "center-bottom",
+  "center-left",
+  "center-top",
+  "center-center",
+];

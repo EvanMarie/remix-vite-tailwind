@@ -23,7 +23,7 @@ const toastVariants = {
   hidden: { opacity: 0, transition: { duration: 0.5 } },
 };
 
-type ToastPosition =
+export type ToastPosition =
   | "top-left"
   | "top-right"
   | "bottom-left"

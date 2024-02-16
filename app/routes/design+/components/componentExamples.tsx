@@ -26,7 +26,11 @@ import TextAreaVStack from "~/components/buildingBlocks/textAreaVStack";
 import VStack from "~/components/buildingBlocks/vStack";
 import VStackFull from "~/components/buildingBlocks/vStackFull";
 import Wrap from "~/components/buildingBlocks/wrap";
-import Toast, { useToast } from "~/components/buildingBlocks/toast";
+import Toast, {
+  ToastPosition,
+  useToast,
+} from "~/components/buildingBlocks/toast";
+import { toastPositions } from "./data";
 
 export default function ComponentExamples() {
   const onConfirm = () => {
@@ -85,6 +89,8 @@ export default function ComponentExamples() {
     "top-left",
     "top-center",
   ];
+
+  const [toastPosition, setToastPosition] = useState("center-center");
 
   return (
     <Flex className="w-full justify-around items-center">
@@ -212,16 +218,30 @@ export default function ComponentExamples() {
         </ComponentContainer>
         <ComponentContainer headerText="Toast" className="w-[30vh]">
           <FlexFull className="justify-center">
-            <Button buttonText="Toast" onClick={() => showToast()} />
+            <VStack>
+              {toastPositions.map((position) => (
+                <Button
+                  width="w-[23vh]"
+                  key={position}
+                  type="smallNormal"
+                  buttonText={position}
+                  onClick={() => {
+                    setToastPosition(position);
+                    showToast();
+                  }}
+                />
+              ))}
+            </VStack>
           </FlexFull>
         </ComponentContainer>
       </Wrap>
       {isToastVisible && (
         <Toast
-          message="I am so toasty."
+          message={`I am so toasty - ${toastPosition}`}
           isVisible={isToastVisible}
           duration={5000}
           onClose={hideToast}
+          position={toastPosition as ToastPosition}
         />
       )}
       {isAlertOpen && (
