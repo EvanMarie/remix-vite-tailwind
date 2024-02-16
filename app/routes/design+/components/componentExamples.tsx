@@ -37,6 +37,7 @@ import {
   transitionTypes,
 } from "./data";
 import Tooltip, { TooltipPlacement } from "~/components/buildingBlocks/tooltip";
+import TransitionExample from "./transitionExample";
 
 export default function ComponentExamples() {
   const onConfirm = () => {
@@ -86,7 +87,8 @@ export default function ComponentExamples() {
   }
 
   const [toastPosition, setToastPosition] = useState("center-center");
-
+  const [isTransitionOpen, setIsTransitionOpen] = useState(false);
+  const [transitionType, setTransitionType] = useState("fade");
   return (
     <Flex className="w-full justify-around items-center">
       <Wrap className="w-full items-center justify-around gap-[3vh]">
@@ -249,7 +251,7 @@ export default function ComponentExamples() {
         </ComponentContainer>
         <ComponentContainer headerText="Transition" className="">
           <FlexFull className="justify-center">
-            <Wrap className="w-full justify-around gap-[3vh] p-[2vh] lg:w-[60vw] xxl:w-[50vw]">
+            <Wrap className="w-full justify-around gap-[1.5vh] p-[2vh] lg:w-[60vw] xxl:w-[50vw]">
               {transitionTypes.map((type) => (
                 <Button buttonText={type} key={type} type="smallNormal" />
               ))}
@@ -280,6 +282,9 @@ export default function ComponentExamples() {
           onConfirmClick={() => onConfirm()}
           bodyTextSize="text-[2.5vh]"
         />
+      )}
+      {isTransitionOpen && (
+        <TransitionExample transitionType={"fade"} isOpen={isTransitionOpen} />
       )}
     </Flex>
   );
