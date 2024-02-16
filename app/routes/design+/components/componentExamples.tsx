@@ -39,6 +39,7 @@ import {
 import Tooltip, { TooltipPlacement } from "~/components/buildingBlocks/tooltip";
 import TransitionExample from "./transitionExample";
 import { TransitionType } from "~/components/buildingBlocks/transition";
+import ValidatedInput from "~/components/buildingBlocks/validatedInput";
 
 export default function ComponentExamples() {
   const onConfirm = () => {
@@ -183,6 +184,11 @@ export default function ComponentExamples() {
         <ComponentContainer headerText="Password Input" className="w-[40vh]">
           <PasswordInput />
         </ComponentContainer>
+        <ComponentContainer headerText="Validated Input" className="w-[30vh]">
+          <FlexFull className="justify-center">
+            <ValidatedInput max={10} />
+          </FlexFull>
+        </ComponentContainer>
         <ComponentContainer headerText="Popover" className="w-[30vh]">
           <FlexFull className="justify-center">
             <Popover
@@ -296,7 +302,8 @@ export default function ComponentExamples() {
         />
       )}
       {isTransitionOpen && (
-        <TransitionExample
+        <TransitionE
+          xample
           isOpen={isTransitionOpen}
           closeTransition={() => setIsTransitionOpen(false)}
           transitionType={transitionType as TransitionType}

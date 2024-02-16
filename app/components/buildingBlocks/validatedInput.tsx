@@ -21,7 +21,6 @@ export default function ValidatedInput({
   min = 3,
   max,
   autoFocus = false,
-  additionalStyles = "",
   isRequired = false,
   name = "",
   id = "",
@@ -31,61 +30,40 @@ export default function ValidatedInput({
 
   // Compute the class strings based on conditions
   const isInvalid = inputValue.length < min || inputValue.length > max;
-  const inputClass = isInvalid
-    ? `border-pinkest shadow-[0_0_0_1px_lilac] ${additionalStyles}`
-    : `${additionalStyles}`;
-  const textColorClass = isInvalid ? `text-col-400` : `text-col-175`;
-  const textShadowClass = isInvalid ? "textShadow" : "text-shadow-none";
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
     setInputValue(newValue);
   };
-  const baseTextStyle =
-    "text-[18px] font-semibold leading-none sm:leading-1rem";
+
   const fieldTooShort = inputValue.length < min;
   const fieldTooLong = inputValue.length > max;
   return (
-    <VStack className="w-full flex flex-col space-y-0">
+    <VStack className="w-full flex flex-col space-y-0" gap="gap-[0.5vh]">
       <Input
         autoFocus={autoFocus}
         value={inputValue}
         type="text"
         name={name}
         id={id}
-        className={inputClass}
         onChange={handleInputChange}
         placeholder={placeholder}
         required={isRequired}
       />
-      <div className={`flex space-x-1 w-full ${textColorClass} `}>
-        <span
-          className={`${textColorClass} ${textShadowClass} ${baseTextStyle}`}
-        >
+      <div
+        className={`flex space-x-1 w-full pl-[0.5vh] text-xs-tight lightTextShadow font-semibold`}
+      >
+        <span>
           {inputValue.length} / {max} chars -
         </span>
 
-        <div className="flex space-x-1">
+        <div>
           {isInvalid && fieldTooLong && (
             <>
-              <span
-                className={`${textColorClass} ${textShadowClass}  ${baseTextStyle}`}
-              >
-                Backspace 😱
-              </span>
+              <span className="text-red-700">input is too long</span>
             </>
           )}
-          {isInvalid && fieldTooShort && (
-            <span
-              className={` ${baseTextStyle} ${textColorClass} ${textShadowClass}`}
-            >
-              {" "}
-              Gonna need at least {min} chars.
-            </span>
-          )}
-          {!isInvalid && (
-            <span className={` ${baseTextStyle} `}>we are good!</span>
-          )}
+          {isInvalid && fieldTooShort && <span> min {min} chars.</span>}
+          {!isInvalid && <span>validated input</span>}
         </div>
       </div>
     </VStack>
