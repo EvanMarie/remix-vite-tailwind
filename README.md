@@ -57,6 +57,16 @@ Navigate to the `tailwind.config.js` file to customize the color schemes, design
 
 Explore the `components` directory to see the available UI components. You can use these as is or customize them further to match your project requirements.
 
+![image1](http://www.evanmarie.com/content/files/images/remix-vite-tailwind1.png)
+![image1](http://www.evanmarie.com/content/files/images/remix-vite-tailwind2.png)
+![image1](http://www.evanmarie.com/content/files/images/remix-vite-tailwind3.png)
+![image1](http://www.evanmarie.com/content/files/images/remix-vite-tailwind4.png)
+![image1](http://www.evanmarie.com/content/files/images/remix-vite-tailwind5.png)
+![image1](http://www.evanmarie.com/content/files/images/remix-vite-tailwind6.png)
+![image1](http://www.evanmarie.com/content/files/images/remix-vite-tailwind7.png)
+![image1](http://www.evanmarie.com/content/files/images/remix-vite-tailwind8.png)
+![image1](http://www.evanmarie.com/content/files/images/remix-vite-tailwind9.png)
+
 ## Contributing
 
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
