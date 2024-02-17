@@ -42,6 +42,8 @@ import ComponentExamples from "./components/componentExamples";
 import Heading from "~/components/buildingBlocks/headingText";
 import Text from "~/components/buildingBlocks/text";
 import CustomNavLink from "~/components/buildingBlocks/custonNavLink";
+import { HomeIcon } from "styles";
+import Transition from "~/components/buildingBlocks/transition";
 
 export function StyleExampleBox({
   className,
@@ -130,518 +132,521 @@ export default function Design() {
   const inactiveStyles = "text-shadow";
 
   return (
-    <FlexFull className="h-full overflow-y-auto justify-center">
-      <FlexFull className="fixed top-0 left-0 p-[1vh] bg-col-200 z-10 shadowWideLooser">
-        <Wrap className="w-full gap-x-[5vh] gap-y-[1vh] justify-around">
-          <CustomNavLink
-            to="#colorscheme"
-            linkText="Colors"
-            activeStyles={activeStyles}
-            inactiveStyles={inactiveStyles}
-            useHash
-          />
-          <CustomNavLink
-            to="#rgb"
-            linkText="RBG"
-            activeStyles={activeStyles}
-            inactiveStyles={inactiveStyles}
-            useHash
-          />
-          <CustomNavLink
-            to="#gradients"
-            linkText="Gradients"
-            activeStyles={activeStyles}
-            inactiveStyles={inactiveStyles}
-            useHash
-          />
-          <CustomNavLink
-            to="#complexbackgrounds"
-            linkText="Complex Backgrounds"
-            activeStyles={activeStyles}
-            inactiveStyles={inactiveStyles}
-            useHash
-          />
-          <CustomNavLink
-            to="#buttons"
-            linkText="Buttons"
-            activeStyles={activeStyles}
-            inactiveStyles={inactiveStyles}
-            useHash
-          />
-          <CustomNavLink
-            to="#transitions"
-            linkText="Transitions"
-            activeStyles={activeStyles}
-            inactiveStyles={inactiveStyles}
-            useHash
-          />
-          <CustomNavLink
-            to="#shadow"
-            linkText="Shadows"
-            activeStyles={activeStyles}
-            inactiveStyles={inactiveStyles}
-            useHash
-          />
-          <CustomNavLink
-            to="#borders"
-            linkText="Borders"
-            activeStyles={activeStyles}
-            inactiveStyles={inactiveStyles}
-            useHash
-          />
-          <CustomNavLink
-            to="#text"
-            linkText="Text"
-            activeStyles={activeStyles}
-            inactiveStyles={inactiveStyles}
-            useHash
-          />
-          <CustomNavLink
-            to="#components"
-            linkText="Components"
-            activeStyles={activeStyles}
-            inactiveStyles={inactiveStyles}
-            useHash
-          />
-        </Wrap>
-      </FlexFull>
-      <VStackFull
-        className="h-fit px-[2vh] pt-[5.5vh] xl:pt-[3.5vh] pb-[2vh]"
-        gap="gap-[2vh]"
-      >
-        <VStackFull gap="gap-[1vh]">
-          <SectionHeading id="colorscheme" heading="Color Scheme" />
-          <StyledExampleWrap bg="bg-white">
-            {allColors.map((color: string, index: number) => (
-              <TestBox key={index} bg={color}>
-                {" "}
-                {color}
-              </TestBox>
-            ))}
-          </StyledExampleWrap>
-          <StyledExampleWrap>
-            {colors100.map((color: string, index: number) => (
-              <TestBox key={index} bg={color}>
-                {" "}
-                {color}
-              </TestBox>
-            ))}
-          </StyledExampleWrap>
-          <StyledExampleWrap>
-            {colors200.map((color: string, index: number) => (
-              <TestBox key={index} bg={color}>
-                {" "}
-                {color}
-              </TestBox>
-            ))}
-          </StyledExampleWrap>
-          <StyledExampleWrap>
-            {colors300.map((color: string, index: number) => (
-              <TestBox key={index} bg={color}>
-                {" "}
-                {color}
-              </TestBox>
-            ))}
-          </StyledExampleWrap>
-          <StyledExampleWrap>
-            {colors400.map((color: string, index: number) => (
-              <TestBox key={index} bg={color}>
-                {" "}
-                {color}
-              </TestBox>
-            ))}
-          </StyledExampleWrap>
-          <StyledExampleWrap>
-            {colors500.map((color: string, index: number) => (
-              <TestBox key={index} bg={color}>
-                {" "}
-                {color}
-              </TestBox>
-            ))}
-          </StyledExampleWrap>
-          <StyledExampleWrap>
-            {colors600.map((color: string, index: number) => (
-              <TestBox key={index} bg={color}>
-                {" "}
-                {color}
-              </TestBox>
-            ))}
-          </StyledExampleWrap>
-          <StyledExampleWrap bg="bg-col-500">
-            {colors700.map((color: string, index: number) => (
-              <TestBox key={index} bg={color}>
-                {" "}
-                {color}
-              </TestBox>
-            ))}
-          </StyledExampleWrap>
-          <StyledExampleWrap bg="bg-col-500">
-            {colors800.map((color: string, index: number) => (
-              <TestBox key={index} bg={color}>
-                {" "}
-                {color}
-              </TestBox>
-            ))}
-          </StyledExampleWrap>
-          <StyledExampleWrap bg="bg-col-500">
-            {colors900.map((color: string, index: number) => (
-              <TestBox key={index} bg={color}>
-                {" "}
-                {color}
-              </TestBox>
-            ))}
-          </StyledExampleWrap>
-          <SectionHeading id="rgb" heading="RBG Equivalents" />
-          <StyledExampleWrap bg="bg-white">
-            {allColorsRGB.map(
-              (color: { code: string; rgb: string }, index: number) => (
-                <TestBox key={index} bg={color.code} w="w-[30vh]">
+    <Transition className="w-full h-full justify-center overflow-y-auto">
+      <FlexFull className="h-full overflow-y-auto justify-center">
+        <FlexFull className="fixed top-0 left-0 p-[1vh] bg-col-200 z-10 shadowWideLooser">
+          <Wrap className="w-full gap-x-[5vh] gap-y-[1vh] justify-around">
+            <IconButton icon={HomeIcon} type="smallNormal" to="/" />
+            <CustomNavLink
+              to="#colorscheme"
+              linkText="Colors"
+              activeStyles={activeStyles}
+              inactiveStyles={inactiveStyles}
+              useHash
+            />
+            <CustomNavLink
+              to="#rgb"
+              linkText="RBG"
+              activeStyles={activeStyles}
+              inactiveStyles={inactiveStyles}
+              useHash
+            />
+            <CustomNavLink
+              to="#gradients"
+              linkText="Gradients"
+              activeStyles={activeStyles}
+              inactiveStyles={inactiveStyles}
+              useHash
+            />
+            <CustomNavLink
+              to="#complexbackgrounds"
+              linkText="Complex Backgrounds"
+              activeStyles={activeStyles}
+              inactiveStyles={inactiveStyles}
+              useHash
+            />
+            <CustomNavLink
+              to="#buttons"
+              linkText="Buttons"
+              activeStyles={activeStyles}
+              inactiveStyles={inactiveStyles}
+              useHash
+            />
+            <CustomNavLink
+              to="#transitions"
+              linkText="Transitions"
+              activeStyles={activeStyles}
+              inactiveStyles={inactiveStyles}
+              useHash
+            />
+            <CustomNavLink
+              to="#shadow"
+              linkText="Shadows"
+              activeStyles={activeStyles}
+              inactiveStyles={inactiveStyles}
+              useHash
+            />
+            <CustomNavLink
+              to="#borders"
+              linkText="Borders"
+              activeStyles={activeStyles}
+              inactiveStyles={inactiveStyles}
+              useHash
+            />
+            <CustomNavLink
+              to="#text"
+              linkText="Text"
+              activeStyles={activeStyles}
+              inactiveStyles={inactiveStyles}
+              useHash
+            />
+            <CustomNavLink
+              to="#components"
+              linkText="Components"
+              activeStyles={activeStyles}
+              inactiveStyles={inactiveStyles}
+              useHash
+            />
+          </Wrap>
+        </FlexFull>
+        <VStackFull
+          className="h-fit px-[2vh] pt-[5.5vh] xl:pt-[3.5vh] pb-[2vh]"
+          gap="gap-[2vh]"
+        >
+          <VStackFull gap="gap-[1vh]">
+            <SectionHeading id="colorscheme" heading="Color Scheme" />
+            <StyledExampleWrap bg="bg-white">
+              {allColors.map((color: string, index: number) => (
+                <TestBox key={index} bg={color}>
                   {" "}
-                  {color.rgb}
+                  {color}
                 </TestBox>
-              )
-            )}
-          </StyledExampleWrap>
-        </VStackFull>
-        <VStackFull className="h-fit" gap="gap-[2vh]">
-          <SectionHeading id="gradients" heading="Gradients & Opacities" />
-          <StyledExampleWrap bg="bg-white">
-            {gradients.map((gradient: string, index: number) => (
-              <TestBox key={index} bg={gradient} w="w-[24vh]">
-                {" "}
-                {gradient}
-              </TestBox>
-            ))}
-          </StyledExampleWrap>
-        </VStackFull>
-        <VStackFull className="h-fit" gap="gap-[2vh]">
-          <SectionHeading
-            id="complexbackgrounds"
-            heading="Complex Backgrounds"
-          />
-          <Heading
-            isCursive={false}
-            color="text-col-900"
-            shadow="lightTextShadow"
-            layout="text-lg-normal"
-            text="col100Bgs"
-          />
-
-          <StyledExampleWrap>
-            {Object.values(col100Bgs).map(
-              (background: string, index: number) => (
-                <TestBox key={index} bg={background} w="w-[24vh]">
-                  {" "}
-                  <TransformBg value={background} />
-                </TestBox>
-              )
-            )}
-          </StyledExampleWrap>
-          <Heading
-            isCursive={false}
-            color="text-col-900"
-            shadow="lightTextShadow"
-            layout="text-lg-normal"
-            text="col200Bgs"
-          />
-
-          <StyledExampleWrap>
-            {Object.values(col200Bgs).map(
-              (background: string, index: number) => (
-                <TestBox key={index} bg={background} w="w-[24vh]">
-                  {" "}
-                  <TransformBg value={background} />
-                </TestBox>
-              )
-            )}
-          </StyledExampleWrap>
-          <Heading
-            isCursive={false}
-            color="text-col-900"
-            shadow="lightTextShadow"
-            layout="text-lg-normal"
-            text="col300Bgs"
-          />
-
-          <StyledExampleWrap>
-            {Object.values(col300Bgs).map(
-              (background: string, index: number) => (
-                <TestBox key={index} bg={background} w="w-[24vh]">
-                  {" "}
-                  <TransformBg value={background} />
-                </TestBox>
-              )
-            )}
-          </StyledExampleWrap>
-          <Heading
-            isCursive={false}
-            color="text-col-900"
-            shadow="lightTextShadow"
-            layout="text-lg-normal"
-            text="col400Bgs"
-          />
-
-          <StyledExampleWrap>
-            {Object.values(col100Bgs).map(
-              (background: string, index: number) => (
-                <TestBox key={index} bg={background} w="w-[24vh]">
-                  <TransformBg value={background} />
-                </TestBox>
-              )
-            )}
-          </StyledExampleWrap>
-          <Heading
-            isCursive={false}
-            color="text-col-900"
-            shadow="lightTextShadow"
-            layout="text-lg-normal"
-            text="col400Bgs"
-          />
-
-          <StyledExampleWrap>
-            {Object.values(col400Bgs).map(
-              (background: string, index: number) => (
-                <TestBox key={index} bg={background} w="w-[24vh]">
-                  <TransformBg value={background} />
-                </TestBox>
-              )
-            )}
-          </StyledExampleWrap>
-          <Heading
-            isCursive={false}
-            color="text-col-900"
-            shadow="lightTextShadow"
-            layout="text-lg-normal"
-            text="col500Bgs"
-          />
-
-          <StyledExampleWrap>
-            {Object.values(col500Bgs).map(
-              (background: string, index: number) => (
-                <TestBox key={index} bg={background} w="w-[24vh]">
-                  <TransformBg value={background} />
-                </TestBox>
-              )
-            )}
-          </StyledExampleWrap>
-          <Heading
-            isCursive={false}
-            color="text-col-900"
-            shadow="lightTextShadow"
-            layout="text-lg-normal"
-            text="col600Bgs"
-          />
-
-          <StyledExampleWrap>
-            {Object.values(col600Bgs).map(
-              (background: string, index: number) => (
-                <TestBox key={index} bg={background} w="w-[24vh]">
-                  <TransformBg value={background} />
-                </TestBox>
-              )
-            )}
-          </StyledExampleWrap>
-          <Heading
-            isCursive={false}
-            color="text-col-900"
-            shadow="lightTextShadow"
-            layout="text-lg-normal"
-            text="col700Bgs"
-          />
-
-          <StyledExampleWrap bg="bg-col-500">
-            {Object.values(col700Bgs).map(
-              (background: string, index: number) => (
-                <TestBox key={index} bg={background} w="w-[24vh]">
-                  <TransformBg value={background} />
-                </TestBox>
-              )
-            )}
-          </StyledExampleWrap>
-          <Heading
-            isCursive={false}
-            color="text-col-900"
-            shadow="lightTextShadow"
-            layout="text-lg-normal"
-            text="col800Bgs"
-          />
-
-          <StyledExampleWrap>
-            {Object.values(col800Bgs).map(
-              (background: string, index: number) => (
-                <TestBox key={index} bg={background} w="w-[24vh]">
-                  <TransformBg value={background} />
-                </TestBox>
-              )
-            )}
-          </StyledExampleWrap>
-          <Heading
-            isCursive={false}
-            color="text-col-900"
-            shadow="lightTextShadow"
-            layout="text-lg-normal"
-            text="col900Bgs"
-          />
-
-          <StyledExampleWrap>
-            {Object.values(col900Bgs).map(
-              (background: string, index: number) => (
-                <TestBox key={index} bg={background} w="w-[24vh]">
-                  <TransformBg value={background} />
-                </TestBox>
-              )
-            )}
-          </StyledExampleWrap>
-        </VStackFull>
-        <VStackFull className="w-90% pb-[3vh]">
-          <SectionHeading id="buttons" heading="Buttons" />
-          <StyledExampleWrap bg="bg-col-200">
-            <Button buttonText="Normal" />{" "}
-            <Button type="smallNormal" buttonText="NormalButton" />
-            <Button type="negative" buttonText="Negative" />
-            <Button type="smallNegative" buttonText="Negative Small" />
-            <Button type="unstyled" buttonText="Unstyled" />
-            <Button type="smallUnstyled" buttonText="Unstyled Small" />
-            <Button buttonText="Normal Icon Left" iconLeft={GoSmiley} />
-            <Button
-              buttonText="Small Icon Right"
-              iconRight={GoSmiley}
-              type="smallNormal"
-            />
-            <Button
-              buttonText="Negative Icon Left"
-              type="negative"
-              iconLeft={GoSmiley}
-            />
-            <Button
-              buttonText="Small Negative Icon Right"
-              type="smallNegative"
-              iconRight={GoSmiley}
-            />
-            <IconButton icon={GoSmiley} />{" "}
-            <IconButton type="smallNormal" icon={GoSmiley} />
-            <IconButton type="negative" icon={GoSmiley} />
-            <IconButton type="smallNegative" icon={GoSmiley} />
-            <IconButton type="unstyled" icon={GoSmiley} />
-            <IconButton type="smallUnstyled" icon={GoSmiley} />
-          </StyledExampleWrap>
-        </VStackFull>
-        <VStackFull>
-          <SectionHeading id="transitions" heading="Transitions" />
-          <StyledExampleWrap>
-            <StyleExampleBox
-              className="transition-300 bg-col-200 hover:bg-col-900 hover:text-col-100 shadowNarrowNormal"
-              text="className='transition-300'"
-            />
-            <StyleExampleBox
-              className="transition-400 bg-col-200 hover:bg-col-900 hover:text-col-100 shadowNarrowNormal"
-              text="className='transition-400'"
-            />
-            <StyleExampleBox
-              className="transition-500 bg-col-200 hover:bg-col-900 hover:text-col-100 shadowNarrowNormal"
-              text="className='transition-500'"
-            />
-            <StyleExampleBox
-              className="transition-600 bg-col-200 hover:bg-col-900 hover:text-col-100 shadowNarrowNormal"
-              text="className='transition-600'"
-            />
-            <StyleExampleBox
-              className="transition-700 bg-col-200 hover:bg-col-900 hover:text-col-100 shadowNarrowNormal"
-              text="className='transition-700'"
-            />
-            <StyleExampleBox
-              className="transition-800 bg-col-200 hover:bg-col-900 hover:text-col-100 shadowNarrowNormal"
-              text="className='transition-800'"
-            />
-            <StyleExampleBox
-              className="transition-900 bg-col-200 hover:bg-col-900 hover:text-col-100 shadowNarrowNormal"
-              text="className='transition-900'"
-            />
-            <StyleExampleBox
-              className="transition-1000 bg-col-200 hover:bg-col-900 hover:text-col-100 shadowNarrowNormal"
-              text="className='transition-1000'"
-            />
-          </StyledExampleWrap>
-          <SectionHeading id="shadow" heading="Shadows" />
-          <VStackFull>
-            {" "}
-            <StyledExampleWrap bg="bg-col-100">
-              {shadowsLightBack.map((shadow) => (
-                <Box className={shadow} key={shadow}>
-                  <Text className="p-[1vh]">{shadow}</Text>
-                </Box>
               ))}
             </StyledExampleWrap>
-            <StyledExampleWrap bg="bg-col-800">
-              {shadowsDarkBack.map((shadow) => (
-                <Box className={shadow} key={shadow}>
-                  <Text className="text-col-100 p-[1vh]">{shadow}</Text>
-                </Box>
+            <StyledExampleWrap>
+              {colors100.map((color: string, index: number) => (
+                <TestBox key={index} bg={color}>
+                  {" "}
+                  {color}
+                </TestBox>
+              ))}
+            </StyledExampleWrap>
+            <StyledExampleWrap>
+              {colors200.map((color: string, index: number) => (
+                <TestBox key={index} bg={color}>
+                  {" "}
+                  {color}
+                </TestBox>
+              ))}
+            </StyledExampleWrap>
+            <StyledExampleWrap>
+              {colors300.map((color: string, index: number) => (
+                <TestBox key={index} bg={color}>
+                  {" "}
+                  {color}
+                </TestBox>
+              ))}
+            </StyledExampleWrap>
+            <StyledExampleWrap>
+              {colors400.map((color: string, index: number) => (
+                <TestBox key={index} bg={color}>
+                  {" "}
+                  {color}
+                </TestBox>
+              ))}
+            </StyledExampleWrap>
+            <StyledExampleWrap>
+              {colors500.map((color: string, index: number) => (
+                <TestBox key={index} bg={color}>
+                  {" "}
+                  {color}
+                </TestBox>
+              ))}
+            </StyledExampleWrap>
+            <StyledExampleWrap>
+              {colors600.map((color: string, index: number) => (
+                <TestBox key={index} bg={color}>
+                  {" "}
+                  {color}
+                </TestBox>
+              ))}
+            </StyledExampleWrap>
+            <StyledExampleWrap bg="bg-col-500">
+              {colors700.map((color: string, index: number) => (
+                <TestBox key={index} bg={color}>
+                  {" "}
+                  {color}
+                </TestBox>
+              ))}
+            </StyledExampleWrap>
+            <StyledExampleWrap bg="bg-col-500">
+              {colors800.map((color: string, index: number) => (
+                <TestBox key={index} bg={color}>
+                  {" "}
+                  {color}
+                </TestBox>
+              ))}
+            </StyledExampleWrap>
+            <StyledExampleWrap bg="bg-col-500">
+              {colors900.map((color: string, index: number) => (
+                <TestBox key={index} bg={color}>
+                  {" "}
+                  {color}
+                </TestBox>
+              ))}
+            </StyledExampleWrap>
+            <SectionHeading id="rgb" heading="RBG Equivalents" />
+            <StyledExampleWrap bg="bg-white">
+              {allColorsRGB.map(
+                (color: { code: string; rgb: string }, index: number) => (
+                  <TestBox key={index} bg={color.code} w="w-[30vh]">
+                    {" "}
+                    {color.rgb}
+                  </TestBox>
+                )
+              )}
+            </StyledExampleWrap>
+          </VStackFull>
+          <VStackFull className="h-fit" gap="gap-[2vh]">
+            <SectionHeading id="gradients" heading="Gradients & Opacities" />
+            <StyledExampleWrap bg="bg-white">
+              {gradients.map((gradient: string, index: number) => (
+                <TestBox key={index} bg={gradient} w="w-[24vh]">
+                  {" "}
+                  {gradient}
+                </TestBox>
               ))}
             </StyledExampleWrap>
           </VStackFull>
-          <SectionHeading id="borders" heading="Borders" />
-          <StyledExampleWrap>
-            <BorderExamples startIndex={0} endIndex={95} />
-          </StyledExampleWrap>
-          <StyledExampleWrap bg="bg-col-200">
-            <BorderExamples startIndex={96} endIndex={215} />
-          </StyledExampleWrap>
+          <VStackFull className="h-fit" gap="gap-[2vh]">
+            <SectionHeading
+              id="complexbackgrounds"
+              heading="Complex Backgrounds"
+            />
+            <Heading
+              isCursive={false}
+              color="text-col-900"
+              shadow="lightTextShadow"
+              layout="text-lg-normal"
+              text="col100Bgs"
+            />
 
-          <SectionHeading id="text" heading="Text" />
-          <StyledExampleWrap>
-            {textExamples.map((textExample, index) => (
-              <Box
-                key={index}
-                className="bg-col-500 h-fit text-col-100 shadowNarrowNormal px-[1vh]"
-              >
-                <Text className={`${textExample} `}>{textExample}</Text>
-              </Box>
-            ))}
-          </StyledExampleWrap>
+            <StyledExampleWrap>
+              {Object.values(col100Bgs).map(
+                (background: string, index: number) => (
+                  <TestBox key={index} bg={background} w="w-[24vh]">
+                    {" "}
+                    <TransformBg value={background} />
+                  </TestBox>
+                )
+              )}
+            </StyledExampleWrap>
+            <Heading
+              isCursive={false}
+              color="text-col-900"
+              shadow="lightTextShadow"
+              layout="text-lg-normal"
+              text="col200Bgs"
+            />
 
-          <SectionHeading id="" heading="Text Shadow" />
-          <StyledExampleWrap>
-            {textShadows.map((shadow, index) => (
-              <Box
-                key={index}
-                className={
-                  shadow === "textFog"
-                    ? "text-col-100 bg-col-200 shadowNarrowNormal p-[1vh]"
-                    : "text-col-900 bg-col-200 shadowNarrowNormal p-[1vh]"
-                }
-              >
-                <Text className={`${shadow} `}>{shadow}</Text>
-              </Box>
-            ))}
-          </StyledExampleWrap>
-          <SectionHeading id="" heading="Text Stroke" />
-          <StyledExampleWrap>
-            {textStrokeDarkBg.map((combo, index) => (
-              <Box key={index} className="font-bold">
-                <Text className={`${combo} text-xxl-normal text-col-700`}>
-                  {combo}
-                </Text>
-              </Box>
-            ))}
-          </StyledExampleWrap>
+            <StyledExampleWrap>
+              {Object.values(col200Bgs).map(
+                (background: string, index: number) => (
+                  <TestBox key={index} bg={background} w="w-[24vh]">
+                    {" "}
+                    <TransformBg value={background} />
+                  </TestBox>
+                )
+              )}
+            </StyledExampleWrap>
+            <Heading
+              isCursive={false}
+              color="text-col-900"
+              shadow="lightTextShadow"
+              layout="text-lg-normal"
+              text="col300Bgs"
+            />
 
-          <StyledExampleWrap bg="bg-col-300">
-            {textStrokeLightBg.map((combo, index) => (
-              <Box key={index} className="font-bold">
-                <Text className={`${combo} text-xxl-normal text-col-300`}>
-                  {combo}
-                </Text>
-              </Box>
-            ))}
-          </StyledExampleWrap>
+            <StyledExampleWrap>
+              {Object.values(col300Bgs).map(
+                (background: string, index: number) => (
+                  <TestBox key={index} bg={background} w="w-[24vh]">
+                    {" "}
+                    <TransformBg value={background} />
+                  </TestBox>
+                )
+              )}
+            </StyledExampleWrap>
+            <Heading
+              isCursive={false}
+              color="text-col-900"
+              shadow="lightTextShadow"
+              layout="text-lg-normal"
+              text="col400Bgs"
+            />
 
-          <SectionHeading id="components" heading="Components" />
-          <StyledExampleWrap bg="bg-col-600">
-            <ComponentExamples />
-          </StyledExampleWrap>
+            <StyledExampleWrap>
+              {Object.values(col100Bgs).map(
+                (background: string, index: number) => (
+                  <TestBox key={index} bg={background} w="w-[24vh]">
+                    <TransformBg value={background} />
+                  </TestBox>
+                )
+              )}
+            </StyledExampleWrap>
+            <Heading
+              isCursive={false}
+              color="text-col-900"
+              shadow="lightTextShadow"
+              layout="text-lg-normal"
+              text="col400Bgs"
+            />
+
+            <StyledExampleWrap>
+              {Object.values(col400Bgs).map(
+                (background: string, index: number) => (
+                  <TestBox key={index} bg={background} w="w-[24vh]">
+                    <TransformBg value={background} />
+                  </TestBox>
+                )
+              )}
+            </StyledExampleWrap>
+            <Heading
+              isCursive={false}
+              color="text-col-900"
+              shadow="lightTextShadow"
+              layout="text-lg-normal"
+              text="col500Bgs"
+            />
+
+            <StyledExampleWrap>
+              {Object.values(col500Bgs).map(
+                (background: string, index: number) => (
+                  <TestBox key={index} bg={background} w="w-[24vh]">
+                    <TransformBg value={background} />
+                  </TestBox>
+                )
+              )}
+            </StyledExampleWrap>
+            <Heading
+              isCursive={false}
+              color="text-col-900"
+              shadow="lightTextShadow"
+              layout="text-lg-normal"
+              text="col600Bgs"
+            />
+
+            <StyledExampleWrap>
+              {Object.values(col600Bgs).map(
+                (background: string, index: number) => (
+                  <TestBox key={index} bg={background} w="w-[24vh]">
+                    <TransformBg value={background} />
+                  </TestBox>
+                )
+              )}
+            </StyledExampleWrap>
+            <Heading
+              isCursive={false}
+              color="text-col-900"
+              shadow="lightTextShadow"
+              layout="text-lg-normal"
+              text="col700Bgs"
+            />
+
+            <StyledExampleWrap bg="bg-col-500">
+              {Object.values(col700Bgs).map(
+                (background: string, index: number) => (
+                  <TestBox key={index} bg={background} w="w-[24vh]">
+                    <TransformBg value={background} />
+                  </TestBox>
+                )
+              )}
+            </StyledExampleWrap>
+            <Heading
+              isCursive={false}
+              color="text-col-900"
+              shadow="lightTextShadow"
+              layout="text-lg-normal"
+              text="col800Bgs"
+            />
+
+            <StyledExampleWrap>
+              {Object.values(col800Bgs).map(
+                (background: string, index: number) => (
+                  <TestBox key={index} bg={background} w="w-[24vh]">
+                    <TransformBg value={background} />
+                  </TestBox>
+                )
+              )}
+            </StyledExampleWrap>
+            <Heading
+              isCursive={false}
+              color="text-col-900"
+              shadow="lightTextShadow"
+              layout="text-lg-normal"
+              text="col900Bgs"
+            />
+
+            <StyledExampleWrap>
+              {Object.values(col900Bgs).map(
+                (background: string, index: number) => (
+                  <TestBox key={index} bg={background} w="w-[24vh]">
+                    <TransformBg value={background} />
+                  </TestBox>
+                )
+              )}
+            </StyledExampleWrap>
+          </VStackFull>
+          <VStackFull className="w-90% pb-[3vh]">
+            <SectionHeading id="buttons" heading="Buttons" />
+            <StyledExampleWrap bg="bg-col-200">
+              <Button buttonText="Normal" />{" "}
+              <Button type="smallNormal" buttonText="NormalButton" />
+              <Button type="negative" buttonText="Negative" />
+              <Button type="smallNegative" buttonText="Negative Small" />
+              <Button type="unstyled" buttonText="Unstyled" />
+              <Button type="smallUnstyled" buttonText="Unstyled Small" />
+              <Button buttonText="Normal Icon Left" iconLeft={GoSmiley} />
+              <Button
+                buttonText="Small Icon Right"
+                iconRight={GoSmiley}
+                type="smallNormal"
+              />
+              <Button
+                buttonText="Negative Icon Left"
+                type="negative"
+                iconLeft={GoSmiley}
+              />
+              <Button
+                buttonText="Small Negative Icon Right"
+                type="smallNegative"
+                iconRight={GoSmiley}
+              />
+              <IconButton icon={GoSmiley} />{" "}
+              <IconButton type="smallNormal" icon={GoSmiley} />
+              <IconButton type="negative" icon={GoSmiley} />
+              <IconButton type="smallNegative" icon={GoSmiley} />
+              <IconButton type="unstyled" icon={GoSmiley} />
+              <IconButton type="smallUnstyled" icon={GoSmiley} />
+            </StyledExampleWrap>
+          </VStackFull>
+          <VStackFull>
+            <SectionHeading id="transitions" heading="Transitions" />
+            <StyledExampleWrap>
+              <StyleExampleBox
+                className="transition-300 bg-col-200 hover:bg-col-900 hover:text-col-100 shadowNarrowNormal"
+                text="className='transition-300'"
+              />
+              <StyleExampleBox
+                className="transition-400 bg-col-200 hover:bg-col-900 hover:text-col-100 shadowNarrowNormal"
+                text="className='transition-400'"
+              />
+              <StyleExampleBox
+                className="transition-500 bg-col-200 hover:bg-col-900 hover:text-col-100 shadowNarrowNormal"
+                text="className='transition-500'"
+              />
+              <StyleExampleBox
+                className="transition-600 bg-col-200 hover:bg-col-900 hover:text-col-100 shadowNarrowNormal"
+                text="className='transition-600'"
+              />
+              <StyleExampleBox
+                className="transition-700 bg-col-200 hover:bg-col-900 hover:text-col-100 shadowNarrowNormal"
+                text="className='transition-700'"
+              />
+              <StyleExampleBox
+                className="transition-800 bg-col-200 hover:bg-col-900 hover:text-col-100 shadowNarrowNormal"
+                text="className='transition-800'"
+              />
+              <StyleExampleBox
+                className="transition-900 bg-col-200 hover:bg-col-900 hover:text-col-100 shadowNarrowNormal"
+                text="className='transition-900'"
+              />
+              <StyleExampleBox
+                className="transition-1000 bg-col-200 hover:bg-col-900 hover:text-col-100 shadowNarrowNormal"
+                text="className='transition-1000'"
+              />
+            </StyledExampleWrap>
+            <SectionHeading id="shadow" heading="Shadows" />
+            <VStackFull>
+              {" "}
+              <StyledExampleWrap bg="bg-col-100">
+                {shadowsLightBack.map((shadow) => (
+                  <Box className={shadow} key={shadow}>
+                    <Text className="p-[1vh]">{shadow}</Text>
+                  </Box>
+                ))}
+              </StyledExampleWrap>
+              <StyledExampleWrap bg="bg-col-800">
+                {shadowsDarkBack.map((shadow) => (
+                  <Box className={shadow} key={shadow}>
+                    <Text className="text-col-100 p-[1vh]">{shadow}</Text>
+                  </Box>
+                ))}
+              </StyledExampleWrap>
+            </VStackFull>
+            <SectionHeading id="borders" heading="Borders" />
+            <StyledExampleWrap>
+              <BorderExamples startIndex={0} endIndex={95} />
+            </StyledExampleWrap>
+            <StyledExampleWrap bg="bg-col-200">
+              <BorderExamples startIndex={96} endIndex={215} />
+            </StyledExampleWrap>
+
+            <SectionHeading id="text" heading="Text" />
+            <StyledExampleWrap>
+              {textExamples.map((textExample, index) => (
+                <Box
+                  key={index}
+                  className="bg-col-500 h-fit text-col-100 shadowNarrowNormal px-[1vh]"
+                >
+                  <Text className={`${textExample} `}>{textExample}</Text>
+                </Box>
+              ))}
+            </StyledExampleWrap>
+
+            <SectionHeading id="" heading="Text Shadow" />
+            <StyledExampleWrap>
+              {textShadows.map((shadow, index) => (
+                <Box
+                  key={index}
+                  className={
+                    shadow === "textFog"
+                      ? "text-col-100 bg-col-200 shadowNarrowNormal p-[1vh]"
+                      : "text-col-900 bg-col-200 shadowNarrowNormal p-[1vh]"
+                  }
+                >
+                  <Text className={`${shadow} `}>{shadow}</Text>
+                </Box>
+              ))}
+            </StyledExampleWrap>
+            <SectionHeading id="" heading="Text Stroke" />
+            <StyledExampleWrap>
+              {textStrokeDarkBg.map((combo, index) => (
+                <Box key={index} className="font-bold">
+                  <Text className={`${combo} text-xxl-normal text-col-700`}>
+                    {combo}
+                  </Text>
+                </Box>
+              ))}
+            </StyledExampleWrap>
+
+            <StyledExampleWrap bg="bg-col-300">
+              {textStrokeLightBg.map((combo, index) => (
+                <Box key={index} className="font-bold">
+                  <Text className={`${combo} text-xxl-normal text-col-300`}>
+                    {combo}
+                  </Text>
+                </Box>
+              ))}
+            </StyledExampleWrap>
+
+            <SectionHeading id="components" heading="Components" />
+            <StyledExampleWrap bg="bg-col-600">
+              <ComponentExamples />
+            </StyledExampleWrap>
+          </VStackFull>
         </VStackFull>
-      </VStackFull>
-    </FlexFull>
+      </FlexFull>
+    </Transition>
   );
 }

@@ -20,6 +20,7 @@ import {
   IoChevronUpCircleOutline,
   IoCloseCircleOutline,
   IoFilter,
+  IoHomeOutline,
   IoHourglassOutline,
   IoLocationOutline,
   IoReturnUpBackOutline,
@@ -109,3 +110,4 @@ export const ArrowOverLeftIcon = PiArrowBendUpLeftBold;
 export const SearchIcon = FaSearch;
 export const ReturnPathIcon = IoReturnUpBackOutline;
 export const ExpandIcon = BsArrowsAngleExpand;
+export const HomeIcon = IoHomeOutline;

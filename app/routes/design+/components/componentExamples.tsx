@@ -37,9 +37,9 @@ import {
   transitionTypes,
 } from "./data";
 import Tooltip, { TooltipPlacement } from "~/components/buildingBlocks/tooltip";
-import TransitionExample from "./transitionExample";
 import { TransitionType } from "~/components/buildingBlocks/transition";
 import ValidatedInput from "~/components/buildingBlocks/validatedInput";
+import TransitionExample from "./transitionExample";
 
 export default function ComponentExamples() {
   const onConfirm = () => {
@@ -302,8 +302,7 @@ export default function ComponentExamples() {
         />
       )}
       {isTransitionOpen && (
-        <TransitionE
-          xample
+        <TransitionExample
           isOpen={isTransitionOpen}
           closeTransition={() => setIsTransitionOpen(false)}
           transitionType={transitionType as TransitionType}
