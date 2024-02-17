@@ -1656,3 +1656,24 @@ export const transitionTypes = [
   "fadeSlideInBottomRight",
   "fadeSlideInBottom",
 ];
+
+export const transitions = [
+  "transition-300",
+  "transition-400",
+  "transition-500",
+  "transition-600",
+  "transition-700",
+  "transition-800",
+  "transition-900",
+  "transition-1000",
+  "transition-1100",
+  "transition-1200",
+  "transition-1300",
+  "transition-1400",
+  "transition-1500",
+  "transition-1600",
+  "transition-1700",
+  "transition-1800",
+  "transition-1900",
+  "transition-2000",
+];

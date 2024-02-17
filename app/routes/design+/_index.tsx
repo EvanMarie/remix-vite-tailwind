@@ -32,6 +32,7 @@ import {
   textStrokeDarkBg,
   textStrokeLightBg,
   textExamples,
+  transitions,
 } from "./components/data";
 import IconButton from "~/components/buildingBlocks/iconButton";
 import Box from "~/components/buildingBlocks/box";
@@ -532,39 +533,16 @@ export default function Design() {
           </VStackFull>
           <VStackFull>
             <SectionHeading id="transitions" heading="Transitions" />
+
             <StyledExampleWrap>
-              <StyleExampleBox
-                className="transition-300 bg-col-200 hover:bg-col-900 hover:text-col-100 shadowNarrowNormal"
-                text="className='transition-300'"
-              />
-              <StyleExampleBox
-                className="transition-400 bg-col-200 hover:bg-col-900 hover:text-col-100 shadowNarrowNormal"
-                text="className='transition-400'"
-              />
-              <StyleExampleBox
-                className="transition-500 bg-col-200 hover:bg-col-900 hover:text-col-100 shadowNarrowNormal"
-                text="className='transition-500'"
-              />
-              <StyleExampleBox
-                className="transition-600 bg-col-200 hover:bg-col-900 hover:text-col-100 shadowNarrowNormal"
-                text="className='transition-600'"
-              />
-              <StyleExampleBox
-                className="transition-700 bg-col-200 hover:bg-col-900 hover:text-col-100 shadowNarrowNormal"
-                text="className='transition-700'"
-              />
-              <StyleExampleBox
-                className="transition-800 bg-col-200 hover:bg-col-900 hover:text-col-100 shadowNarrowNormal"
-                text="className='transition-800'"
-              />
-              <StyleExampleBox
-                className="transition-900 bg-col-200 hover:bg-col-900 hover:text-col-100 shadowNarrowNormal"
-                text="className='transition-900'"
-              />
-              <StyleExampleBox
-                className="transition-1000 bg-col-200 hover:bg-col-900 hover:text-col-100 shadowNarrowNormal"
-                text="className='transition-1000'"
-              />
+              {transitions.map((transition) => (
+                <StyleExampleBox
+                  key={transition}
+                  className="transition-300 bg-col-200 hover:bg-col-900
+              hover:text-col-100 shadowNarrowNormal"
+                  text={`className='${transition}'`}
+                />
+              ))}
             </StyledExampleWrap>
             <SectionHeading id="shadow" heading="Shadows" />
             <VStackFull>
