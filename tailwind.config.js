@@ -1791,15 +1791,15 @@ export default {
         standoutShadowLg: "rgb(38, 57, 77) 0px 1vh 4.5vh -0.6vh",
         standoutShadowXl: "rgb(38, 57, 77) 0px 0.8vh 3.5vh -0.5vh",
         shadow3DXs:
-          "rgba(0, 0, 0, 0.17) 0px -0.1vh 0.1vh 0px inset, rgba(0, 0, 0, 0.15) 0px -0.15vh 0.15vh 0px inset, rgba(0, 0, 0, 0.1) 0px -0.4vh 0.2vh 0px inset, rgba(0, 0, 0, 0.06) 0px 0.01vh 0.1vh, rgba(0, 0, 0, 0.09) 0px 0.02vh 0.1vh, rgba(0, 0, 0, 0.09) 0px 0.1vh 0.02vh, rgba(0, 0, 0, 0.09) 0px 0.05vh 0.04vh, rgba(0, 0, 0, 0.09) 0px 0.15vh 0.1vh",
+          "rgba(0, 0, 0, 0.17) 0px -0.1vh 0.1vh 0px inset, rgba(0, 0, 0, 0.15) 0px -0.15vh 0.15vh 0px inset, rgba(0, 0, 0, 0.1) 0px -0.4vh 0.2vh 0px inset, rgba(0, 0, 0, 0.06) 0px -0.01vh 0.1vh, rgba(0, 0, 0, 0.09) 0px -0.02vh 0.1vh, rgba(0, 0, 0, 0.09) 0px -0.1vh 0.02vh, rgba(0, 0, 0, 0.09) 0px -0.05vh 0.04vh, rgba(0, 0, 0, 0.09) 0px -0.15vh 0.1vh",
         shadow3DSm:
-          "rgba(0, 0, 0, 0.17) 0px -0.3vh 0.3vh 0px inset, rgba(0, 0, 0, 0.15) 0px -0.3vh 0.3vh 0px inset, rgba(0, 0, 0, 0.1) 0px -0.8vh 0.4vh 0px inset, rgba(0, 0, 0, 0.06) 0px 0.02vh 0.2vh, rgba(0, 0, 0, 0.09) 0px 0.04vh 0.2vh, rgba(0, 0, 0, 0.09) 0px 0.2vh 0.04vh, rgba(0, 0, 0, 0.09) 0px 0.1vh 0.08vh, rgba(0, 0, 0, 0.09) 0px 0.3vh 0.2vh",
+          "rgba(0, 0, 0, 0.17) 0px -0.3vh 0.3vh 0px inset, rgba(0, 0, 0, 0.15) 0px -0.3vh 0.3vh 0px inset, rgba(0, 0, 0, 0.1) 0px -0.8vh 0.4vh 0px inset, rgba(0, 0, 0, 0.06) 0px -0.02vh 0.2vh, rgba(0, 0, 0, 0.09) 0px -0.04vh 0.2vh, rgba(0, 0, 0, 0.09) 0px -0.2vh 0.04vh, rgba(0, 0, 0, 0.09) 0px -0.1vh 0.08vh, rgba(0, 0, 0, 0.09) 0px -0.3vh 0.2vh",
         shadow3DMd:
-          "rgba(0, 0, 0, 0.17) 0px -0.6vh 0.6vh 0px inset, rgba(0, 0, 0, 0.15) 0px -0.45vh 0.45vh 0px inset, rgba(0, 0, 0, 0.1) 0px -1.2vh 0.6vh 0px inset, rgba(0, 0, 0, 0.06) 0px 0.1vh 0.5vh, rgba(0, 0, 0, 0.09) 0px 0.1vh 0.2vh, rgba(0, 0, 0, 0.09) 0px 0.3vh 0.04vh, rgba(0, 0, 0, 0.09) 0px 0.15vh 0.08vh, rgba(0, 0, 0, 0.09) 0px 0.4vh 0.3vh",
+          "rgba(0, 0, 0, 0.17) 0px -0.6vh 0.6vh 0px inset, rgba(0, 0, 0, 0.15) 0px -0.45vh 0.45vh 0px inset, rgba(0, 0, 0, 0.1) 0px -1.2vh 0.6vh 0px inset, rgba(0, 0, 0, 0.06) 0px -0.1vh 0.5vh, rgba(0, 0, 0, 0.09) 0px -0.1vh 0.2vh, rgba(0, 0, 0, 0.09) 0px -0.3vh 0.04vh, rgba(0, 0, 0, 0.09) 0px -0.15vh 0.08vh, rgba(0, 0, 0, 0.09) 0px -0.4vh 0.3vh",
         shadow3DLg:
-          "rgba(0, 0, 0, 0.17) 0px -0.9vh 0.9vh 0px inset, rgba(0, 0, 0, 0.15) 0px -0.6vh 0.6vh 0px inset, rgba(0, 0, 0, 0.1) 0px -1.6vh 0.8vh 0px inset, rgba(0, 0, 0, 0.06) 0px 0.03vh 0.6vh, rgba(0, 0, 0, 0.09) 0px 0.2vh 0.2vh, rgba(0, 0, 0, 0.09) 0px 0.4vh 0.04vh, rgba(0, 0, 0, 0.09) 0px 0.2vh 0.08vh, rgba(0, 0, 0, 0.09) 0px 0.5vh 0.4vh",
+          "rgba(0, 0, 0, 0.17) 0px -0.9vh 0.9vh 0px inset, rgba(0, 0, 0, 0.15) 0px -0.6vh 0.6vh 0px inset, rgba(0, 0, 0, 0.1) 0px -1.6vh 0.8vh 0px inset, rgba(0, 0, 0, 0.06) 0px -0.03vh 0.6vh, rgba(0, 0, 0, 0.09) 0px -0.2vh 0.2vh, rgba(0, 0, 0, 0.09) 0px -0.4vh 0.04vh, rgba(0, 0, 0, 0.09) 0px -0.2vh 0.08vh, rgba(0, 0, 0, 0.09) 0px -0.5vh 0.4vh",
         shadow3DXl:
-          "rgba(0, 0, 0, 0.17) 0px -2vh 2vh 0px inset, rgba(0, 0, 0, 0.15) 0px -3vh 3vh 0px inset, rgba(0, 0, 0, 0.1) 0px -8vh 4vh 0px inset, rgba(0, 0, 0, 0.06) 0px 0.2vh 0.1vh, rgba(0, 0, 0, 0.09) 0px 0.5vh 0.2vh, rgba(0, 0, 0, 0.09) 0px 0.8vh 0.4vh, rgba(0, 0, 0, 0.09) 0px 1.5vh 0.8vh, rgba(0, 0, 0, 0.09) 0px 3vh 2vh",
+          "rgba(0, 0, 0, 0.17) 0px -2vh 2vh 0px inset, rgba(0, 0, 0, 0.15) 0px -3vh 3vh 0px inset, rgba(0, 0, 0, 0.1) 0px -8vh 4vh 0px inset, rgba(0, 0, 0, 0.06) 0px -0.2vh 0.1vh, rgba(0, 0, 0, 0.09) 0px -0.5vh 0.2vh, rgba(0, 0, 0, 0.09) 0px -0.8vh 0.4vh, rgba(0, 0, 0, 0.09) 0px -1.5vh 0.8vh, rgba(0, 0, 0, 0.09) 0px -3vh 2vh",
         lightGlowSm: "0 0 0.1vh #FFF, 0 0 1px #ebd7d5, 0 0 0.3vh #FFF",
         lightGlowMd: "0 0 0.2vh #FFF, 0 0 2px #ebd7d5, 0 0 0.6vh #FFF",
         lightGlowLg: "0 0 0.3vh #FFF, 0 0 3px #ebd7d5, 0 0 0.9vh #FFF",
