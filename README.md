@@ -85,4 +85,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 - Vite for the blazing fast build tool.
 - Chakra UI for the inspiration behind our component library.
 
-Start building your next project with ease using our Remix-Vite-Tailwind template, where design and development efficiency meets scalability.
+Start building your next project with ease using this Remix-Vite-Tailwind template, where design and development efficiency meets scalability.
