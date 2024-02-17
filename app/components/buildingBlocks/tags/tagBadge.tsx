@@ -1,11 +1,6 @@
 import HStack from "../hStack";
 import Text from "../text";
-import {
-  AltCloseIcon,
-  cardColors,
-  textShadow,
-  shadowNarrowNormal,
-} from "styles";
+import { CloseIcon } from "styles";
 import IconButton from "../iconButton";
 import Flex from "../flex";
 interface TagBadgeProps {
@@ -14,38 +9,36 @@ interface TagBadgeProps {
   color?: string;
   textShadow?: string;
   index?: number;
-  bgColor?: string;
   className?: string;
 }
 
 export default function TagBadge({
   tag,
-  color = "text-col-100",
-  textShadow = textShadow,
+  color = "text-col-900",
   onClick,
   index,
-  bgColor = cardColors[4],
   className = "",
 }: TagBadgeProps) {
   return (
     <Flex
-      className={`pl-[0.3vh] w-fit h-fit ${bgColor} bg-darkVioletGrad shadowNarrowNormal ${className}`}
+      className={`pl-[0.3vh] w-fit h-fit shadowNarrowNormal ${className}  bg-col-300`}
     >
       <HStack
-        className={`w-full h-full justify-between items-center flex-1 gap-[0.1vh]`}
+        className={`w-full h-fit justify-between items-center gap-[0.1vh] py-[0px]`}
       >
         <Text
-          className={`text-[1.6vh] leading-[2vh] lowercase ${color} textShadow`}
+          className={`text-md-tighter lowercase ${color} lightTextShadow font-semibold`}
         >
           {tag}
         </Text>
         {onClick && (
           <IconButton
-            isUnstyled
-            icon={AltCloseIcon}
-            pos="inherit"
+            type="unstyled"
+            containerClassName="p-[0px] h-fit w-fit"
+            iconClassName="text-[2.2vh] p-[0px]"
+            icon={CloseIcon}
             label="remove"
-            tooltipPlacement="bottom"
+            tooltipPlacement="left"
             onClick={
               typeof index !== "undefined" ? () => onClick(index) : undefined
             }

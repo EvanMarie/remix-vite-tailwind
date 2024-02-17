@@ -1,5 +1,5 @@
 import { MouseEventHandler } from "react";
-import { Spinner } from "./spinner";
+import { SpinnerSmall } from "./spinner";
 import Icon from "./icon";
 import { NavLink } from "@remix-run/react";
 import Flex from "./flex";
@@ -88,10 +88,10 @@ export default function IconButton({
           ref={ref}
         >
           <Flex
-            className={`${iconButtonSize} ${containerClassName} ${buttonClass}`}
+            className={`${iconButtonSize} ${buttonClass} ${containerClassName}`}
           >
             {isLoading ? (
-              <Spinner />
+              <SpinnerSmall />
             ) : (
               <Icon
                 icon={icon}

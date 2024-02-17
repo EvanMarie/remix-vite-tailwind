@@ -86,10 +86,15 @@ export default function TagsInput({
             onKeyDown={handleInputKeyDown}
             onChange={handleInputChange}
           />
-          <Button width="w-fit" onClick={handleAddTag} buttonText="Add" />
+          <Button
+            width="w-fit"
+            onClick={handleAddTag}
+            buttonText="Add"
+            type="smallNormal"
+          />
         </HStack>
         <Flex
-          className={`w-full overflow-y-auto overflow-x-hidden shadowNarrowNormal inputStyles ${wrapHeight}`}
+          className={`w-full overflow-y-auto overflow-x-hidden insetShadowMd inputStyles ${wrapHeight}`}
         >
           <Wrap
             className={`w-full h-full gap-x-[1vh] gap-y-[1vh] justify-start p-[1vh]`}

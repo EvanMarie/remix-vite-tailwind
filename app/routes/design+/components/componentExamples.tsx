@@ -40,6 +40,7 @@ import Tooltip, { TooltipPlacement } from "~/components/buildingBlocks/tooltip";
 import { TransitionType } from "~/components/buildingBlocks/transition";
 import ValidatedInput from "~/components/buildingBlocks/validatedInput";
 import TransitionExample from "./transitionExample";
+import TagsInput from "~/components/buildingBlocks/tags/tagsInput";
 
 export default function ComponentExamples() {
   const onConfirm = () => {
@@ -87,7 +88,7 @@ export default function ComponentExamples() {
       </VStack>
     );
   }
-
+  const [enteredTags, setEnteredTags] = useState<string[]>([]);
   const [toastPosition, setToastPosition] = useState("center-center");
   const [isTransitionOpen, setIsTransitionOpen] = useState(false);
   const [transitionType, setTransitionType] = useState("fade");
@@ -95,6 +96,10 @@ export default function ComponentExamples() {
     setTransitionType(transitionType);
     setIsTransitionOpen(true);
     console.log(isTransitionOpen, transitionType);
+  };
+  const handleTagsChange = (newTags: string[]) => {
+    // console.log("newTags", newTags);
+    setEnteredTags(newTags);
   };
 
   return (
@@ -274,6 +279,11 @@ export default function ComponentExamples() {
                 />
               ))}
             </Wrap>
+          </FlexFull>
+        </ComponentContainer>
+        <ComponentContainer headerText="Tags Input" className="w-[30vh]">
+          <FlexFull className="justify-center">
+            <TagsInput tags={enteredTags} onTagsChange={handleTagsChange} />
           </FlexFull>
         </ComponentContainer>
       </Wrap>

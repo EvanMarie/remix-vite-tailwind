@@ -93,12 +93,12 @@ export default function Tooltip({
         {/* Tooltip */}
         {isHovered && label && (
           <div
-            className={`absolute ${placementStyles} p-[0.5vh]`}
+            className={`absolute ${placementStyles} p-[0.1vh]`}
             onMouseLeave={() => setHovered(false)}
           >
             <Transition>
               <div
-                className={`text-md-tight justify-center px-2 py-[0.3vh]] z-30 ${w} ${bg} ${color} font-semibold shadowNarrowNormal whitespace-nowrap`}
+                className={`text-sm-tight justify-center p-[0.3vh] z-30 ${w} ${bg} ${color} font-semibold shadowNarrowNormal whitespace-nowrap`}
               >
                 {label}
               </div>
