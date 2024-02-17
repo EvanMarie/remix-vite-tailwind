@@ -2,7 +2,7 @@
 
 Welcome to the ultimate starting point for your web development projects: A comprehensive template designed to integrate Remix, Vite, and Tailwind CSS with a focus on flat routes and an extensive Tailwind configuration for seamless design flexibility.
 
-[image1](http://www.evanmarie.com/content/files/images/remix-vite-tailwind10.png)
+![image1](http://www.evanmarie.com/content/files/images/remix-vite-tailwind10.png)
 
 ## Features
 
