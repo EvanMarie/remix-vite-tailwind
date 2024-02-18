@@ -75,7 +75,7 @@ export default function ModalWithButton({
               />
               {/* Modal */}
               <motion.div
-                className={`fixed inset-0 m-auto z-50 ${modalSize} ${className}`}
+                className={`fixed inset-0 m-auto z-50 rounded-none ${modalSize} ${className}`}
                 style={{ ...style, maxHeight: "100svh" }}
                 variants={variants}
                 initial="closed"

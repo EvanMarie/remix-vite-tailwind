@@ -56,7 +56,7 @@ export default function Modal({
           <>
             {/* Overlay */}
             <motion.div
-              className={`fixed inset-0 w-screen h-screen ${overlayColor} ${overlayBlur}`}
+              className={`fixed inset-0 w-screen h-screen rounded-none ${overlayColor} ${overlayBlur}`}
               onClick={(event) => {
                 event.preventDefault();
                 event.stopPropagation();
