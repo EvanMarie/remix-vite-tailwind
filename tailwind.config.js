@@ -2320,6 +2320,13 @@ export default {
         ".defaultOverlayBlur": {
           backdropFilter: "blur(4px)",
         },
+        ".imageOverlay": {
+          backgroundImage:
+            "linear-gradient(rgba(255, 233, 122, 0.4), rgba(255, 233, 122, 0.6)), url('/images/doathingbg2.png')",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+        },
       });
     }),
     // INPUT AND TEXTAREA PLUGIN

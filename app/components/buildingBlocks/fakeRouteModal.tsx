@@ -72,7 +72,7 @@ export default function FakeRouteModal({
   showBottomClose = true,
   overlayBlur = "defaultOverlayBlur",
   bottomPadding = "pb-[0.5vh]",
-  overlayColor = "bg-diagonal2op75",
+  overlayColor = "imageOverlay",
   contentBg,
   footerBorder = "border-t-2 border-col-850",
   maxWidth,
