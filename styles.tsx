@@ -53,7 +53,7 @@ export const imageFallback = "";
 export const defaultAvatar = "/fallbackAvatar.png";
 
 // MAIN COMPONENT DEFAULTS
-export const iconButtonDefaultRadius = "rounded-[0.5vh] md:rounded-[0.6vh]";
+export const iconButtonDefaultRadius = "rounded-xs md:rounded-sm";
 export const DateTimePickerStyles = `text-md text-col-100 absolute mt-[1vh] p-[1.5vh] w-[25vh] px-[1.5vh] py-[0.5vh] justify-center items-center textShadow bg-col-700 shadowNarrowNormal`;
 export const DateTimePickerLabelStyles = `text-col-200 font-semibold`;
 export const PanelDefaults = `h-fit min-h-[91vh] xl:w-50% xl:h-[91vh] xl:overflow-y-hidden justify-center`;

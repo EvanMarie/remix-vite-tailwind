@@ -2127,6 +2127,17 @@ export default {
         radial6op75:
           "radial-gradient(circle, rgba(41, 60, 84, 0.75) 0%, rgba(1, 42, 94, 0.75) 100%)",
       },
+      borderRadius: {
+        xxs: "0.3vh",
+        xs: "0.5vh",
+        sm: "0.7vh",
+        md: "1vh",
+        lg: "1.5vh",
+        xl: "2vh",
+        xxl: "3vh",
+        xxxl: "4vh",
+        full: "100%",
+      },
     },
   },
   variants: {

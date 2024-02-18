@@ -80,7 +80,7 @@ export default function Alert({
 
   return (
     <motion.div
-      className={`fixed inset-0 overflow-hidden defaultOverlayBlur defaultOverlayColor flex justify-center items-center rounded-[0px]`}
+      className={`fixed inset-0 overflow-hidden defaultOverlayBlur defaultOverlayColor flex justify-center items-center rounded-none`}
       variants={backdropVariants}
       initial="hidden"
       animate="visible"

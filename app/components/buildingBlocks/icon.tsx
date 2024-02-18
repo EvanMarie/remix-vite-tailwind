@@ -26,7 +26,7 @@ export default function Icon({
   l,
   r,
   b,
-  rounded = "rounded-[0.5vh]",
+  rounded = "rounded-xs",
   onClick,
 }: IconProps) {
   const handleKeyDown = (event: React.KeyboardEvent) => {
