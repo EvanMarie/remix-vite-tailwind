@@ -62,7 +62,9 @@ export default function IconButton({
       : type === "smallNegative"
       ? "text-[1.6vh]"
       : type === "unstyled"
-      ? "text-[2.5vh]"
+      ? ""
+      : type === "smallUnstyled"
+      ? ""
       : "text-[1.6vh]";
 
   const iconButtonSize =
@@ -75,7 +77,9 @@ export default function IconButton({
       : type === "smallNegative"
       ? "w-[3vh] h-[3vh]"
       : type === "unstyled"
-      ? "w-[3.5vh] h-[3.5vh]"
+      ? ""
+      : type === "smallUnstyled"
+      ? ""
       : "text-[2vh] w-[3vh] h-[3vh]";
 
   function ButtonInsides() {
