@@ -149,11 +149,11 @@ const typographyPlugin = plugin(function ({ addUtilities }) {
     ".text-sm-loose": { fontSize: "1.5vh", lineHeight: "2.5vh" },
     ".text-sm-looser": { fontSize: "1.5vh", lineHeight: "2.9vh" },
 
-    ".text-md-tighter": { fontSize: "1.7vh", lineHeight: "1.7vh" },
-    ".text-md-normal": { fontSize: "1.7vh", lineHeight: "2.3vh" },
-    ".text-md-tight": { fontSize: "1.7vh", lineHeight: "1.9vh" },
-    ".text-md-loose": { fontSize: "1.7vh", lineHeight: "2.7vh" },
-    ".text-md-looser": { fontSize: "1.7vh", lineHeight: "3.1vh" },
+    ".text-md-tighter": { fontSize: "2vh", lineHeight: "2vh" },
+    ".text-md-normal": { fontSize: "2vh", lineHeight: "2.5vh" },
+    ".text-md-tight": { fontSize: "2vh", lineHeight: "2.2vh" },
+    ".text-md-loose": { fontSize: "2vh", lineHeight: "3vh" },
+    ".text-md-looser": { fontSize: "2vh", lineHeight: "3.9vh" },
 
     ".text-lg-tighter": { fontSize: "2.4vh", lineHeight: "2.4vh" },
     ".text-lg-normal": { fontSize: "2.4vh", lineHeight: "3vh" },
