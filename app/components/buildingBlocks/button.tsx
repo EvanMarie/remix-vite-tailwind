@@ -93,16 +93,24 @@ export default function Button({
       : "text-[1.7vh]";
 
   function ButtonInsides() {
+    // Combine all classes and include conditional classes for disabled state
+    const combinedClasses = `${buttonClass} ${width} ${buttonHeight} ${className} ${padding} relative ${
+      isDisabled ? "opacity-40 cursor-not-allowed" : ""
+    }`;
+
     return (
-      <button onClick={onClick} disabled={isDisabled} type={htmlType} ref={ref}>
-        <HStack
-          className={`${buttonClass} ${width} ${buttonHeight} ${className} ${padding} relative`}
-        >
+      <button
+        onClick={!isDisabled ? onClick : undefined}
+        disabled={isDisabled}
+        type={htmlType}
+        ref={ref}
+      >
+        <HStack className={combinedClasses}>
           {isLoading &&
             buttonText !== "" &&
             type !== "unstyled" &&
             type !== "smallUnstyled" && (
-              <FlexFull className="absolute top-0 left-0 h-full justify-center items-center z-10 bg-col-980">
+              <FlexFull className="absolute top-0 left-0 h-full justify-center items-center z-10">
                 <BouncingDots
                   dotCount={3}
                   color="white"
