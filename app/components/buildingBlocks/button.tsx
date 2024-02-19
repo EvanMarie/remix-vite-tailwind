@@ -27,6 +27,7 @@ export default function Button({
   isDisabled,
   type = "normal",
   width = "w-fit",
+  height,
   to,
 }: {
   className?: string;
@@ -42,6 +43,7 @@ export default function Button({
   htmlType?: "button" | "submit" | "reset";
   to?: string;
   width?: string;
+  height?: string;
   type?:
     | "normal"
     | "smallNormal"
@@ -63,6 +65,20 @@ export default function Button({
       ? "unstyledButtonStyles"
       : "smallUnstyledButtonStyles";
 
+  const buttonHeight = height
+    ? height
+    : type === "normal"
+    ? "h-[3.5vh]"
+    : type === "smallNormal"
+    ? "h-[2.6vh]"
+    : type === "negative"
+    ? "h-[3.5vh]"
+    : type === "smallNegative"
+    ? "h-[2.6vh]"
+    : type === "unstyled"
+    ? "h-[3.5vh]"
+    : "h-[2.6vh]";
+
   const displayIconSize =
     type === "normal"
       ? "text-[2.3vh]"
@@ -80,7 +96,7 @@ export default function Button({
     return (
       <button onClick={onClick} disabled={isDisabled} type={htmlType} ref={ref}>
         <HStack
-          className={`${buttonClass} ${width} ${className} ${padding} relative`}
+          className={`${buttonClass} ${width} ${buttonHeight} ${className} ${padding} relative`}
         >
           {isLoading &&
             buttonText !== "" &&
