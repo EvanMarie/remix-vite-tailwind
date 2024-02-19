@@ -23,15 +23,17 @@ interface TooltipProps {
   placement?: TooltipPlacement;
   displacementPercentage?: string; // Custom calculation may be needed
   className?: string;
+  border?: string;
 }
 
 export default function Tooltip({
   label,
-  bg = "bg-col-800",
-  color = "text-col-100 textShadow",
+  bg = "bg-col-400",
+  color = "text-col-900 lightTextShadow",
   w = "w-auto",
   children,
   placement = "bottomRight",
+  border = "border-970-md",
   className = "",
 }: TooltipProps) {
   const [isHovered, setHovered] = useState(false);
@@ -93,12 +95,12 @@ export default function Tooltip({
         {/* Tooltip */}
         {isHovered && label && (
           <div
-            className={`absolute ${placementStyles} p-[0.1vh]`}
+            className={`absolute ${placementStyles} py-[0.1vh]`}
             onMouseLeave={() => setHovered(false)}
           >
-            <Transition>
+            <Transition className="rounded-sm">
               <div
-                className={`text-sm-tight justify-center p-[0.3vh] z-30 ${w} ${bg} ${color} font-semibold shadowNarrowNormal whitespace-nowrap`}
+                className={`text-sm-tight justify-center py-[0.3vh] px-[0.8vh] z-30 font-semibold shadowNarrowNormal whitespace-nowrap rounded-sm ${border} ${w} ${bg} ${color}`}
               >
                 {label}
               </div>
