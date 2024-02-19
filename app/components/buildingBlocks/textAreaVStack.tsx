@@ -2,7 +2,6 @@ import React from "react";
 import TextArea from "./textArea";
 import VStack from "./vStack";
 import Heading from "./headingText";
-import Box from "./box";
 
 // Update the onChange type to be more generic
 interface TextAreaVStackProps {
@@ -49,36 +48,25 @@ export default function TextAreaVStack({
       className={`w-full ${className}`}
       align="start"
       style={style}
-      gap="gap-[0px]"
+      gap="gap-[0.5vh]"
     >
       {labelSize === "small" ? (
         <Heading
           isCursive={labelIsCursive}
           color={labelColor}
           className={`${labelClassName}`}
-          layout="text-md-normal"
+          layout="text-md-tighter"
           text={label}
         />
       ) : (
         <>
-          <Box className="hidden md:flex w-full">
-            <Heading
-              isCursive={labelIsCursive}
-              color={labelColor}
-              className={`${labelClassName}`}
-              layout="text-lg-tight"
-              text={label}
-            />
-          </Box>
-          <Box className="flex md:hidden w-full">
-            <Heading
-              isCursive={labelIsCursive}
-              color={labelColor}
-              className={` ${labelClassName}`}
-              layout="text-md-tight"
-              text={label}
-            />
-          </Box>
+          <Heading
+            isCursive={labelIsCursive}
+            color={labelColor}
+            className={` ${labelClassName}`}
+            layout="text-md-tighter md:text-lg-tighter"
+            text={label}
+          />
         </>
       )}
 

@@ -52,14 +52,14 @@ export default function InputVStack({
       className={` leading-1rem w-full ${className}`}
       align="start"
       style={style}
-      gap="gap-[0px]"
+      gap="gap-[0.5vh]"
     >
       {labelSize === "small" ? (
         <Heading
           isCursive={labelIsCursive}
           color={labelColor}
           className={`${labelClassName}`}
-          layout="text-md-normal"
+          layout="text-md-tighter"
           text={label}
         />
       ) : (
@@ -69,7 +69,7 @@ export default function InputVStack({
               isCursive={labelIsCursive}
               color={labelColor}
               className={`${labelClassName}`}
-              layout="text-lg-tight"
+              layout="text-lg-tighter"
               text={label}
             />
           </Box>
@@ -78,7 +78,7 @@ export default function InputVStack({
               isCursive={labelIsCursive}
               color={labelColor}
               className={` ${labelClassName}`}
-              layout="text-md-tight"
+              layout="text-md-tighter"
               text={label}
             />
           </Box>
