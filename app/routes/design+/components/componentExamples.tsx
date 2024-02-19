@@ -286,6 +286,11 @@ export default function ComponentExamples() {
             <TagsInput tags={enteredTags} onTagsChange={handleTagsChange} />
           </FlexFull>
         </ComponentContainer>
+        <ComponentContainer headerText="Infinite Scroll" className="w-[30vh]">
+          <FlexFull className="justify-center py-[1.5vh]">
+            <Button to="/design/infinite-scroll-demo" buttonText="View Demo" />
+          </FlexFull>
+        </ComponentContainer>
       </Wrap>
       {isToastVisible && (
         <Toast

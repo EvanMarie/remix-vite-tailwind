@@ -5,9 +5,13 @@ import { Item, LoadingBar, TestBox } from "./inifiniteScrollDemoComponents";
 import Text from "~/components/buildingBlocks/text";
 import HStack from "~/components/buildingBlocks/hStack";
 import BouncingDots from "~/components/specialty/bouncingDots";
+import IconButton from "~/components/buildingBlocks/iconButton";
+import { ReturnPathIcon } from "styles";
+import FlexFull from "~/components/buildingBlocks/flexFull";
+import HStackFull from "~/components/buildingBlocks/hStackFull";
 
 // Simulates fetching items from an API
-const fetchItems = (startIndex: number, limit: number = 10): Item[] => {
+const fetchItems = (startIndex: number, limit: number = 20): Item[] => {
   return Array.from({ length: limit }, (_, index) => ({
     id: startIndex + index,
     text: `Item ${startIndex + index}`,
@@ -83,7 +87,7 @@ export default function InfiniteScroll() {
               return newItems;
             });
             setLoading(false);
-          }, 2000); // Simulate network delay
+          }, 2500); // Simulate network delay
         }
       },
       {
@@ -102,29 +106,38 @@ export default function InfiniteScroll() {
 
   return (
     <>
-      <Flex className="fixed top-0 left-0 h-[6vh] bg-col-700 rounded-none text-col-100 w-full text-center shadowNarrowTight justify-center items-center gap-[2vh]">
-        <Flex className="w-[50vw] justify-end">
-          <h2>Intersection Observer - </h2>
+      <Flex className="fixed top-0 left-0 h-[6vh] bg-100-radial1op75 rounded-none text-col-900 w-full text-center shadowNarrowTight justify-center items-center gap-[2vh]">
+        <Flex className="w-[8vw] justify-center flex-shrink-0">
+          <IconButton icon={ReturnPathIcon} to="/design" />
         </Flex>
-        <Flex className="w-[50vw] text-left">
-          <h2>items: {Array.from(visibleItems).map((id) => `${id} | `)}</h2>
-        </Flex>
+        <HStackFull className="h-full justify-center items-center">
+          <Flex className="w-35% justify-end boldTextGlow ">
+            <Text className="text-lg-tighter">Intersection Observer - </Text>
+          </Flex>
+          <Flex className="w-65% text-left items-end">
+            <Text className="text-md-tight lightTextShadow font-semibold h-full">
+              items: {Array.from(visibleItems).map((id) => `${id} | `)}
+            </Text>
+          </Flex>
+        </HStackFull>
       </Flex>
-      <Wrap className="justify-center items-start gap-5vh p-3vh bg-400 pt-[7vh] gap-[2vh]">
+      <Wrap className="justify-around items-start gap-5vh px-[2vh] pt-[7vh] gap-x-[1vh] gap-y-[2vh] h-[100vh] overflow-y-auto bg-100-linear6op75">
         {items.map((item, index) => (
           <TestBox item={item} itemRefs={itemRefs} index={index} key={index} />
         ))}
         {!loading && (
           <div id="scroll-down-trigger" style={{ height: "20px" }} />
         )}
-        <LoadingBar>
-          {loading && (
-            <HStack>
-              <Text>Loading more items...</Text>
-              <BouncingDots />
-            </HStack>
-          )}
-        </LoadingBar>
+        <FlexFull className="justify-center pb-[2vh]">
+          <LoadingBar>
+            {loading && (
+              <HStack>
+                <Text className="text-lg-tight">Loading more items...</Text>
+                <BouncingDots />
+              </HStack>
+            )}
+          </LoadingBar>
+        </FlexFull>
       </Wrap>
     </>
   );
