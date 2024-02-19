@@ -112,7 +112,7 @@ export default function InfiniteScroll() {
         </Flex>
         <HStackFull className="h-full justify-center items-center">
           <Flex className="w-35% justify-end boldTextGlow ">
-            <Text className="text-lg-tighter">Intersection Observer - </Text>
+            <Text className="text-md-tighter">Intersection Observer - </Text>
           </Flex>
           <Flex className="w-65% text-left items-end">
             <Text className="text-md-tight lightTextShadow font-semibold h-full">
@@ -121,7 +121,7 @@ export default function InfiniteScroll() {
           </Flex>
         </HStackFull>
       </Flex>
-      <Wrap className="justify-around items-start gap-5vh px-[2vh] pt-[7vh] gap-x-[1vh] gap-y-[2vh] h-[100vh] overflow-y-auto bg-100-linear6op75">
+      <Wrap className="justify-around items-start gap-5vh px-[2vh] pt-[7vh] gap-y-[1vh] h-[100vh] overflow-y-auto bg-100-linear6op75">
         {items.map((item, index) => (
           <TestBox item={item} itemRefs={itemRefs} index={index} key={index} />
         ))}
