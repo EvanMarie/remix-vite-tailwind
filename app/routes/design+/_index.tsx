@@ -96,9 +96,9 @@ export default function Design() {
       bg.startsWith("bg-col-4");
 
     const fontColor = isLightFont
-      ? `text-col-100  text-stroke-4-col900 textShadow`
+      ? `text-col-100  text-stroke-4-900 textShadow`
       : isDarkFont
-      ? `text-col-900  text-stroke-4-col900 lightTextShadow`
+      ? `text-col-900  text-stroke-4-900 lightTextShadow`
       : `text-col-100 textShadow`;
 
     return (
@@ -118,7 +118,7 @@ export default function Design() {
         </div>
         <Flex className="w-full justify-center pt-[2vh] pb-[1vh]">
           <Heading
-            color="text-col-800 text-stroke-4-col900"
+            color="text-col-800 text-stroke-4-900"
             shadow="textGlow"
             text={heading}
             layout="text-too-big-normal"

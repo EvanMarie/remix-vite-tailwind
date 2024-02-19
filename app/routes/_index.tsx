@@ -16,7 +16,7 @@ export default function Index() {
     <LayoutContainer>
       <Transition className="w-full h-full justify-center items-center">
         <VStack>
-          <Text className="font-cursive text-stroke-10-col800 textGlow text-5xl ">
+          <Text className="font-cursive text-stroke-10-800 textGlow text-5xl ">
             Remix, Vite, & Tailwind
           </Text>
           <NavLink to="/design">
