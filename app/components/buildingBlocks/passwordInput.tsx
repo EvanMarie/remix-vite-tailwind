@@ -24,9 +24,17 @@ export default function PasswordInput({
   return (
     <VStack gap="gap-0" align="start" className={`w-full`}>
       {confirm ? (
-        <Heading text="Confirm Password" />
+        <Heading
+          layout="text-md-normal md:text-xl-normal"
+          text="Confirm Password"
+          className="text-xl-tighter text-stroke-6-900 lightTextShadow"
+        />
       ) : (
-        <Heading layout="text-lg-normal" text="Password" />
+        <Heading
+          layout="text-md-normal md:text-xl-normal"
+          text="Password"
+          className="text-xl-tighter text-stroke-6-900 lightTextShadow"
+        />
       )}
       <HStack className="w-full relative" gap="gap-0">
         <Box className="relative w-full">

@@ -4,7 +4,7 @@ interface TextProps {
   text?: string;
   noOfLines?: number;
   shadow?: TextShadows;
-  layout?: TextLayout;
+  layout?: TextLayout | string;
   className?: string;
   isCursive?: boolean;
   color?: string;

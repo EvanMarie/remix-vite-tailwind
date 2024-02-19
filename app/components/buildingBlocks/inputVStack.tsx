@@ -1,5 +1,4 @@
 /* eslint-disable jsx-a11y/no-autofocus */
-import Box from "./box";
 import Input from "./input";
 import Heading from "./headingText";
 import VStack from "./vStack";
@@ -64,24 +63,13 @@ export default function InputVStack({
         />
       ) : (
         <>
-          <Box className="hidden md:flex w-full">
-            <Heading
-              isCursive={labelIsCursive}
-              color={labelColor}
-              className={`${labelClassName}`}
-              layout="text-lg-tighter"
-              text={label}
-            />
-          </Box>
-          <Box className="flex md:hidden w-full">
-            <Heading
-              isCursive={labelIsCursive}
-              color={labelColor}
-              className={` ${labelClassName}`}
-              layout="text-md-tighter"
-              text={label}
-            />
-          </Box>
+          <Heading
+            isCursive={labelIsCursive}
+            color={labelColor}
+            className={` ${labelClassName}`}
+            layout="text-md-tighter md:text-lg-tighter"
+            text={label}
+          />
         </>
       )}
 
