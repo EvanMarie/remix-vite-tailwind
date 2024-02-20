@@ -291,6 +291,11 @@ export default function ComponentExamples() {
             <Button to="/design/infinite-scroll-demo" buttonText="View Demo" />
           </FlexFull>
         </ComponentContainer>
+        <ComponentContainer headerText="Masonry Grid" className="w-[30vh]">
+          <FlexFull className="justify-center py-[1.5vh]">
+            <Button to="/design/masonry-grid-demo" buttonText="View Demo" />
+          </FlexFull>
+        </ComponentContainer>
       </Wrap>
       {isToastVisible && (
         <Toast
