@@ -1,3 +1,4 @@
+import Box from "~/components/buildingBlocks/box";
 import Flex from "~/components/buildingBlocks/flex";
 import Image from "~/components/buildingBlocks/image";
 import Text from "~/components/buildingBlocks/text";
@@ -85,15 +86,17 @@ export function MasonryBox({
         key={item.id}
         data-id={item.id}
         ref={(el) => (itemRefs.current[index] = el)}
-        className={`${item.height} w-[98vw] sm:w-[80vw] md:w-[50vw] xl:w-[33.3vw] fullHD:w-[25vw] p-[1vh] rounded-[3vh]`}
+        className={`${item.height} w-[98vw] sm:w-[80vw] md:w-[50vw] xl:w-[33.3vw] fullHD:w-[25vw] p-[1.5vh] overflow-hidden`}
       >
-        <Image
-          src={item.image}
-          alt="random"
-          w="w-full"
-          h={item.height}
-          className="rounded-[3vh]"
-        />
+        <Box className="w-full h-full overflow-hidden rounded-[3vh] shadowWideLoose">
+          {" "}
+          <Image
+            src={item.image}
+            alt="random"
+            w="w-full"
+            className="w-full h-full object-cover object-center border-970-sm rounded-[3vh]"
+          />
+        </Box>
       </div>
     </Transition>
   );
