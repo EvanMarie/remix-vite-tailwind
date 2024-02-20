@@ -1,28 +1,42 @@
 import Box from "../buildingBlocks/box";
 import { useEffect, useState, useRef } from "react";
 import {
-  Item,
-  LoadingBar,
-  TestBox,
+  MasonryBox,
+  MasonryItem,
 } from "./infiniteScroll/inifiniteScrollDemoComponents";
 import Flex from "../buildingBlocks/flex";
 import VStackFull from "../buildingBlocks/vStackFull";
-import HStack from "../buildingBlocks/hStack";
 import Text from "../buildingBlocks/text";
-import BouncingDots from "./bouncingDots";
 import IconButton from "../buildingBlocks/iconButton";
 import { ReturnPathIcon } from "styles";
 import HStackFull from "../buildingBlocks/hStackFull";
 
 // Simulates fetching items from an API
-const fetchItems = (startIndex: number, limit: number = 20): Item[] => {
-  return Array.from({ length: limit }, (_, index) => ({
-    id: startIndex + index,
-    text: `Item ${startIndex + index}`,
-  }));
+
+const randomHeights = [
+  "h-[20vh]",
+  "h-[25vh]",
+  "h-[30vh]",
+  "h-[35vh]",
+  "h-[40vh]",
+  "h-[45vh]",
+  "h-[50vh]",
+  "h-[55vh]",
+  "h-[60vh]",
+];
+const fetchItems = (startIndex: number, limit: number = 20): MasonryItem[] => {
+  return Array.from({ length: limit }, (_, index) => {
+    const randomNum = Math.floor(Math.random() * 100) + 1;
+    return {
+      id: startIndex + index,
+      image: `https://picsum.photos/seed/${randomNum}/500/900`,
+      height: randomHeights[Math.floor(Math.random() * randomHeights.length)],
+    };
+  });
 };
+
 export default function MasonryGrid() {
-  const [items, setItems] = useState<Item[]>([]);
+  const [items, setItems] = useState<MasonryItem[]>([]);
   const [loading, setLoading] = useState(false);
   const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set());
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -125,12 +139,11 @@ export default function MasonryGrid() {
         </HStackFull>
       </Flex>
 
-      <VStackFull className="h-[94vh] overflow-y-auto pb-[1.5vh]">
-        <Box className="w-full h-fit columns-1 md:columns-4">
-          /{" "}
+      <VStackFull className="h-[94vh] overflow-y-auto p-[1vh]">
+        <Box className="w-full h-fit columns-1 md:columns-2 xl:columns-3 fullHD:columns-4 gap-0">
           {items.map((item, index) => (
-            <TestBox
-              item={item}
+            <MasonryBox
+              item={item as MasonryItem}
               itemRefs={itemRefs}
               index={index}
               key={index}
@@ -140,14 +153,6 @@ export default function MasonryGrid() {
         {!loading && (
           <div id="scroll-down-trigger" style={{ height: "20px" }} />
         )}
-        <LoadingBar>
-          {loading && (
-            <HStack>
-              <Text className="text-lg-tight">Loading more items...</Text>
-              <BouncingDots />
-            </HStack>
-          )}
-        </LoadingBar>
       </VStackFull>
     </VStackFull>
   );
