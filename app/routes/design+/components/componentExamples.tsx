@@ -41,6 +41,7 @@ import { TransitionType } from "~/components/buildingBlocks/transition";
 import ValidatedInput from "~/components/buildingBlocks/validatedInput";
 import TransitionExample from "./transitionExample";
 import TagsInput from "~/components/buildingBlocks/tags/tagsInput";
+import Parallax from "~/components/specialty/parallaxOne";
 
 export default function ComponentExamples() {
   const onConfirm = () => {
@@ -295,6 +296,43 @@ export default function ComponentExamples() {
           <FlexFull className="justify-center py-[1.5vh]">
             <Button to="/design/masonry-grid-demo" buttonText="View Demo" />
           </FlexFull>
+        </ComponentContainer>
+        <ComponentContainer headerText="Parallax One">
+          <Parallax
+            title="The Melody of Raindrops"
+            tagline="Unveiling the Serenade of the Skies"
+          >
+            <VStackFull>
+              <p>
+                In the heart of nature's symphony, raindrops compose a timeless
+                melody, a soothing serenade that whispers to the soul. This
+                ethereal music, born from the heavens, dances upon rooftops and
+                windows, creating a rhythm that resonates with the heartbeat of
+                the earth. Each drop, a note; together, they orchestrate the
+                symphony of the rain, a sound so pure it cleanses the air and
+                rejuvenates life.
+              </p>
+              <p>
+                Amidst the cascade of silver threads, the world transforms.
+                Streets glisten under the embrace of the rain, and the air fills
+                with the fresh scent of petrichor, the earth's perfume released
+                upon receiving the sky's affection. Trees and flowers bask in
+                the nourishing touch, their leaves shimmering with droplets that
+                catch the faint light, turning every view into a masterpiece of
+                sparkling jewels.
+              </p>
+              <p>
+                But beyond its beauty and melody, rain symbolizes renewal and
+                growth. It teaches us the art of letting go, washing away the
+                remnants of yesterday, and nurturing the seeds of tomorrow. In
+                its presence, we find moments of reflection, an invitation to
+                pause and revel in the simple joys of life. The rain, with its
+                gentle persistence, reminds us of nature's cycles, the ebb and
+                flow of life, and the preciousness of every drop in the vast
+                ocean of existence.
+              </p>
+            </VStackFull>
+          </Parallax>
         </ComponentContainer>
       </Wrap>
       {isToastVisible && (
