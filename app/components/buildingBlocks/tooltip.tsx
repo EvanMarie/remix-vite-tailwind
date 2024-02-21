@@ -29,7 +29,7 @@ interface TooltipProps {
 export default function Tooltip({
   label,
   bg = "bg-col-400",
-  color = "text-col-900 lightTextShadow",
+  color = "text-col-100 textShadow",
   w = "w-auto",
   children,
   placement = "bottomRight",

@@ -66,7 +66,7 @@ export default function ComponentExamples() {
   function ComponentContainer({
     children,
     className,
-    bg = "bg-100-diagonal2op25",
+    bg = "bg-100-diagonal2op25 ",
     headerText,
   }: {
     children?: React.ReactNode;
@@ -77,7 +77,7 @@ export default function ComponentExamples() {
     return (
       <VStack
         gap="gap-[0px]"
-        className={`h-fit ${bg} shadowNarrowLoose ${className}`}
+        className={`h-fit ${bg} shadowNarrowLoose max-w-[90vw] ${className}`}
       >
         {headerText && (
           <FlexFull className="px-[1vh] py-[0.5vh] bg-100-linear6op75 rounded-b-none">
