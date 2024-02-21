@@ -41,7 +41,7 @@ import { TransitionType } from "~/components/buildingBlocks/transition";
 import ValidatedInput from "~/components/buildingBlocks/validatedInput";
 import TransitionExample from "./transitionExample";
 import TagsInput from "~/components/buildingBlocks/tags/tagsInput";
-import Parallax from "~/components/specialty/parallaxOne";
+import Parallax from "~/components/specialty/parallaxText";
 
 export default function ComponentExamples() {
   const onConfirm = () => {
@@ -297,7 +297,10 @@ export default function ComponentExamples() {
             <Button to="/design/masonry-grid-demo" buttonText="View Demo" />
           </FlexFull>
         </ComponentContainer>
-        <ComponentContainer headerText="Parallax One">
+        <ComponentContainer headerText="Parallax with Image">
+          <Parallax imageOnly />
+        </ComponentContainer>
+        <ComponentContainer headerText="Parallax with Text">
           <Parallax
             title="The Melody of Raindrops"
             tagline="Unveiling the Serenade of the Skies"
