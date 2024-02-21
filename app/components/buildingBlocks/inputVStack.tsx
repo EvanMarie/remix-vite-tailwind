@@ -3,6 +3,7 @@ import Input from "./input";
 import Heading from "./headingText";
 import VStack from "./vStack";
 import ValidatedInput from "./validatedInput";
+import { TextShadows } from "types";
 
 interface InputVStackProps {
   labelSize?: "normal" | "small";
@@ -16,6 +17,7 @@ interface InputVStackProps {
   isRequired?: boolean;
   style?: React.CSSProperties;
   label: string;
+  labelShadow?: string;
   isEditable?: boolean;
   className?: string;
   name?: string;
@@ -43,6 +45,7 @@ export default function InputVStack({
   placeholder,
   value,
   defaultValue,
+  labelShadow,
   type,
   onChange,
 }: InputVStackProps) {
@@ -59,6 +62,7 @@ export default function InputVStack({
           color={labelColor}
           className={`${labelClassName}`}
           layout="text-md-tighter"
+          shadow={labelShadow as TextShadows}
           text={label}
         />
       ) : (
@@ -67,6 +71,7 @@ export default function InputVStack({
             isCursive={labelIsCursive}
             color={labelColor}
             className={` ${labelClassName}`}
+            shadow={labelShadow as TextShadows}
             layout="text-md-tighter md:text-lg-tighter"
             text={label}
           />

@@ -11,7 +11,7 @@ export default function ParallaxText({
   imageMargin = "mt-[40vh]",
   showIcon = true,
   children,
-  bgImage = "/images/rain.jpg",
+  bgImage = "bg-[url(/images/rain.jpg)]",
   title,
   tagline,
   scrollBackground = "bg-100-linear6op75",
@@ -31,7 +31,7 @@ export default function ParallaxText({
   return (
     <>
       <Box
-        className={`${width} ${height} border-970-md overflow-y-scroll bg-[url('${bgImage}')] bg-cover bg-fixed bg-center bg-no-repeat shadowNarrowNormal`}
+        className={`${width} ${height} border-970-md overflow-y-scroll ${bgImage} bg-cover bg-fixed bg-center bg-no-repeat shadowNarrowNormal`}
       >
         {!imageOnly && (
           <Box className={imageMargin}>
