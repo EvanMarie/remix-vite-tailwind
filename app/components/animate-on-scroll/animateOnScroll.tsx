@@ -17,6 +17,7 @@ interface Props {
   slideInOffsetX?: string;
   slideInOffsetY?: string;
   delay?: number;
+  className?: string;
 }
 
 const AnimatedComponent: React.FC<Props> = ({
@@ -24,8 +25,9 @@ const AnimatedComponent: React.FC<Props> = ({
   animation = "slideInY",
   duration = 1,
   slideInOffsetX = "50vw",
-  slideInOffsetY = "15vh",
+  slideInOffsetY = "25vh",
   delay = 0.4,
+  className,
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -133,7 +135,6 @@ const AnimatedComponent: React.FC<Props> = ({
     };
   }, []);
 
-  // Select the correct variant based on the animationName prop
   const variants = animationVariants[animation];
 
   return (
@@ -142,6 +143,7 @@ const AnimatedComponent: React.FC<Props> = ({
       initial="hidden"
       animate={isVisible ? "visible" : "hidden"}
       variants={variants}
+      className={className}
     >
       {children}
     </motion.div>
