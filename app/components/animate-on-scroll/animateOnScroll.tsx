@@ -30,7 +30,8 @@ interface Props {
   duration?: number;
   xOffset?: string;
   yOffset?: string;
-  zoomInFrom: number;
+  zoomInFrom?: number;
+  zoomOutFrom?: number;
   delay?: number;
   className?: string;
 }
@@ -42,6 +43,7 @@ const AnimatedComponent: React.FC<Props> = ({
   xOffset = "50vw",
   yOffset = "25vh",
   zoomInFrom = 0.1,
+  zoomOutFrom = 2.5,
   delay = 0.4,
   className,
 }) => {
@@ -205,9 +207,8 @@ const AnimatedComponent: React.FC<Props> = ({
         transition: { duration: duration, delay: isVisible ? delay : 0 },
       },
     },
-
     zoomOut: {
-      hidden: { scale: 1.25, opacity: 0 },
+      hidden: { scale: zoomOutFrom, opacity: 0 },
       visible: {
         scale: 1,
         opacity: 1,
@@ -215,36 +216,36 @@ const AnimatedComponent: React.FC<Props> = ({
       },
     },
     zoomOutUp: {
-      hidden: { scale: 1.25, opacity: 0 },
+      hidden: { scale: zoomOutFrom, opacity: 0, y: yOffset },
       visible: {
-        y: "-30%",
+        y: 0,
         scale: 1,
         opacity: 1,
         transition: { duration: duration, delay: isVisible ? delay : 0 },
       },
     },
     zoomOutDown: {
-      hidden: { scale: 1.25, opacity: 0 },
+      hidden: { scale: zoomOutFrom, opacity: 0, y: `-${yOffset}` },
       visible: {
-        y: "30%",
+        y: 0,
         scale: 1,
         opacity: 1,
         transition: { duration: duration, delay: isVisible ? delay : 0 },
       },
     },
     zoomOutLeft: {
-      hidden: { scale: 1.25, opacity: 0 },
+      hidden: { scale: zoomOutFrom, opacity: 0, x: `-${xOffset}` },
       visible: {
-        x: "-30%",
+        x: 0,
         scale: 1,
         opacity: 1,
         transition: { duration: duration, delay: isVisible ? delay : 0 },
       },
     },
     zoomOutRight: {
-      hidden: { scale: 1.25, opacity: 0 },
+      hidden: { scale: zoomOutFrom, opacity: 0, x: xOffset },
       visible: {
-        x: "30%",
+        x: 0,
         scale: 1,
         opacity: 1,
         transition: { duration: duration, delay: isVisible ? delay : 0 },
