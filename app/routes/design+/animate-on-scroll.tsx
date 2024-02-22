@@ -1,9 +1,10 @@
 import Flex from "~/components/buildingBlocks/flex";
 import VStackFull from "~/components/buildingBlocks/vStackFull";
-import AnimatedComponent from "~/components/animate-on-scroll/animateOnScrollOne";
+import AnimatedComponent from "~/components/animate-on-scroll/animateOnScroll";
+import { Animations } from "./components/data";
 
 function SingleSection({
-  height = "h-[40vh]",
+  height = "h-[100vh]",
   bg = "bg-red-200",
   textColor = "text-black",
   children,
@@ -25,27 +26,16 @@ function SingleSection({
 export default function AnimateOnScroll() {
   return (
     <Flex className="w-screen h-screen overflow-y-auto">
-      <VStackFull className="h-fit p-[1.5vh]">
-        <SingleSection bg="bg-blue-200">
-          <AnimatedComponent>
-            <h1 className="text-3xl font-bold underline">Animate me!</h1>
-          </AnimatedComponent>
-        </SingleSection>
-        <SingleSection bg="bg-purple-200">
-          <AnimatedComponent>
-            <h1 className="text-3xl font-bold underline">Animate me!</h1>
-          </AnimatedComponent>
-        </SingleSection>
-        <SingleSection bg="bg-green-200">
-          <AnimatedComponent>
-            <h1 className="text-3xl font-bold underline">Animate me!</h1>
-          </AnimatedComponent>
-        </SingleSection>
-        <SingleSection bg="bg-yellow-200">
-          <AnimatedComponent>
-            <h1 className="text-3xl font-bold underline">Animate me!</h1>
-          </AnimatedComponent>
-        </SingleSection>
+      <VStackFull className="h-fit">
+        {Animations.map((animation, index) => (
+          <SingleSection key={index}>
+            <AnimatedComponent animationName={animation}>
+              <h1 className="text-3xl font-bold underline">
+                animationName=&quot;{animation}&quot;
+              </h1>
+            </AnimatedComponent>
+          </SingleSection>
+        ))}
       </VStackFull>
     </Flex>
   );

@@ -1678,3 +1678,13 @@ export const transitions = [
   "transition-1900",
   "transition-2000",
 ];
+
+export const Animations = [
+  "slideInX",
+  "slideInY",
+  "fadeIn",
+  "fadeSlideUpperRight",
+  "fadeSlideUpperLeft",
+  "fadeSlideLowerRight",
+  "fadeSlideLowerLeft",
+];
