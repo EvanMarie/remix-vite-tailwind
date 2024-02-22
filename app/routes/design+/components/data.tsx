@@ -1,3 +1,5 @@
+import { Animations } from "~/components/animate-on-scroll/animateOnScroll";
+
 export const textShadows = [
   "lightTextShadow",
   "textShadow",
@@ -1679,7 +1681,8 @@ export const transitions = [
   "transition-2000",
 ];
 
-export const Animations = [
+// Example of a correct Animations array
+export const AnimationTypes: Animations[] = [
   "slideInX",
   "slideInY",
   "fadeIn",
@@ -1687,4 +1690,18 @@ export const Animations = [
   "fadeSlideUpperLeft",
   "fadeSlideLowerRight",
   "fadeSlideLowerLeft",
+  "flipUp",
+  "flipDown",
+  "flipRight",
+  "flipLeft",
+  "zoomIn",
+  "zoomInUp",
+  "zoomInDown",
+  "zoomInLeft",
+  "zoomInRight",
+  "zoomOut",
+  "zoomOutUp",
+  "zoomOutDown",
+  "zoomOutLeft",
+  "zoomOutRight",
 ];

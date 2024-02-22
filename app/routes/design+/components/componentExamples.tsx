@@ -357,6 +357,14 @@ export default function ComponentExamples() {
             </Accordion>
           </VStack>
         </ComponentContainer>
+        <ComponentContainer
+          headerText="Animation on Snap Scroll"
+          className="w-[30vh]"
+        >
+          <FlexFull className="justify-center py-[1.5vh]">
+            <Button to="/design/animate-on-scroll" buttonText="View Demo" />
+          </FlexFull>
+        </ComponentContainer>
       </Wrap>
       {isToastVisible && (
         <Toast

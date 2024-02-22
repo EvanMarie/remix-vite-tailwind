@@ -1,21 +1,36 @@
 import { motion, Variants } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 
-type Animations =
+export type Animations =
   | "slideInX"
   | "slideInY"
   | "fadeIn"
   | "fadeSlideUpperRight"
   | "fadeSlideUpperLeft"
   | "fadeSlideLowerRight"
-  | "fadeSlideLowerLeft";
+  | "fadeSlideLowerLeft"
+  | "flipUp"
+  | "flipDown"
+  | "flipRight"
+  | "flipLeft"
+  | "zoomIn"
+  | "zoomInUp"
+  | "zoomInDown"
+  | "zoomInLeft"
+  | "zoomInRight"
+  | "zoomOut"
+  | "zoomOutUp"
+  | "zoomOutDown"
+  | "zoomOutLeft"
+  | "zoomOutRight";
 
 interface Props {
   children?: React.ReactNode;
   animation?: Animations;
   duration?: number;
-  slideInOffsetX?: string;
-  slideInOffsetY?: string;
+  xOffset?: string;
+  yOffset?: string;
+  zoomInFrom: number;
   delay?: number;
   className?: string;
 }
@@ -24,8 +39,9 @@ const AnimatedComponent: React.FC<Props> = ({
   children,
   animation = "slideInY",
   duration = 1,
-  slideInOffsetX = "50vw",
-  slideInOffsetY = "25vh",
+  xOffset = "50vw",
+  yOffset = "25vh",
+  zoomInFrom = 0.1,
   delay = 0.4,
   className,
 }) => {
@@ -34,7 +50,7 @@ const AnimatedComponent: React.FC<Props> = ({
 
   const animationVariants: Record<Animations, Variants> = {
     slideInX: {
-      hidden: { x: slideInOffsetX, opacity: 0 },
+      hidden: { x: xOffset, opacity: 0 },
       visible: {
         x: 0,
         opacity: 1,
@@ -45,7 +61,7 @@ const AnimatedComponent: React.FC<Props> = ({
       },
     },
     slideInY: {
-      hidden: { y: slideInOffsetY, opacity: 0 },
+      hidden: { y: yOffset, opacity: 0 },
       visible: {
         y: 0,
         opacity: 1,
@@ -66,7 +82,7 @@ const AnimatedComponent: React.FC<Props> = ({
       },
     },
     fadeSlideUpperRight: {
-      hidden: { x: slideInOffsetX, y: `-${slideInOffsetY}`, opacity: 0 },
+      hidden: { x: xOffset, y: `-${yOffset}`, opacity: 0 },
       visible: {
         x: 0,
         y: 0,
@@ -78,7 +94,7 @@ const AnimatedComponent: React.FC<Props> = ({
       },
     },
     fadeSlideUpperLeft: {
-      hidden: { x: `-${slideInOffsetX}`, y: `-${slideInOffsetY}`, opacity: 0 },
+      hidden: { x: `-${xOffset}`, y: `-${yOffset}`, opacity: 0 },
       visible: {
         x: 0,
         y: 0,
@@ -90,7 +106,7 @@ const AnimatedComponent: React.FC<Props> = ({
       },
     },
     fadeSlideLowerRight: {
-      hidden: { x: slideInOffsetX, y: slideInOffsetY, opacity: 0 },
+      hidden: { x: xOffset, y: yOffset, opacity: 0 },
       visible: {
         x: 0,
         y: 0,
@@ -102,7 +118,7 @@ const AnimatedComponent: React.FC<Props> = ({
       },
     },
     fadeSlideLowerLeft: {
-      hidden: { x: `-${slideInOffsetX}`, y: slideInOffsetY, opacity: 0 },
+      hidden: { x: `-${xOffset}`, y: yOffset, opacity: 0 },
       visible: {
         x: 0,
         y: 0,
@@ -111,6 +127,127 @@ const AnimatedComponent: React.FC<Props> = ({
           duration: duration,
           delay: isVisible ? delay : 0,
         },
+      },
+    },
+    flipUp: {
+      hidden: { rotateX: 90, opacity: 0, transformOrigin: "center bottom" },
+      visible: {
+        rotateX: 0,
+        opacity: 1,
+        transition: { duration: duration, delay: isVisible ? delay : 0 },
+      },
+    },
+    flipDown: {
+      hidden: { rotateX: -90, opacity: 0, transformOrigin: "center top" },
+      visible: {
+        rotateX: 0,
+        opacity: 1,
+        transition: { duration: duration, delay: isVisible ? delay : 0 },
+      },
+    },
+    flipRight: {
+      hidden: { rotateY: 90, opacity: 0, transformOrigin: "left center" },
+      visible: {
+        rotateY: 0,
+        opacity: 1,
+        transition: { duration: duration, delay: isVisible ? delay : 0 },
+      },
+    },
+    flipLeft: {
+      hidden: { rotateY: -90, opacity: 0, transformOrigin: "right center" },
+      visible: {
+        rotateY: 0,
+        opacity: 1,
+        transition: { duration: duration, delay: isVisible ? delay : 0 },
+      },
+    },
+    zoomIn: {
+      hidden: { scale: zoomInFrom, opacity: 0 },
+      visible: {
+        scale: 1,
+        opacity: 1,
+        transition: { duration: duration, delay: isVisible ? delay : 0 },
+      },
+    },
+    zoomInUp: {
+      hidden: { y: yOffset, scale: zoomInFrom, opacity: 0 },
+      visible: {
+        y: 0,
+        scale: 1,
+        opacity: 1,
+        transition: { duration: duration, delay: isVisible ? delay : 0 },
+      },
+    },
+    zoomInDown: {
+      hidden: { y: `-${yOffset}`, scale: zoomInFrom, opacity: 0 },
+      visible: {
+        y: 0,
+        scale: 1,
+        opacity: 1,
+        transition: { duration: duration, delay: isVisible ? delay : 0 },
+      },
+    },
+    zoomInLeft: {
+      hidden: { x: `-${xOffset}`, scale: zoomInFrom, opacity: 0 },
+      visible: {
+        x: 0,
+        scale: 1,
+        opacity: 1,
+        transition: { duration: duration, delay: isVisible ? delay : 0 },
+      },
+    },
+    zoomInRight: {
+      hidden: { x: xOffset, scale: zoomInFrom, opacity: 0 },
+      visible: {
+        x: 0,
+        scale: 1,
+        opacity: 1,
+        transition: { duration: duration, delay: isVisible ? delay : 0 },
+      },
+    },
+
+    zoomOut: {
+      hidden: { scale: 1.25, opacity: 0 },
+      visible: {
+        scale: 1,
+        opacity: 1,
+        transition: { duration: duration, delay: isVisible ? delay : 0 },
+      },
+    },
+    zoomOutUp: {
+      hidden: { scale: 1.25, opacity: 0 },
+      visible: {
+        y: "-30%",
+        scale: 1,
+        opacity: 1,
+        transition: { duration: duration, delay: isVisible ? delay : 0 },
+      },
+    },
+    zoomOutDown: {
+      hidden: { scale: 1.25, opacity: 0 },
+      visible: {
+        y: "30%",
+        scale: 1,
+        opacity: 1,
+        transition: { duration: duration, delay: isVisible ? delay : 0 },
+      },
+    },
+    zoomOutLeft: {
+      hidden: { scale: 1.25, opacity: 0 },
+      visible: {
+        x: "-30%",
+        scale: 1,
+        opacity: 1,
+        transition: { duration: duration, delay: isVisible ? delay : 0 },
+      },
+    },
+    zoomOutRight: {
+      hidden: { scale: 1.25, opacity: 0 },
+      visible: {
+        x: "30%",
+        scale: 1,
+        opacity: 1,
+        transition: { duration: duration, delay: isVisible ? delay : 0 },
       },
     },
   };

@@ -1,6 +1,6 @@
 import Flex from "./flex";
-import HStack from "./hStack";
 import { ReactNode } from "react";
+import HStackFull from "./hStackFull";
 
 interface NavContainerProps {
   children: ReactNode;
@@ -29,13 +29,11 @@ export default function NavContainer({
 
   return (
     <Flex
-      className={`fixed ${locationStyle} left-0 ${h} w-full z-50 items-center justify-center shadowNarrowNormal rounded-b-[0.7vh] ${className}`}
+      className={`fixed ${locationStyle} left-0 ${h} w-full z-50 items-center justify-center shadowNarrowNormal rounded-none ${className}`}
     >
-      <HStack
-        className={`w-full h-full px-[1vh] ${alignment} ${bg} rounded-none `}
-      >
+      <HStackFull className={`h-full pr-[1vh] ${alignment} ${bg} rounded-none`}>
         {children}
-      </HStack>
+      </HStackFull>
     </Flex>
   );
 }
