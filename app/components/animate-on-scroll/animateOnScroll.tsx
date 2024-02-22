@@ -44,7 +44,7 @@ const AnimatedComponent: React.FC<Props> = ({
   yOffset = "25vh",
   zoomInFrom = 0.1,
   zoomOutFrom = 2.5,
-  delay = 0.4,
+  delay = 0.2,
   className,
 }) => {
   const [isVisible, setIsVisible] = useState(false);

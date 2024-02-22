@@ -10,6 +10,8 @@ import FlexFull from "~/components/buildingBlocks/flexFull";
 import Box from "~/components/buildingBlocks/box";
 import VStack from "~/components/buildingBlocks/vStack";
 import Button from "~/components/buildingBlocks/button";
+import CustomNavLink from "~/components/buildingBlocks/custonNavLink";
+import Flex from "~/components/buildingBlocks/flex";
 
 export default function AnimateOnScroll() {
   return (
@@ -25,26 +27,25 @@ export default function AnimateOnScroll() {
         </FlexFull>
       </NavContainer>
 
-      <VStack
-        className="fixed top-[6vh] left-0 h-[94vh] justify-around py-[1vh]"
-        align="items-start"
-      >
-        {" "}
-        {AnimationTypes.map((animation, index) => (
-          <Button
-            to={`#${animation}`}
-            key={index}
-            type="smallUnstyled"
-            className="bg-col-990 text-col-100"
-            buttonText={animation}
-          />
-        ))}
-      </VStack>
-      {AnimationTypes.map((animation, index) => (
-        <SnapScrollPage
-          key={index}
-          className="w-screen h-screen bg-col-300 pl-[10vh]"
+      <Flex className="fixed top-[6vh] left-0 px-[1vh]">
+        <VStack
+          className="h-[92vh] justify-around p-[1.5vh] bg-col-150 shadowWideLoose"
+          align="items-start "
         >
+          {" "}
+          {AnimationTypes.map((animation, index) => (
+            <CustomNavLink
+              to={String(`#${animation}`)}
+              key={index}
+              useHash
+              useActive
+              linkText={animation}
+            />
+          ))}
+        </VStack>
+      </Flex>
+      {AnimationTypes.map((animation, index) => (
+        <SnapScrollPage key={index} className="w-screen h-screen bg-col-300">
           <AnimatedComponent
             animation={animation}
             className="bg-col-970 p-[1.5vh] text-col-100 shadowWideLoose"
