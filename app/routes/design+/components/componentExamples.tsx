@@ -1,6 +1,5 @@
 import { useRef, useState } from "react";
 import { BiMenu } from "react-icons/bi";
-import { ExpandIcon } from "styles";
 import { DrawerSlideDirection } from "types";
 import Alert from "~/components/buildingBlocks/alert";
 import { Avatar } from "~/components/buildingBlocks/avatar";
@@ -108,35 +107,31 @@ export default function ComponentExamples() {
     <Flex className="w-full justify-around items-center">
       <Wrap className="w-full items-center justify-around gap-[3vh]">
         <Button buttonText="Alert" onClick={openAlert} />
-        <ComponentContainer
-          headerText="Animation on Snap Scroll"
-          className="w-[30vh]"
-        >
-          <FlexFull className="justify-center py-[1.5vh]">
-            <Button to="/design/animate-on-scroll" buttonText="View Demo" />
+        <Button
+          to="/design/animate-on-scroll"
+          buttonText="Animate on Scroll Duration"
+        />
+        <Button
+          to="/design/animate-on-scroll-spring"
+          buttonText="Animation on Snap Scroll Spring"
+        />{" "}
+        <Button
+          to="/design/infinite-scroll-demo"
+          buttonText="Infinite Scroll"
+        />
+        <Button to="/design/masonry-grid-demo" buttonText="Masonry Grid" />
+        <Popover
+          trigger={<Button buttonText="Popover" />}
+          content={<Flex>I am the content</Flex>}
+          heading="Popover Heading"
+        />
+        <ModalWithButton buttonText="Modal">
+          <FlexFull className="h-full bg-col-700 justify-center items-center rounded-b-none">
+            <Text className="text-mega-normal text-col-100 textShadow">
+              This is a lovely Modal!
+            </Text>
           </FlexFull>
-        </ComponentContainer>
-        <ComponentContainer
-          headerText="Spring Animation on Snap Scroll"
-          className="w-[30vh]"
-        >
-          <FlexFull className="justify-center py-[1.5vh]">
-            <Button
-              to="/design/animate-on-scroll-spring"
-              buttonText="View Demo"
-            />
-          </FlexFull>
-        </ComponentContainer>
-        <ComponentContainer headerText="Infinite Scroll" className="w-[30vh]">
-          <FlexFull className="justify-center py-[1.5vh]">
-            <Button to="/design/infinite-scroll-demo" buttonText="View Demo" />
-          </FlexFull>
-        </ComponentContainer>
-        <ComponentContainer headerText="Masonry Grid" className="w-[30vh]">
-          <FlexFull className="justify-center py-[1.5vh]">
-            <Button to="/design/masonry-grid-demo" buttonText="View Demo" />
-          </FlexFull>
-        </ComponentContainer>
+        </ModalWithButton>
         <ComponentContainer headerText="Avatar">
           <Avatar src="/images/fallbackAvatar.png" size="xxl" />
         </ComponentContainer>
@@ -206,32 +201,19 @@ export default function ComponentExamples() {
             </Box>
           </ComponentContainer>
         </VStack>
-        <ComponentContainer headerText="Modal" className="w-[20vh] h-[10vh]">
+        <VStack gap="gap-[2vh]">
+          <ComponentContainer headerText="Password Input" className="w-[40vh]">
+            <PasswordInput />
+          </ComponentContainer>
+          <ComponentContainer headerText="Validated Input" className="w-[30vh]">
+            <FlexFull className="justify-center">
+              <ValidatedInput max={10} />
+            </FlexFull>
+          </ComponentContainer>
+        </VStack>
+        <ComponentContainer headerText="Tags Input" className="w-[30vh]">
           <FlexFull className="justify-center">
-            <ModalWithButton icon={ExpandIcon}>
-              <FlexFull className="h-full bg-col-700 justify-center items-center rounded-b-none">
-                <Text className="text-mega-normal text-col-100 textShadow">
-                  This is a lovely Modal!
-                </Text>
-              </FlexFull>
-            </ModalWithButton>
-          </FlexFull>
-        </ComponentContainer>
-        <ComponentContainer headerText="Password Input" className="w-[40vh]">
-          <PasswordInput />
-        </ComponentContainer>
-        <ComponentContainer headerText="Validated Input" className="w-[30vh]">
-          <FlexFull className="justify-center">
-            <ValidatedInput max={10} />
-          </FlexFull>
-        </ComponentContainer>
-        <ComponentContainer headerText="Popover" className="w-[30vh]">
-          <FlexFull className="justify-center">
-            <Popover
-              trigger={<Button buttonText="Popover" />}
-              content={<Flex>I am the content</Flex>}
-              heading="Popover Heading"
-            />
+            <TagsInput tags={enteredTags} onTagsChange={handleTagsChange} />
           </FlexFull>
         </ComponentContainer>
         <ComponentContainer headerText="Select Menu" className="w-[30vh]">
@@ -312,12 +294,6 @@ export default function ComponentExamples() {
             </Wrap>
           </FlexFull>
         </ComponentContainer>
-        <ComponentContainer headerText="Tags Input" className="w-[30vh]">
-          <FlexFull className="justify-center">
-            <TagsInput tags={enteredTags} onTagsChange={handleTagsChange} />
-          </FlexFull>
-        </ComponentContainer>
-
         <ComponentContainer headerText="Parallax with Image">
           <Parallax imageOnly />
         </ComponentContainer>

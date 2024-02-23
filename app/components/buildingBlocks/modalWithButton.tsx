@@ -5,19 +5,23 @@ import Portal from "./portal";
 import IconButton from "./iconButton";
 import ModalContent from "./modalContent";
 import useEscapeKey from "~/utils/useEscapeKey";
+import Button from "./button";
 
 interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
   modalSize?: string;
-  icon: React.ComponentType;
+  icon?: React.ComponentType;
   label?: string;
   overlayBlur?: string;
   overlayColor?: string;
   showTopClose?: boolean;
   showBottomClose?: boolean;
   footerClassName?: string;
+  buttonText?: string;
+  iconLeft?: boolean;
+  iconRight?: boolean;
 }
 
 export default function ModalWithButton({
@@ -32,6 +36,9 @@ export default function ModalWithButton({
   showTopClose = true,
   showBottomClose = true,
   footerClassName,
+  buttonText,
+  iconLeft,
+  iconRight,
 }: ModalProps) {
   const [isModalOpen, setModalOpen] = useState(false);
   // Animation variants for scaling in and out
@@ -53,6 +60,21 @@ export default function ModalWithButton({
   return (
     <>
       {" "}
+      {buttonText && iconLeft ? (
+        <Button
+          buttonText={buttonText}
+          onClick={() => setModalOpen(true)}
+          iconLeft={Icon}
+        />
+      ) : buttonText && iconRight ? (
+        <Button
+          buttonText={buttonText}
+          onClick={() => setModalOpen(true)}
+          iconRight={Icon}
+        />
+      ) : buttonText ? (
+        <Button buttonText={buttonText} onClick={() => setModalOpen(true)} />
+      ) : null}
       {Icon && (
         <IconButton
           icon={Icon}
