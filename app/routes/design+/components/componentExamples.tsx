@@ -108,6 +108,35 @@ export default function ComponentExamples() {
     <Flex className="w-full justify-around items-center">
       <Wrap className="w-full items-center justify-around gap-[3vh]">
         <Button buttonText="Alert" onClick={openAlert} />
+        <ComponentContainer
+          headerText="Animation on Snap Scroll"
+          className="w-[30vh]"
+        >
+          <FlexFull className="justify-center py-[1.5vh]">
+            <Button to="/design/animate-on-scroll" buttonText="View Demo" />
+          </FlexFull>
+        </ComponentContainer>
+        <ComponentContainer
+          headerText="Spring Animation on Snap Scroll"
+          className="w-[30vh]"
+        >
+          <FlexFull className="justify-center py-[1.5vh]">
+            <Button
+              to="/design/animate-on-scroll-spring"
+              buttonText="View Demo"
+            />
+          </FlexFull>
+        </ComponentContainer>
+        <ComponentContainer headerText="Infinite Scroll" className="w-[30vh]">
+          <FlexFull className="justify-center py-[1.5vh]">
+            <Button to="/design/infinite-scroll-demo" buttonText="View Demo" />
+          </FlexFull>
+        </ComponentContainer>
+        <ComponentContainer headerText="Masonry Grid" className="w-[30vh]">
+          <FlexFull className="justify-center py-[1.5vh]">
+            <Button to="/design/masonry-grid-demo" buttonText="View Demo" />
+          </FlexFull>
+        </ComponentContainer>
         <ComponentContainer headerText="Avatar">
           <Avatar src="/images/fallbackAvatar.png" size="xxl" />
         </ComponentContainer>
@@ -288,16 +317,7 @@ export default function ComponentExamples() {
             <TagsInput tags={enteredTags} onTagsChange={handleTagsChange} />
           </FlexFull>
         </ComponentContainer>
-        <ComponentContainer headerText="Infinite Scroll" className="w-[30vh]">
-          <FlexFull className="justify-center py-[1.5vh]">
-            <Button to="/design/infinite-scroll-demo" buttonText="View Demo" />
-          </FlexFull>
-        </ComponentContainer>
-        <ComponentContainer headerText="Masonry Grid" className="w-[30vh]">
-          <FlexFull className="justify-center py-[1.5vh]">
-            <Button to="/design/masonry-grid-demo" buttonText="View Demo" />
-          </FlexFull>
-        </ComponentContainer>
+
         <ComponentContainer headerText="Parallax with Image">
           <Parallax imageOnly />
         </ComponentContainer>
@@ -356,14 +376,6 @@ export default function ComponentExamples() {
               <Text className="text-lg-tight">😄🦄</Text>
             </Accordion>
           </VStack>
-        </ComponentContainer>
-        <ComponentContainer
-          headerText="Animation on Snap Scroll"
-          className="w-[30vh]"
-        >
-          <FlexFull className="justify-center py-[1.5vh]">
-            <Button to="/design/animate-on-scroll" buttonText="View Demo" />
-          </FlexFull>
         </ComponentContainer>
       </Wrap>
       {isToastVisible && (

@@ -27,7 +27,6 @@ export type Animations =
 interface Props {
   children?: React.ReactNode;
   animation?: Animations;
-  duration?: number;
   xOffset?: string;
   yOffset?: string;
   zoomInFrom?: number;
@@ -36,21 +35,43 @@ interface Props {
   zoomOutYOffset?: string;
   delay?: number;
   className?: string;
+  damping?: number;
+  stiffness?: number;
+  useSpring?: boolean;
 }
 
-const AnimatedComponent: React.FC<Props> = ({
+const AnimatedComponentSpring: React.FC<Props> = ({
   children,
   animation = "slideInY",
-  duration = 1,
   xOffset = "40vw",
   yOffset = "20vh",
   zoomInFrom = 0.1,
   zoomOutFrom = 2.5,
   zoomOutXOffset = "60vw",
   zoomOutYOffset = "40vh",
+  damping = 10,
+  stiffness = 100,
   delay = 0.2,
   className,
+  useSpring = true,
 }) => {
+  const getTransition = (isVisible: boolean) => {
+    // If useSpring is true or if damping and stiffness are provided, use a spring transition
+    if (useSpring || (damping !== undefined && stiffness !== undefined)) {
+      return {
+        type: "spring",
+        damping,
+        stiffness,
+        delay: isVisible ? delay : 0,
+      };
+    } else {
+      // Otherwise, use a duration-based transition
+      return {
+        delay: isVisible ? delay : 0,
+      };
+    }
+  };
+
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const animationVariants: Record<Animations, Variants> = {
@@ -59,10 +80,7 @@ const AnimatedComponent: React.FC<Props> = ({
       visible: {
         x: 0,
         opacity: 1,
-        transition: {
-          duration: duration,
-          delay: isVisible ? delay : 0,
-        },
+        transition: getTransition(isVisible),
       },
     },
     slideInY: {
@@ -70,20 +88,14 @@ const AnimatedComponent: React.FC<Props> = ({
       visible: {
         y: 0,
         opacity: 1,
-        transition: {
-          duration: duration,
-          delay: isVisible ? delay : 0,
-        },
+        transition: getTransition(isVisible),
       },
     },
     fadeIn: {
       hidden: { opacity: 0 },
       visible: {
         opacity: 1,
-        transition: {
-          duration: duration,
-          delay: isVisible ? delay : 0,
-        },
+        transition: getTransition(isVisible),
       },
     },
     fadeSlideUpperRight: {
@@ -92,10 +104,7 @@ const AnimatedComponent: React.FC<Props> = ({
         x: 0,
         y: 0,
         opacity: 1,
-        transition: {
-          duration: duration,
-          delay: isVisible ? delay : 0,
-        },
+        transition: getTransition(isVisible),
       },
     },
     fadeSlideUpperLeft: {
@@ -104,10 +113,7 @@ const AnimatedComponent: React.FC<Props> = ({
         x: 0,
         y: 0,
         opacity: 1,
-        transition: {
-          duration: duration,
-          delay: isVisible ? delay : 0,
-        },
+        transition: getTransition(isVisible),
       },
     },
     fadeSlideLowerRight: {
@@ -116,10 +122,7 @@ const AnimatedComponent: React.FC<Props> = ({
         x: 0,
         y: 0,
         opacity: 1,
-        transition: {
-          duration: duration,
-          delay: isVisible ? delay : 0,
-        },
+        transition: getTransition(isVisible),
       },
     },
     fadeSlideLowerLeft: {
@@ -128,10 +131,7 @@ const AnimatedComponent: React.FC<Props> = ({
         x: 0,
         y: 0,
         opacity: 1,
-        transition: {
-          duration: duration,
-          delay: isVisible ? delay : 0,
-        },
+        transition: getTransition(isVisible),
       },
     },
     flipUp: {
@@ -139,7 +139,7 @@ const AnimatedComponent: React.FC<Props> = ({
       visible: {
         rotateX: 0,
         opacity: 1,
-        transition: { duration: duration, delay: isVisible ? delay : 0 },
+        transition: getTransition(isVisible),
       },
     },
     flipDown: {
@@ -147,7 +147,7 @@ const AnimatedComponent: React.FC<Props> = ({
       visible: {
         rotateX: 0,
         opacity: 1,
-        transition: { duration: duration, delay: isVisible ? delay : 0 },
+        transition: getTransition(isVisible),
       },
     },
     flipRight: {
@@ -155,7 +155,7 @@ const AnimatedComponent: React.FC<Props> = ({
       visible: {
         rotateY: 0,
         opacity: 1,
-        transition: { duration: duration, delay: isVisible ? delay : 0 },
+        transition: getTransition(isVisible),
       },
     },
     flipLeft: {
@@ -163,7 +163,7 @@ const AnimatedComponent: React.FC<Props> = ({
       visible: {
         rotateY: 0,
         opacity: 1,
-        transition: { duration: duration, delay: isVisible ? delay : 0 },
+        transition: getTransition(isVisible),
       },
     },
     zoomIn: {
@@ -171,7 +171,7 @@ const AnimatedComponent: React.FC<Props> = ({
       visible: {
         scale: 1,
         opacity: 1,
-        transition: { duration: duration, delay: isVisible ? delay : 0 },
+        transition: getTransition(isVisible),
       },
     },
     zoomInUp: {
@@ -180,7 +180,7 @@ const AnimatedComponent: React.FC<Props> = ({
         y: 0,
         scale: 1,
         opacity: 1,
-        transition: { duration: duration, delay: isVisible ? delay : 0 },
+        transition: getTransition(isVisible),
       },
     },
     zoomInDown: {
@@ -189,7 +189,7 @@ const AnimatedComponent: React.FC<Props> = ({
         y: 0,
         scale: 1,
         opacity: 1,
-        transition: { duration: duration, delay: isVisible ? delay : 0 },
+        transition: getTransition(isVisible),
       },
     },
     zoomInLeft: {
@@ -198,7 +198,7 @@ const AnimatedComponent: React.FC<Props> = ({
         x: 0,
         scale: 1,
         opacity: 1,
-        transition: { duration: duration, delay: isVisible ? delay : 0 },
+        transition: getTransition(isVisible),
       },
     },
     zoomInRight: {
@@ -207,7 +207,7 @@ const AnimatedComponent: React.FC<Props> = ({
         x: 0,
         scale: 1,
         opacity: 1,
-        transition: { duration: duration, delay: isVisible ? delay : 0 },
+        transition: getTransition(isVisible),
       },
     },
     zoomOut: {
@@ -215,7 +215,7 @@ const AnimatedComponent: React.FC<Props> = ({
       visible: {
         scale: 1,
         opacity: 1,
-        transition: { duration: duration, delay: isVisible ? delay : 0 },
+        transition: getTransition(isVisible),
       },
     },
     zoomOutUp: {
@@ -224,7 +224,7 @@ const AnimatedComponent: React.FC<Props> = ({
         y: 0,
         scale: 1,
         opacity: 1,
-        transition: { duration: duration, delay: isVisible ? delay : 0 },
+        transition: getTransition(isVisible),
       },
     },
     zoomOutDown: {
@@ -233,7 +233,7 @@ const AnimatedComponent: React.FC<Props> = ({
         y: 0,
         scale: 1,
         opacity: 1,
-        transition: { duration: duration, delay: isVisible ? delay : 0 },
+        transition: getTransition(isVisible),
       },
     },
     zoomOutLeft: {
@@ -242,7 +242,7 @@ const AnimatedComponent: React.FC<Props> = ({
         x: 0,
         scale: 1,
         opacity: 1,
-        transition: { duration: duration, delay: isVisible ? delay : 0 },
+        transition: getTransition(isVisible),
       },
     },
     zoomOutRight: {
@@ -251,7 +251,7 @@ const AnimatedComponent: React.FC<Props> = ({
         x: 0,
         scale: 1,
         opacity: 1,
-        transition: { duration: duration, delay: isVisible ? delay : 0 },
+        transition: getTransition(isVisible),
       },
     },
   };
@@ -291,4 +291,4 @@ const AnimatedComponent: React.FC<Props> = ({
   );
 };
 
-export default AnimatedComponent;
+export default AnimatedComponentSpring;

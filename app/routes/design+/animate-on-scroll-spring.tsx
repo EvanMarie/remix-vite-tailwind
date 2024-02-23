@@ -1,4 +1,3 @@
-import AnimatedComponent from "~/components/animate-on-scroll/animateOnScroll";
 import { AnimationTypes } from "./components/data";
 import SnapScrollContainer from "~/components/specialty/snapScrollContainer";
 import SnapScrollPage from "~/components/specialty/snapScrollPage";
@@ -11,8 +10,9 @@ import Box from "~/components/buildingBlocks/box";
 import VStack from "~/components/buildingBlocks/vStack";
 import CustomNavLink from "~/components/buildingBlocks/custonNavLink";
 import Flex from "~/components/buildingBlocks/flex";
+import AnimatedComponentSpring from "~/components/animate-on-scroll/animateOnScrollSpring";
 
-export default function AnimateOnScroll() {
+export default function AnimateOnScrollSpring() {
   return (
     <SnapScrollContainer>
       <NavContainer bg="bg-col-990">
@@ -21,7 +21,7 @@ export default function AnimateOnScroll() {
         </Box>
         <FlexFull className="justify-center pl-[6vh]">
           <Text className="font-semibold text-md-tight md:text-xl-tight text-col-200">
-            Snap Scroll Animate-On-Scroll Duration
+            Snap Scroll Animate-On-Scroll Spring
           </Text>
         </FlexFull>
       </NavContainer>
@@ -50,16 +50,15 @@ export default function AnimateOnScroll() {
           id={animation}
         >
           <FlexFull className="justify-center pl-[20vh]">
-            <AnimatedComponent
+            <AnimatedComponentSpring
               animation={animation}
               className="bg-col-970 p-[1.5vh] text-col-100 shadowWideLoose"
               delay={0.4}
-              duration={1}
             >
               <h1 className="text-sm-tight md:text-xl-tight font-bold textShadow">
                 animationName=&quot;{animation}&quot;
               </h1>
-            </AnimatedComponent>
+            </AnimatedComponentSpring>
           </FlexFull>
         </SnapScrollPage>
       ))}
