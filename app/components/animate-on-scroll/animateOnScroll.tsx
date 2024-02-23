@@ -32,6 +32,8 @@ interface Props {
   yOffset?: string;
   zoomInFrom?: number;
   zoomOutFrom?: number;
+  zoomOutXOffset?: string;
+  zoomOutYOffset?: string;
   delay?: number;
   className?: string;
 }
@@ -44,6 +46,8 @@ const AnimatedComponent: React.FC<Props> = ({
   yOffset = "20vh",
   zoomInFrom = 0.1,
   zoomOutFrom = 2.5,
+  zoomOutXOffset = "70vw",
+  zoomOutYOffset = "50vh",
   delay = 0.2,
   className,
 }) => {
@@ -171,7 +175,7 @@ const AnimatedComponent: React.FC<Props> = ({
       },
     },
     zoomInUp: {
-      hidden: { y: yOffset, scale: zoomInFrom, opacity: 0 },
+      hidden: { y: zoomOutYOffset, scale: zoomInFrom, opacity: 0 },
       visible: {
         y: 0,
         scale: 1,
@@ -180,7 +184,7 @@ const AnimatedComponent: React.FC<Props> = ({
       },
     },
     zoomInDown: {
-      hidden: { y: `-${yOffset}`, scale: zoomInFrom, opacity: 0 },
+      hidden: { y: `-${zoomOutYOffset}`, scale: zoomInFrom, opacity: 0 },
       visible: {
         y: 0,
         scale: 1,
@@ -189,7 +193,7 @@ const AnimatedComponent: React.FC<Props> = ({
       },
     },
     zoomInLeft: {
-      hidden: { x: `-${xOffset}`, scale: zoomInFrom, opacity: 0 },
+      hidden: { x: `-${zoomOutXOffset}`, scale: zoomInFrom, opacity: 0 },
       visible: {
         x: 0,
         scale: 1,
@@ -198,7 +202,7 @@ const AnimatedComponent: React.FC<Props> = ({
       },
     },
     zoomInRight: {
-      hidden: { x: xOffset, scale: zoomInFrom, opacity: 0 },
+      hidden: { x: zoomOutXOffset, scale: zoomInFrom, opacity: 0 },
       visible: {
         x: 0,
         scale: 1,
@@ -215,7 +219,7 @@ const AnimatedComponent: React.FC<Props> = ({
       },
     },
     zoomOutUp: {
-      hidden: { scale: zoomOutFrom, opacity: 0, y: `-${yOffset}` },
+      hidden: { scale: zoomOutFrom, opacity: 0, y: zoomOutYOffset },
       visible: {
         y: 0,
         scale: 1,
@@ -224,7 +228,7 @@ const AnimatedComponent: React.FC<Props> = ({
       },
     },
     zoomOutDown: {
-      hidden: { scale: zoomOutFrom, opacity: 0, y: yOffset },
+      hidden: { scale: zoomOutFrom, opacity: 0, y: `-${zoomOutYOffset}` },
       visible: {
         y: 0,
         scale: 1,
@@ -233,7 +237,7 @@ const AnimatedComponent: React.FC<Props> = ({
       },
     },
     zoomOutLeft: {
-      hidden: { scale: zoomOutFrom, opacity: 0, x: `-${xOffset}` },
+      hidden: { scale: zoomOutFrom, opacity: 0, x: `-${zoomOutXOffset}` },
       visible: {
         x: 0,
         scale: 1,
@@ -242,7 +246,7 @@ const AnimatedComponent: React.FC<Props> = ({
       },
     },
     zoomOutRight: {
-      hidden: { scale: zoomOutFrom, opacity: 0, x: xOffset },
+      hidden: { scale: zoomOutFrom, opacity: 0, x: zoomOutXOffset },
       visible: {
         x: 0,
         scale: 1,

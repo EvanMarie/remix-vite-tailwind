@@ -53,6 +53,7 @@ export default function AnimateOnScroll() {
             <AnimatedComponent
               animation={animation}
               className="bg-col-970 p-[1.5vh] text-col-100 shadowWideLoose"
+              delay={1}
             >
               <h1 className="text-sm-tight md:text-xl-tight font-bold textShadow">
                 animationName=&quot;{animation}&quot;
