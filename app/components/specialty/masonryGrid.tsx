@@ -122,7 +122,7 @@ export default function MasonryGrid() {
   return (
     <VStackFull className="items-center h-full pt-[6vh] bg-900-radial2op75">
       <HStackFull className="fixed top-0 left-0 h-[6vh] px-[1.5vh] bg-900-radial3op50 rounded-none shadowNarrowTight justify-between items-center">
-        <IconButton icon={ReturnPathIcon} to="/design" />
+        <IconButton icon={ReturnPathIcon} to="/design#components" />
         <FlexFull className="md:text-xl-tight font-semibold justify-center text-col-100 textShadow">
           Remix/Tailwind Infinite Scroll Masonry Grid
         </FlexFull>

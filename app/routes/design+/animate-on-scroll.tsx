@@ -17,7 +17,7 @@ export default function AnimateOnScroll() {
     <SnapScrollContainer>
       <NavContainer bg="bg-col-990">
         <Box className="w-[6vw] absolute top-[0.7vh] left-[1vh]">
-          <IconButton icon={ReturnPathIcon} to="/design" />
+          <IconButton icon={ReturnPathIcon} to="/design#components" />
         </Box>
         <FlexFull className="justify-center pl-[6vh]">
           <Text className="font-semibold text-md-tight md:text-xl-tight text-col-200">
