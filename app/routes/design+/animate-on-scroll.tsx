@@ -9,7 +9,6 @@ import { ReturnPathIcon } from "styles";
 import FlexFull from "~/components/buildingBlocks/flexFull";
 import Box from "~/components/buildingBlocks/box";
 import VStack from "~/components/buildingBlocks/vStack";
-import Button from "~/components/buildingBlocks/button";
 import CustomNavLink from "~/components/buildingBlocks/custonNavLink";
 import Flex from "~/components/buildingBlocks/flex";
 
@@ -38,25 +37,28 @@ export default function AnimateOnScroll() {
               to={String(`#${animation}`)}
               key={index}
               useHash
-              useActive
               linkText={animation}
+              className="text-sm-tight md:text-md-tight"
             />
           ))}
         </VStack>
       </Flex>
       {AnimationTypes.map((animation, index) => (
-        <SnapScrollPage key={index} className="w-screen h-screen bg-col-300">
-          <AnimatedComponent
-            animation={animation}
-            className="bg-col-970 p-[1.5vh] text-col-100 shadowWideLoose"
-          >
-            <h1
-              className="text-lg-tight md:text-xl-tight font-bold textShadow"
-              id={animation}
+        <SnapScrollPage
+          key={index}
+          className="w-screen h-screen bg-col-300"
+          id={animation}
+        >
+          <FlexFull className="justify-center pl-[20vh]">
+            <AnimatedComponent
+              animation={animation}
+              className="bg-col-970 p-[1.5vh] text-col-100 shadowWideLoose"
             >
-              animationName=&quot;{animation}&quot;
-            </h1>
-          </AnimatedComponent>
+              <h1 className="text-sm-tight md:text-xl-tight font-bold textShadow">
+                animationName=&quot;{animation}&quot;
+              </h1>
+            </AnimatedComponent>
+          </FlexFull>
         </SnapScrollPage>
       ))}
     </SnapScrollContainer>

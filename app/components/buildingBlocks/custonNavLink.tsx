@@ -1,5 +1,6 @@
 import { NavLink, useLocation } from "@remix-run/react";
 import MatchesHash from "~/utils/matchesHash";
+import Box from "./box";
 
 interface CustomNavLinkProps {
   to: string;
@@ -8,33 +9,37 @@ interface CustomNavLinkProps {
   inactiveStyles?: string;
   useHash?: boolean;
   useActive?: boolean;
+  className?: string;
 }
 
 export default function CustomNavLink({
   to,
   linkText,
   activeStyles,
-  inactiveStyles,
+  inactiveStyles = "",
   useHash,
   useActive,
+  className,
 }: CustomNavLinkProps) {
   const hash = useLocation().hash;
   console.log(hash);
 
   return (
-    <NavLink
-      to={to}
-      className={
-        useActive
-          ? ({ isActive }) => (isActive ? activeStyles : inactiveStyles)
-          : useHash
-          ? MatchesHash({ linkName: to })
-            ? activeStyles
-            : inactiveStyles
-          : undefined
-      }
-    >
-      {linkText}
-    </NavLink>
+    <Box className={className}>
+      <NavLink
+        to={to}
+        className={
+          useActive
+            ? ({ isActive }) => (isActive ? activeStyles : inactiveStyles)
+            : useHash
+            ? MatchesHash({ linkName: to })
+              ? activeStyles
+              : inactiveStyles
+            : undefined
+        }
+      >
+        {linkText}
+      </NavLink>
+    </Box>
   );
 }

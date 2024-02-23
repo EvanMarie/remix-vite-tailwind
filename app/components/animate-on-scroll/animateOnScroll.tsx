@@ -41,7 +41,7 @@ const AnimatedComponent: React.FC<Props> = ({
   animation = "slideInY",
   duration = 1,
   xOffset = "50vw",
-  yOffset = "25vh",
+  yOffset = "20vh",
   zoomInFrom = 0.1,
   zoomOutFrom = 2.5,
   delay = 0.2,
@@ -49,7 +49,6 @@ const AnimatedComponent: React.FC<Props> = ({
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-
   const animationVariants: Record<Animations, Variants> = {
     slideInX: {
       hidden: { x: xOffset, opacity: 0 },
@@ -216,7 +215,7 @@ const AnimatedComponent: React.FC<Props> = ({
       },
     },
     zoomOutUp: {
-      hidden: { scale: zoomOutFrom, opacity: 0, y: yOffset },
+      hidden: { scale: zoomOutFrom, opacity: 0, y: `-${yOffset}` },
       visible: {
         y: 0,
         scale: 1,
@@ -225,7 +224,7 @@ const AnimatedComponent: React.FC<Props> = ({
       },
     },
     zoomOutDown: {
-      hidden: { scale: zoomOutFrom, opacity: 0, y: `-${yOffset}` },
+      hidden: { scale: zoomOutFrom, opacity: 0, y: yOffset },
       visible: {
         y: 0,
         scale: 1,
