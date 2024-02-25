@@ -106,6 +106,7 @@ export default function ComponentExamples() {
   return (
     <Flex className="w-full justify-around items-center">
       <Wrap className="w-full items-center justify-around gap-[3vh]">
+        <Button buttonText="Main Nav Demo" to="/design/main-nav-demo" />
         <Button buttonText="Alert" onClick={openAlert} />
         <Button
           to="/design/animate-on-scroll"
