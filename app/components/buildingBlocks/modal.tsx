@@ -65,12 +65,12 @@ export default function Modal({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              style={{ zIndex: 100, maxHeight: "100svh" }}
+              style={{ zIndex: 60, maxHeight: "100svh" }}
             />
             {/* Modal */}
             <motion.div
               className={`fixed inset-0 m-auto ${modalSize}`}
-              style={{ ...style, zIndex: 50, maxHeight: "100svh" }}
+              style={{ ...style, zIndex: 100, maxHeight: "100svh" }}
               variants={variants}
               initial="closed"
               animate="open"
