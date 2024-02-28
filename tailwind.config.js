@@ -2383,9 +2383,22 @@ export default {
 
       addComponents(newComponents);
     }),
-    // LINKS PLUGIN
+    // ELEMENTS and LINKS PLUGIN
     plugin(function ({ addBase, theme }) {
       addBase({
+        body: {
+          color: theme("colors.col.900"),
+          width: "100%",
+          maxHeight: "100svh",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          fontFamily: '"Lato", sans-serif',
+          backgroundImage: "url('/images/sitebackground.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed",
+        },
         a: {
           color: theme("colors.col.600"),
           textShadow: theme("textShadow.lightTextShadow"),

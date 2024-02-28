@@ -222,20 +222,21 @@ const borderList = [
 export default function BorderExamples({
   startIndex = 0,
   endIndex = 10,
+  textColor = "text-col-100",
 }: {
   startIndex?: number;
   endIndex?: number;
+  textColor?: string;
 }) {
   // Use slice to get a specific range from colorKeys based on the provided indices
   const filteredColorKeys = borderList.slice(startIndex, endIndex + 1);
-  const color = filteredColorKeys[0].split("-")[1];
 
   return (
     <>
       {filteredColorKeys.map((border) => (
         <StyleExampleBox
           key={border}
-          className={`${border} text-col-${color}`}
+          className={`${border} ${textColor}`}
           text={`className='${border}'`}
         />
       ))}

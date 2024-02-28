@@ -118,10 +118,10 @@ export default function Design() {
         </div>
         <Flex className="w-full justify-center pt-[2vh] pb-[1vh]">
           <Heading
-            color="text-col-800 text-stroke-4-900"
-            shadow="textGlow"
+            color="text-white text-stroke-9-100"
+            shadow="textFog"
             text={heading}
-            layout="text-too-big-normal"
+            layout="text-insane-loose"
             className="px-[2vh]"
           />
         </Flex>
@@ -326,10 +326,10 @@ export default function Design() {
             />
             <Heading
               isCursive={false}
-              color="text-col-900"
-              shadow="lightTextShadow"
+              color="text-col-100"
+              shadow="textShadow"
               layout="text-lg-normal"
-              text="col100Bgs"
+              text="col-100 gradient combinations"
             />
 
             <StyledExampleWrap>
@@ -344,10 +344,10 @@ export default function Design() {
             </StyledExampleWrap>
             <Heading
               isCursive={false}
-              color="text-col-900"
-              shadow="lightTextShadow"
+              color="text-col-100"
+              shadow="textShadow"
               layout="text-lg-normal"
-              text="col200Bgs"
+              text="col-100 gradient combinations"
             />
 
             <StyledExampleWrap>
@@ -362,10 +362,10 @@ export default function Design() {
             </StyledExampleWrap>
             <Heading
               isCursive={false}
-              color="text-col-900"
-              shadow="lightTextShadow"
+              color="text-col-100"
+              shadow="textShadow"
               layout="text-lg-normal"
-              text="col300Bgs"
+              text="col-200 gradient combinations"
             />
 
             <StyledExampleWrap>
@@ -380,10 +380,10 @@ export default function Design() {
             </StyledExampleWrap>
             <Heading
               isCursive={false}
-              color="text-col-900"
-              shadow="lightTextShadow"
+              color="text-col-100"
+              shadow="textShadow"
               layout="text-lg-normal"
-              text="col400Bgs"
+              text="col-300 gradient combinations"
             />
 
             <StyledExampleWrap>
@@ -397,10 +397,10 @@ export default function Design() {
             </StyledExampleWrap>
             <Heading
               isCursive={false}
-              color="text-col-900"
-              shadow="lightTextShadow"
+              color="text-col-100"
+              shadow="textShadow"
               layout="text-lg-normal"
-              text="col400Bgs"
+              text="col-400 gradient combinations"
             />
 
             <StyledExampleWrap>
@@ -414,10 +414,10 @@ export default function Design() {
             </StyledExampleWrap>
             <Heading
               isCursive={false}
-              color="text-col-900"
-              shadow="lightTextShadow"
+              color="text-col-100"
+              shadow="textShadow"
               layout="text-lg-normal"
-              text="col500Bgs"
+              text="col-500 gradient combinations"
             />
 
             <StyledExampleWrap>
@@ -431,10 +431,10 @@ export default function Design() {
             </StyledExampleWrap>
             <Heading
               isCursive={false}
-              color="text-col-900"
-              shadow="lightTextShadow"
+              color="text-col-100"
+              shadow="textShadow"
               layout="text-lg-normal"
-              text="col600Bgs"
+              text="col-600 gradient combinations"
             />
 
             <StyledExampleWrap>
@@ -448,10 +448,10 @@ export default function Design() {
             </StyledExampleWrap>
             <Heading
               isCursive={false}
-              color="text-col-900"
-              shadow="lightTextShadow"
+              color="text-col-100"
+              shadow="textShadow"
               layout="text-lg-normal"
-              text="col700Bgs"
+              text="col-700 gradient combinations"
             />
 
             <StyledExampleWrap bg="bg-col-500">
@@ -465,10 +465,10 @@ export default function Design() {
             </StyledExampleWrap>
             <Heading
               isCursive={false}
-              color="text-col-900"
-              shadow="lightTextShadow"
+              color="text-col-100"
+              shadow="textShadow"
               layout="text-lg-normal"
-              text="col800Bgs"
+              text="col-800 gradient combinations"
             />
 
             <StyledExampleWrap>
@@ -482,10 +482,10 @@ export default function Design() {
             </StyledExampleWrap>
             <Heading
               isCursive={false}
-              color="text-col-900"
-              shadow="lightTextShadow"
+              color="text-col-100"
+              shadow="textShadow"
               layout="text-lg-normal"
-              text="col900Bgs"
+              text="col-900 gradient combinations"
             />
 
             <StyledExampleWrap>
@@ -567,7 +567,11 @@ export default function Design() {
               <BorderExamples startIndex={0} endIndex={95} />
             </StyledExampleWrap>
             <StyledExampleWrap bg="bg-col-200">
-              <BorderExamples startIndex={96} endIndex={215} />
+              <BorderExamples
+                startIndex={96}
+                endIndex={215}
+                textColor="text-col-900"
+              />
             </StyledExampleWrap>
 
             <SectionHeading id="text" heading="Text" />

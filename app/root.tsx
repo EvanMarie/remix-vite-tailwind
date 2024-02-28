@@ -7,6 +7,7 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import "tailwind.css";
+import LayoutContainer from "./components/buildingBlocks/layoutContainer";
 
 // import { AnimatePresence } from "framer-motion";
 
@@ -30,19 +31,12 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body
-        className="bg-col-400"
-        style={{
-          width: "100%",
-          maxHeight: "100svh",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
-        <Outlet />
-        <ScrollRestoration />
-        <Scripts />
+      <body>
+        <LayoutContainer className="bg-col-880">
+          <Outlet />
+          <ScrollRestoration />
+          <Scripts />
+        </LayoutContainer>
       </body>
     </html>
   );
