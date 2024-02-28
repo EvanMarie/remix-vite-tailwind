@@ -4,7 +4,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 import { flatRoutes } from "remix-flat-routes";
 
 export default defineConfig({
-  server: {
+    server: {
     port: 3000,
     host: true,
   },
@@ -17,8 +17,4 @@ export default defineConfig({
     }),
     tsconfigPaths(),
   ],
-  build: {
-    // Specifies the directory to output build files
-    outDir: 'dist',
-  },
 });
