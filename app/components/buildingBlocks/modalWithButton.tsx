@@ -5,7 +5,7 @@ import Portal from "./portal";
 import IconButton from "./iconButton";
 import ModalContent from "./modalContent";
 import useEscapeKey from "~/utils/useEscapeKey";
-import Button from "./button";
+import Button, { ButtonType } from "./button";
 
 interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
@@ -18,10 +18,13 @@ interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
   overlayColor?: string;
   showTopClose?: boolean;
   showBottomClose?: boolean;
+  buttonType?: ButtonType;
   footerClassName?: string;
   buttonText?: string;
   iconLeft?: boolean;
   iconRight?: boolean;
+  overlayZIndex?: number;
+  modalZIndex?: number;
 }
 
 export default function ModalWithButton({
@@ -32,13 +35,16 @@ export default function ModalWithButton({
   children,
   overlayBlur = "defaultOverlayBlur",
   overlayColor = "defaultOverlay",
-  modalSize = "w-full h-full lg:w-94% lg:h-94%",
+  modalSize = "w-full h-94% lg:w-[80vw]",
   showTopClose = true,
   showBottomClose = true,
   footerClassName,
+  buttonType,
   buttonText,
   iconLeft,
   iconRight,
+  overlayZIndex = 60,
+  modalZIndex = 100,
 }: ModalProps) {
   const [isModalOpen, setModalOpen] = useState(false);
   // Animation variants for scaling in and out
@@ -65,21 +71,24 @@ export default function ModalWithButton({
           buttonText={buttonText}
           onClick={() => setModalOpen(true)}
           iconLeft={Icon}
+          type={buttonType}
         />
       ) : buttonText && iconRight ? (
         <Button
           buttonText={buttonText}
           onClick={() => setModalOpen(true)}
+          type={buttonType}
           iconRight={Icon}
         />
       ) : buttonText ? (
         <Button buttonText={buttonText} onClick={() => setModalOpen(true)} />
       ) : null}
-      {Icon && (
+      {Icon && !buttonText && (
         <IconButton
           icon={Icon}
           label={label}
           onClick={() => setModalOpen(true)}
+          type={buttonType}
         />
       )}
       <Portal>
@@ -93,12 +102,12 @@ export default function ModalWithButton({
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                style={{ maxHeight: "100svh", zIndex: 60 }}
+                style={{ maxHeight: "100svh", zIndex: overlayZIndex }}
               />
               {/* Modal */}
               <motion.div
                 className={`fixed inset-0 m-auto z-50 rounded-none ${modalSize} ${className}`}
-                style={{ ...style, maxHeight: "100svh", zIndex: 100 }}
+                style={{ ...style, maxHeight: "100svh", zIndex: modalZIndex }}
                 variants={variants}
                 initial="closed"
                 animate="open"

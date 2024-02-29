@@ -17,6 +17,8 @@ interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
   overlayBlur?: string;
   overlayColor?: string;
   footerClassName?: string;
+  overlayZIndex?: number;
+  modalZIndex?: number;
 }
 
 export default function Modal({
@@ -31,6 +33,8 @@ export default function Modal({
   overlayBlur = "defaultOverlayBlur",
   overlayColor = "defaultOverlay",
   footerClassName,
+  overlayZIndex = 60,
+  modalZIndex = 100,
   ...props
 }: ModalProps) {
   // Animation variants for scaling in and out
@@ -65,12 +69,12 @@ export default function Modal({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              style={{ zIndex: 60, maxHeight: "100svh" }}
+              style={{ zIndex: overlayZIndex, maxHeight: "100svh" }}
             />
             {/* Modal */}
             <motion.div
               className={`fixed inset-0 m-auto ${modalSize}`}
-              style={{ ...style, zIndex: 100, maxHeight: "100svh" }}
+              style={{ ...style, zIndex: modalZIndex, maxHeight: "100svh" }}
               variants={variants}
               initial="closed"
               animate="open"
