@@ -538,8 +538,8 @@ export default function Design() {
               {transitions.map((transition) => (
                 <StyleExampleBox
                   key={transition}
-                  className="transition-300 bg-col-200 hover:bg-col-900
-              hover:text-col-100 shadowNarrowNormal"
+                  className={`${transition} bg-col-200 hover:bg-col-900
+              hover:text-col-100 shadowNarrowNormal`}
                   text={`className='${transition}'`}
                 />
               ))}

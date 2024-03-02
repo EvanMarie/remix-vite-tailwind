@@ -2222,34 +2222,34 @@ export default {
           transition: "all 1000ms ease-in-out",
         },
         ".transition-1100": {
-          transition: "all 1000ms ease-in-out",
+          transition: "all 1100ms ease-in-out",
         },
         ".transition-1200": {
-          transition: "all 1000ms ease-in-out",
+          transition: "all 1200ms ease-in-out",
         },
         ".transition-1300": {
-          transition: "all 1000ms ease-in-out",
+          transition: "all 1300ms ease-in-out",
         },
         ".transition-1400": {
-          transition: "all 1000ms ease-in-out",
+          transition: "all 1400ms ease-in-out",
         },
         ".transition-1500": {
-          transition: "all 1000ms ease-in-out",
+          transition: "all 1500ms ease-in-out",
         },
         ".transition-1600": {
-          transition: "all 1000ms ease-in-out",
+          transition: "all 1600ms ease-in-out",
         },
         ".transition-1700": {
-          transition: "all 1000ms ease-in-out",
+          transition: "all 1700ms ease-in-out",
         },
         ".transition-1800": {
-          transition: "all 1000ms ease-in-out",
+          transition: "all 1800ms ease-in-out",
         },
         ".transition-1900": {
-          transition: "all 1000ms ease-in-out",
+          transition: "all 1900ms ease-in-out",
         },
         ".transition-2000": {
-          transition: "all 1000ms ease-in-out",
+          transition: "all 2000ms ease-in-out",
         },
       };
       addUtilities(transitionUtilities, ["responsive", "hover", "focus"]);
