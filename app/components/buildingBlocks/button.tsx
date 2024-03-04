@@ -101,53 +101,55 @@ export default function Button({
     }`;
 
     return (
-      <button
-        onClick={!isDisabled ? onClick : undefined}
-        disabled={isDisabled}
-        type={htmlType}
-        ref={ref}
-      >
-        <HStack className={combinedClasses}>
-          {isLoading &&
-            buttonText !== "" &&
-            type !== "unstyled" &&
-            type !== "smallUnstyled" && (
-              <FlexFull className="absolute top-0 left-0 h-full justify-center items-center z-10">
-                <BouncingDots
-                  dotCount={3}
-                  color="white"
-                  dotSize={7}
-                  speed="3s"
-                />
-              </FlexFull>
-            )}
+      <HStack className={combinedClasses}>
+        {isLoading &&
+          buttonText !== "" &&
+          type !== "unstyled" &&
+          type !== "smallUnstyled" && (
+            <FlexFull className="absolute top-0 left-0 h-full justify-center items-center z-10">
+              <BouncingDots dotCount={3} color="white" dotSize={7} speed="3s" />
+            </FlexFull>
+          )}
 
-          {iconLeft && (
-            <Icon
-              icon={iconLeft}
-              iconClassName={`${displayIconSize} ${iconStyle}`}
-            />
-          )}
-          {buttonText}
-          {iconRight && (
-            <Icon
-              icon={iconRight}
-              iconClassName={`${displayIconSize} ${iconStyle}`}
-            />
-          )}
-        </HStack>
-      </button>
+        {iconLeft && (
+          <Icon
+            icon={iconLeft}
+            iconClassName={`${displayIconSize} ${iconStyle}`}
+          />
+        )}
+        {buttonText}
+        {iconRight && (
+          <Icon
+            icon={iconRight}
+            iconClassName={`${displayIconSize} ${iconStyle}`}
+          />
+        )}
+      </HStack>
     );
   }
 
   return (
     <>
       {to ? (
-        <NavLink to={to} target={target ? target : undefined}>
-          <ButtonInsides />
-        </NavLink>
+        <button
+          onClick={!isDisabled ? onClick : undefined}
+          disabled={isDisabled}
+          type={htmlType}
+          ref={ref}
+        >
+          <NavLink to={to} target={target ? target : undefined}>
+            <ButtonInsides />
+          </NavLink>
+        </button>
       ) : (
-        <ButtonInsides />
+        <button
+          onClick={!isDisabled ? onClick : undefined}
+          disabled={isDisabled}
+          type={htmlType}
+          ref={ref}
+        >
+          <ButtonInsides />
+        </button>
       )}
     </>
   );

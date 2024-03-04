@@ -85,26 +85,19 @@ export default function IconButton({
   function ButtonInsides() {
     return (
       <Tooltip label={label} placement={tooltipPlacement}>
-        <button
-          onClick={onClick}
-          disabled={isDisabled}
-          type={htmlType}
-          ref={ref}
+        <Flex
+          className={`${iconButtonSize} ${buttonClass} ${containerClassName}`}
         >
-          <Flex
-            className={`${iconButtonSize} ${buttonClass} ${containerClassName}`}
-          >
-            {isLoading ? (
-              <SpinnerSmall />
-            ) : (
-              <Icon
-                icon={icon}
-                iconClassName={`${displayIconSize} ${iconClassName}`}
-                containerClassName={`flex w-full h-full justify-center items-center`}
-              />
-            )}
-          </Flex>
-        </button>
+          {isLoading ? (
+            <SpinnerSmall />
+          ) : (
+            <Icon
+              icon={icon}
+              iconClassName={`${displayIconSize} ${iconClassName}`}
+              containerClassName={`flex w-full h-full justify-center items-center`}
+            />
+          )}
+        </Flex>
       </Tooltip>
     );
   }
@@ -112,11 +105,25 @@ export default function IconButton({
   return (
     <>
       {to ? (
-        <NavLink to={to}>
-          <ButtonInsides />
-        </NavLink>
+        <button
+          onClick={onClick}
+          disabled={isDisabled}
+          type={htmlType}
+          ref={ref}
+        >
+          <NavLink to={to}>
+            <ButtonInsides />
+          </NavLink>
+        </button>
       ) : (
-        <ButtonInsides />
+        <button
+          onClick={onClick}
+          disabled={isDisabled}
+          type={htmlType}
+          ref={ref}
+        >
+          <ButtonInsides />
+        </button>
       )}
     </>
   );
