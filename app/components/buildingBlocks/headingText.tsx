@@ -14,10 +14,10 @@ export default function Heading({
   text,
   layout = "text-md-normal",
   noOfLines = 1,
-  shadow = "boldTextGlow",
+  shadow = "textShadow",
   className,
   isCursive = true,
-  color = "text-col-900",
+  color = "text-col-100",
 }: TextProps) {
   const style: React.CSSProperties = {};
 
@@ -33,8 +33,8 @@ export default function Heading({
     : `${layout} ${color} ${shadow} ${className}`;
 
   return (
-    <h1 className={`${layout} ${shadow} ${textClassName}`} style={style}>
+    <div className={`${layout} ${shadow} ${textClassName}`} style={style}>
       {text}
-    </h1>
+    </div>
   );
 }

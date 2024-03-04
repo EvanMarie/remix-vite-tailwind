@@ -129,85 +129,25 @@ export default function Design() {
     );
   }
 
-  const activeStyles = "textGlow";
-  const inactiveStyles = "text-shadow";
-
   return (
     <Transition className="w-full h-full justify-center overflow-y-auto">
       <FlexFull className="h-full overflow-y-auto justify-center">
         <FlexFull className="fixed top-0 left-0 p-[1vh] bg-col-200 z-10 shadowWideLooser">
           <Wrap className="w-full gap-x-[5vh] gap-y-[1vh] justify-around">
             <IconButton icon={HomeIcon} type="smallNormal" to="/" />
-            <CustomNavLink
-              to="#colorscheme"
-              linkText="Colors"
-              activeStyles={activeStyles}
-              inactiveStyles={inactiveStyles}
-              useHash
-            />
-            <CustomNavLink
-              to="#rgb"
-              linkText="RBG"
-              activeStyles={activeStyles}
-              inactiveStyles={inactiveStyles}
-              useHash
-            />
-            <CustomNavLink
-              to="#gradients"
-              linkText="Gradients"
-              activeStyles={activeStyles}
-              inactiveStyles={inactiveStyles}
-              useHash
-            />
+            <CustomNavLink to="#colorscheme" linkText="Colors" useHash />
+            <CustomNavLink to="#rgb" linkText="RBG" useHash />
+            <CustomNavLink to="#gradients" linkText="Gradients" />
             <CustomNavLink
               to="#complexbackgrounds"
               linkText="Complex Backgrounds"
-              activeStyles={activeStyles}
-              inactiveStyles={inactiveStyles}
-              useHash
             />
-            <CustomNavLink
-              to="#buttons"
-              linkText="Buttons"
-              activeStyles={activeStyles}
-              inactiveStyles={inactiveStyles}
-              useHash
-            />
-            <CustomNavLink
-              to="#transitions"
-              linkText="Transitions"
-              activeStyles={activeStyles}
-              inactiveStyles={inactiveStyles}
-              useHash
-            />
-            <CustomNavLink
-              to="#shadow"
-              linkText="Shadows"
-              activeStyles={activeStyles}
-              inactiveStyles={inactiveStyles}
-              useHash
-            />
-            <CustomNavLink
-              to="#borders"
-              linkText="Borders"
-              activeStyles={activeStyles}
-              inactiveStyles={inactiveStyles}
-              useHash
-            />
-            <CustomNavLink
-              to="#text"
-              linkText="Text"
-              activeStyles={activeStyles}
-              inactiveStyles={inactiveStyles}
-              useHash
-            />
-            <CustomNavLink
-              to="#components"
-              linkText="Components"
-              activeStyles={activeStyles}
-              inactiveStyles={inactiveStyles}
-              useHash
-            />
+            <CustomNavLink to="#buttons" linkText="Buttons" />
+            <CustomNavLink to="#transitions" linkText="Transitions" />
+            <CustomNavLink to="#shadow" linkText="Shadows" />
+            <CustomNavLink to="#borders" linkText="Borders" />
+            <CustomNavLink to="#text" linkText="Text" />
+            <CustomNavLink to="#components" linkText="Components" />
           </Wrap>
         </FlexFull>
         <VStackFull
