@@ -28,6 +28,7 @@ export default function Button({
   type = "normal",
   width = "w-fit",
   height,
+  target,
   to,
 }: {
   className?: string;
@@ -44,6 +45,7 @@ export default function Button({
   to?: string;
   width?: string;
   height?: string;
+  target?: string;
   type?:
     | "normal"
     | "smallNormal"
@@ -141,7 +143,7 @@ export default function Button({
   return (
     <>
       {to ? (
-        <NavLink to={to}>
+        <NavLink to={to} target={target ? target : undefined}>
           <ButtonInsides />
         </NavLink>
       ) : (

@@ -9,6 +9,7 @@ import {
   FaPlusSquare,
   FaRegSave,
   FaSearch,
+  FaStopCircle,
 } from "react-icons/fa";
 import { FaArrowTurnUp } from "react-icons/fa6";
 import { GiAlarmClock, GiPodiumWinner } from "react-icons/gi";
@@ -111,3 +112,4 @@ export const SearchIcon = FaSearch;
 export const ReturnPathIcon = IoReturnUpBackOutline;
 export const ExpandIcon = BsArrowsAngleExpand;
 export const HomeIcon = IoHomeOutline;
+export const StopIcon = FaStopCircle;

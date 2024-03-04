@@ -18,6 +18,20 @@ const plugin = require("tailwindcss/plugin");
 
 //   addUtilities(utilities, ["responsive", "hover"]);
 // });
+const transitionTimingFunctionsPlugin = plugin(function ({
+  addUtilities,
+  theme,
+}) {
+  const timingFunctions = theme("transitionTimingFunction");
+  const newUtilities = Object.keys(timingFunctions).reduce((acc, key) => {
+    // Creating shorter class names, e.g., .ease-elastic
+    const name = `.ease-${key}`;
+    acc[name] = { transitionTimingFunction: timingFunctions[key] };
+    return acc;
+  }, {});
+
+  addUtilities(newUtilities, ["responsive", "hover"]);
+});
 
 const buttonStyles = plugin(function ({ addUtilities, theme }) {
   // Base styles for all buttons, excluding shadow properties
@@ -2138,6 +2152,381 @@ export default {
         xxxl: "4vh",
         full: "100%",
       },
+      keyframes: {
+        wiggle: {
+          "0%, 100%": { transform: "rotate(-3deg)" },
+          "50%": { transform: "rotate(3deg)" },
+        },
+        fadeIn: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        fadeOut: {
+          "0%": { opacity: "1" },
+          "100%": { opacity: "0" },
+        },
+        fadeInUp: {
+          "0%": { opacity: 0, transform: "translateY(100%)" },
+          "100%": { opacity: 1, transform: "translateY(0)" },
+        },
+        fadeInDown: {
+          "0%": { opacity: 0, transform: "translateY(-100%)" },
+          "100%": { opacity: 1, transform: "translateY(0)" },
+        },
+        fadeInRight: {
+          "0%": { opacity: 0, transform: "translateX(100%)" },
+          "100%": { opacity: 1, transform: "translateX(0)" },
+        },
+        fadeInLeft: {
+          "0%": { opacity: 0, transform: "translateX(-100%)" },
+          "100%": { opacity: 1, transform: "translateX(0)" },
+        },
+        fadeOutUp: {
+          "0%": { opacity: 1, transform: "translateY(0)" },
+          "100%": { opacity: 0, transform: "translateY(-100%)" },
+        },
+        fadeOutDown: {
+          "0%": { opacity: 1, transform: "translateY(0)" },
+          "100%": { opacity: 0, transform: "translateY(100%)" },
+        },
+        fadeOutRight: {
+          "0%": { opacity: 1, transform: "translateX(0)" },
+          "100%": { opacity: 0, transform: "translateX(100%)" },
+        },
+        fadeOutLeft: {
+          "0%": { opacity: 1, transform: "translateX(0)" },
+          "100%": { opacity: 0, transform: "translateX(-100%)" },
+        },
+        rotate: {
+          from: { transform: "rotate(0deg)" },
+          to: { transform: "rotate(360deg)" },
+        },
+        rotateUp: {
+          from: { transform: "rotateX(0deg)" },
+          to: { transform: "rotateX(360deg)" },
+        },
+        rotateDown: {
+          from: { transform: "rotateX(0deg)" },
+          to: { transform: "rotateX(-360deg)" },
+        },
+        rotateLeft: {
+          from: { transform: "rotateY(0deg)" },
+          to: { transform: "rotateY(360deg)" },
+        },
+        rotateRight: {
+          from: { transform: "rotateY(0deg)" },
+          to: { transform: "rotateY(-360deg)" },
+        },
+        scaleUp: {
+          "0%": { transform: "scale(0)" },
+          "100%": { transform: "scale(1)" },
+        },
+        scaleDown: {
+          "0%": { transform: "scale(1)" },
+          "100%": { transform: "scale(0)" },
+        },
+        scaleUpLeft: {
+          "0%": { transform: "scale(0) translateX(0)" },
+          "100%": { transform: "scale(1) translateX(-50%)" },
+        },
+        scaleUpRight: {
+          "0%": { transform: "scale(0) translateX(0)" },
+          "100%": { transform: "scale(1) translateX(50%)" },
+        },
+        scaleDownLeft: {
+          "0%": { transform: "scale(1) translateX(0)" },
+          "100%": { transform: "scale(0) translateX(-50%)" },
+        },
+        scaleDownRight: {
+          "0%": { transform: "scale(1) translateX(0)" },
+          "100%": { transform: "scale(0) translateX(50%)" },
+        },
+        slideUp: {
+          "0%": { transform: "translateY(0)" },
+          "100%": { transform: "translateY(-100%)" },
+        },
+        slideDown: {
+          "0%": { transform: "translateY(0)" },
+          "100%": { transform: "translateY(100%)" },
+        },
+        slideLeft: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
+        slideRight: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(100%)" },
+        },
+        slideInUp: {
+          "0%": { transform: "translateY(100%)" },
+          "100%": { transform: "translateY(0)" },
+        },
+        slideInDown: {
+          "0%": { transform: "translateY(-100%)" },
+          "100%": { transform: "translateY(0)" },
+        },
+        slideInRight: {
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(0)" },
+        },
+        slideInLeft: {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(0)" },
+        },
+        slideOutUp: {
+          "0%": { transform: "translateY(0)" },
+          "100%": { transform: "translateY(-100%)" },
+        },
+        slideOutDown: {
+          "0%": { transform: "translateY(0)" },
+          "100%": { transform: "translateY(100%)" },
+        },
+        slideUpLeft: {
+          "0%": { transform: "translateY(0)" },
+          "100%": { transform: "translateY(-100%) translateX(-100%)" },
+        },
+        slideUpRight: {
+          "0%": { transform: "translateY(0)" },
+          "100%": { transform: "translateY(-100%) translateX(100%)" },
+        },
+        slideDownLeft: {
+          "0%": { transform: "translateY(0)" },
+          "100%": { transform: "translateY(100%) translateX(-100%)" },
+        },
+        slideDownRight: {
+          "0%": { transform: "translateY(0)" },
+          "100%": { transform: "translateY(100%) translateX(100%)" },
+        },
+        zoomIn: {
+          "0%": { transform: "scale(0)" },
+          "100%": { transform: "scale(1)" },
+        },
+        heartbeat: {
+          "0%": { transform: "scale(1)" },
+          "14%": { transform: "scale(1.3)" },
+          "28%": { transform: "scale(1)" },
+          "42%": { transform: "scale(1.3)" },
+          "70%": { transform: "scale(1)" },
+        },
+        ripple: {
+          "0%": { transform: "scale(0.8)", opacity: 1 },
+          "100%": { transform: "scale(2.4)", opacity: 0 },
+        },
+        rippleUp: {
+          "0%": { transform: "scale(0.8) translateY(0)", opacity: 1 },
+          "100%": { transform: "scale(2.4) translateY(-50%)", opacity: 0 },
+        },
+        rippleDown: {
+          "0%": { transform: "scale(0.8) translateY(0)", opacity: 1 },
+          "100%": { transform: "scale(2.4) translateY(50%)", opacity: 0 },
+        },
+        rippleLeft: {
+          "0%": { transform: "scale(0.8) translateX(0)", opacity: 1 },
+          "100%": { transform: "scale(2.4) translateX(-50%)", opacity: 0 },
+        },
+        rippleRight: {
+          "0%": { transform: "scale(0.8) translateX(0)", opacity: 1 },
+          "100%": { transform: "scale(2.4) translateX(50%)", opacity: 0 },
+        },
+        // Define keyframes for diagonal directions
+        rippleUpLeft: {
+          "0%": { transform: "scale(0.8) translate(0, 0)", opacity: 1 },
+          "100%": {
+            transform: "scale(2.4) translate(-50%, -50%)",
+            opacity: 0,
+          },
+        },
+        rippleUpRight: {
+          "0%": { transform: "scale(0.8) translate(0, 0)", opacity: 1 },
+          "100%": {
+            transform: "scale(2.4) translate(50%, -50%)",
+            opacity: 0,
+          },
+        },
+        rippleDownLeft: {
+          "0%": { transform: "scale(0.8) translate(0, 0)", opacity: 1 },
+          "100%": {
+            transform: "scale(2.4) translate(-50%, 50%)",
+            opacity: 0,
+          },
+        },
+        rippleDownRight: {
+          "0%": { transform: "scale(0.8) translate(0, 0)", opacity: 1 },
+          "100%": { transform: "scale(2.4) translate(50%, 50%)", opacity: 0 },
+        },
+        hueRotate: {
+          "0%": { filter: "hue-rotate(0deg)" },
+          "100%": { filter: "hue-rotate(360deg)" },
+        },
+        hueRotateUp: {
+          "0%": { transform: "translateY(0)", filter: "hue-rotate(0deg)" },
+          "100%": {
+            transform: "translateY(-50%)",
+            filter: "hue-rotate(360deg)",
+          },
+        },
+        hueRotateDown: {
+          "0%": { transform: "translateY(0)", filter: "hue-rotate(0deg)" },
+          "100%": {
+            transform: "translateY(50%)",
+            filter: "hue-rotate(360deg)",
+          },
+        },
+        hueRotateLeft: {
+          "0%": { transform: "translateX(0)", filter: "hue-rotate(0deg)" },
+          "100%": {
+            transform: "translateX(-50%)",
+            filter: "hue-rotate(360deg)",
+          },
+        },
+        hueRotateRight: {
+          "0%": { transform: "translateX(0)", filter: "hue-rotate(0deg)" },
+          "100%": {
+            transform: "translateX(50%)",
+            filter: "hue-rotate(360deg)",
+          },
+        },
+        vibrate: {
+          "0%, 100%": { transform: "translateX(0)" },
+          "10%, 30%, 50%, 70%, 90%": { transform: "translateX(-1vh)" },
+          "20%, 40%, 60%, 80%": { transform: "translateX(1vh)" },
+        },
+        vibrateUp: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "10%, 30%, 50%, 70%, 90%": { transform: "translateY(-1vh)" },
+          "20%, 40%, 60%, 80%": { transform: "translateY(1vh)" },
+        },
+        vibrateDown: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "10%, 30%, 50%, 70%, 90%": { transform: "translateY(1vh)" },
+          "20%, 40%, 60%, 80%": { transform: "translateY(-1vh)" },
+        },
+        vibrateLeft: {
+          "0%, 100%": { transform: "translateX(0)" },
+          "10%, 30%, 50%, 70%, 90%": { transform: "translateX(-1vh)" },
+          "20%, 40%, 60%, 80%": { transform: "translateX(1vh)" },
+        },
+        vibrateRight: {
+          "0%, 100%": { transform: "translateX(0)" },
+          "10%, 30%, 50%, 70%, 90%": { transform: "translateX(1vh)" },
+          "20%, 40%, 60%, 80%": { transform: "translateX(-1vh)" },
+        },
+        vibrateUpLeft: {
+          "0%, 100%": { transform: "translate(0, 0)" },
+          "10%, 30%, 50%, 70%, 90%": { transform: "translate(-1vh, -1vh)" },
+          "20%, 40%, 60%, 80%": { transform: "translate(1vh, 1vh)" },
+        },
+        vibrateUpRight: {
+          "0%, 100%": { transform: "translate(0, 0)" },
+          "10%, 30%, 50%, 70%, 90%": { transform: "translate(1vh, -1vh)" },
+          "20%, 40%, 60%, 80%": { transform: "translate(-1vh, 1vh)" },
+        },
+        vibrateDownLeft: {
+          "0%, 100%": { transform: "translate(0, 0)" },
+          "10%, 30%, 50%, 70%, 90%": { transform: "translate(-1vh, 1vh)" },
+          "20%, 40%, 60%, 80%": { transform: "translate(1vh, -1vh)" },
+        },
+        vibrateDownRight: {
+          "0%, 100%": { transform: "translate(0, 0)" },
+          "10%, 30%, 50%, 70%, 90%": { transform: "translate(1vh, 1vh)" },
+          "20%, 40%, 60%, 80%": { transform: "translate(-1vh, -1vh)" },
+        },
+      },
+      animation: {
+        wiggle: "wiggle 1.5s ease-in-out infinite",
+        fadeIn: "fadeIn 1.5s ease-out",
+        fadeOut: "fadeOut 1.5s ease-out",
+        fadeInUp: "fadeInUp 1.5s ease-out",
+        fadeInDown: "fadeInDown 1.5s ease-out",
+        fadeInRight: "fadeInRight 1.5s ease-out",
+        fadeInLeft: "fadeInLeft 1.5s ease-out",
+        fadeOutUp: "fadeOutUp 1.5s ease-out",
+        fadeOutDown: "fadeOutDown 1.5s ease-out",
+        fadeOutRight: "fadeOutRight 1.5s ease-out",
+        fadeOutLeft: "fadeOutLeft 1.5s ease-out",
+        rotate: "rotate 2s linear infinite",
+        rotateUp: "rotateUp 1.5s linear infinite",
+        rotateDown: "rotateDown 1.5s linear infinite",
+        rotateLeft: "rotateLeft 1.5s linear infinite",
+        rotateRight: "rotateRight 1.5s linear infinite",
+        scaleUp: "scaleUp 1.5s ease-out",
+        scaleDown: "scaleDown 1.5s ease-out",
+        scaleUpLeft: "scaleUpLeft 1.5s ease-out",
+        scaleUpRight: "scaleUpRight 1.5s ease-out",
+        scaleDownLeft: "scaleDownLeft 1.5s ease-out",
+        scaleDownRight: "scaleDownRight 1.5s ease-out",
+        slideUp: "slideUp 1.5s ease-out",
+        slideDown: "slideDown 1.5s ease-out",
+        slideLeft: "slideLeft 1.5s ease-out",
+        slideRight: "slideRight 1.5s ease-out",
+        slideInUp: "slideInUp 1.5s ease-out",
+        slideInDown: "slideInDown 1.5s ease-out",
+        slideInRight: "slideInRight 1.5s ease-out",
+        slideInLeft: "slideInLeft 1.5s ease-out",
+        slideOutUp: "slideOutUp 1.5s ease-out",
+        slideOutDown: "slideOutDown 1.5s ease-out",
+        slideUpLeft: "slideUpLeft 1.5s ease-out",
+        slideUpRight: "slideUpRight 1.5s ease-out",
+        slideDownLeft: "slideDownLeft 1.5s ease-out",
+        slideDownRight: "slideDownRight 1.5s ease-out",
+        zoomIn: "zoomIn 1.5s ease-out",
+        heartbeat: "heartbeat 1.5s ease-in-out infinite",
+        ripple: "ripple 1.5s linear infinite",
+        rippleUp: "rippleUp 1.5s linear infinite",
+        rippleDown: "rippleDown 1.5s linear infinite",
+        rippleLeft: "rippleLeft 1.5s linear infinite",
+        rippleRight: "rippleRight 1.5s linear infinite",
+        rippleUpLeft: "rippleUpLeft 1.5s linear infinite",
+        rippleUpRight: "rippleUpRight 1.5s linear infinite",
+        rippleDownLeft: "rippleDownLeft 1.5s linear infinite",
+        rippleDownRight: "rippleDownRight 1.5s linear infinite",
+        hueRotate: "hueRotate 3s linear infinite",
+        hueRotateUp: "hueRotateUp 3s linear infinite",
+        hueRotateDown: "hueRotateDown 3s linear infinite",
+        hueRotateLeft: "hueRotateLeft 3s linear infinite",
+        hueRotateRight: "hueRotateRight 3s linear infinite",
+        vibrate: "vibrate 1.5s infinite",
+        vibrateUp: "vibrateUp 1.5s infinite",
+        vibrateDown: "vibrateDown 1.5s infinite",
+        vibrateLeft: "vibrateLeft 1.5s infinite",
+        vibrateRight: "vibrateRight 1.5s infinite",
+        vibrateUpLeft: "vibrateUpLeft 1.5s infinite",
+        vibrateUpRight: "vibrateUpRight 1.5s infinite",
+        vibrateDownLeft: "vibrateDownLeft 1.5s infinite",
+        vibrateDownRight: "vibrateDownRight 1.5s infinite",
+      },
+      transitionTimingFunction: {
+        elastic: "cubic-bezier(0.68, -0.55, 0.27, 1.55)",
+        "ease-in-quad": "cubic-bezier(0.55, 0.085, 0.68, 0.53)",
+        "ease-in-cubic": "cubic-bezier(0.55, 0.055, 0.675, 0.19)",
+        "ease-in-quart": "cubic-bezier(0.895, 0.03, 0.685, 0.22)",
+        "ease-in-quint": "cubic-bezier(0.755, 0.05, 0.855, 0.06)",
+        "ease-in-sine": "cubic-bezier(0.47, 0, 0.745, 0.715)",
+        "ease-in-expo": "cubic-bezier(0.95, 0.05, 0.795, 0.035)",
+        "ease-in-circ": "cubic-bezier(0.6, 0.04, 0.98, 0.335)",
+        "ease-in-back": "cubic-bezier(0.6, -0.28, 0.735, 0.045)",
+        "ease-out-quad": "cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+        "ease-out-cubic": "cubic-bezier(0.215, 0.61, 0.355, 1)",
+        "ease-out-quart": "cubic-bezier(0.165, 0.84, 0.44, 1)",
+        "ease-out-quint": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "ease-out-sine": "cubic-bezier(0.39, 0.575, 0.565, 1)",
+        "ease-out-expo": "cubic-bezier(0.19, 1, 0.22, 1)",
+        "ease-out-circ": "cubic-bezier(0.075, 0.82, 0.165, 1)",
+        "ease-out-back": "cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+        "ease-in-out-quad": "cubic-bezier(0.455, 0.03, 0.515, 0.955)",
+        "ease-in-out-cubic": "cubic-bezier(0.645, 0.045, 0.355, 1)",
+        "ease-in-out-quart": "cubic-bezier(0.77, 0, 0.175, 1)",
+        "ease-in-out-quint": "cubic-bezier(0.86, 0, 0.07, 1)",
+        "ease-in-out-sine": "cubic-bezier(0.445, 0.05, 0.55, 0.95)",
+        "ease-in-out-expo": "cubic-bezier(1, 0, 0, 1)",
+        "ease-in-out-circ": "cubic-bezier(0.785, 0.135, 0.15, 0.86)",
+        "ease-in-out-back": "cubic-bezier(0.68, -0.55, 0.265, 1.55)",
+        "snail-pace": "cubic-bezier(0.2, 0.1, 0.3, 0.2)",
+        "bounce-out": "cubic-bezier(0.34, 1.56, 0.64, 1)",
+        "elastic-start": "cubic-bezier(0.75, -0.5, 0.25, 1.75)",
+        "sharp-snap": "cubic-bezier(0.9, 0.1, 0.1, 0.1)",
+        "slow-mo": "cubic-bezier(0.05, 0.85, 0.15, 1)",
+      },
     },
   },
   variants: {
@@ -2427,5 +2816,6 @@ export default {
     customBackgroundsPlugin,
     buttonStyles,
     customBordersPlugin,
+    transitionTimingFunctionsPlugin,
   ],
 };
