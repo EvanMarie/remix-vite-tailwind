@@ -83,7 +83,7 @@ export default function HorizontalScrollingSelector({
                   key={option}
                   className={`${handleButtonStyle({
                     option,
-                  })} justify-between shadowNarrowLoose items-center px-[1vh] ${buttonClassName}`}
+                  })} justify-between shadowNarrowLoose items-center px-[1vh] ${buttonClassName} whitespace-nowrap`}
                   onClick={() => handleStatusSelect(option)}
                 >
                   <Text className="text-md-looser">{option} </Text>
