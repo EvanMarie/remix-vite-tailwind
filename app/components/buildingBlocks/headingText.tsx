@@ -17,7 +17,7 @@ export default function Heading({
   shadow = "textShadow",
   className,
   isCursive = true,
-  color = "text-col-100",
+  color = "text-col-900",
 }: TextProps) {
   const style: React.CSSProperties = {};
 
