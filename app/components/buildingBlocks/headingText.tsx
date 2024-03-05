@@ -14,7 +14,7 @@ export default function Heading({
   text,
   layout = "text-md-normal",
   noOfLines = 1,
-  shadow = "textShadow",
+  shadow = "subtleTextShadow",
   className,
   isCursive = true,
   color = "text-col-900",
@@ -29,7 +29,7 @@ export default function Heading({
     style.WebkitBoxOrient = "vertical";
   }
   const textClassName = isCursive
-    ? `font-cursive ${layout} ${color} ${shadow} ${className}`
+    ? `font-cursive text-stroke-5-900 ${layout} ${color} ${shadow} ${className}`
     : `${layout} ${color} ${shadow} ${className}`;
 
   return (
