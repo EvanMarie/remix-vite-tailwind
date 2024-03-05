@@ -132,6 +132,7 @@ export default function Popover({
                     shadow="textShadow"
                     noOfLines={1}
                     text={heading ? heading : ""}
+                    className="text-stroke-5-100"
                   />
                   <Box className="absolute top-[0.5vh] right-[1vh]">
                     <CloseButton onClose={() => setIsOpen(false)} />

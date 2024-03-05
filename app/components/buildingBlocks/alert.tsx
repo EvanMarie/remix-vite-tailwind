@@ -98,7 +98,8 @@ export default function Alert({
           {/* Header */}
           <HStack className="w-full items-center bg-col-990 rounded-b-none p-[1vh] gap-2 md:gap-[1vw]">
             <Heading
-              color="text-col-400"
+              color="text-col-100"
+              className="text-stroke-5-100"
               shadow="textFog"
               text={title}
               layout="text-insane-normal"
