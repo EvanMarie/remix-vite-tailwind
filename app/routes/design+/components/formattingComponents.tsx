@@ -13,7 +13,7 @@ export function CSSText({ children }: { children?: React.ReactNode }) {
 
 export function CSSSection({ children }: { children?: React.ReactNode }) {
   const sectionStyles =
-    "bg-col-980 text-col-100 px-[4vh] py-[1.5vh] border-970-md items-start shadowBroadLoose";
+    "bg-col-980 text-col-100 px-[1vh] sm:px-[2vh] md:px-[4vh] py-[1.5vh] border-970-md items-start shadowBroadLoose";
   return (
     <VStackFull className={sectionStyles} align="items-start">
       {children}
@@ -34,7 +34,7 @@ export function SVGText({ children }: { children?: React.ReactNode }) {
 
 export function SVGSection({ children }: { children?: React.ReactNode }) {
   const svgSectionStyles =
-    "bg-col-890 text-col-100 px-[4vh] py-[1.5vh] border-970-md items-start shadowBroadLoose";
+    "bg-col-890 text-col-100 px-[1vh] sm:px-[2vh] md:px-[4vh] py-[1.5vh] border-970-md items-start shadowBroadLoose";
   return (
     <VStackFull className={svgSectionStyles} align="items-start">
       {children}

@@ -16,7 +16,7 @@ export default function DescriptionModalContent({
 }) {
   return (
     <FlexFull
-      className={`px-[5vh] py-[2vh] ${bg} h-full overflow-y-auto insetShadowLg`}
+      className={`px-[1vh] sm:px-[2vh] md:px-[5vh] py-[2vh] ${bg} h-full overflow-y-auto insetShadowLg`}
     >
       <VStackFull className="h-fit py-[1.5vh]" align="items-start">
         {heading && (
