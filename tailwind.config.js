@@ -33,6 +33,82 @@ const transitionTimingFunctionsPlugin = plugin(function ({
   addUtilities(newUtilities, ["responsive", "hover"]);
 });
 
+const transformStyles = plugin(function ({ addUtilities }) {
+  const utilities = {
+    ".transform-style-3d": {
+      transformStyle: "preserve-3d",
+    },
+    // Add more custom utilities as needed
+  };
+  addUtilities(utilities, ["responsive", "hover"]);
+});
+
+const backfaceVisibilityPlugin = plugin(function ({ addUtilities }) {
+  const utilities = {
+    ".backface-visible": {
+      "backface-visibility": "visible",
+    },
+    ".backface-hidden": {
+      "backface-visibility": "hidden",
+    },
+  };
+
+  addUtilities(utilities, ["responsive", "hover"]);
+});
+
+const perspectivePlugin = plugin(function ({ addUtilities }) {
+  const utilities = {
+    ".perspective-30": { perspective: "30vh" },
+    ".perspective-40": { perspective: "40vh" },
+    ".perspective-50": { perspective: "50vh" },
+    ".perspective-60": { perspective: "60vh" },
+    ".perspective-70": { perspective: "70vh" },
+    ".perspective-80": { perspective: "80vh" },
+    ".perspective-90": { perspective: "90vh" },
+    ".perspective-100": { perspective: "100vh" },
+    ".perspective-110": { perspective: "110vh" },
+    ".perspective-120": { perspective: "120vh" },
+    ".perspective-130": { perspective: "130vh" },
+    ".perspective-140": { perspective: "140vh" },
+    ".perspective-150": { perspective: "150vh" },
+    ".perspective-160": { perspective: "160vh" },
+    ".perspective-170": { perspective: "170vh" },
+    ".perspective-180": { perspective: "180vh" },
+    ".perspective-190": { perspective: "190vh" },
+    ".perspective-200": { perspective: "200vh" },
+  };
+
+  addUtilities(utilities, ["responsive", "hover"]);
+});
+
+const rotateYPlugin = plugin(function ({ addUtilities }) {
+  const utilities = {
+    ".rotate-y-0": {
+      transform: "rotateY(0deg)",
+    },
+    ".rotate-y-15": {
+      transform: "rotateY(15deg)",
+    },
+    ".rotate-y-45": {
+      transform: "rotateY(45deg)",
+    },
+    ".rotate-y-60": {
+      transform: "rotateY(60deg)",
+    },
+    ".rotate-y-90": {
+      transform: "rotateY(90deg)",
+    },
+    ".rotate-y-105": {
+      transform: "rotateY(105deg)",
+    },
+    ".rotate-y-180": {
+      transform: "rotateY(180deg)",
+    },
+  };
+
+  addUtilities(utilities, ["responsive", "hover"]);
+});
+
 const buttonStyles = plugin(function ({ addUtilities, theme }) {
   // Base styles for all buttons, excluding shadow properties
   const baseButtonStyles = {
@@ -2261,6 +2337,10 @@ export default {
           "0%": { transform: "translateY(100%)" },
           "100%": { transform: "translateY(0)" },
         },
+        slideInUp50vh: {
+          "0%": { transform: "translateY(50vh)" },
+          "100%": { transform: "translateY(0)" },
+        },
         slideInDown: {
           "0%": { transform: "translateY(-100%)" },
           "100%": { transform: "translateY(0)" },
@@ -2431,6 +2511,10 @@ export default {
           "10%, 30%, 50%, 70%, 90%": { transform: "translate(1vh, 1vh)" },
           "20%, 40%, 60%, 80%": { transform: "translate(-1vh, -1vh)" },
         },
+        raindrop: {
+          "0%": { transform: "translateY(-100%)" },
+          "100%": { transform: "translateY(100vh)" },
+        },
       },
       animation: {
         wiggle: "wiggle 1.5s ease-in-out infinite",
@@ -2460,6 +2544,7 @@ export default {
         slideLeft: "slideLeft 1.5s ease-out",
         slideRight: "slideRight 1.5s ease-out",
         slideInUp: "slideInUp 1.5s ease-out",
+        slideInUp50vh: "slideInUp50vh 1.5s ease-out",
         slideInDown: "slideInDown 1.5s ease-out",
         slideInRight: "slideInRight 1.5s ease-out",
         slideInLeft: "slideInLeft 1.5s ease-out",
@@ -2494,6 +2579,7 @@ export default {
         vibrateUpRight: "vibrateUpRight 1.5s infinite",
         vibrateDownLeft: "vibrateDownLeft 1.5s infinite",
         vibrateDownRight: "vibrateDownRight 1.5s infinite",
+        rain: "raindrop 1s linear infinite",
       },
       transitionTimingFunction: {
         elastic: "cubic-bezier(0.68, -0.55, 0.27, 1.55)",
@@ -2817,5 +2903,9 @@ export default {
     buttonStyles,
     customBordersPlugin,
     transitionTimingFunctionsPlugin,
+    perspectivePlugin,
+    rotateYPlugin,
+    backfaceVisibilityPlugin,
+    transformStyles,
   ],
 };

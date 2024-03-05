@@ -19,12 +19,7 @@ export default function CSSAnimationExample({
       gap="gap-[0px]"
     >
       <FlexFull className="px-[2vh] pt-[1vh]">
-        <Heading
-          text={label}
-          layout="text-xl-normal"
-          shadow="textShadow"
-          color="text-col-100"
-        />
+        <Heading text={label} />
       </FlexFull>
       <FlexFull className="h-fit flex-col lg:flex-row">
         <Flex className="justify-center p-[1vh] w-full lg:w-5/12">

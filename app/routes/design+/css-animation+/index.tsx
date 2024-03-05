@@ -1,18 +1,16 @@
-import FlexFull from "~/components/buildingBlocks/flexFull";
-import Transition from "~/components/buildingBlocks/transition";
-import VStackFull from "~/components/buildingBlocks/vStackFull";
-import Text from "~/components/buildingBlocks/text";
-import Heading from "~/components/buildingBlocks/headingText";
-import Flex from "~/components/buildingBlocks/flex";
-import VStack from "~/components/buildingBlocks/vStack";
-import HStack from "~/components/buildingBlocks/hStack";
 import { useCallback, useState } from "react";
-import Button from "~/components/buildingBlocks/button";
-import Modal from "~/components/buildingBlocks/modal";
-import Box from "~/components/buildingBlocks/box";
+import Flex from "~/components/buildingBlocks/flex";
+import FlexFull from "~/components/buildingBlocks/flexFull";
+import HStack from "~/components/buildingBlocks/hStack";
+import Heading from "~/components/buildingBlocks/headingText";
+import Text from "~/components/buildingBlocks/text";
+import Transition from "~/components/buildingBlocks/transition";
+import VStack from "~/components/buildingBlocks/vStack";
+import VStackFull from "~/components/buildingBlocks/vStackFull";
+import DescriptionModal from "../components/cssAnimation/descriptionModal";
+import CubicBezierExplained from "../components/cssAnimation/cubicBezierExplaned";
 import HorizontalScrollingSelector from "~/components/buildingBlocks/horizontalScrollSelect";
 import CSSAnimationExample from "../components/cssAnimation/cssAnimationExample";
-import CubicBezierExplained from "../components/cssAnimation/cubicBezierExplaned";
 
 type TimingFunctionKey = keyof typeof functionDetails;
 
@@ -197,7 +195,6 @@ export function ExampleDescription({
 export default function CSSAnimation() {
   const [currentTimingFunction, setCurrentTimingFunction] =
     useState<TimingFunctionKey>("ease");
-  const [modalOpen, setModalOpen] = useState(false);
   const handleAnimationChange = useCallback((selectedOption: string) => {
     setCurrentTimingFunction(selectedOption as TimingFunctionKey);
   }, []);
@@ -215,13 +212,9 @@ export default function CSSAnimation() {
             />
           </FlexFull>
           <VStack className="bg-col-900 p-[2vh] shadowBroadLoose border-970-md w-full lg:w-50% relative">
-            <Box className="absolute bottom-[1vh] right-[1vh]">
-              <Button
-                buttonText="read more"
-                type="smallNormal"
-                onClick={() => setModalOpen(true)}
-              />
-            </Box>
+            <DescriptionModal>
+              <CubicBezierExplained />
+            </DescriptionModal>
             <Heading
               text="Cubic Bezier Timing Functions"
               layout="text-xl-normal"
@@ -283,14 +276,6 @@ export default function CSSAnimation() {
           </CSSAnimationExample>
         </VStackFull>
       </Transition>
-      <Modal
-        isOpen={modalOpen}
-        setModalOpen={setModalOpen}
-        onClose={() => setModalOpen(false)}
-        modalSize="w-full h-full lg:w-80% h-90% xl:w-60%"
-      >
-        <CubicBezierExplained />
-      </Modal>
     </>
   );
 }

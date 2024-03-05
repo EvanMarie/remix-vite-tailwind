@@ -17,19 +17,22 @@ export default function Index() {
     <LayoutContainer>
       <Transition className="w-full h-full justify-center items-center">
         <VStackFull className="text-center xxl:w-[60vw]" gap="gap-[6vh]">
-          <Text className="font-cursive boldTextGlow text-col-900 text-stroke-8-900 text-[5vh] md:text-[8vh] lg:text-[10vh] text-center">
+          <Text className="font-cursive boldTextGlow text-col-900 text-stroke-8-900 text-[5vh] md:text-[8vh] lg:text-[10vh] text-center animate-slideInRight">
             Remix, Vite, & Tailwind
           </Text>
           <VStackFull>
-            <Text className="text-col-100 text-2xl textShadow text-center">
+            <Text className="text-col-100 text-2xl textShadow text-center animate-slideInLeft delay-1500">
               A Project Launchpad with Vite, Tailwind CSS, and Remix Flat Routes
             </Text>
-            <Text className="text-col-100 text-2xl textShadow text-center">
+            <Text className="text-col-100 text-2xl textShadow text-center animate-zoomIn">
               including extensive preset options and components with quick
               customization.
             </Text>
           </VStackFull>
-          <HStack gap="gap-[3vh]">
+          <HStack
+            gap="gap-[3vh]"
+            className="animate-slideInUp50vh duration-2200"
+          >
             <NavLink to="/design">
               <Text className="p-[1.5vh] bg-100-linear3op25 text-col-900 shadowBroadNormal hover:bg-400-diagonal3op75 transition-400 text-center">
                 Preset Design Options
