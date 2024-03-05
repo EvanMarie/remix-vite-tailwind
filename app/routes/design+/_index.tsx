@@ -119,7 +119,7 @@ export default function Design() {
         <Flex className="w-full justify-center pt-[2vh] pb-[1vh]">
           <Heading
             color="text-white text-stroke-9-100"
-            shadow="textFog"
+            shadow="textShadow"
             text={heading}
             layout="text-insane-loose"
             className="px-[2vh]"

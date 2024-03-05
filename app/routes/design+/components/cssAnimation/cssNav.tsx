@@ -9,10 +9,7 @@ export default function CSSNav() {
     <NavContainer>
       <HStackFull className="px-[1vh] justify-between">
         <IconButton icon={HomeIcon} type="smallNormal" to="/" />
-        <Button
-          to="/design/css-animation/timing-functions"
-          buttonText="Timing Functions"
-        />
+        <Button to="/design/css-animation" buttonText="Timing Functions" />
         <Button
           to="/design/css-animation/element-animations"
           buttonText="Element Animations"

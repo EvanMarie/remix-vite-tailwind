@@ -9,7 +9,7 @@ export default function CubicBezierExplained() {
   const sectionStyles =
     "bg-col-980 text-col-100 px-[4vh] py-[1.5vh] border-970-md items-start shadowBroadLoose";
   return (
-    <FlexFull className="px-[4vh] py-[2vh] bg-col-200 h-full overflow-y-auto insetShadowLg">
+    <FlexFull className="px-[5vh] py-[2vh] bg-col-200 h-full overflow-y-auto insetShadowLg">
       <VStackFull className="h-fit py-[1.5vh]" align="items-start">
         <Text className={headingStyles}>
           The cubic-bezier function is represented as cubic-bezier(x1, y1, x2,
