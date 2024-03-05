@@ -208,7 +208,7 @@ export default function CSSAnimation() {
               layout="text-too-big-normal"
               shadow="textShadow"
               color="text-col-100"
-              className="py-[0.7vh]"
+              className="py-[0.7vh] text-stroke-5-100"
             />
           </FlexFull>
           <VStack className="bg-col-900 p-[2vh] shadowBroadLoose border-970-md w-full lg:w-50% relative">
@@ -220,7 +220,7 @@ export default function CSSAnimation() {
               layout="text-xl-normal"
               shadow="textShadow"
               color="text-col-100"
-              className="py-[0.7vh]"
+              className="py-[0.7vh] text-stroke-5-100"
             />
             <Text className="text-col-100">
               Cubic Bezier curves are defined by four points: P0, P1, P2, and

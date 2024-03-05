@@ -16,7 +16,12 @@ export default function ComponentExample({
   return (
     <VStackFull className="rounded-t-[1vh] bg-300-diagonal2op25 border-970-md shadowBroadLoose">
       <HStackFull className="justify-between bg-col-700 rounded-b-none p-[0.5vh] relative">
-        <Heading text={title} layout="text-xxl-normal" className="px-[1vh]" />
+        <Heading
+          text={title}
+          layout="text-xxl-normal"
+          color="text-col-100"
+          className="px-[1vh]"
+        />
         <DescriptionModal>{descriptionContent}</DescriptionModal>
       </HStackFull>
       <FlexFull className="p-[2vh] justify-center">{children}</FlexFull>

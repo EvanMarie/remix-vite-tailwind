@@ -93,6 +93,7 @@ export default function AnimationsOne() {
             <Heading
               color="text-col-100"
               text="Tailwind Default Animations and Added Animation Classes"
+              className="text-stroke-5-100"
               shadow="textShadow"
               layout="text-xxl-loose"
             />

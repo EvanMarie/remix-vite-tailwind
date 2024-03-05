@@ -28,6 +28,7 @@ export default function DescriptionModalContent({
                 text={heading}
                 layout="text-xxl-normal"
                 className="py-[0.5vh]"
+                color="text-col-100"
               />
             </Flex>
           </FlexFull>
