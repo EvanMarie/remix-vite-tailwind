@@ -8,10 +8,12 @@ import Flex from "~/components/buildingBlocks/flex";
 import Rain from "./components/advancedExamples/rain";
 import FlowerOfLifeExplained from "./components/explanations/flowerOfLifeExplained";
 import FlowerOfLife from "./components/advancedExamples/flowerOfLife";
+import Transition from "~/components/buildingBlocks/transition";
 
 
 export default function AdvancedAnimations() {
   return (
+        <Transition className="w-full h-full">
     <FlexFull className="h-full overflow-y-auto justify-center">
       <VStackFull
         className="md:w-80% xl:w-70% items-center p-[2vh] h-fit"
@@ -38,6 +40,6 @@ export default function AdvancedAnimations() {
           <FlowerOfLife />
         </ComponentExample>
       </VStackFull>
-    </FlexFull>
+    </FlexFull></Transition>
   );
 }

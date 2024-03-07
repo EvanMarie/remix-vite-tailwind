@@ -9,23 +9,18 @@ import CodeModal from "./codeModal";
 import Flex from "~/components/buildingBlocks/flex";
 import { RefreshIcon } from "styles";
 import { SVGHeading } from "../../components/formattingComponents";
-import Text from "~/components/buildingBlocks/text";
 
-export function TriggerAnimation({
+export function SimplePathRender({
   path = "M.4 84.1s127.4 188 267.7 3 247.3 0 247.3 0",
   viewBox = "0 0 450 450",
-  width = "40vh",
-  height = "40vh",
   stroke = "0.5vh",
   duration = 5,
   timingFunction = "easeInOut",
   title,
-  color = "rgb(217, 181, 173)",
+  color = "cyan",
 }: {
   path?: string;
   viewBox?: string;
-  height?: string;
-  width?: string;
   stroke?: string;
   duration?: number;
   timingFunction?: string;
@@ -73,6 +68,7 @@ export function TriggerAnimation({
           strokeWidth={stroke}
           initial={{ pathLength: 0 }}
           animate={controls}
+          filter="drop-shadow(0.4vh 0.4vh 0.4vh rgba(255, 255, 255, 0.7))"
         />
       </svg>
     );
@@ -97,7 +93,7 @@ export function TriggerAnimation({
         />
         <CodeModal code={path} title={title ? title : ""} />
       </HStackFull>
-      <Flex className={`p-[1vh] ${width} ${height} justify-center`}>
+      <Flex className={`p-[1vh] h-full items-center justify-center`}>
         <MapPath
           key={animationKey}
           path={path}
