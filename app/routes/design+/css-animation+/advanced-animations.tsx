@@ -1,13 +1,14 @@
 import FlexFull from "~/components/buildingBlocks/flexFull";
 import VStackFull from "~/components/buildingBlocks/vStackFull";
-import ComponentExample from "../components/cssAnimation/componentExample";
-import FlashcardExplained from "../components/cssAnimation/explanations/flashcardExplained";
-import FlashCard from "../components/cssAnimation/advancedExamples/flashCard";
-import RainExplained from "../components/cssAnimation/explanations/rainExplained";
+import ComponentExample from "./components/componentExample";
+import FlashcardExplained from "./components/explanations/flashcardExplained";
+import FlashCard from "./components/advancedExamples/flashCard";
+import RainExplained from "./components/explanations/rainExplained";
 import Flex from "~/components/buildingBlocks/flex";
-import Rain from "../components/cssAnimation/advancedExamples/rain";
-import FlowerOfLifeExplained from "../components/cssAnimation/explanations/flowerOfLifeExplained";
-import FlowerOfLife from "../components/cssAnimation/advancedExamples/flowerOfLife";
+import Rain from "./components/advancedExamples/rain";
+import FlowerOfLifeExplained from "./components/explanations/flowerOfLifeExplained";
+import FlowerOfLife from "./components/advancedExamples/flowerOfLife";
+
 
 export default function AdvancedAnimations() {
   return (

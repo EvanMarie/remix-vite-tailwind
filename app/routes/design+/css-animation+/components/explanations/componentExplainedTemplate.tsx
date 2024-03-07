@@ -1,6 +1,10 @@
 import CodeExample from "~/components/buildingBlocks/codeExample";
 import DescriptionModalContent from "../descriptionModalContent";
-import { CSSHeading, CSSSection, CSSText } from "../../formattingComponents";
+import {
+  CSSHeading,
+  CSSSection,
+  CSSText,
+} from "../../../components/formattingComponents";
 
 export default function ComponentExplainedTemplate() {
   return (

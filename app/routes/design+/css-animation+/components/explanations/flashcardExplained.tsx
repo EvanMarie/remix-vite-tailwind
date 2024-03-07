@@ -1,8 +1,12 @@
 /* eslint-disable react/no-unescaped-entities */
 import DescriptionModalContent from "../descriptionModalContent";
 import CodeExample from "~/components/buildingBlocks/codeExample";
-import { CSSHeading, CSSSection, CSSText } from "../../formattingComponents";
-import HL from "../../highlight";
+import {
+  CSSHeading,
+  CSSSection,
+  CSSText,
+} from "../../../components/formattingComponents";
+import HL from "../../../components/highlight";
 
 export default function FlashcardExplained() {
   return (

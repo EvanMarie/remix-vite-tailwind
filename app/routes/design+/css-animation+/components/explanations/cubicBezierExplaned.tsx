@@ -1,6 +1,10 @@
 /* eslint-disable react/no-unescaped-entities */
 import FlexFull from "~/components/buildingBlocks/flexFull";
-import { CSSHeading, CSSSection, CSSText } from "../../formattingComponents";
+import {
+  CSSHeading,
+  CSSSection,
+  CSSText,
+} from "../../../components/formattingComponents";
 import DescriptionModalContent from "../descriptionModalContent";
 
 export default function CubicBezierExplained() {

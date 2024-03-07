@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { InfoIcon } from "styles";
 import Box from "~/components/buildingBlocks/box";
-import Button from "~/components/buildingBlocks/button";
 import IconButton from "~/components/buildingBlocks/iconButton";
 import Modal from "~/components/buildingBlocks/modal";
 

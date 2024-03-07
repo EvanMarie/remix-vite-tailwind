@@ -7,10 +7,10 @@ import Text from "~/components/buildingBlocks/text";
 import Transition from "~/components/buildingBlocks/transition";
 import VStack from "~/components/buildingBlocks/vStack";
 import VStackFull from "~/components/buildingBlocks/vStackFull";
-import DescriptionModal from "../components/cssAnimation/descriptionModal";
-import CubicBezierExplained from "../components/cssAnimation/cubicBezierExplaned";
+import DescriptionModal from "./components/descriptionModal";
+import CubicBezierExplained from "./components/cubicBezierExplaned";
 import HorizontalScrollingSelector from "~/components/buildingBlocks/horizontalScrollSelect";
-import CSSAnimationExample from "../components/cssAnimation/cssAnimationExample";
+import CSSAnimationExample from "./components/cssAnimationExample";
 
 type TimingFunctionKey = keyof typeof functionDetails;
 

@@ -8,7 +8,7 @@ import Transition from "~/components/buildingBlocks/transition";
 import VStackFull from "~/components/buildingBlocks/vStackFull";
 import Heading from "~/components/buildingBlocks/headingText";
 import HorizontalScrollingSelector from "~/components/buildingBlocks/horizontalScrollSelect";
-import TailwindAnimationExample from "../components/cssAnimation/tailwindAnimationExample";
+import TailwindAnimationExample from "./components/tailwindAnimationExample";
 
 export default function AnimationsOne() {
   type AnimationsMapping = {
