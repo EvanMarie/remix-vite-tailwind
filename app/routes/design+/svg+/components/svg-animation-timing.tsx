@@ -127,7 +127,11 @@ export default function SVGTiming() {
       <Flex className="w-95% xxl:w-80% h-fit justify-center overflow-y-auto bg-600-linear6op75">
         <VStack className="h-fit pb-[2vh]" gap="gap-[3vh]">
           <VStackFull gap="gap-[2vh]">
-            <Heading text="Timing Playground" className="py-[1vh]" />
+            <Heading
+              text="Timing Playground"
+              className="py-[1vh]"
+              color="text-col-100"
+            />
             <Wrap className="w-90% p-[1vh] shadowBroadNormal justify-evenly gap-x-[3vh] gap-y-[1vh] bg-col-970 items-center">
               <SVGHeading className={headingStyles}>
                 Timing Functions:{" "}

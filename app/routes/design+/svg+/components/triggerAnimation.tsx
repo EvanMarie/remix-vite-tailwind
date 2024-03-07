@@ -9,6 +9,7 @@ import CodeModal from "./codeModal";
 import Flex from "~/components/buildingBlocks/flex";
 import { RefreshIcon } from "styles";
 import { SVGHeading } from "../../components/formattingComponents";
+import Text from "~/components/buildingBlocks/text";
 
 export function TriggerAnimation({
   path = "M.4 84.1s127.4 188 267.7 3 247.3 0 247.3 0",
@@ -59,23 +60,21 @@ export function TriggerAnimation({
     color: string;
   }) {
     return (
-      <div className="flex justify-center items-center w-full h-full">
-        <svg
-          viewBox={viewBox}
-          width="auto"
-          height="100%"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <motion.path
-            d={path}
-            fill="transparent"
-            stroke={color}
-            strokeWidth={stroke}
-            initial={{ pathLength: 0 }}
-            animate={controls}
-          />
-        </svg>
-      </div>
+      <svg
+        viewBox={viewBox}
+        preserveAspectRatio="xMidYMid meet"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-full h-full"
+      >
+        <motion.path
+          d={path}
+          fill="transparent"
+          stroke={color}
+          strokeWidth={stroke}
+          initial={{ pathLength: 0 }}
+          animate={controls}
+        />
+      </svg>
     );
   }
 
