@@ -13,6 +13,23 @@ export const meta: MetaFunction = () => {
 };
 
 export default function Index() {
+  function NavButton({
+    to,
+    text,
+    className = "bg-100-linear3op25 text-col-900 hover:bg-400-diagonal3op75 shadowBroadNormal hover:metallicEdgesMd",
+  }: {
+    to: string;
+    text: string;
+    className?: string;
+  }) {
+    return (
+      <NavLink to={to}>
+        <Text className={`p-[1.5vh] transition-400 text-center ${className}`}>
+          {text}
+        </Text>
+      </NavLink>
+    );
+  }
   return (
     <LayoutContainer>
       <Transition className="w-full h-full justify-center items-center">
@@ -30,21 +47,14 @@ export default function Index() {
             </Text>
           </VStackFull>
           <Wrap className="animate-slideInUp50vh gap-[3vh] duration-2200 justify-center">
-            <NavLink to="/design">
-              <Text className="p-[1.5vh] bg-100-linear3op25 text-col-900 shadowBroadNormal hover:bg-400-diagonal3op75 transition-400 text-center">
-                Preset Design Options
-              </Text>
-            </NavLink>
-            <NavLink to="/design/css-animation">
-              <Text className="p-[1.5vh] bg-100-linear3op25 text-col-900 shadowBroadNormal hover:bg-400-diagonal3op75 transition-400 text-center">
-                Animation Examples
-              </Text>
-            </NavLink>
-            <NavLink to="/design/svg">
-              <Text className="p-[1.5vh] bg-100-linear3op25 text-col-900 shadowBroadNormal hover:bg-400-diagonal3op75 transition-400 text-center">
-                SVG World
-              </Text>
-            </NavLink>
+            <NavButton text="Preset Design Options" to="/design" />
+            <NavButton text="Animation Examples" to="/design/css-animation" />
+            <NavButton text="SVG World" to="/design/svg" />
+            <NavButton
+              text="DarkViolet.ai"
+              to="https://darkviolet.ai"
+              className="shadowBroadLoose border-970-md bg-gradient-to-r from-[#cd36f4] via-[#ab00ff] to-[#9b82ee] text-col-100 textShadow hover:metallicEdgesXl hover:scale-105"
+            />
           </Wrap>
         </VStackFull>
       </Transition>
