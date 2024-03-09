@@ -261,3 +261,42 @@ ol li {
     /* Top shadow */ 4px 4px 10px rgba(255, 255, 255, 1); /* White glow */
   color: transparent;
 }
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1.5vh;
+  height: 1.5vh;
+  border-radius: 0.75vh;
+  background: rgb(167, 189, 217);
+  cursor: pointer;
+  box-shadow: 0.2vh 0.2vh 0.2vh rgba(0, 0, 0, 0.8);
+}
+
+.slider::-moz-range-thumb {
+  width: 1.5vh;
+  height: 1.5vh;
+  border-radius: 0.75vh;
+  background: rgb(167, 189, 217);
+  cursor: pointer;
+  box-shadow: 0.2vh 0.2vh 0.2vh rgba(0, 0, 0, 0.8);
+}
+
+input[type="color"] {
+  border: 2px solid transparent;
+  border-radius: 0.7vh;
+  width: 4vh; /* Custom width */
+  height: 4vh; /* Custom height */
+  -webkit-appearance: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+  border-radius: 5px;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+}

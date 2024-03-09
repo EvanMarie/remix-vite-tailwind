@@ -5,6 +5,7 @@ import { Reanimate } from "./components/reanimate";
 import FloatDown from "./components/floatDown";
 import SVGTiming from "./components/svg-animation-timing";
 import Transition from "~/components/buildingBlocks/transition";
+import FloatDownExperiements from "./components/floatDownExperiments";
 
 export default function SVGPathExamples() {
   return (
@@ -169,6 +170,7 @@ export default FloatDown;`}
           </Reanimate>
         </Wrap>
         <SVGTiming />
+        <FloatDownExperiements />
       </DescriptionModalContent>
     </Transition>
   );
