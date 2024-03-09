@@ -24,7 +24,7 @@ export default function FloatDownExperiements() {
   const defaultSettings = {
     circleColor: "#00FFFF",
     circleMultiColors: ["#34d2eb", "#ab95fc", "#f783f0", "#fff89c"],
-    numCircles: 50,
+    numCircles: 23,
     maxDelay: 5,
     minCircleMovements: 4,
     maxCircleMovements: 8,

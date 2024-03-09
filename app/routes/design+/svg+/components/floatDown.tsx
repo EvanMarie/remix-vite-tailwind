@@ -1,4 +1,4 @@
-import { animate, motion, Variants } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Center from "~/components/buildingBlocks/center";
 import Flex from "~/components/buildingBlocks/flex";
 
@@ -69,7 +69,7 @@ export default function FloatDown({
   containerBg = "bg-100-radial6op75",
   containerShadow = "insetShadowXL",
   containerBorder = "border-970-md",
-  numCircles = 53,
+  numCircles = 12,
   circleColors,
   startFrom = -30,
   endAt = 30,
