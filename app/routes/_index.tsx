@@ -1,5 +1,8 @@
 import type { MetaFunction } from "@remix-run/node";
 import { NavLink } from "@remix-run/react";
+import { FaSquareGithub } from "react-icons/fa6";
+import HStack from "~/components/buildingBlocks/hStack";
+import Icon from "~/components/buildingBlocks/icon";
 import LayoutContainer from "~/components/buildingBlocks/layoutContainer";
 import Text from "~/components/buildingBlocks/text";
 import Transition from "~/components/buildingBlocks/transition";
@@ -16,17 +19,30 @@ export default function Index() {
   function NavButton({
     to,
     text,
+    icon,
+    isExternal = false,
     className = "bg-100-linear3op25 text-col-900 hover:bg-400-diagonal3op75 shadowBroadNormal hover:metallicEdgesMd",
   }: {
     to: string;
-    text: string;
+    text?: string;
+    isExternal?: boolean;
+    icon?: React.ComponentType<{ className?: string }>;
     className?: string;
   }) {
     return (
-      <NavLink to={to}>
-        <Text className={`p-[1.5vh] transition-400 text-center ${className}`}>
-          {text}
-        </Text>
+      // eslint-disable-next-line react/jsx-no-target-blank
+      <NavLink to={to} target={isExternal ? "_blank" : undefined}>
+        <HStack
+          className={`px-[1.5vh] py-[0.5vh] transition-400 text-center ${className} items-center group`}
+        >
+          {icon && (
+            <Icon
+              icon={icon}
+              iconClassName="text-col-900 text-[2.5vh] group-hover:text-cyan-200 group-hover:transition-400"
+            />
+          )}
+          <Text>{text}</Text>
+        </HStack>
       </NavLink>
     );
   }
@@ -47,6 +63,12 @@ export default function Index() {
             </Text>
           </VStackFull>
           <Wrap className="animate-slideInUp50vh gap-[3vh] duration-2200 justify-center">
+            <NavButton
+              text="Repo"
+              to="https://github.com/EvanMarie/remix-vite-tailwind"
+              icon={FaSquareGithub}
+              isExternal
+            />
             <NavButton text="Preset Design Options" to="/design" />
             <NavButton text="Animation Examples" to="/design/css-animation" />
             <NavButton text="SVG World" to="/design/svg" />
