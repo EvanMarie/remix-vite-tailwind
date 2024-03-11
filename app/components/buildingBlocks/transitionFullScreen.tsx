@@ -6,7 +6,7 @@ export default function TransitionFullScreen({
   className?: string;
 }) {
   return (
-    <div className={`w-full h-full justify-center ${className}`}>
+    <div className={`flex w-full h-full justify-center ${className}`}>
       {children}
     </div>
   );
