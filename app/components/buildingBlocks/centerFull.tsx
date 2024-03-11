@@ -1,7 +1,7 @@
 import React from "react";
-import Flex from "./flex";
+import Center from "./center";
 
-const Center = React.forwardRef<
+const CenterFull = React.forwardRef<
   HTMLDivElement,
   {
     children: React.ReactNode;
@@ -13,18 +13,18 @@ const Center = React.forwardRef<
   }
 >(({ children, className, onClick, id, style = {} }, ref) => {
   return (
-    <Flex
-      className={`justify-center items-center ${className}`}
+    <Center
+      className={`w-full h-full ${className}`}
       id={id}
       ref={ref}
       onClick={onClick}
       style={style}
     >
       {children}
-    </Flex>
+    </Center>
   );
 });
 
-Center.displayName = "FlexFull";
+CenterFull.displayName = "FlexFull";
 
-export default Center;
+export default CenterFull;
