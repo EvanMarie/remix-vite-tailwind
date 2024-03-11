@@ -2861,6 +2861,17 @@ export default {
     // ELEMENTS and LINKS PLUGIN
     plugin(function ({ addBase, theme }) {
       addBase({
+        html: {
+          padding: 0,
+          margin: 0,
+          boxSizing: "border-box",
+          scrollBehavior: "smooth",
+          overflowX: "hidden",
+          scrollbarWidth: "thin",
+          overflow: "hidden",
+          borderFadius: "none",
+          maxHeight: "100svh",
+        },
         body: {
           color: theme("colors.col.900"),
           width: "100%",
@@ -2873,6 +2884,11 @@ export default {
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundAttachment: "fixed",
+          padding: 0,
+          position: "relative",
+          overflow: "hidden",
+          scrollBehavior: "smooth",
+          borderRadius: "none",
         },
         a: {
           color: theme("colors.col.600"),
