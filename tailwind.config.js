@@ -2911,6 +2911,11 @@ export default {
             outline: "none",
           },
         },
+        p: {
+          margin: 0,
+          padding: 0,
+          fontSize: "inherit",
+        },
       });
     }),
 
