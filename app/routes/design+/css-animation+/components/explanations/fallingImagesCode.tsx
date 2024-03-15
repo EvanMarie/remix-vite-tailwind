@@ -1,4 +1,12 @@
-import { motion } from "framer-motion";
+import { CSSSection } from "~/routes/design+/components/formattingComponents";
+import DescriptionModalContent from "../descriptionModalContent";
+import CodeExample from "~/components/buildingBlocks/codeExample";
+
+export default function FallingImagesCode() {
+  return (
+    <DescriptionModalContent heading="Falling Images Component">
+      <CSSSection>
+        <CodeExample>{`import { motion } from "framer-motion";
 import FlexFull from "../buildingBlocks/flexFull";
 
 interface FallingImagesProps {
@@ -39,13 +47,13 @@ export default function FallingImages({
       Math.round(getRandomValue(minDuration * 10, maxDuration * 10)) / 10;
     const delay = Math.round(getRandomValue(minDelay * 10, maxDelay * 10)) / 10;
 
-    const finalBottomPosition = `${
+    const finalBottomPosition =  \`\${
       Math.round(getRandomValue(landingAreaStart * 10, landingAreaEnd * 10)) /
       10
-    }%`;
+    }%\`;
 
     // Calculate the left position within the container
-    const leftPosition = `${Math.round(getRandomValue(0, 1000)) / 10}%`;
+    const leftPosition =  \`\${Math.round(getRandomValue(0, 1000)) / 10}%\`;
 
     const imageVariants = {
       hidden: {
@@ -55,7 +63,7 @@ export default function FallingImages({
         rotate: rotation,
       },
       visible: {
-        top: `calc(100% - ${finalBottomPosition})`,
+        top:  calc(100% -  \`\${finalBottomPosition})\`,
         left: leftPosition,
         opacity: 1,
         rotate: rotation,
@@ -63,7 +71,7 @@ export default function FallingImages({
       },
     };
 
-    const imageSize = `${size}%`;
+    const imageSize =  \`\${size}%\`;
 
     return (
       <motion.img
@@ -87,5 +95,9 @@ export default function FallingImages({
     <FlexFull className="h-full absolute top-0 left-0">
       <div className="relative w-full h-full overflow-hidden">{images}</div>
     </FlexFull>
+  );
+`}</CodeExample>
+      </CSSSection>
+    </DescriptionModalContent>
   );
 }
