@@ -8,6 +8,7 @@ export default function ParallaxImage({
   bgFit = "bg-cover",
   bgAttachment = "bg-fixed",
   className,
+  animation,
 }: {
   dimensions?: string;
   bgImage?: string;
@@ -15,10 +16,11 @@ export default function ParallaxImage({
   bgAttachment?: string;
   bgFit?: string;
   className?: string;
+  animation?: string;
 }) {
   return (
     <>
-      <Flex className={`relative `}>
+      <Flex className={`relative ${animation}`}>
         <Box
           className={`${dimensions} border-970-md overflow-y-scroll ${bgAttachment} ${bgImage} ${bgFit} ${bgPosition} bg-no-repeat shadowWideLoose 
           ${className}
