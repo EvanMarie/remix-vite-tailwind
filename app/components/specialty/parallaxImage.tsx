@@ -13,6 +13,7 @@ export default function ParallaxImage({
   isAnimated = false,
   yValues = [0, -40, 0],
   duration = 20,
+  delay = 0,
   timeValues = [0, 0.5, 1],
 }: {
   dimensions?: string;
@@ -26,6 +27,7 @@ export default function ParallaxImage({
   yValues?: number[];
   timeValues?: number[];
   duration?: number;
+  delay?: number;
 }) {
   const animationVariants = {
     move: {
@@ -36,6 +38,7 @@ export default function ParallaxImage({
         ease: "easeInOut",
         times: timeValues,
         repeat: Infinity,
+        delay: delay,
       },
     },
   };
