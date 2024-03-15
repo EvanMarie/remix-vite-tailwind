@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import FlexFull from "../buildingBlocks/flexFull";
 
-interface FallingImagesProps {
+interface FloatingUpImagesProps {
   imageSrc?: string;
   numImages?: number;
   maxImageSize?: number;
@@ -19,7 +19,7 @@ interface FallingImagesProps {
 const getRandomValue = (min: number, max: number) =>
   Math.random() * (max - min) + min;
 
-export default function FallingImages({
+export default function FloatingImages({
   imageSrc = "/images/heartEyes.png",
   numImages = 44,
   maxImageSize = 5,
@@ -30,9 +30,9 @@ export default function FallingImages({
   minDuration = 4,
   maxDelay = 1.5,
   minDelay = 0,
-  landingAreaStart = 0,
-  landingAreaEnd = 6,
-}: FallingImagesProps) {
+  landingAreaStart = 1,
+  landingAreaEnd = 10,
+}: FloatingUpImagesProps) {
   const images = Array.from({ length: numImages }, (_, i) => {
     const size =
       Math.round(getRandomValue(minImageSize * 10, maxImageSize * 10)) / 10;
@@ -40,28 +40,28 @@ export default function FallingImages({
     const duration =
       Math.round(getRandomValue(minDuration * 10, maxDuration * 10)) / 10;
     const delay = Math.round(getRandomValue(minDelay * 10, maxDelay * 10)) / 10;
-
-    const finalBottomPosition = `${
+    const finalTopPosition = `${
       Math.round(getRandomValue(landingAreaStart * 10, landingAreaEnd * 10)) /
       10
     }%`;
-
-    // Calculate the left position within the container
     const leftPosition = `${Math.round(getRandomValue(0, 1000)) / 10}%`;
 
     const imageVariants = {
       hidden: {
-        top: "-100%",
+        top: "110%",
         left: leftPosition,
-        opacity: 0,
+        opacity: 0.5,
         rotate: rotation,
       },
       visible: {
-        top: `calc(100% - ${finalBottomPosition})`,
+        top: finalTopPosition,
         left: leftPosition,
         opacity: 1,
         rotate: rotation,
-        transition: { delay, duration },
+        transition: {
+          delay,
+          duration,
+        },
       },
     };
 

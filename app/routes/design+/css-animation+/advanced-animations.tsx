@@ -18,6 +18,8 @@ import useReanimate from "~/utils/useReanimate";
 import { RefreshIcon } from "styles";
 import Fireworks from "~/components/specialty/fireworks";
 import FireworksCode from "./components/explanations/fireworksExplanation";
+import FloatingUpImages from "~/components/specialty/floatingUpImages";
+import FloatingImages from "~/components/specialty/floatingUpImages";
 
 export default function AdvancedAnimations() {
   const [isAnimatingSmileys, setIsAnimatingSmileys] = useState(true); // Keep animation on
@@ -66,6 +68,25 @@ export default function AdvancedAnimations() {
               lg:w-[65vh] lg:h-[65vh] bg-100-linear6op75"
               >
                 {isAnimatingSmileys && <FallingImages key={animationKey} />}
+              </Flex>
+            </VStackFull>
+          </ComponentExample>
+          <ComponentExample
+            title="Floating Images"
+            descriptionContent={undefined}
+          >
+            <VStackFull>
+              <Button
+                buttonText="Reanimate"
+                iconLeft={RefreshIcon}
+                onClick={() => reanimate()}
+              />
+
+              <Flex
+                className="relative w-[85vw] h-[50vh] sm:w-[50vh] 
+              lg:w-[65vh] lg:h-[65vh] bg-100-linear6op75"
+              >
+                {isAnimatingSmileys && <FloatingImages key={animationKey} />}
               </Flex>
             </VStackFull>
           </ComponentExample>
