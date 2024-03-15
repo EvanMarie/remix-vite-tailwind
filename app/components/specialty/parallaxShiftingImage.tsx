@@ -1,64 +1,151 @@
 /* eslint-disable react/no-unescaped-entities */
-import Box from "~/components/buildingBlocks/box";
+import CenterFull from "~/components/buildingBlocks/centerFull";
+import Flex from "~/components/buildingBlocks/flex";
 import HStackFull from "~/components/buildingBlocks/hStackFull";
-import VStackFull from "~/components/buildingBlocks/vStackFull";
 import ParallaxImage from "~/components/specialty/parallaxImage";
 
-interface ParallaxShiftingImageProps {
-  bgImage: string;
-  numBoxes: number;
-  minBounceHeight: number;
-  maxBounceHeight: number;
-  minDelay: number;
-  maxDelay: number;
-  minDuration: number;
-  maxDuration: number;
-  width?: string;
-  height?: string;
-}
+export default function ParallaxShiftingImage() {
+  const minDuration = 10;
+  const maxDuration = 20;
+  const minDelay = 0;
+  const maxDelay = 10;
+  const gap = 0;
+  const divisions = 10;
+  const bgImage = "https://picsum.photos/600/400";
+  // const bgImage = "/images/rain.jpg";
+  const bgPositions = [
+    "0%",
+    "10%",
+    "20%",
+    "30%",
+    "40%",
+    "50%",
+    "60%",
+    "70%",
+    "80%",
+    "90%",
+    "100%",
+  ];
+  const bgSize = String(100 * divisions) + "% 100%";
 
-export default function ParallaxShiftingImage({
-  bgImage,
-  numBoxes = 4,
-  minBounceHeight,
-  maxBounceHeight,
-  minDelay,
-  maxDelay,
-  minDuration = 5,
-  maxDuration = 10,
-  width = "w-[20vw]",
-  height = "h-[80vh]",
-}: ParallaxShiftingImageProps) {
   const generateRandomValue = (min: number, max: number) => {
-    return Math.random() * (max - min) + min;
+    return Math.random() * (max - min) + (min * 10) / 10;
   };
 
-  const renderBoxes = () => {
-    const boxes = [];
-    for (let i = 0; i < numBoxes; i++) {
-      const bounceHeight = generateRandomValue(
-        minBounceHeight,
-        maxBounceHeight
-      );
-      const delay = generateRandomValue(minDelay, maxDelay);
-      const duration = generateRandomValue(minDuration, maxDuration);
-
-      boxes.push(
-        <Box
-          key={i}
-          className={`animate-bounce`}
-          style={{
-            animationDuration: `${duration}s`,
-            animationDelay: `${delay}s`,
-            transform: `translateY(${bounceHeight}rem)`,
-          }}
-        >
-          <ParallaxImage bgImage={bgImage} dimensions={`${width} ${height}`} />
-        </Box>
-      );
-    }
-    return boxes;
-  };
-
-  return <HStackFull className="justify-center">{renderBoxes()}</HStackFull>;
+  return (
+    <CenterFull>
+      <HStackFull className="justify-center mx-1" gap="gap-[0px]">
+        <Flex className="p-[0.5vh]">
+          <ParallaxImage
+            bgImage={bgImage}
+            isAnimated={true}
+            dimensions="w-[10vw] h-[75vh]"
+            // bgPosition="0% 0"
+            bgPosition={`${bgPositions[0]}`}
+            // bgSize="500% 100%"
+            bgSize={bgSize}
+          />
+        </Flex>
+        <Flex className="p-[0.5vh]">
+          <ParallaxImage
+            bgImage={bgImage}
+            isAnimated={true}
+            dimensions="w-[10vw] h-[75vh]"
+            // bgPosition="25% 0"
+            bgPosition={`${bgPositions[1]}`}
+            // bgSize="500% 100%"
+            bgSize={bgSize}
+          />
+        </Flex>
+        <Flex className="p-[0.5vh]">
+          <ParallaxImage
+            bgImage={bgImage}
+            isAnimated={true}
+            dimensions="w-[10vw] h-[75vh]"
+            // bgPosition="50% 0"
+            bgPosition={`${bgPositions[2]}`}
+            // bgSize="500% 100%"
+            bgSize={bgSize}
+          />
+        </Flex>
+        <Flex className="p-[0.5vh]">
+          <ParallaxImage
+            bgImage={bgImage}
+            isAnimated={true}
+            dimensions="w-[10vw] h-[75vh]"
+            // bgPosition="75% 0"
+            bgPosition={`${bgPositions[3]}`}
+            // bgSize="500% 100%"
+            bgSize={bgSize}
+          />
+        </Flex>
+        <Flex className="p-[0.5vh]">
+          <ParallaxImage
+            bgImage={bgImage}
+            isAnimated={true}
+            dimensions="w-[10vw] h-[75vh]"
+            // bgPosition="100% 0"
+            bgPosition={`${bgPositions[4]}`}
+            // bgSize="500% 100%"
+            bgSize={bgSize}
+          />
+        </Flex>
+        <Flex className="p-[0.5vh]">
+          <ParallaxImage
+            bgImage={bgImage}
+            isAnimated={true}
+            dimensions="w-[10vw] h-[75vh]"
+            // bgPosition="0% 0"
+            bgPosition={`${bgPositions[5]}`}
+            // bgSize="500% 100%"
+            bgSize={bgSize}
+          />
+        </Flex>
+        <Flex className="p-[0.5vh]">
+          <ParallaxImage
+            bgImage={bgImage}
+            isAnimated={true}
+            dimensions="w-[10vw] h-[75vh]"
+            // bgPosition="25% 0"
+            bgPosition={`${bgPositions[6]}`}
+            // bgSize="500% 100%"
+            bgSize={bgSize}
+          />
+        </Flex>
+        <Flex className="p-[0.5vh]">
+          <ParallaxImage
+            bgImage={bgImage}
+            isAnimated={true}
+            dimensions="w-[10vw] h-[75vh]"
+            // bgPosition="50% 0"
+            bgPosition={`${bgPositions[7]}`}
+            // bgSize="500% 100%"
+            bgSize={bgSize}
+          />
+        </Flex>
+        <Flex className="p-[0.5vh]">
+          <ParallaxImage
+            bgImage={bgImage}
+            isAnimated={true}
+            dimensions="w-[10vw] h-[75vh]"
+            // bgPosition="75% 0"
+            bgPosition={`${bgPositions[8]}`}
+            // bgSize="500% 100%"
+            bgSize={bgSize}
+          />
+        </Flex>
+        <Flex className="p-[0.5vh]">
+          <ParallaxImage
+            bgImage={bgImage}
+            isAnimated={true}
+            dimensions="w-[10vw] h-[75vh]"
+            // bgPosition="100% 0"
+            bgPosition={`${bgPositions[9]}`}
+            // bgSize="500% 100%"
+            bgSize={bgSize}
+          />
+        </Flex>
+      </HStackFull>
+    </CenterFull>
+  );
 }
