@@ -107,6 +107,10 @@ export default function ComponentExamples() {
     <Flex className="w-full justify-around items-center">
       <Wrap className="w-full items-center justify-around gap-[3vh]">
         <Button
+          buttonText="Parallax Shifting Image Demo"
+          to="/design/shifting-parallax"
+        />
+        <Button
           buttonText="Horizontal Parallax Carousel"
           to="/design/horizontal-parallax"
         />

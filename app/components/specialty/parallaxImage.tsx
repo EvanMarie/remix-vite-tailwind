@@ -1,54 +1,34 @@
-import { Variants, motion } from "framer-motion";
 import Flex from "../buildingBlocks/flex";
+import Box from "../buildingBlocks/box";
 
 export default function ParallaxImage({
-  parallaxHeight = "h-[50vh]",
-  parallaxWidth = "50vw",
+  dimensions = "h-[50vh] w-[50vw]",
   bgImage = "/images/rain.jpg",
   bgPosition = "center",
-  bgSize,
+  bgAttachment = "bg-fixed",
+  bgFit = "bg-cover",
   className,
-  isAnimated = false,
-  yValues = [0, -20, -40, -20, 0],
-  duration = 20,
 }: {
-  parallaxHeight?: string;
-  parallaxWidth?: string;
+  dimensions?: string;
   bgImage?: string;
   bgPosition?: string;
+  bgFit?: string;
   bgSize?: string;
   className?: string;
-  isAnimated?: boolean;
-  yValues?: number[];
-  duration?: number;
+  bgAttachment?: string;
 }) {
-  const animationVariants = {
-    move: {
-      y: yValues,
-      transition: {
-        duration: duration,
-        ease: "linear",
-        repeat: Infinity,
-        repeatType: "reverse",
-      },
-    },
-  };
-
   return (
-    <Flex className="relative" style={{ willChange: "transform" }}>
+    <Flex className="relative">
       {" "}
       {/* Performance optimization */}
-      <motion.div
-        className={`${parallaxHeight} border-970-md overflow-y-scroll ${bgImage} bg-cover bg-no-repeat shadowWideLoose ${className}`}
+      <Box
+        className={`${dimensions} border-970-md overflow-y-scroll ${bgAttachment} ${bgImage} ${bgFit} ${bgPosition} bg-no-repeat shadowWideLoose 
+        ${className} `}
         style={{
           backgroundImage: `url(${bgImage})`,
           backgroundPosition: bgPosition,
-          backgroundSize: bgSize,
-          width: parallaxWidth,
         }}
-        variants={isAnimated ? (animationVariants as Variants) : undefined}
-        animate="move"
-      ></motion.div>
+      ></Box>
     </Flex>
   );
 }

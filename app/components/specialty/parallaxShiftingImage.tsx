@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import Flex from "~/components/buildingBlocks/flex";
 import HStackFull from "~/components/buildingBlocks/hStackFull";
-import ParallaxImage from "~/components/specialty/parallaxImage";
+import AnimatedParallaxImage from "./animatedParallaxImage";
 
 export default function ParallaxShiftingImage({
   animationCycleDuration = 20,
@@ -24,36 +24,6 @@ export default function ParallaxShiftingImage({
   maxNumYmovements?: number;
   paddingGap?: string;
 }) {
-  // const [viewportWidth, setViewportWidth] = useState(0);
-  // const [bgImageLink, setBgImageLink] = useState("");
-
-  // useEffect(() => {
-  //   const width = GetViewportWidth();
-  //   setViewportWidth(width);
-  //   const [linkHeight, linkWidth] = getHeightWidth(width);
-  //   setBgImageLink(`${baseImageLink}/${linkWidth}/${linkHeight}`);
-  // }, [baseImageLink, viewportWidth]);
-
-  // const getHeightWidth = (viewportWidth: number) => {
-  //   let linkWidth = "1000"; // Default values for server-side rendering
-  //   let linkHeight = "500";
-  //   if (viewportWidth < 600) {
-  //     linkHeight = "500";
-  //     linkWidth = "300";
-  //   } else if (viewportWidth < 800) {
-  //     linkHeight = "500";
-  //     linkWidth = "500";
-  //   } else if (viewportWidth < 1080) {
-  //     linkHeight = "500";
-  //     linkWidth = "700";
-  //   } else if (viewportWidth < 1500) {
-  //     linkHeight = "500";
-  //     linkWidth = "900";
-  //   }
-  //   return [linkHeight, linkWidth];
-  // };
-
-  // Generate background positions based on the number of divisions
   const bgPositions = Array.from(
     { length: numDivisions },
     (_, index) => `${Math.floor((index / (numDivisions - 1)) * 100)}%`
@@ -62,13 +32,6 @@ export default function ParallaxShiftingImage({
   const sectionWidthCalc = (100 - 10) / divisions;
   const roundedSectionWidthCalc = Math.round(sectionWidthCalc);
   const sectionWidthString = String(roundedSectionWidthCalc) + "vw";
-  // console.log("bgImageLink: ", bgImageLink);
-  // console.log("divisions: ", divisions);
-  // console.log("sectionWidfthCalc: ", sectionWidthCalc);
-  // console.log("roundedSectionWidthCalc: ", roundedSectionWidthCalc);
-  // console.log("sectionWidthString: ", sectionWidthString);
-  // console.log("backgroundPositions: ", bgPositions);
-
   const bgSize = String(100 * divisions) + "% 100%";
 
   const generateRandomValue = (min: number, max: number) => {
@@ -88,7 +51,7 @@ export default function ParallaxShiftingImage({
     <HStackFull className="justify-center mx-1" gap="gap-[0px]">
       {bgPositions.map((position, index) => (
         <Flex key={index} className={`${paddingGap}`}>
-          <ParallaxImage
+          <AnimatedParallaxImage
             duration={animationCycleDuration}
             bgImage={bgImageLink}
             isAnimated={true}

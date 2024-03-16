@@ -69,13 +69,13 @@ export default function HorizontalParallaxCarouselPage() {
   return (
     <TransitionFullScreen>
       <NavContainer bg="bg-col-990" className="h-[8vh]">
-        <Flex className="w-[6vw] absolute top-[2vh] left-[1vh]">
+        <Flex className="w-[6vw] absolute top-[0.7vh] left-[1vh]">
           <IconButton icon={ReturnPathIcon} to="/design#components" />
         </Flex>
         <FlexFull className="justify-center pl-[6vh]">
           <Heading
             text="Horizontal Parallax Carousel 😍"
-            layout="text-xl-loose sm:text-xxl-loose md:text-too-big-loose xl:text-insane-looser"
+            layout="text-xl-loose sm:text-xxl-loose md:text-xxxl-loose "
             color="text-col-100"
           />
         </FlexFull>
