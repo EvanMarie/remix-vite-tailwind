@@ -1,3 +1,5 @@
+import AnimatedParallaxImage from "~/components/specialty/animatedParallaxImage";
+
 export default function Test() {
-  return <div>this</div>;
+  return <AnimatedParallaxImage />;
 }

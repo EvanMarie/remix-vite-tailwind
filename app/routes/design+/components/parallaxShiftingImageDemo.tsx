@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import Box from "~/components/buildingBlocks/box";
-import CenterFull from "~/components/buildingBlocks/centerFull";
 import CenterHorizontalFull from "~/components/buildingBlocks/centerHorizontalFull";
 import CounterInput from "~/components/buildingBlocks/counterInput";
+import FlexFull from "~/components/buildingBlocks/flexFull";
 import Text from "~/components/buildingBlocks/text";
 import VStackFull from "~/components/buildingBlocks/vStackFull";
 import Wrap from "~/components/buildingBlocks/wrap";
@@ -55,8 +55,8 @@ export default function ParallaxShiftingImageDemo() {
     "text-xs-tight sm:text-sm-tight text-cyan-200 textShadow";
 
   return (
-    <CenterFull className="">
-      <VStackFull className="h-screen">
+    <FlexFull className="h-full justify-center">
+      <VStackFull className="h-full">
         <VStackFull className="bg-col-990 pb-[0.5vh]">
           <ParallaxImageViewportBar className="">
             <Text>
@@ -174,6 +174,6 @@ export default function ParallaxShiftingImageDemo() {
           />
         </CenterHorizontalFull>
       </VStackFull>
-    </CenterFull>
+    </FlexFull>
   );
 }

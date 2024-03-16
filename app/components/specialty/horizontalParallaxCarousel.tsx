@@ -9,7 +9,7 @@ import ParallaxImage from "~/components/specialty/parallaxImage";
 
 export default function HorizontalParallaxCarousel({
   images,
-  height = "h-[75vh]",
+  height = "h-[65vh] md:h-[75vh]",
   randomWidths = ["w-[60vh]", "w-[70vh]", "w-[80vh]", "w-[90vh]", "w-[100vh]"],
   gap = "gap-[1vh]",
   includeModal = false,

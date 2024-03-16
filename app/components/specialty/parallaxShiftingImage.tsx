@@ -7,7 +7,7 @@ export default function ParallaxShiftingImage({
   animationCycleDuration = 20,
   bgImageLink,
   numDivisions = 8,
-  imageHeight = "h-[75vh]",
+  imageHeight = "h-[60vh] md:h-[70vh] xl:h-[75vh]",
   minNumYmovements = 10,
   maxNumYmovements = 20,
   minYdistance = -50,
@@ -50,12 +50,12 @@ export default function ParallaxShiftingImage({
   return (
     <HStackFull className="justify-center mx-1" gap="gap-[0px]">
       {bgPositions.map((position, index) => (
-        <Flex key={index} className={`${paddingGap}`}>
+        <Flex key={index} className={`${paddingGap} hover:cursor-default`}>
           <AnimatedParallaxImage
             duration={animationCycleDuration}
             bgImage={bgImageLink}
             isAnimated={true}
-            parallaxHeight={`${imageHeight}`}
+            parallaxHeight={imageHeight}
             parallaxWidth={sectionWidthString}
             bgPosition={`${position}`}
             bgSize={bgSize}
