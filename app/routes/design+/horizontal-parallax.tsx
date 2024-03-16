@@ -1,5 +1,4 @@
 import TransitionFullScreen from "~/components/buildingBlocks/transitionFullScreen";
-import CenterHorizontalFull from "~/components/buildingBlocks/centerHorizontalFull";
 import VStackFull from "~/components/buildingBlocks/vStackFull";
 import Heading from "~/components/buildingBlocks/headingText";
 import FlexFull from "~/components/buildingBlocks/flexFull";
@@ -80,17 +79,17 @@ export default function HorizontalParallaxCarouselPage() {
           />
         </FlexFull>
       </NavContainer>
-      <CenterHorizontalFull>
+      <FlexFull>
         <VStackFull className="pt-[10vh]">
           <FlexFull className="overflow-x-auto">
             <HorizontalParallaxCarousel
               images={images}
-              height="h-[80vh]"
+              height="h-[70vh] md:h-[80vh]"
               includeModal
             />
           </FlexFull>
         </VStackFull>
-      </CenterHorizontalFull>
+      </FlexFull>
     </TransitionFullScreen>
   );
 }

@@ -6,10 +6,11 @@ import HStackFull from "~/components/buildingBlocks/hStackFull";
 import Image from "~/components/buildingBlocks/image";
 import Modal from "~/components/buildingBlocks/modal";
 import ParallaxImage from "~/components/specialty/parallaxImage";
+import CenterFull from "../buildingBlocks/centerFull";
 
 export default function HorizontalParallaxCarousel({
   images,
-  height = "h-[65vh] md:h-[75vh]",
+  height = "h-[55vh] md:h-[75vh]",
   randomWidths = ["w-[60vh]", "w-[70vh]", "w-[80vh]", "w-[90vh]", "w-[100vh]"],
   gap = "gap-[1vh]",
   includeModal = false,
@@ -76,11 +77,13 @@ export default function HorizontalParallaxCarousel({
         isOpen={modalOpen}
         setModalOpen={setModalOpen}
         onClose={() => setModalOpen(false)}
-        modalSize="w-fit h-fit"
+        modalSize="w-full h-full md:w-90% md:h-90%"
       >
-        <Center className="max-w-[95vw] max-h-[90vh] overflow-hidden">
-          <Image alt="modal image" src={selectedImage} />
-        </Center>
+        <CenterFull className="bg-diagonal4op75 rounded-b-none">
+          <Center className="w-full h-full md:h-90% md:w-90% overflow-hidden">
+            <Image alt="modal image" src={selectedImage} />
+          </Center>
+        </CenterFull>
       </Modal>
     </>
   );
