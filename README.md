@@ -10,7 +10,7 @@ Welcome to the ultimate starting point for your web development projects: A comp
 
 - **Remix with Flat Routes**: Use the full power of Remix, enhanced with flat route structure for simplified routing.
 - **Vite Integration**: Enjoy fast development and build times with Vite, configured to work seamlessly with Remix and Tailwind CSS.
-  Certainly! Here's a refined version of your text:
+
 - **Enhanced Tailwind Configuration**: Elevate your design with our advanced Tailwind setup, which transcends standard offerings to provide an extensive palette of color and background combinations. Tailor the color scheme effortlessly to align with your brand identity or specific design aspirations. By integrating your unique color selections, you unlock access to the comprehensive "design" route, showcasing a plethora of template examples. This feature becomes an indispensable asset during the development process, offering immediate visual feedback and inspiration.
 - **Streamlined Design Utilities**: Benefit from a wealth of design utilities for shadows, text shadows, text sizes, and more, enabling you to craft beautiful interfaces without the hassle.
 - **Component Library**: A vast array of components, inspired by Chakra UI but extending further with more extensive options. Includes essential building blocks like Flex, FlexFull, VStack, VStackFull, HStack, HStackFull, Wrap, and more. These make it easy to visualize your design just by looking at your code.
