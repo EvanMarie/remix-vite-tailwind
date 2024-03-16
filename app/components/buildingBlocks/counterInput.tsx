@@ -6,8 +6,9 @@ import { FiMinusCircle, FiPlusCircle } from "react-icons/fi";
 import IconButton from "./iconButton";
 import FlexFull from "./flexFull";
 import HStackFull from "./hStackFull";
+import Input from "./input";
 
-interface SliderProps {
+interface CounterInputProps {
   label?: string;
   direction?: "flex-col" | "flex-row";
   labelColor?: string;
@@ -18,9 +19,14 @@ interface SliderProps {
   labelTextSizes?: string;
   onChange: (value: number) => void;
   iconTextColor?: string;
+  showMaxMin?: boolean;
+  showInput?: boolean;
+  showButtons?: boolean;
+  inputWidth?: string;
+  className?: string;
 }
 
-const Slider: React.FC<SliderProps> = ({
+const CounterInput: React.FC<CounterInputProps> = ({
   label,
   width,
   direction = "flex-col",
@@ -31,12 +37,14 @@ const Slider: React.FC<SliderProps> = ({
   labelTextSizes = "text-sm-tight md:text-md-tight",
   onChange,
   iconTextColor = "text-col-100",
+  showMaxMin = false,
+  showInput = true,
+  showButtons = false,
+  inputWidth,
+  className,
 }) => {
   const sliderValue = value ?? min;
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(Number(event.target.value));
-  };
   const step = max - min <= 5 ? 0.1 : 1;
 
   // Increment and decrement now use sliderValue
@@ -51,44 +59,53 @@ const Slider: React.FC<SliderProps> = ({
   };
 
   return (
-    <FlexFull className={`${direction} ${width} gap-[0px]`}>
-      {label && (
-        <HStack
-          className={` ${labelTextSizes} text-col-100 justify-center whitespace-nowrap`}
-        >
-          <Text className={`${labelColor}`}>{label}: </Text>
-          <Text>{value}</Text>
-        </HStack>
-      )}
-      <HStackFull className="items-center">
+    <FlexFull
+      className={`${direction} ${width} gap-[0px] text-xs text-col-100 ${className}`}
+    >
+      <HStack
+        className={` ${labelTextSizes} text-col-100 justify-center whitespace-nowrap items-center`}
+      >
         <IconButton
           type="smallUnstyled"
           icon={FiMinusCircle}
           onClick={decrementValue}
           iconClassName={iconTextColor}
+          containerClassName={!showButtons ? "hidden" : ""}
         />
-        <span className="text-xs text-col-100">{min}</span>
-        <HStackFull className="items-center" gap="gap-[0.4vh]">
-          <input
-            type="range"
-            min={min}
-            max={max}
-            value={value}
-            step={step}
-            onChange={handleChange}
-            className="slider h-[0.5vh] w-full cursor-pointer appearance-none  bg-col-300 dark:bg-col-300 focus:outline-none focus:ring focus:ring-col-400 shadowBroadTight"
-          />{" "}
-          <span className="text-xs text-col-100">{max}</span>
-        </HStackFull>
+        <Text className={`${labelColor}`}>{label}: </Text>
+        {showInput ? (
+          <Input
+            defaultValue={value}
+            onChange={(e) => onChange(+e.target.value)}
+            maxLength={3}
+            className={inputWidth}
+          />
+        ) : (
+          <Text>{value}</Text>
+        )}
+
         <IconButton
           type="smallUnstyled"
           icon={FiPlusCircle}
           onClick={incrementValue}
           iconClassName={iconTextColor}
+          containerClassName={!showButtons ? "hidden" : ""}
         />
-      </HStackFull>
+      </HStack>
+      {showMaxMin && (
+        <HStackFull>
+          <HStackFull className="items-center">
+            <Text>max:</Text>
+            <span>{min}</span>
+          </HStackFull>{" "}
+          <HStackFull className="items-center" gap="gap-[0.4vh]">
+            <Text>min:</Text>
+            <span>{max}</span>
+          </HStackFull>
+        </HStackFull>
+      )}
     </FlexFull>
   );
 };
 
-export default Slider;
+export default CounterInput;

@@ -1,43 +1,75 @@
 /* eslint-disable react/no-unescaped-entities */
-import CenterFull from "~/components/buildingBlocks/centerFull";
 import Flex from "~/components/buildingBlocks/flex";
 import HStackFull from "~/components/buildingBlocks/hStackFull";
 import ParallaxImage from "~/components/specialty/parallaxImage";
 
-export default function ParallaxShiftingImage() {
-  const duration = 60;
-  const bgImage = "https://picsum.photos/600/400";
-  const minNumYmovements = 10;
-  const maxNumYmovements = 20;
-  const minYmovement = -50;
-  const maxYmovement = 50;
-  const imageHeight = "h-[85vh]";
-  //   const bgPositions = ["0%", "20%", "40%", "60%", "80%", "100%"];
-  const bgPositions = [
-    "0%",
-    "10%",
-    "20%",
-    "30%",
-    "40%",
-    "50%",
-    "60%",
-    "70%",
-    "80%",
-    "90%",
-    "100%",
-  ];
+export default function ParallaxShiftingImage({
+  animationCycleDuration = 20,
+  bgImageLink,
+  numDivisions = 8,
+  imageHeight = "h-[75vh]",
+  minNumYmovements = 10,
+  maxNumYmovements = 20,
+  minYdistance = -50,
+  maxYdistance = 50,
+  paddingGap = "p-[0.5vh]",
+}: {
+  bgImageLink: string;
+  animationCycleDuration?: number;
+  imageHeight?: string;
+  numDivisions?: number;
+  minYdistance?: number;
+  maxYdistance?: number;
+  minNumYmovements?: number;
+  maxNumYmovements?: number;
+  paddingGap?: string;
+}) {
+  // const [viewportWidth, setViewportWidth] = useState(0);
+  // const [bgImageLink, setBgImageLink] = useState("");
+
+  // useEffect(() => {
+  //   const width = GetViewportWidth();
+  //   setViewportWidth(width);
+  //   const [linkHeight, linkWidth] = getHeightWidth(width);
+  //   setBgImageLink(`${baseImageLink}/${linkWidth}/${linkHeight}`);
+  // }, [baseImageLink, viewportWidth]);
+
+  // const getHeightWidth = (viewportWidth: number) => {
+  //   let linkWidth = "1000"; // Default values for server-side rendering
+  //   let linkHeight = "500";
+  //   if (viewportWidth < 600) {
+  //     linkHeight = "500";
+  //     linkWidth = "300";
+  //   } else if (viewportWidth < 800) {
+  //     linkHeight = "500";
+  //     linkWidth = "500";
+  //   } else if (viewportWidth < 1080) {
+  //     linkHeight = "500";
+  //     linkWidth = "700";
+  //   } else if (viewportWidth < 1500) {
+  //     linkHeight = "500";
+  //     linkWidth = "900";
+  //   }
+  //   return [linkHeight, linkWidth];
+  // };
+
+  // Generate background positions based on the number of divisions
+  const bgPositions = Array.from(
+    { length: numDivisions },
+    (_, index) => `${Math.floor((index / (numDivisions - 1)) * 100)}%`
+  );
   const divisions = bgPositions.length;
   const sectionWidthCalc = (100 - 10) / divisions;
   const roundedSectionWidthCalc = Math.round(sectionWidthCalc);
-  const sectionWidthString = String(roundedSectionWidthCalc);
-  const sectionWidth = "w-[" + sectionWidthString + "vw]";
-  console.log("divisions: ", divisions);
-  console.log("sectionWidthCalc: ", sectionWidthCalc);
-  console.log("sectionWidthString: ", sectionWidthString);
-  console.log("sectionWidth for Tailwind: ", sectionWidth);
+  const sectionWidthString = String(roundedSectionWidthCalc) + "vw";
+  // console.log("bgImageLink: ", bgImageLink);
+  // console.log("divisions: ", divisions);
+  // console.log("sectionWidfthCalc: ", sectionWidthCalc);
+  // console.log("roundedSectionWidthCalc: ", roundedSectionWidthCalc);
+  // console.log("sectionWidthString: ", sectionWidthString);
+  // console.log("backgroundPositions: ", bgPositions);
 
   const bgSize = String(100 * divisions) + "% 100%";
-  const paddingGap = "p-[0.5vh]";
 
   const generateRandomValue = (min: number, max: number) => {
     return Math.random() * (max - min) + (min * 10) / 10;
@@ -53,24 +85,21 @@ export default function ParallaxShiftingImage() {
   };
 
   return (
-    <CenterFull>
-      <HStackFull className="justify-center mx-1" gap="gap-[0px]">
-        {bgPositions.map((position, index) => (
-          <Flex key={index} className={`${paddingGap}`}>
-            <ParallaxImage
-              duration={duration}
-              //   delay={generateRandomValue(minDelay, maxDelay)}
-              bgImage={bgImage}
-              isAnimated={true}
-              dimensions={`${sectionWidth} ${imageHeight}`}
-              bgPosition={`${position}`}
-              bgSize={bgSize}
-              yValues={generateYvalues(minYmovement, maxYmovement)}
-              //   timeValues={generateYvalues(minYmovementTime, maxYmovementTime)}
-            />
-          </Flex>
-        ))}
-      </HStackFull>
-    </CenterFull>
+    <HStackFull className="justify-center mx-1" gap="gap-[0px]">
+      {bgPositions.map((position, index) => (
+        <Flex key={index} className={`${paddingGap}`}>
+          <ParallaxImage
+            duration={animationCycleDuration}
+            bgImage={bgImageLink}
+            isAnimated={true}
+            parallaxHeight={`${imageHeight}`}
+            parallaxWidth={sectionWidthString}
+            bgPosition={`${position}`}
+            bgSize={bgSize}
+            yValues={generateYvalues(minYdistance, maxYdistance)}
+          />
+        </Flex>
+      ))}
+    </HStackFull>
   );
 }
