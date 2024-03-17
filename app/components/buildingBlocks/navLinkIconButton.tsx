@@ -1,26 +1,26 @@
 import { MouseEventHandler } from "react";
 import { SpinnerSmall } from "./spinner";
 import Icon from "./icon";
+import { NavLink } from "@remix-run/react";
 import Flex from "./flex";
 import Tooltip, { TooltipPlacement } from "./tooltip";
 
-export default function IconButton({
+export default function NavIconButton({
   icon,
   containerClassName,
   iconClassName,
   onClick,
   ref,
-  htmlType = "button",
   isLoading,
-  isDisabled,
   type = "normal",
   tooltipPlacement = "bottom",
   label,
+  to,
 }: {
   containerClassName?: string;
   iconClassName?: string;
   icon: React.ComponentType<{ className?: string }>;
-  ref?: React.MutableRefObject<HTMLButtonElement | null>;
+  ref?: React.RefObject<HTMLDivElement>;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   isLoading?: boolean;
   label?: string;
@@ -103,29 +103,41 @@ export default function IconButton({
       ? " w-[6vh] h-[6vh]"
       : "text-[2vh] w-[3vh] h-[3vh]";
 
-  return (
-    <Tooltip label={label} placement={tooltipPlacement}>
-      <button
-        onClick={onClick}
-        disabled={isDisabled}
-        type={htmlType}
-        ref={ref}
-        className={`${containerClassName}`}
-      >
-        <Flex
-          className={` ${iconButtonSize} ${buttonClass} ${containerClassName}`}
-        >
-          {isLoading ? (
-            <SpinnerSmall />
-          ) : (
-            <Icon
-              icon={icon}
-              iconClassName={`${displayIconSize} ${iconClassName}`}
-              containerClassName={`flex w-full h-full justify-center items-center hover:cursor-pointer`}
-            />
-          )}
+  function ButtonInsides() {
+    return (
+      <Tooltip label={label} placement={tooltipPlacement}>
+        <Flex className={containerClassName} ref={ref}>
+          <Flex
+            onClick={() => onClick}
+            className={`
+   ${iconButtonSize}
+            ${buttonClass}
+             ${containerClassName}`}
+          >
+            {isLoading ? (
+              <SpinnerSmall />
+            ) : (
+              <Icon
+                icon={icon}
+                iconClassName={`${displayIconSize} ${iconClassName}`}
+                containerClassName={`flex w-full h-full justify-center items-center hover:cursor-pointer`}
+              />
+            )}
+          </Flex>
         </Flex>
-      </button>
-    </Tooltip>
+      </Tooltip>
+    );
+  }
+
+  return (
+    <>
+      {to ? (
+        <NavLink to={to}>
+          <ButtonInsides />
+        </NavLink>
+      ) : (
+        <ButtonInsides />
+      )}
+    </>
   );
 }

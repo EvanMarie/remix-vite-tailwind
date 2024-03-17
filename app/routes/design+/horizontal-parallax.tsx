@@ -4,9 +4,9 @@ import Heading from "~/components/buildingBlocks/headingText";
 import FlexFull from "~/components/buildingBlocks/flexFull";
 import HorizontalParallaxCarousel from "~/components/specialty/horizontalParallaxCarousel";
 import NavContainer from "~/components/buildingBlocks/navContainer";
-import IconButton from "~/components/buildingBlocks/iconButton";
 import { ReturnPathIcon } from "styles";
 import Flex from "~/components/buildingBlocks/flex";
+import NavIconButton from "~/components/buildingBlocks/navLinkIconButton";
 
 export default function HorizontalParallaxCarouselPage() {
   const images = [
@@ -69,7 +69,7 @@ export default function HorizontalParallaxCarouselPage() {
     <TransitionFullScreen>
       <NavContainer bg="bg-col-990" className="h-[8vh]">
         <Flex className="w-[6vw] absolute top-[0.7vh] left-[1vh]">
-          <IconButton icon={ReturnPathIcon} to="/design#components" />
+          <NavIconButton icon={ReturnPathIcon} to="/design#components" />
         </Flex>
         <FlexFull className="justify-center pl-[6vh]">
           <Heading

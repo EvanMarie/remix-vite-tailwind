@@ -5,10 +5,10 @@ import { Item, LoadingBar, TestBox } from "./inifiniteScrollDemoComponents";
 import Text from "~/components/buildingBlocks/text";
 import HStack from "~/components/buildingBlocks/hStack";
 import BouncingDots from "~/components/specialty/bouncingDots";
-import IconButton from "~/components/buildingBlocks/iconButton";
 import { ReturnPathIcon } from "styles";
 import FlexFull from "~/components/buildingBlocks/flexFull";
 import HStackFull from "~/components/buildingBlocks/hStackFull";
+import NavIconButton from "~/components/buildingBlocks/navLinkIconButton";
 
 // Simulates fetching items from an API
 const fetchItems = (startIndex: number, limit: number = 20): Item[] => {
@@ -108,7 +108,7 @@ export default function InfiniteScroll() {
     <>
       <Flex className="fixed top-0 left-0 h-[6vh] bg-100-radial1op75 rounded-none text-col-900 w-full text-center shadowNarrowTight justify-center items-center gap-[2vh]">
         <Flex className="w-[8vw] justify-center flex-shrink-0">
-          <IconButton icon={ReturnPathIcon} to="/design#components" />
+          <NavIconButton icon={ReturnPathIcon} to="/design#components" />
         </Flex>
         <HStackFull className="h-full justify-center items-center">
           <Flex className="w-35% justify-end boldTextGlow ">

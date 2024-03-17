@@ -1,27 +1,31 @@
 import { HomeIcon } from "styles";
-import Button from "~/components/buildingBlocks/button";
 import HStackFull from "~/components/buildingBlocks/hStackFull";
-import IconButton from "~/components/buildingBlocks/iconButton";
 import NavContainer from "~/components/buildingBlocks/navContainer";
+import NavLinkButton from "~/components/buildingBlocks/navLinkButton";
+import NavIconButton from "~/components/buildingBlocks/navLinkIconButton";
 
 export default function SVGNav() {
   return (
     <NavContainer>
       <HStackFull className="px-[1vh] justify-between">
-        <IconButton icon={HomeIcon} type="smallNormal" to="/" />
-        <HStackFull className="h-full items-center justify-around">
-          <Button to="/design/svg" buttonText="Intro" type="smallNormal" />
-          <Button
+        <NavIconButton icon={HomeIcon} type="smallNormal" to="/" />
+        <HStackFull className="h-full items-center justify-around ">
+          <NavLinkButton
+            to="/design/svg"
+            buttonText="Intro"
+            type="smallNormal"
+          />
+          <NavLinkButton
             to="/design/svg/framer-motion-intro"
             buttonText="Framer"
             type="smallNormal"
           />
-          <Button
+          <NavLinkButton
             to="/design/svg/svg-paths-intro"
             buttonText="Paths"
             type="smallNormal"
           />
-          <Button
+          <NavLinkButton
             to="/design/svg/svg-path-examples"
             buttonText="Playground"
             type="smallNormal"

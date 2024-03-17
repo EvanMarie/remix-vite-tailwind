@@ -3,7 +3,9 @@ import HStack from "./hStack";
 import FlexFull from "./flexFull";
 import BouncingDots from "../specialty/bouncingDots";
 import Icon from "./icon";
+import { NavLink } from "@remix-run/react";
 import Text from "./text";
+import Flex from "./flex";
 
 export type ButtonType =
   | "normal"
@@ -16,7 +18,7 @@ export type ButtonType =
   | "smallUnstyled"
   | "largeUnstyled";
 
-export default function Button({
+export default function NavLinkButton({
   className,
   buttonText = "",
   padding = "px-[1vh] py-[0px]",
@@ -24,7 +26,6 @@ export default function Button({
   iconLeft,
   iconRight,
   ref,
-  htmlType = "button",
   iconStyle,
   isLoading,
   isDisabled,
@@ -32,11 +33,13 @@ export default function Button({
   width = "w-fit",
   height,
   textStroke = "text-stroke-0-900 hover:text-stroke-5-900",
+  target,
+  to,
 }: {
   className?: string;
   buttonText?: string;
   padding?: string;
-  ref?: React.MutableRefObject<HTMLButtonElement | null>;
+  ref?: React.RefObject<HTMLDivElement>;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   iconLeft?: React.ComponentType<{ className?: string }>;
   iconRight?: React.ComponentType<{ className?: string }>;
@@ -44,8 +47,10 @@ export default function Button({
   isLoading?: boolean;
   isDisabled?: boolean;
   htmlType?: "button" | "submit" | "reset";
+  to: string;
   width?: string;
   height?: string;
+  target?: string;
   textStroke?: string;
   type?:
     | "normal"
@@ -114,42 +119,44 @@ export default function Button({
   }`;
 
   return (
-    <button
-      onClick={!isDisabled ? onClick : undefined}
-      disabled={isDisabled}
-      type={htmlType}
-      ref={ref}
-    >
-      <HStack
-        className={combinedClasses}
-        style={{
-          transition:
-            "background-color 0.4s ease-in-out, color 0.4s ease-in-out, border-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out, text-shadow 0.4s ease-in-out",
-        }}
-      >
-        {isLoading &&
-          buttonText !== "" &&
-          type !== "unstyled" &&
-          type !== "smallUnstyled" && (
-            <FlexFull className="absolute top-0 left-0 h-full justify-center items-center z-10">
-              <BouncingDots dotCount={3} color="white" dotSize={7} speed="3s" />
-            </FlexFull>
-          )}
+    <NavLink to={to} target={target}>
+      <Flex onClick={!isDisabled ? () => onClick : undefined} ref={ref}>
+        <HStack
+          className={combinedClasses}
+          style={{
+            transition:
+              "background-color 0.4s ease-in-out, color 0.4s ease-in-out, border-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out, text-shadow 0.4s ease-in-out",
+          }}
+        >
+          {isLoading &&
+            buttonText !== "" &&
+            type !== "unstyled" &&
+            type !== "smallUnstyled" && (
+              <FlexFull className="absolute top-0 left-0 h-full justify-center items-center z-10">
+                <BouncingDots
+                  dotCount={3}
+                  color="white"
+                  dotSize={7}
+                  speed="3s"
+                />
+              </FlexFull>
+            )}
 
-        {iconLeft && (
-          <Icon
-            icon={iconLeft}
-            iconClassName={`${displayIconSize} ${iconStyle}`}
-          />
-        )}
-        <Text className={`${textStroke} ${fontSize}`}>{buttonText}</Text>
-        {iconRight && (
-          <Icon
-            icon={iconRight}
-            iconClassName={`${displayIconSize} ${iconStyle}`}
-          />
-        )}
-      </HStack>
-    </button>
+          {iconLeft && (
+            <Icon
+              icon={iconLeft}
+              iconClassName={`${displayIconSize} ${iconStyle}`}
+            />
+          )}
+          <Text className={`${textStroke} ${fontSize}`}>{buttonText}</Text>
+          {iconRight && (
+            <Icon
+              icon={iconRight}
+              iconClassName={`${displayIconSize} ${iconStyle}`}
+            />
+          )}
+        </HStack>
+      </Flex>
+    </NavLink>
   );
 }

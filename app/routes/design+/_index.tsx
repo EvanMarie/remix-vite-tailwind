@@ -34,7 +34,6 @@ import {
   textExamples,
   transitions,
 } from "./components/data";
-import IconButton from "~/components/buildingBlocks/iconButton";
 import Box from "~/components/buildingBlocks/box";
 import BorderExamples from "./components/borderExamples";
 import TransformBg from "./components/transformBgObject";
@@ -45,6 +44,7 @@ import Text from "~/components/buildingBlocks/text";
 import CustomNavLink from "~/components/buildingBlocks/custonNavLink";
 import { HomeIcon } from "styles";
 import Transition from "~/components/buildingBlocks/transition";
+import NavIconButton from "~/components/buildingBlocks/navLinkIconButton";
 
 export function StyleExampleBox({
   className,
@@ -134,7 +134,7 @@ export default function Design() {
       <FlexFull className="h-full overflow-y-auto justify-center">
         <FlexFull className="fixed top-0 left-0 p-[1vh] bg-col-200 z-10 shadowWideLooser">
           <Wrap className="w-full gap-x-[5vh] gap-y-[1vh] justify-around">
-            <IconButton icon={HomeIcon} type="smallNormal" to="/" />
+            <NavIconButton icon={HomeIcon} type="smallNormal" to="/" />
             <CustomNavLink to="#colorscheme" linkText="Colors" useHash />
             <CustomNavLink to="#rgb" linkText="RBG" useHash />
             <CustomNavLink to="#gradients" linkText="Gradients" />
@@ -463,12 +463,12 @@ export default function Design() {
                 type="smallNegative"
                 iconRight={GoSmiley}
               />
-              <IconButton icon={GoSmiley} />{" "}
-              <IconButton type="smallNormal" icon={GoSmiley} />
-              <IconButton type="negative" icon={GoSmiley} />
-              <IconButton type="smallNegative" icon={GoSmiley} />
-              <IconButton type="unstyled" icon={GoSmiley} />
-              <IconButton type="smallUnstyled" icon={GoSmiley} />
+              <NavIconButton icon={GoSmiley} />{" "}
+              <NavIconButton type="smallNormal" icon={GoSmiley} />
+              <NavIconButton type="negative" icon={GoSmiley} />
+              <NavIconButton type="smallNegative" icon={GoSmiley} />
+              <NavIconButton type="unstyled" icon={GoSmiley} />
+              <NavIconButton type="smallUnstyled" icon={GoSmiley} />
             </StyledExampleWrap>
           </VStackFull>
           <VStackFull>

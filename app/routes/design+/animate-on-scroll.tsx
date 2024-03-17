@@ -4,20 +4,20 @@ import SnapScrollContainer from "~/components/specialty/snapScrollContainer";
 import SnapScrollPage from "~/components/specialty/snapScrollPage";
 import NavContainer from "~/components/buildingBlocks/navContainer";
 import Text from "~/components/buildingBlocks/text";
-import IconButton from "~/components/buildingBlocks/iconButton";
 import { ReturnPathIcon } from "styles";
 import FlexFull from "~/components/buildingBlocks/flexFull";
 import Box from "~/components/buildingBlocks/box";
 import VStack from "~/components/buildingBlocks/vStack";
 import CustomNavLink from "~/components/buildingBlocks/custonNavLink";
 import Flex from "~/components/buildingBlocks/flex";
+import NavIconButton from "~/components/buildingBlocks/navLinkIconButton";
 
 export default function AnimateOnScroll() {
   return (
     <SnapScrollContainer>
       <NavContainer bg="bg-col-990">
         <Box className="w-[6vw] absolute top-[0.7vh] left-[1vh]">
-          <IconButton icon={ReturnPathIcon} to="/design#components" />
+          <NavIconButton icon={ReturnPathIcon} to="/design#components" />
         </Box>
         <FlexFull className="justify-center pl-[6vh]">
           <Text className="font-semibold text-md-tight md:text-xl-tight text-col-200">

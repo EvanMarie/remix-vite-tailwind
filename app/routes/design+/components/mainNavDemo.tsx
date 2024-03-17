@@ -1,6 +1,5 @@
 import Flex from "~/components/buildingBlocks/flex";
 import HStackFull from "~/components/buildingBlocks/hStackFull";
-import IconButton from "~/components/buildingBlocks/iconButton";
 import Image from "~/components/buildingBlocks/image";
 import NavContainer from "~/components/buildingBlocks/navContainer";
 import Text from "~/components/buildingBlocks/text";
@@ -8,6 +7,7 @@ import { NavLink } from "@remix-run/react";
 import HStack from "~/components/buildingBlocks/hStack";
 
 import { BiSmile } from "react-icons/bi";
+import NavIconButton from "~/components/buildingBlocks/navLinkIconButton";
 
 export default function MainNavDemo() {
   function NavElement({
@@ -51,25 +51,25 @@ export default function MainNavDemo() {
         <NavElement to="#linkFour" label="Link Four" icon={BiSmile} />
       </HStackFull>
       <HStackFull className=" w-full justify-around flex lg:hidden">
-        <IconButton
+        <NavIconButton
           label="link one"
           icon={BiSmile}
           type="smallNormal"
           to="#linkOne"
         />
-        <IconButton
+        <NavIconButton
           label="link two"
           icon={BiSmile}
           type="smallNormal"
           to="#linkTwo"
         />
-        <IconButton
+        <NavIconButton
           label="link three"
           icon={BiSmile}
           type="smallNormal"
           to="#linkThree"
         />
-        <IconButton
+        <NavIconButton
           label="link four"
           icon={BiSmile}
           type="smallNormal"
