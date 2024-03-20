@@ -38,13 +38,37 @@ import Box from "~/components/buildingBlocks/box";
 import BorderExamples from "./components/borderExamples";
 import TransformBg from "./components/transformBgObject";
 import { GoSmiley } from "react-icons/go";
-import ComponentExamples from "./components/componentExamples";
 import Heading from "~/components/buildingBlocks/headingText";
 import Text from "~/components/buildingBlocks/text";
 import CustomNavLink from "~/components/buildingBlocks/custonNavLink";
 import { HomeIcon } from "styles";
 import Transition from "~/components/buildingBlocks/transition";
 import NavIconButton from "~/components/buildingBlocks/navLinkIconButton";
+
+export function SectionHeading({
+  id,
+  heading,
+}: {
+  id: string;
+  heading: string;
+}) {
+  return (
+    <>
+      <div id={id} className="h-[5.5vh] xl:h-[3.5vh] text-transparent">
+        This
+      </div>
+      <Flex className="w-full justify-center pt-[2vh] pb-[1vh]">
+        <Heading
+          color="text-white text-stroke-9-100"
+          shadow="textShadow"
+          text={heading}
+          layout="text-insane-loose"
+          className="px-[2vh]"
+        />
+      </Flex>
+    </>
+  );
+}
 
 export function StyleExampleBox({
   className,
@@ -110,25 +134,6 @@ export default function Design() {
     );
   }
 
-  function SectionHeading({ id, heading }: { id: string; heading: string }) {
-    return (
-      <>
-        <div id={id} className="h-[5.5vh] xl:h-[3.5vh] text-transparent">
-          This
-        </div>
-        <Flex className="w-full justify-center pt-[2vh] pb-[1vh]">
-          <Heading
-            color="text-white text-stroke-9-100"
-            shadow="textShadow"
-            text={heading}
-            layout="text-insane-loose"
-            className="px-[2vh]"
-          />
-        </Flex>
-      </>
-    );
-  }
-
   return (
     <Transition className="w-full h-full justify-center overflow-y-auto">
       <FlexFull className="h-full overflow-y-auto justify-center">
@@ -147,7 +152,7 @@ export default function Design() {
             <CustomNavLink to="#shadow" linkText="Shadows" />
             <CustomNavLink to="#borders" linkText="Borders" />
             <CustomNavLink to="#text" linkText="Text" />
-            <CustomNavLink to="#components" linkText="Components" />
+            <CustomNavLink to="/design/components" linkText="Components" />
           </Wrap>
         </FlexFull>
         <VStackFull
@@ -560,11 +565,6 @@ export default function Design() {
                   </Text>
                 </Box>
               ))}
-            </StyledExampleWrap>
-
-            <SectionHeading id="components" heading="Components" />
-            <StyledExampleWrap bg="bg-col-600">
-              <ComponentExamples />
             </StyledExampleWrap>
           </VStackFull>
         </VStackFull>

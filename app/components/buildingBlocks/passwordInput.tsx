@@ -44,16 +44,16 @@ export default function PasswordInput({
             id={id}
             name={confirm ? "confirmPassword" : name}
             required
-          />
-        </Box>
-        <Box className="absolute right-[1vh] top-[0.2vh]">
-          <IconButton
-            type="unstyled"
-            iconClassName="text-[2.5vh]"
-            label="show/hide"
-            icon={show ? FaEyeSlash : FaEye}
-            onClick={handleClick}
-          />
+          />{" "}
+          <Box className="absolute right-[1vh] top-[0.2vh]">
+            <IconButton
+              type="unstyled"
+              iconClassName="text-[2.5vh]"
+              label="show/hide"
+              icon={show ? FaEyeSlash : FaEye}
+              onClick={handleClick}
+            />
+          </Box>
         </Box>
       </HStack>
     </VStack>

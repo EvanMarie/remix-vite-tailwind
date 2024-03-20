@@ -69,7 +69,8 @@ export default function Index() {
               icon={FaSquareGithub}
               isExternal
             />
-            <NavButton text="Preset Design Options" to="/design" />
+            <NavButton text="Design Presets" to="/design" />
+            <NavButton text="Components" to="/design/components" />
             <NavButton text="Animation Examples" to="/design/css-animation" />
             <NavButton text="SVG World" to="/design/svg" />
             <NavButton

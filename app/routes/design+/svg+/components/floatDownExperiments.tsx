@@ -479,7 +479,7 @@ export default function FloatDownExperiements() {
                     <Box className="text-transparent">this</Box>
                     <Heading
                       text="Fun with Floating Circles"
-                      className="py-[1vh]"
+                      className="py-[1vh] text-stroke-5-100"
                       layout="text-lg-loose sm:text-xl-loose xl:text-too-big-loose"
                       color="text-col-100"
                     />

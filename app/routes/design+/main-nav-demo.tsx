@@ -1,9 +1,9 @@
 import FlexFull from "~/components/buildingBlocks/flexFull";
 import MainNavDemo from "./components/mainNavDemo";
-import Flex from "~/components/buildingBlocks/flex";
-import { ReturnPathIcon } from "styles";
+import { HomeIcon, ReturnPathIcon } from "styles";
 import VStackFull from "~/components/buildingBlocks/vStackFull";
 import NavIconButton from "~/components/buildingBlocks/navLinkIconButton";
+import HStack from "~/components/buildingBlocks/hStack";
 
 export default function MainNavDemoPage() {
   return (
@@ -13,10 +13,16 @@ export default function MainNavDemoPage() {
           <MainNavDemo />
         </FlexFull>
       </VStackFull>
-      <Flex className="w-[20vh] h-[20vh] justify-center items-center">
-        <NavIconButton icon={ReturnPathIcon} to="/design#components" />
-      </Flex>
-      {/* <Box className="w-40vh h-[20vh] bg-red-200">This</Box> */}
+      <HStack className="w-fit absolute top-[0.7vh] left-[1vh] flex-shrink-0">
+        <NavIconButton icon={HomeIcon} to="/" />
+        <NavIconButton icon={ReturnPathIcon} to="/design/components" />
+      </HStack>
+      <FlexFull className="pt-[6vh] pl-[2vh]">
+        <HStack className="w-fit flex-shrink-0">
+          <NavIconButton icon={HomeIcon} to="/" />
+          <NavIconButton icon={ReturnPathIcon} to="/design/components" />
+        </HStack>
+      </FlexFull>
     </VStackFull>
   );
 }

@@ -5,11 +5,12 @@ import {
   MasonryItem,
 } from "./infiniteScroll/inifiniteScrollDemoComponents";
 import VStackFull from "../buildingBlocks/vStackFull";
-import { ReturnPathIcon } from "styles";
+import { HomeIcon, ReturnPathIcon } from "styles";
 import HStackFull from "../buildingBlocks/hStackFull";
 import FlexFull from "../buildingBlocks/flexFull";
 import ViewportBar from "~/routes/design+/components/viewportBar";
 import NavIconButton from "../buildingBlocks/navLinkIconButton";
+import HStack from "../buildingBlocks/hStack";
 
 // Simulates fetching items from an API
 
@@ -122,7 +123,10 @@ export default function MasonryGrid() {
   return (
     <VStackFull className="items-center h-full pt-[6vh] bg-900-radial2op75">
       <HStackFull className="fixed top-0 left-0 h-[6vh] px-[1.5vh] bg-900-radial3op50 rounded-none shadowNarrowTight justify-between items-center">
-        <NavIconButton icon={ReturnPathIcon} to="/design#components" />
+        <HStack className="w-fit absolute top-[0.7vh] left-[1vh] flex-shrink-0">
+          <NavIconButton icon={HomeIcon} to="/" />
+          <NavIconButton icon={ReturnPathIcon} to="/design/components" />
+        </HStack>
         <FlexFull className="md:text-xl-tight font-semibold justify-center text-col-100 textShadow">
           Remix/Tailwind Infinite Scroll Masonry Grid
         </FlexFull>

@@ -5,7 +5,7 @@ import { Item, LoadingBar, TestBox } from "./inifiniteScrollDemoComponents";
 import Text from "~/components/buildingBlocks/text";
 import HStack from "~/components/buildingBlocks/hStack";
 import BouncingDots from "~/components/specialty/bouncingDots";
-import { ReturnPathIcon } from "styles";
+import { HomeIcon, ReturnPathIcon } from "styles";
 import FlexFull from "~/components/buildingBlocks/flexFull";
 import HStackFull from "~/components/buildingBlocks/hStackFull";
 import NavIconButton from "~/components/buildingBlocks/navLinkIconButton";
@@ -107,9 +107,10 @@ export default function InfiniteScroll() {
   return (
     <>
       <Flex className="fixed top-0 left-0 h-[6vh] bg-100-radial1op75 rounded-none text-col-900 w-full text-center shadowNarrowTight justify-center items-center gap-[2vh]">
-        <Flex className="w-[8vw] justify-center flex-shrink-0">
-          <NavIconButton icon={ReturnPathIcon} to="/design#components" />
-        </Flex>
+        <HStack className="w-fit absolute top-[0.7vh] left-[1vh] flex-shrink-0">
+          <NavIconButton icon={HomeIcon} to="/" />
+          <NavIconButton icon={ReturnPathIcon} to="/design/components" />
+        </HStack>
         <HStackFull className="h-full justify-center items-center">
           <Flex className="w-35% justify-end boldTextGlow ">
             <Text className="text-md-tighter">Intersection Observer - </Text>

@@ -1,4 +1,3 @@
-import Button from "./button";
 import FlexFull from "./flexFull";
 import VStackFull from "./vStackFull";
 import { useEffect, useState } from "react";
@@ -7,6 +6,7 @@ import Heading from "./headingText";
 import Text from "./text";
 import HStackFull from "./hStackFull";
 import Box from "./box";
+import NavLinkButton from "./navLinkButton";
 
 export default function HorizontalScrollingSelector({
   options,
@@ -67,6 +67,7 @@ export default function HorizontalScrollingSelector({
               layout="text-xxl-looser"
               shadow="textShadow"
               color="text-col-100"
+              className="text-stroke-5-100"
             />
           </FlexFull>
         )}
@@ -99,7 +100,7 @@ export default function HorizontalScrollingSelector({
         </FlexFull>
         {showClose && (
           <FlexFull className="justify-center items-center">
-            <Button
+            <NavLinkButton
               to={String(GetFromLink())}
               buttonText="Save & Close"
               type="smallNormal"

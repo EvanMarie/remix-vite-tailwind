@@ -3,22 +3,23 @@ import SnapScrollContainer from "~/components/specialty/snapScrollContainer";
 import SnapScrollPage from "~/components/specialty/snapScrollPage";
 import NavContainer from "~/components/buildingBlocks/navContainer";
 import Text from "~/components/buildingBlocks/text";
-import { ReturnPathIcon } from "styles";
+import { HomeIcon, ReturnPathIcon } from "styles";
 import FlexFull from "~/components/buildingBlocks/flexFull";
-import Box from "~/components/buildingBlocks/box";
 import VStack from "~/components/buildingBlocks/vStack";
 import CustomNavLink from "~/components/buildingBlocks/custonNavLink";
 import Flex from "~/components/buildingBlocks/flex";
 import AnimatedComponentSpring from "~/components/animate-on-scroll/animateOnScrollSpring";
 import NavIconButton from "~/components/buildingBlocks/navLinkIconButton";
+import HStack from "~/components/buildingBlocks/hStack";
 
 export default function AnimateOnScrollSpring() {
   return (
     <SnapScrollContainer>
       <NavContainer bg="bg-col-990">
-        <Box className="w-[6vw] absolute top-[0.7vh] left-[1vh]">
-          <NavIconButton icon={ReturnPathIcon} to="/design#components" />
-        </Box>
+        <HStack className="w-fit px-[2vh] flex-shrink-0 ">
+          <NavIconButton icon={HomeIcon} to="/" />
+          <NavIconButton icon={ReturnPathIcon} to="/design/components" />
+        </HStack>
         <FlexFull className="justify-center pl-[6vh]">
           <Text className="font-semibold text-md-tight md:text-xl-tight text-col-200">
             Snap Scroll Animate-On-Scroll Spring

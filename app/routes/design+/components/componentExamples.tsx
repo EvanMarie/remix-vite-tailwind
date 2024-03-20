@@ -42,6 +42,7 @@ import TransitionExample from "./transitionExample";
 import TagsInput from "~/components/buildingBlocks/tags/tagsInput";
 import Parallax from "~/components/specialty/parallax";
 import Accordion from "~/components/specialty/accordion";
+import NavLinkButton from "~/components/buildingBlocks/navLinkButton";
 
 export default function ComponentExamples() {
   const onConfirm = () => {
@@ -106,29 +107,36 @@ export default function ComponentExamples() {
   return (
     <Flex className="w-full justify-around items-center">
       <Wrap className="w-full items-center justify-around gap-[3vh]">
-        <Button
+        <NavLinkButton
           buttonText="Parallax Shifting Image Demo"
           to="/design/shifting-parallax"
         />
-        <Button
+        <NavLinkButton
           buttonText="Horizontal Parallax Carousel"
           to="/design/horizontal-parallax"
         />
-        <Button buttonText="Main Nav Demo" to="/design/main-nav-demo" />
+        <NavLinkButton
+          buttonText="Animated Title Demo"
+          to="/design/animated-text-demo"
+        />
+        <NavLinkButton buttonText="Main Nav Demo" to="/design/main-nav-demo" />
         <Button buttonText="Alert" onClick={openAlert} />
-        <Button
+        <NavLinkButton
           to="/design/animate-on-scroll"
           buttonText="Animate on Scroll Duration"
         />
-        <Button
+        <NavLinkButton
           to="/design/animate-on-scroll-spring"
           buttonText="Animation on Snap Scroll Spring"
         />{" "}
-        <Button
+        <NavLinkButton
           to="/design/infinite-scroll-demo"
           buttonText="Infinite Scroll"
         />
-        <Button to="/design/masonry-grid-demo" buttonText="Masonry Grid" />
+        <NavLinkButton
+          to="/design/masonry-grid-demo"
+          buttonText="Masonry Grid"
+        />
         <Popover
           trigger={<Button buttonText="Popover" />}
           content={<Flex>I am the content</Flex>}

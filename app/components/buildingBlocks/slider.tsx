@@ -6,6 +6,8 @@ import { FiMinusCircle, FiPlusCircle } from "react-icons/fi";
 import IconButton from "./iconButton";
 import FlexFull from "./flexFull";
 import HStackFull from "./hStackFull";
+import RoundToDecimal from "~/utils/useRoundToDecimal";
+import Center from "./center";
 
 interface SliderProps {
   label?: string;
@@ -13,31 +15,29 @@ interface SliderProps {
   labelColor?: string;
   min?: number;
   max?: number;
-  width?: string;
   value?: number;
+  increment?: number;
   labelTextSizes?: string;
   onChange: (value: number) => void;
-  iconTextColor?: string;
 }
 
 const Slider: React.FC<SliderProps> = ({
   label,
-  width,
   direction = "flex-col",
   min = 0,
   max = 100,
+  increment = 1,
   value,
   labelColor = "text-cyan-200 textShadow",
-  labelTextSizes = "text-sm-tight md:text-md-tight",
+  labelTextSizes = "text-xs-tight md:text-sm-tight",
   onChange,
-  iconTextColor = "text-col-100",
 }) => {
   const sliderValue = value ?? min;
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     onChange(Number(event.target.value));
   };
-  const step = max - min <= 5 ? 0.1 : 1;
+  const step = increment ? increment : max - min <= 5 ? 0.1 : 1;
 
   // Increment and decrement now use sliderValue
   const incrementValue = () => {
@@ -51,41 +51,51 @@ const Slider: React.FC<SliderProps> = ({
   };
 
   return (
-    <FlexFull className={`${direction} ${width} gap-[0px]`}>
+    <FlexFull className={`${direction} gap-[0px]`}>
       {label && (
         <HStack
-          className={` ${labelTextSizes} text-col-100 justify-center whitespace-nowrap`}
+          className={`items-center ${labelTextSizes} text-col-100 justify-center whitespace-nowrap`}
         >
           <Text className={`${labelColor}`}>{label}: </Text>
-          <Text>{value}</Text>
+          <Text>{RoundToDecimal(value || 0, 3)}</Text>
         </HStack>
       )}
-      <HStackFull className="items-center">
-        <IconButton
-          type="smallUnstyled"
-          icon={FiMinusCircle}
-          onClick={decrementValue}
-          iconClassName={iconTextColor}
-        />
-        <span className="text-xs text-col-100">{min}</span>
+      <HStackFull className="items-center" gap="gap-[0.2vh]">
+        <Center className="h-full">
+          <IconButton
+            type="smallUnstyled"
+            icon={FiMinusCircle}
+            onClick={decrementValue}
+            iconClassName="text-col-100"
+          />
+        </Center>
+        <Center className="h-full">
+          <span className="text-xs text-col-100">{min}</span>
+        </Center>
         <HStackFull className="items-center" gap="gap-[0.4vh]">
-          <input
-            type="range"
-            min={min}
-            max={max}
-            value={value}
-            step={step}
-            onChange={handleChange}
-            className="slider h-[0.5vh] w-full cursor-pointer appearance-none  bg-col-300 dark:bg-col-300 focus:outline-none focus:ring focus:ring-col-400 shadowBroadTight"
-          />{" "}
-          <span className="text-xs text-col-100">{max}</span>
+          <Center className="h-full">
+            <input
+              type="range"
+              min={min}
+              max={max}
+              value={value}
+              step={step}
+              onChange={handleChange}
+              className="slider h-[0.5vh] w-full cursor-pointer appearance-none  bg-col-300 dark:bg-gray-700 focus:outline-none focus:ring focus:ring-col-400 shadowBroadTight"
+            />{" "}
+          </Center>
+          <Center className="h-full">
+            <span className="text-xs text-col-100">{max}</span>
+          </Center>
         </HStackFull>
-        <IconButton
-          type="smallUnstyled"
-          icon={FiPlusCircle}
-          onClick={incrementValue}
-          iconClassName={iconTextColor}
-        />
+        <Center className="h-full">
+          <IconButton
+            type="smallUnstyled"
+            icon={FiPlusCircle}
+            onClick={incrementValue}
+            iconClassName="text-col-100"
+          />
+        </Center>
       </HStackFull>
     </FlexFull>
   );

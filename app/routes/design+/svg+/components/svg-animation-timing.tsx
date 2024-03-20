@@ -129,7 +129,7 @@ export default function SVGTiming() {
           <VStackFull gap="gap-[2vh]">
             <Heading
               text="Timing Playground"
-              className="py-[1vh]"
+              className="py-[1vh] text-stroke-5-100"
               color="text-col-100"
             />
             <Wrap className="w-90% p-[1vh] shadowBroadNormal justify-evenly gap-x-[3vh] gap-y-[1vh] bg-col-970 items-center">
