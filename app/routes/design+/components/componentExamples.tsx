@@ -108,6 +108,10 @@ export default function ComponentExamples() {
     <Flex className="w-full justify-around items-center">
       <Wrap className="w-full items-center justify-around gap-[3vh]">
         <NavLinkButton
+          buttonText="Animated Carousel Demo"
+          to="/design/animated-carousel-demo"
+        />
+        <NavLinkButton
           buttonText="Parallax Shifting Image Demo"
           to="/design/shifting-parallax"
         />
