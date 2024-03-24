@@ -1,33 +1,40 @@
-import { useState } from "react";
 import Flex from "./flex";
 import HStack from "./hStack";
 import VStack from "./vStack";
 import Text from "./text";
-import { TbCross, TbCrossOff } from "react-icons/tb";
 import Icon from "./icon";
+import { CiBellOff, CiBellOn } from "react-icons/ci";
 
 export default function ToggleSwitch({
-  size = "lg",
+  size = "md",
+  labelOn,
+  labelOff,
+  toggleOn,
+  setToggleOn,
   bgColor = "bg-col-840",
   switchColor = "bg-col-100",
   switchShadow = "dark",
   containerShadow = "dark",
-  onIcon = TbCross,
-  offIcon = TbCrossOff,
+  onIcon = CiBellOn,
+  offIcon = CiBellOff,
   onText,
   offText,
   labelColor = "dark",
 }: {
-  size: "xs" | "sm" | "md" | "lg" | "xl";
-  bgColor: string;
-  switchColor: string;
-  switchShadow: "dark" | "light" | "none";
-  containerShadow: "dark" | "light" | "none";
+  size?: "xs" | "sm" | "md" | "lg" | "xl";
+  labelOn?: string;
+  labelOff?: string;
+  toggleOn: boolean;
+  setToggleOn: React.Dispatch<React.SetStateAction<boolean>>;
+  bgColor?: string;
+  switchColor?: string;
+  switchShadow?: "dark" | "light" | "none";
+  containerShadow?: "dark" | "light" | "none";
   onIcon?: React.ComponentType<{ className?: string }>;
   offIcon?: React.ComponentType<{ className?: string }>;
   onText?: string;
   offText?: string;
-  labelColor: "dark" | "light" | "none";
+  labelColor?: "dark" | "light" | "none";
 }) {
   const switchContainerSizes = {
     xs: `w-[5.4vh] h-[2.6vh] rounded-[1.1vh] px-[0.4vh] ${
@@ -106,18 +113,22 @@ export default function ToggleSwitch({
     xl: "gap-[0.9vh]",
   };
 
-  const [switchOn, setSwitchOn] = useState(false);
   return (
-    <VStack>
-      <Text>Switch Status:</Text>
-      <Text>{switchOn ? "ON" : "OFF"}</Text>
+    <VStack gap="gap-[0px]">
+      {labelOn && labelOff && (
+        <HStack>
+          <Text className={labelSizes[size]}>
+            {toggleOn ? labelOn : labelOff}
+          </Text>
+        </HStack>
+      )}
       <HStack className="items-center " gap={gap[size]}>
         <Flex
           className={`h-full items-center ${labelSizes[size]} ${
             labelColor === "dark"
               ? "text-col-100 bg-col-950"
               : "text-col-900 bg-col-150"
-          } p-[0.3vh] ${switchOn ? "opacity-60" : "opacity-1"}`}
+          } p-[0.3vh] ${toggleOn ? "opacity-60" : "opacity-1"}`}
         >
           {onIcon ? (
             <Icon icon={onIcon} iconClassName={labelSizes[size]} />
@@ -127,9 +138,9 @@ export default function ToggleSwitch({
         </Flex>
         <HStack
           className={`${switchContainerSizes[size]} ${
-            switchOn ? "justify-start" : "justify-end"
+            !toggleOn ? "justify-start" : "justify-end"
           } items-center ${bgColor} cursor-pointer`}
-          onClick={() => setSwitchOn(!switchOn)}
+          onClick={() => setToggleOn(!toggleOn)}
         >
           <Flex
             className={`${switchSizes[size]} ${switchColor} shadowNarrowTight`}
@@ -140,7 +151,7 @@ export default function ToggleSwitch({
             labelColor === "dark"
               ? "text-col-100 bg-col-950"
               : "text-col-900 bg-col-150"
-          } p-[0.3vh]  ${!switchOn ? "opacity-60" : "opacity-1"}`}
+          } p-[0.3vh]  ${!toggleOn ? "opacity-60" : "opacity-1"}`}
         >
           {offIcon ? (
             <Icon icon={offIcon} iconClassName={labelSizes[size]} />
