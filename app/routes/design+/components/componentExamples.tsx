@@ -44,6 +44,7 @@ import Parallax from "~/components/specialty/parallax";
 import Accordion from "~/components/specialty/accordion";
 import NavLinkButton from "~/components/buildingBlocks/navLinkButton";
 import StaggerMenu from "~/components/specialty/staggerMenu";
+import ToggleSwitch from "~/components/buildingBlocks/toggleSwitch";
 
 export default function ComponentExamples() {
   const onConfirm = () => {
@@ -104,6 +105,7 @@ export default function ComponentExamples() {
     // console.log("newTags", newTags);
     setEnteredTags(newTags);
   };
+  const [toggleOn, setToggleOn] = useState(false);
 
   return (
     <Flex className="w-full justify-around items-center">
@@ -158,6 +160,14 @@ export default function ComponentExamples() {
           <FlexFull className="justify-center">
             <StaggerMenu />
           </FlexFull>
+        </ComponentContainer>
+        <ComponentContainer headerText="Avatar">
+          <ToggleSwitch
+            toggleOn={toggleOn}
+            setToggleOn={setToggleOn}
+            labelOn="Sound On"
+            labelOff="Sound Off"
+          />
         </ComponentContainer>
         <ComponentContainer headerText="Avatar">
           <Avatar src="/images/fallbackAvatar.png" size="xxl" />

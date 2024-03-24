@@ -134,9 +134,9 @@ export default function ToggleSwitch({
         <Flex
           className={`h-full items-center ${iconSizes[size]} ${
             labelColor === "dark"
-              ? "text-col-100 bg-col-950"
+              ? "text-col-100 bg-col-970"
               : "text-col-900 bg-col-150"
-          } p-[0.3vh] ${toggleOn ? "opacity-60" : "opacity-1"}`}
+          } p-[0.3vh] ${toggleOn ? "opacity-50" : "opacity-1"}`}
         >
           {onIcon ? (
             <Icon icon={onIcon} iconClassName={iconSizes[size]} />
@@ -157,9 +157,9 @@ export default function ToggleSwitch({
         <Flex
           className={`h-full items-center ${
             labelColor === "dark"
-              ? "text-col-100 bg-col-950"
+              ? "text-col-100 bg-col-970"
               : "text-col-900 bg-col-150"
-          } p-[0.3vh]  ${!toggleOn ? "opacity-60" : "opacity-1"}`}
+          } p-[0.3vh]  ${!toggleOn ? "opacity-50" : "opacity-1"}`}
         >
           {offIcon ? (
             <Icon icon={offIcon} iconClassName={iconSizes[size]} />
