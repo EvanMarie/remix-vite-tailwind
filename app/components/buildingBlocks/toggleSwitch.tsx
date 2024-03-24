@@ -97,12 +97,20 @@ export default function ToggleSwitch({
     }`,
   };
 
-  const labelSizes = {
+  const iconSizes = {
     xs: "text-[1.8vh]",
     sm: "text-[2vh]",
     md: "text-[2.2vh]",
     lg: "text-[2.4vh]",
     xl: "text-[2.6vh]",
+  };
+
+  const labelSizes = {
+    xs: "text-[1.5vh]",
+    sm: "text-[1.7vh]",
+    md: "text-[2vh]",
+    lg: "text-[2.1vh]",
+    xl: "text-[2.2vh]",
   };
 
   const gap = {
@@ -124,16 +132,16 @@ export default function ToggleSwitch({
       )}
       <HStack className="items-center " gap={gap[size]}>
         <Flex
-          className={`h-full items-center ${labelSizes[size]} ${
+          className={`h-full items-center ${iconSizes[size]} ${
             labelColor === "dark"
               ? "text-col-100 bg-col-950"
               : "text-col-900 bg-col-150"
           } p-[0.3vh] ${toggleOn ? "opacity-60" : "opacity-1"}`}
         >
           {onIcon ? (
-            <Icon icon={onIcon} iconClassName={labelSizes[size]} />
+            <Icon icon={onIcon} iconClassName={iconSizes[size]} />
           ) : onText ? (
-            <Text className={labelSizes[size]}>{onText}</Text>
+            <Text className={iconSizes[size]}>{onText}</Text>
           ) : undefined}{" "}
         </Flex>
         <HStack
@@ -154,9 +162,9 @@ export default function ToggleSwitch({
           } p-[0.3vh]  ${!toggleOn ? "opacity-60" : "opacity-1"}`}
         >
           {offIcon ? (
-            <Icon icon={offIcon} iconClassName={labelSizes[size]} />
+            <Icon icon={offIcon} iconClassName={iconSizes[size]} />
           ) : offText ? (
-            <Text className={labelSizes[size]}>{offText}</Text>
+            <Text className={iconSizes[size]}>{offText}</Text>
           ) : undefined}
         </Flex>
       </HStack>
