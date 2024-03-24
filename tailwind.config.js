@@ -2882,6 +2882,10 @@ export default {
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
         },
+        ".defaultTextGradient": {
+          backgroundImage:
+            "linear-gradient(to right, #D0E2F2, #D9B5AD, #e4edf5,  #D9B5AD, #D0E2F2);",
+        },
       });
     }),
     // INPUT AND TEXTAREA PLUGIN

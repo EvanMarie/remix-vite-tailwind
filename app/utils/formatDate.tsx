@@ -1,8 +1,12 @@
-export default function FormatDate(
-  inputDate: Date | string | null | undefined,
-  format: "text" | "number" = "number",
-  dateOnly: boolean = false
-): string {
+export default function FormatDate({
+  inputDate,
+  format = "number",
+  dateOnly = false,
+}: {
+  inputDate: Date | string | null | undefined;
+  format?: "text" | "number";
+  dateOnly?: boolean;
+}): string {
   if (!inputDate) {
     return "Invalid Date";
   }
@@ -17,7 +21,7 @@ export default function FormatDate(
     // Format the date as mm/dd/yy hh:mm AM/PM
     const month = date.getMonth() + 1; // getMonth() is zero-based
     const day = date.getDate();
-    const year = date.getFullYear().toString().substr(-2); // Get last two digits of year
+    const year = date.getFullYear().toString().slice(-2); // Get last two digits of year
     const hours = date.getHours();
     const minutes = date.getMinutes();
     const ampm = hours >= 12 ? "PM" : "AM";
