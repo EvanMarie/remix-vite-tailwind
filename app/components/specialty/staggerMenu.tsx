@@ -15,7 +15,7 @@ import Transition from "~/components/buildingBlocks/transition";
 const tempItems = ["Item 1", "Item 2", "Item 3", "Item 4"];
 
 export default function StaggerMenu({
-  enterFrom = "right",
+  enterFrom = "top",
   menuItems = tempItems,
   menuDirection = "flex-row",
   menuGap = "gap-[1vh]",
@@ -31,7 +31,7 @@ export default function StaggerMenu({
   buttonIcon,
   staggerDuration = 0.2,
   overlayStyle = "fixed inset-0 bg-col-120 backdrop-blur-md",
-  menuStyle = "fixed left-0 top-[5vh]",
+  menuStyle = "fixed left-0 top-[6vh]",
   closeButtonDelay = 1,
 }: {
   enterFrom?: string;
