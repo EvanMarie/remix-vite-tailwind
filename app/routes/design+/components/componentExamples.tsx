@@ -43,6 +43,7 @@ import TagsInput from "~/components/buildingBlocks/tags/tagsInput";
 import Parallax from "~/components/specialty/parallax";
 import Accordion from "~/components/specialty/accordion";
 import NavLinkButton from "~/components/buildingBlocks/navLinkButton";
+import StaggerMenu from "~/components/specialty/staggerMenu";
 
 export default function ComponentExamples() {
   const onConfirm = () => {
@@ -153,6 +154,11 @@ export default function ComponentExamples() {
             </Text>
           </FlexFull>
         </ModalWithButton>
+        <ComponentContainer headerText="Stagger Menu">
+          <FlexFull className="justify-center">
+            <StaggerMenu />
+          </FlexFull>
+        </ComponentContainer>
         <ComponentContainer headerText="Avatar">
           <Avatar src="/images/fallbackAvatar.png" size="xxl" />
         </ComponentContainer>

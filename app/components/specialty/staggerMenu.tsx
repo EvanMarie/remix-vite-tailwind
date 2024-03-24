@@ -17,9 +17,9 @@ const tempItems = ["Item 1", "Item 2", "Item 3", "Item 4"];
 export default function StaggerMenu({
   enterFrom = "right",
   menuItems = tempItems,
-  menuDirection = "flex-col",
+  menuDirection = "flex-row",
   menuGap = "gap-[1vh]",
-  containerClassName = "p-[1vh]",
+  containerClassName = "w-screen justify-evenly p-[1vh]",
   itemPadding = "px-[1.5vh] py-[0.5vh]",
   itemStyle = "bg-col-300",
   itemHoverStyle = "hover:bg-col-200 transition-400",
@@ -30,8 +30,8 @@ export default function StaggerMenu({
   buttonText,
   buttonIcon,
   staggerDuration = 0.2,
-  overlayStyle = "fixed inset-0 bg-col-120",
-  menuStyle = "fixed top-1/3 right-0",
+  overlayStyle = "fixed inset-0 bg-col-120 backdrop-blur-md",
+  menuStyle = "fixed left-0 top-[5vh]",
   closeButtonDelay = 1,
 }: {
   enterFrom?: string;
