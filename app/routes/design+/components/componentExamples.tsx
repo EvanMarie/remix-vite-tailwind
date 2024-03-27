@@ -115,6 +115,10 @@ export default function ComponentExamples() {
           to="/design/table-demo"
         />
         <NavLinkButton
+          buttonText="Sticky Panel Demo"
+          to="/design/sticky-panels-demo"
+        />
+        <NavLinkButton
           buttonText="Animated Carousel Demo"
           to="/design/animated-carousel-demo"
         />

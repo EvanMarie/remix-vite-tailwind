@@ -1,12 +1,8 @@
 import TransitionFullScreen from "~/components/buildingBlocks/transitionFullScreen";
 import VStackFull from "~/components/buildingBlocks/vStackFull";
-import Heading from "~/components/buildingBlocks/headingText";
 import FlexFull from "~/components/buildingBlocks/flexFull";
 import HorizontalParallaxCarousel from "~/components/specialty/horizontalParallaxCarousel";
-import NavContainer from "~/components/buildingBlocks/navContainer";
-import { HomeIcon, ReturnPathIcon } from "styles";
-import NavIconButton from "~/components/buildingBlocks/navLinkIconButton";
-import HStack from "~/components/buildingBlocks/hStack";
+import DemoNav from "./components/demoNav";
 
 export default function HorizontalParallaxCarouselPage() {
   const images = [
@@ -67,20 +63,7 @@ export default function HorizontalParallaxCarouselPage() {
   ];
   return (
     <TransitionFullScreen>
-      <NavContainer bg="bg-col-990" className="h-[8vh]">
-        <HStack className="w-fit absolute top-[0.7vh] left-[1vh] flex-shrink-0">
-          <NavIconButton icon={HomeIcon} to="/" />
-          <NavIconButton icon={ReturnPathIcon} to="/design/components" />
-        </HStack>
-        <FlexFull className="justify-center pl-[6vh]">
-          <Heading
-            text="Horizontal Parallax Carousel 😍"
-            layout="text-xl-loose sm:text-xxl-loose md:text-xxxl-loose "
-            color="text-col-100"
-            className="text-stroke-5-100"
-          />
-        </FlexFull>
-      </NavContainer>
+      <DemoNav heading="Horizontal Parallax Carousel 😍" />
       <FlexFull>
         <VStackFull className="pt-[10vh]">
           <FlexFull className="overflow-x-auto">
