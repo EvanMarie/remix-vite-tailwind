@@ -119,6 +119,10 @@ export default function ComponentExamples() {
           to="/design/snapscroll-progress"
         />
         <NavLinkButton
+          buttonText="Radial Progress Demo"
+          to="/design/radial-progress"
+        />
+        <NavLinkButton
           buttonText="Sticky Panel Demo"
           to="/design/sticky-panels-demo"
         />
