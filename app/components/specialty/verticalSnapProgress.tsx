@@ -12,6 +12,7 @@ export function VerticalScrollProgressContainer({
   padding = "p-[0vh]",
   gap = "gap-[0vh]",
   progressColor = "bg-cyan-500",
+  progressHeight = "h-[1vh]",
   itemComponent: ItemComponent,
   items,
   snapScroll = true,
@@ -24,6 +25,7 @@ export function VerticalScrollProgressContainer({
   padding?: string;
   gap?: string;
   progressColor?: string;
+  progressHeight?: string;
   itemComponent: ItemComponent;
   items: any[];
   snapScroll?: boolean;
@@ -55,7 +57,7 @@ export function VerticalScrollProgressContainer({
     >
       {/* Progress bar */}
       <motion.div
-        className={`sticky ${placement} h-[1vh] ${progressColor}`}
+        className={`sticky ${placement} ${progressHeight} ${progressColor}`}
         style={{ scaleX, zIndex: "2" }}
       />
       <div
