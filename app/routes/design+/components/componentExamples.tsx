@@ -115,6 +115,10 @@ export default function ComponentExamples() {
           to="/design/table-demo"
         />
         <NavLinkButton
+          buttonText="Snap-Scroll Progress Demo"
+          to="/design/snapscroll-progress"
+        />
+        <NavLinkButton
           buttonText="Sticky Panel Demo"
           to="/design/sticky-panels-demo"
         />
