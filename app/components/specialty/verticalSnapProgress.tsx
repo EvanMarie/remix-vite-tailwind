@@ -51,7 +51,7 @@ export function VerticalScrollProgressContainer({
   return (
     <div
       ref={ref}
-      className={`${width} ${height} relative insetShadowXl border-980-lg overflow-y-auto scrollbar-hide ${
+      className={`${width} ${height} relative insetShadowXl border-980-lg overflow-y-auto overflow-x-hidden scrollbar-hide ${
         snapScroll ? "snap-mandatory snap-y" : ""
       } `}
     >
