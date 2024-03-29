@@ -4,9 +4,10 @@ import VStack from "./vStack";
 import Text from "./text";
 import Icon from "./icon";
 import { CiBellOff, CiBellOn } from "react-icons/ci";
+import { motion } from "framer-motion";
 
 export default function ToggleSwitch({
-  size = "md",
+  size = "xl",
   labelOn,
   labelOff,
   toggleOn,
@@ -120,7 +121,12 @@ export default function ToggleSwitch({
     lg: "gap-[0.8vh]",
     xl: "gap-[0.9vh]",
   };
-
+  const toggleSwitch = () => setToggleOn(!toggleOn);
+  const spring = {
+    type: "spring",
+    stiffness: 800,
+    damping: 33,
+  };
   return (
     <VStack gap="gap-[0px]">
       {labelOn && labelOff && (
@@ -148,9 +154,11 @@ export default function ToggleSwitch({
           className={`${switchContainerSizes[size]} ${
             !toggleOn ? "justify-start" : "justify-end"
           } items-center ${bgColor} cursor-pointer`}
-          onClick={() => setToggleOn(!toggleOn)}
+          onClick={() => toggleSwitch()}
         >
-          <Flex
+          <motion.div
+            layout
+            transition={spring}
             className={`${switchSizes[size]} ${switchColor} shadowNarrowTight`}
           />
         </HStack>{" "}
