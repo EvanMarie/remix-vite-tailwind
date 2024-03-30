@@ -1,41 +1,40 @@
 import { useState } from "react";
-import { CodeIcon } from "styles";
+import { InfoIcon } from "styles";
 import Box from "~/components/buildingBlocks/box";
 import Button from "~/components/buildingBlocks/button";
 import CenterHorizontalFull from "~/components/buildingBlocks/centerHorizontalFull";
-import CodeExample from "~/components/buildingBlocks/codeExample";
 import FlexFull from "~/components/buildingBlocks/flexFull";
 import IconButton from "~/components/buildingBlocks/iconButton";
 import Modal from "~/components/buildingBlocks/modal";
+import Text from "~/components/buildingBlocks/text";
 import VStackFull from "~/components/buildingBlocks/vStackFull";
-import { SVGHeading } from "../../components/formattingComponents";
 
-export default function CodeModal({
-  code,
+export default function InfoModal({
   title,
-  isPath = true,
-  useIcon = false,
+  useIcon = true,
+  children,
+  buttonText,
 }: {
-  code: string;
   title: string;
-  isPath?: boolean;
   useIcon?: boolean;
+  children: React.ReactNode;
+  buttonText?: string;
 }) {
   const [modalOpen, setModalOpen] = useState(false);
   return (
     <>
       {useIcon ? (
         <IconButton
-          icon={CodeIcon}
+          icon={InfoIcon}
           onClick={() => setModalOpen(true)}
           type="smallNormal"
         />
       ) : (
         <Box>
           <Button
-            iconLeft={CodeIcon}
+            iconLeft={InfoIcon}
             onClick={() => setModalOpen(true)}
-            buttonText={isPath ? "View Path" : "View Code"}
+            buttonText={buttonText ? buttonText : "Info"}
             type="smallNormal"
           />
         </Box>
@@ -46,20 +45,17 @@ export default function CodeModal({
         onClose={() => setModalOpen(false)}
         modalSize="w-full h-fit max-h-[90vh] sm:w-80% md:w-70% lg:w-60% xl:w-50% 2xl:w-40%"
       >
-        <FlexFull className=" h-full max-h-[70vh] text-col-100  bg-col-500 border-900-md">
+        <FlexFull className=" h-full max-h-[70vh] text-col-100  bg-900-radial6op25 border-900-md">
           <VStackFull
             gap="gap-[0px]"
             className="overflow-y-hidden rounded-none"
           >
             <CenterHorizontalFull className="bg-col-700 rounded-b-none">
-              <SVGHeading className="text-[3vh] font-bold">{title}</SVGHeading>
+              <Text className="text-[3vh] font-bold">{title}</Text>
             </CenterHorizontalFull>
             <FlexFull className="h-full overflow-y-auto rounded-none insetShadowXl">
               <FlexFull className="h-fit py-[1vh] px-[2vh]">
-                <CodeExample>
-                  {isPath && "d=" + "{code}"}
-                  {code}
-                </CodeExample>
+                {children}
               </FlexFull>
             </FlexFull>
           </VStackFull>

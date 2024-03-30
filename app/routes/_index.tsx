@@ -70,6 +70,7 @@ export default function Index() {
               isExternal
             />
             <NavButton text="Design Presets" to="/design" />
+            <NavButton text="Framer" to="/design/framer-motion" />
             <NavButton text="Components" to="/design/components" />
             <NavButton text="Animation Examples" to="/design/css-animation" />
             <NavButton text="SVG World" to="/design/svg" />
