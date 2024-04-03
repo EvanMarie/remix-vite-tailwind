@@ -1,21 +1,14 @@
 import LayoutContainer from "~/components/buildingBlocks/layoutContainer";
 import DemoNav from "../components/demoNav";
 import TransitionFull from "~/components/buildingBlocks/TransitionFull";
-import ParallaxShiftingImage from "~/components/specialty/parallaxShiftingImage";
-import Box from "~/components/buildingBlocks/box";
-import FlexFull from "~/components/buildingBlocks/flexFull";
-import Image from "~/components/buildingBlocks/image";
 import { IParallax, Parallax, ParallaxLayer } from "@react-spring/parallax";
 import { useRef } from "react";
 import { ParallaxImageLayer } from "../components/structureComponents";
-import StaggerMenu from "~/components/specialty/staggerMenu";
-import { HiDotsVertical } from "react-icons/hi";
-import IconButton from "~/components/buildingBlocks/iconButton";
 import Center from "~/components/buildingBlocks/center";
 import Text from "~/components/buildingBlocks/text";
 import VStackFull from "~/components/buildingBlocks/vStackFull";
 import Flex from "~/components/buildingBlocks/flex";
-import { motion } from "framer-motion";
+import MothRameHeaderImage from "./components/headerImage";
 
 export default function RamenBarInded() {
   const parallax = useRef<IParallax>(null!);
@@ -23,7 +16,7 @@ export default function RamenBarInded() {
     <LayoutContainer className="bg-[url('/images/demo_images/ramenBack.png')]">
       <TransitionFull className="relative h-screen overflow-y-auto">
         <DemoNav />
-        <Box className="z-10 hover:cursor-pointer absolute top-[0.5vh] right-[1vh]">
+        {/* <Box className="z-10 hover:cursor-pointer absolute top-[0.5vh] right-[1vh]">
           <StaggerMenu
             menuItems={[
               {
@@ -72,29 +65,72 @@ export default function RamenBarInded() {
               </motion.div>
             }
           />
-        </Box>
-        <Parallax ref={parallax} pages={6}>
-          <ParallaxLayer id="top">
-            <FlexFull className="pt-[13vh] lg:h-screen justify-center items-center lg:pt-[0px] relative">
-              <Box className="absolute z-10">
-                <Image
-                  alt="moth ramen"
-                  src="/images/demo_images/moth-ramen.png"
-                />
-              </Box>
-              <Box>
-                <ParallaxShiftingImage
-                  bgImageLink="/images/demo_images/moth.png"
-                  imageHeight="h-[50vh] md:h-[70vh] xl:h-[75vh]"
-                  animationCycleDuration={90}
-                  minNumYmovements={8}
-                  maxNumYmovements={16}
-                  sectionsClassName="shadowNarrowTight border-[0.2vh] border-red-600 opacity-60"
-                />
-              </Box>
-            </FlexFull>
-          </ParallaxLayer>
+        </Box> */}
 
+        {/* -----------------------------------------------------------------------------------------  */}
+        {/* MOBILE THROUGH MEDIUM SCREENS  */}
+        <Parallax ref={parallax} pages={10} className="inline lg:hidden">
+          <MothRameHeaderImage />
+          <ParallaxImageLayer
+            offset={0.7}
+            speed={0.5}
+            imageLink="/images/demo_images/mothRamen01.png"
+            position="left-[2.5vw]"
+          />
+          <ParallaxImageLayer
+            offset={1.1}
+            speed={0.5}
+            imageLink="/images/demo_images/mothRamen02.png"
+            position="left-[2.5vw]"
+          />
+          <ParallaxImageLayer
+            offset={1.7}
+            speed={0.5}
+            imageLink="/images/demo_images/mothRamen03.png"
+            position="left-[2.5vw]"
+          />
+          <ParallaxImageLayer
+            offset={1.8}
+            speed={0.5}
+            imageLink="/images/demo_images/mothRamen04.png"
+            position="left-[2.5vw]"
+          />
+          <ParallaxImageLayer
+            offset={2}
+            speed={0.5}
+            imageLink="/images/demo_images/mothRamen05.png"
+            position="left-[2.5vw]"
+          />
+          <ParallaxLayer offset={2.5} speed={0}>
+            <Center className="w-screen h-screen" id="menu">
+              <VStackFull className="h-full p-[1vh]">
+                <Flex className="px-[3vh] rounded-[3vh] bg-yellow-300 border-[0.3vh] border-red-500 shadowBroadLoose">
+                  <Text className="butterflyFont text-[6vh]">
+                    MothRamen Menu
+                  </Text>
+                </Flex>
+              </VStackFull>
+            </Center>
+          </ParallaxLayer>
+          <ParallaxLayer offset={3.25} speed={1}>
+            {" "}
+            <Center className="w-screen h-screen bg-col-950" id="merch">
+              MERCH
+            </Center>
+          </ParallaxLayer>
+          <ParallaxLayer offset={4.25} speed={1}>
+            {" "}
+            <Center className="w-screen h-screen bg-col-950" id="contact">
+              CONTACT
+            </Center>
+          </ParallaxLayer>
+          <ParallaxLayer offset={5.25} speed={1} />
+        </Parallax>
+
+        {/* -----------------------------------------------------------------------------------------  */}
+        {/* LARGE SCREEN VIEW  */}
+        <Parallax ref={parallax} pages={6} className="hidden lg:inline">
+          <MothRameHeaderImage />
           <ParallaxImageLayer
             offset={0.9}
             speed={0.1}
