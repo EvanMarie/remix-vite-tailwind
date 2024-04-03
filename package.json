@@ -20,6 +20,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
     "react-intersection-observer": "^9.8.1",
+    "react-spring": "^9.7.3",
     "remix-flat-routes": "^0.6.4",
     "use-spring": "^0.2.4"
   },

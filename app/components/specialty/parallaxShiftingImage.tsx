@@ -13,6 +13,7 @@ export default function ParallaxShiftingImage({
   minYdistance = -50,
   maxYdistance = 50,
   paddingGap = "p-[0.5vh]",
+  sectionsClassName,
 }: {
   bgImageLink: string;
   animationCycleDuration?: number;
@@ -23,6 +24,7 @@ export default function ParallaxShiftingImage({
   minNumYmovements?: number;
   maxNumYmovements?: number;
   paddingGap?: string;
+  sectionsClassName?: string;
 }) {
   const bgPositions = Array.from(
     { length: numDivisions },
@@ -52,6 +54,7 @@ export default function ParallaxShiftingImage({
       {bgPositions.map((position, index) => (
         <Flex key={index} className={`${paddingGap} hover:cursor-default`}>
           <AnimatedParallaxImage
+            sectionsClassName={sectionsClassName}
             duration={animationCycleDuration}
             bgImage={bgImageLink}
             isAnimated={true}

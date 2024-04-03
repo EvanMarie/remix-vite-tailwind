@@ -11,6 +11,7 @@ export default function AnimatedParallaxImage({
   isAnimated = false,
   yValues = [0, -20, -40, -20, 0],
   duration = 20,
+  sectionsClassName = "shadowWideLoose border-970-md ",
 }: {
   parallaxHeight?: string;
   parallaxWidth?: string;
@@ -21,6 +22,7 @@ export default function AnimatedParallaxImage({
   isAnimated?: boolean;
   yValues?: number[];
   duration?: number;
+  sectionsClassName?: string;
 }) {
   const animationVariants = {
     move: {
@@ -39,7 +41,7 @@ export default function AnimatedParallaxImage({
       {" "}
       {/* Performance optimization */}
       <motion.div
-        className={`${parallaxHeight} border-970-md overflow-y-scroll ${bgImage} bg-cover bg-no-repeat shadowWideLoose ${className}`}
+        className={`${parallaxHeight} ${sectionsClassName} overflow-y-scroll ${bgImage} bg-cover bg-no-repeat  ${className}`}
         style={{
           backgroundImage: `url(${bgImage})`,
           backgroundPosition: bgPosition,
