@@ -5,10 +5,10 @@ import { IParallax, Parallax, ParallaxLayer } from "@react-spring/parallax";
 import { useRef } from "react";
 import { ParallaxImageLayer } from "../components/structureComponents";
 import Center from "~/components/buildingBlocks/center";
-import Text from "~/components/buildingBlocks/text";
 import VStackFull from "~/components/buildingBlocks/vStackFull";
-import Flex from "~/components/buildingBlocks/flex";
 import MothRameHeaderImage from "./components/headerImage";
+import SectionLabel from "./components/sectionLabel";
+import { MenuItemsOne, MenuItemsTwo } from "./components/menuItemsList";
 
 export default function RamenBarInded() {
   const parallax = useRef<IParallax>(null!);
@@ -75,48 +75,47 @@ export default function RamenBarInded() {
             offset={0.7}
             speed={0.2}
             imageLink="/images/demo_images/mothRamen01.png"
-            position="left-[5vw] sm:left-[17vw]"
+            position="left-[10vw] sm:left-[17vw]"
           />
           <ParallaxImageLayer // ramen bar 1
             offset={1.1}
             speed={0.1}
             imageLink="/images/demo_images/mothRamen02.png"
-            position="left-[5vw] sm:left-[17vw]"
+            position="left-[10vw] sm:left-[17vw]"
           />
           <ParallaxImageLayer // bowl of ramen
             offset={1.7}
             speed={0.3}
             imageLink="/images/demo_images/mothRamen03.png"
-            position="left-[5vw] sm:left-[17vw]"
+            position="left-[10vw] sm:left-[17vw]"
           />
           <ParallaxImageLayer // little moth
             offset={2}
             speed={1.1}
             imageLink="/images/demo_images/mothRamen04.png"
-            position="left-[5vw] sm:left-[17vw]"
+            position="left-[10vw] sm:left-[17vw]"
           />
           <ParallaxImageLayer // ramen bar 2
             offset={2.6}
             speed={0.4}
             imageLink="/images/demo_images/mothRamen05.png"
-            position="left-[5vw] sm:left-[17vw]"
+            position="left-[10vw] sm:left-[17vw]"
           />
           <ParallaxLayer sticky={{ start: 3, end: 5 }}>
             <Center className="w-screen h-screen" id="menu">
               <VStackFull className="h-full p-[1vh]">
-                <Flex className="px-[3vh] rounded-[3vh] bg-yellow-300 border-[0.3vh] border-red-500 shadowBroadLoose">
-                  <Text className="butterflyFont text-[6vh]">
-                    MothRamen Menu
-                  </Text>
-                </Flex>
+                <SectionLabel text="Menu Highlights" />
               </VStackFull>
             </Center>
           </ParallaxLayer>
-          <ParallaxLayer offset={3} speed={0.5}>
-            <Center className="w-screen h-screen" id="menu">
-              <VStackFull className="h-full p-[1vh]">this</VStackFull>
-            </Center>
-          </ParallaxLayer>
+          <MenuItemsOne offset={3.2} speed={1} sectionTitle="Section One" />
+          <MenuItemsTwo
+            offset={3.9}
+            speed={0.5}
+            sectionTitle="Section Two"
+            position="top-[20vh]"
+          />
+
           {/* <ParallaxLayer offset={3.25} speed={1}>
             {" "}
             <Center className="w-screen h-screen bg-col-950" id="merch">
@@ -138,46 +137,44 @@ export default function RamenBarInded() {
           <MothRameHeaderImage />
           <ParallaxImageLayer
             offset={0.9}
-            speed={0.1}
+            speed={0.3}
             imageLink="/images/demo_images/mothRamen01.png"
-            position="md:top-[15vh] lg:top-[20vh] left-[10vh]"
+            position="md:top-[15vh] lg:top-[20vh] md:left-[5vh] xxl:left-[10vh]"
           />
           <ParallaxImageLayer
             offset={1.2}
-            speed={0.3}
+            speed={0.5}
             imageLink="/images/demo_images/mothRamen02.png"
-            position="md:right-[5vh] lg:right-[20vh]"
+            position="md:right-[5vh] lg:right-[5vh] xxl:right-[15vh]"
           />
           <ParallaxImageLayer
             offset={1.5}
-            speed={0.2}
+            speed={0.4}
             imageLink="/images/demo_images/mothRamen03.png"
-            position="md:left-[10vh] lg:left-[30vh]"
+            position="md:left-[10vh] lg:left-[3vh] xl:left-[8vh] xxl:left-[20vh]"
           />
           <ParallaxImageLayer
             offset={1.8}
-            speed={0}
+            speed={0.5}
             imageLink="/images/demo_images/mothRamen04.png"
-            position="md:right-[5vh] md:top-[10vh] lg:right-[30vh]"
+            position="md:right-[5vh] md:top-[10vh] lg:right-[7vh] xl:right-[11vh] xxl:right-[20vh] "
           />
           <ParallaxImageLayer
             offset={2}
-            speed={0.5}
+            speed={0.6}
             imageLink="/images/demo_images/mothRamen05.png"
             position="md:left-[10vh] lg:left-[30vh]"
           />
-          <ParallaxLayer sticky={{ start: 3, end: 5 }}>
+          <ParallaxLayer sticky={{ start: 2.7, end: 5 }}>
             <Center className="w-screen h-screen" id="menu">
               <VStackFull className="h-full p-[1vh]">
-                <Flex className="px-[3vh] rounded-[3vh] bg-yellow-300 border-[0.3vh] border-red-500 shadowBroadLoose">
-                  <Text className="butterflyFont text-[6vh]">
-                    MothRamen Menu
-                  </Text>
-                </Flex>
+                <SectionLabel text="Menu Highlights" />
               </VStackFull>
             </Center>
           </ParallaxLayer>
-          <ParallaxLayer offset={3.25} speed={1}>
+          <MenuItemsOne offset={3} speed={1} sectionTitle="Section One" />
+          <MenuItemsTwo offset={3.8} speed={1} sectionTitle="Section Two" />
+          {/* <ParallaxLayer offset={3.25} speed={1}>
             {" "}
             <Center className="w-screen h-screen bg-col-950" id="merch">
               MERCH
@@ -189,7 +186,7 @@ export default function RamenBarInded() {
               CONTACT
             </Center>
           </ParallaxLayer>
-          <ParallaxLayer offset={5.25} speed={1} />
+          <ParallaxLayer offset={5.25} speed={1} /> */}
         </Parallax>
       </TransitionFull>
     </LayoutContainer>
