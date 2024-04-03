@@ -77,26 +77,6 @@ export function ParallaxLayerContainer({
   );
 }
 
-export function ImageContainer({
-  imageLink,
-  imageDimensions = "w-[35vh] h-[35vh]",
-  imageShadow = "shadowBroadLoose border-900-md",
-  className,
-}: {
-  imageLink: string;
-  imageDimensions: string;
-  imageShadow: string;
-  className?: string;
-}) {
-  return (
-    <Box
-      className={` bg-col-850 ${imageDimensions} ${imageShadow} ${className}`}
-    >
-      <Image src={imageLink} alt="parallax image" />
-    </Box>
-  );
-}
-
 export function ParallaxImageLayer({
   offset,
   speed,
@@ -104,7 +84,7 @@ export function ParallaxImageLayer({
   position,
 
   imageLink,
-  imageDimensions = "w-[50vh] h-[50vh]",
+  imageDimensions = "w-[95vw] h-[95vw] md:w-[40vh] nd:h-[40vh] lg:w-[50vh] lg:h-[50vh]",
   imageShadow = "shadowBroadLoose border-900-md",
   className,
 }: {
@@ -120,13 +100,12 @@ export function ParallaxImageLayer({
 }) {
   return (
     <ParallaxLayer offset={offset} speed={speed} sticky={sticky}>
-      <Box className={`absolute ${position} bg-white`}>
-        <ImageContainer
-          className={className}
-          imageLink={imageLink}
-          imageDimensions={imageDimensions}
-          imageShadow={imageShadow}
-        />
+      <Box className={`absolute ${position}`}>
+        <Box
+          className={` bg-col-850 ${imageDimensions} ${imageShadow} ${className} relative`}
+        >
+          <Image src={imageLink} alt="parallax image" />
+        </Box>
       </Box>
     </ParallaxLayer>
   );

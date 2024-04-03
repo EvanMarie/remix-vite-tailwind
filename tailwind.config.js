@@ -2886,6 +2886,9 @@ export default {
           backgroundImage:
             "linear-gradient(to right, #D0E2F2, #D9B5AD, #e4edf5,  #D9B5AD, #D0E2F2);",
         },
+        ".butterflyFont": {
+          fontFamily: "'Butterfly Kids', cursive",
+        },
       });
     }),
     // INPUT AND TEXTAREA PLUGIN

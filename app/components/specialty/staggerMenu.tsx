@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -56,6 +57,8 @@ export default function StaggerMenu({
   menuPosition = "left-0 top-[6vh]",
   closeButtonDelay = 1,
   buttonComponent,
+  itemWhileHover,
+  itemWhileTap,
 }: {
   enterFrom?: string;
   menuItems?: MenuItem[];
@@ -77,6 +80,8 @@ export default function StaggerMenu({
   menuPosition?: string;
   closeButtonDelay?: number;
   buttonComponent?: React.ReactNode;
+  itemWhileHover?: any;
+  itemWhileTap?: any;
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
@@ -219,7 +224,7 @@ export default function StaggerMenu({
                         {item.to && (
                           <NavLink to={item.to}>
                             <Flex
-                              className={`hover:cursor-pointer ${itemPadding} ${itemStyle} ${itemHoverStyle} ${itemHoverAnimation}`}
+                              className={` hover:cursor-pointer ${itemPadding} ${itemStyle} ${itemHoverStyle} ${itemHoverAnimation}`}
                               onClick={() => setIsOpen(false)}
                             >
                               {item.title}
@@ -227,15 +232,17 @@ export default function StaggerMenu({
                           </NavLink>
                         )}
                         {item.onClick && (
-                          <Flex
-                            className={`hover:cursor-pointer ${itemPadding} ${itemStyle} ${itemHoverStyle} ${itemHoverAnimation}`}
+                          <motion.div
+                            className={`hover:cursor-pointer flex ${itemPadding} ${itemStyle} ${itemHoverStyle} ${itemHoverAnimation}`}
                             onClick={() => {
                               item.onClick && item.onClick();
                               setIsOpen(false);
                             }}
+                            whileHover={itemWhileHover}
+                            whileTap={itemWhileTap}
                           >
                             {item.title}
-                          </Flex>
+                          </motion.div>
                         )}
                       </motion.div>
                     ))}

@@ -20,6 +20,10 @@ export const links: LinksFunction = () => [
     rel: "stylesheet",
     href: "https://fonts.googleapis.com/css2?family=Waiting+for+the+Sunrise&display=swap",
   },
+  {
+    rel: "stylesheet",
+    href: "https://fonts.googleapis.com/css2?family=Butterfly+Kids&display=swap",
+  },
 ];
 
 export default function App() {
