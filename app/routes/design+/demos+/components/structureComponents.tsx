@@ -84,7 +84,7 @@ export function ParallaxImageLayer({
   position,
 
   imageLink,
-  imageDimensions = "w-[95vw] h-[95vw] md:w-[40vh] nd:h-[40vh] lg:w-[50vh] lg:h-[50vh]",
+  imageDimensions = "w-[90vw] h-[90vw] sm:w-[65vw] sm:h-[65vw] md:w-[40vw] md:h-[40vw] lg:w-[50vh] lg:h-[50vh]",
   imageShadow = "shadowBroadLoose border-900-md",
   className,
 }: {
