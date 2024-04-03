@@ -11,8 +11,29 @@ import useEscapeKey from "~/utils/useEscapeKey";
 import FlexFull from "~/components/buildingBlocks/flexFull";
 import Box from "~/components/buildingBlocks/box";
 import Transition from "~/components/buildingBlocks/transition";
+import { ButtonType } from "../buildingBlocks/navLinkButton";
+import { NavLink } from "@remix-run/react";
 
-const tempItems = ["Item 1", "Item 2", "Item 3", "Item 4"];
+const tempItems = [
+  {
+    title: "Home",
+    to: "/",
+  },
+  {
+    title: "About",
+    to: "/",
+  },
+  {
+    title: "Contact",
+    to: "/",
+  },
+];
+
+type MenuItem = {
+  title: string;
+  to?: string;
+  onClick?: () => void;
+};
 
 export default function StaggerMenu({
   enterFrom = "top",
@@ -29,13 +50,15 @@ export default function StaggerMenu({
   stiffness = 100,
   buttonText,
   buttonIcon,
+  buttonType,
   staggerDuration = 0.2,
-  overlayStyle = "fixed inset-0 bg-col-120 backdrop-blur-md",
-  menuStyle = "fixed left-0 top-[6vh]",
+  overlayStyle = " bg-col-120 backdrop-blur-md",
+  menuPosition = "left-0 top-[6vh]",
   closeButtonDelay = 1,
+  buttonComponent,
 }: {
   enterFrom?: string;
-  menuItems?: string[];
+  menuItems?: MenuItem[];
   menuDirection?: string;
   menuGap?: string;
   containerClassName?: string;
@@ -48,10 +71,12 @@ export default function StaggerMenu({
   stiffness?: number;
   buttonText?: string;
   buttonIcon?: React.ComponentType<{ className?: string }>;
+  buttonType?: string;
   staggerDuration?: number;
   overlayStyle?: string;
-  menuStyle?: string;
+  menuPosition?: string;
   closeButtonDelay?: number;
+  buttonComponent?: React.ReactNode;
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
@@ -128,7 +153,11 @@ export default function StaggerMenu({
 
   return (
     <>
-      {
+      {buttonComponent ? (
+        <Box className="hover:cursor-pointer" onClick={toggleMenu}>
+          {buttonComponent}
+        </Box>
+      ) : (
         <VStack>
           {buttonText ? (
             <Button
@@ -138,24 +167,28 @@ export default function StaggerMenu({
             />
           ) : (
             <VStack>
-              <IconButton onClick={toggleMenu} icon={CgSmile} />
+              <IconButton
+                onClick={toggleMenu}
+                icon={buttonIcon ? buttonIcon : CgSmile}
+                type={buttonType as ButtonType}
+              />
             </VStack>
           )}
         </VStack>
-      }
+      )}
 
       <AnimatePresence>
         {isOpen && (
           <Portal>
             <motion.div
-              className={`${overlayStyle}`}
+              className={`fixed inset-0 ${overlayStyle}`}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
             >
               <motion.div
-                className={menuStyle}
+                className={`fixed ${menuPosition}`}
                 initial="hidden"
                 animate="visible"
                 exit="exit"
@@ -163,22 +196,50 @@ export default function StaggerMenu({
                 onClick={(e) => e.stopPropagation()}
               >
                 <Flex
-                  className={`${menuDirection} ${menuGap} ${containerClassName} `}
+                  className={`${containerClassName} ${menuDirection} ${
+                    menuDirection === "flex-row"
+                      ? "justify-between items-center"
+                      : "justify-center items-between"
+                  }`}
                 >
-                  {menuItems.map((item, index) => (
-                    <motion.div
-                      key={index}
-                      variants={itemVariants}
-                      custom={enterFrom}
-                      exit={itemVariants.exit(enterFrom)}
-                    >
-                      <Flex
-                        className={`hover:cursor-pointer ${itemPadding} ${itemStyle} ${itemHoverStyle} ${itemHoverAnimation}`}
+                  <Flex
+                    className={`${menuDirection} ${menuGap} w-full ${
+                      menuDirection === "flex-row"
+                        ? "justify-around items-center"
+                        : "justify-center items-between"
+                    }`}
+                  >
+                    {menuItems.map((item, index) => (
+                      <motion.div
+                        key={index}
+                        variants={itemVariants}
+                        custom={enterFrom}
+                        exit={itemVariants.exit(enterFrom)}
                       >
-                        {item}
-                      </Flex>
-                    </motion.div>
-                  ))}
+                        {item.to && (
+                          <NavLink to={item.to}>
+                            <Flex
+                              className={`hover:cursor-pointer ${itemPadding} ${itemStyle} ${itemHoverStyle} ${itemHoverAnimation}`}
+                              onClick={() => setIsOpen(false)}
+                            >
+                              {item.title}
+                            </Flex>
+                          </NavLink>
+                        )}
+                        {item.onClick && (
+                          <Flex
+                            className={`hover:cursor-pointer ${itemPadding} ${itemStyle} ${itemHoverStyle} ${itemHoverAnimation}`}
+                            onClick={() => {
+                              item.onClick && item.onClick();
+                              setIsOpen(false);
+                            }}
+                          >
+                            {item.title}
+                          </Flex>
+                        )}
+                      </motion.div>
+                    ))}
+                  </Flex>
                   <Transition delay={closeButtonDelay}>
                     <FlexFull className="p-[0.5vh] justify-center">
                       <Box className="py-[0.2vh] px-[0.7vh] bg-col-950">

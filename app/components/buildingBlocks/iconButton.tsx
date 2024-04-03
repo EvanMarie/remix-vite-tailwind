@@ -113,15 +113,16 @@ export default function IconButton({
         className={`${containerClassName}`}
       >
         <Flex
-          className={` ${iconButtonSize} ${buttonClass} ${containerClassName}`}
+          className={` ${iconButtonSize} ${buttonClass} ${containerClassName} hover:cursor-pointer `}
         >
           {isLoading ? (
             <SpinnerSmall />
           ) : (
             <Icon
               icon={icon}
+              hoverCursor="hover:cursor-pointer"
               iconClassName={`${displayIconSize} ${iconClassName}`}
-              containerClassName={`flex w-full h-full justify-center items-center hover:cursor-pointer`}
+              containerClassName={`flex w-full h-full justify-center items-center`}
             />
           )}
         </Flex>

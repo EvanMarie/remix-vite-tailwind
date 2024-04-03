@@ -1,8 +1,10 @@
 import { ParallaxLayer } from "@react-spring/parallax";
+import Box from "~/components/buildingBlocks/box";
 import Center from "~/components/buildingBlocks/center";
 import Flex from "~/components/buildingBlocks/flex";
 import HStackFull from "~/components/buildingBlocks/hStackFull";
 import Heading from "~/components/buildingBlocks/headingText";
+import Image from "~/components/buildingBlocks/image";
 import Text from "~/components/buildingBlocks/text";
 import VStack from "~/components/buildingBlocks/vStack";
 
@@ -71,6 +73,61 @@ export function ParallaxLayerContainer({
           )}
         </VStack>
       </Container>
+    </ParallaxLayer>
+  );
+}
+
+export function ImageContainer({
+  imageLink,
+  imageDimensions = "w-[35vh] h-[35vh]",
+  imageShadow = "shadowBroadLoose border-900-md",
+  className,
+}: {
+  imageLink: string;
+  imageDimensions: string;
+  imageShadow: string;
+  className?: string;
+}) {
+  return (
+    <Box
+      className={` bg-col-850 ${imageDimensions} ${imageShadow} ${className}`}
+    >
+      <Image src={imageLink} alt="parallax image" />
+    </Box>
+  );
+}
+
+export function ParallaxImageLayer({
+  offset,
+  speed,
+  sticky,
+  position,
+
+  imageLink,
+  imageDimensions = "w-[50vh] h-[50vh]",
+  imageShadow = "shadowBroadLoose border-900-md",
+  className,
+}: {
+  offset?: number;
+  speed?: number;
+  sticky?: { start: number; end: number };
+  position?: string;
+  label?: string;
+  imageLink: string;
+  imageDimensions?: string;
+  imageShadow?: string;
+  className?: string;
+}) {
+  return (
+    <ParallaxLayer offset={offset} speed={speed} sticky={sticky}>
+      <Box className={`absolute ${position} bg-white`}>
+        <ImageContainer
+          className={className}
+          imageLink={imageLink}
+          imageDimensions={imageDimensions}
+          imageShadow={imageShadow}
+        />
+      </Box>
     </ParallaxLayer>
   );
 }

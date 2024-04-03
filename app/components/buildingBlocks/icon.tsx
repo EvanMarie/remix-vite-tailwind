@@ -9,6 +9,7 @@ interface IconProps {
   r?: string;
   b?: string;
   iconClassName?: string;
+  hoverCursor?: string;
   w?: string;
   h?: string;
   rounded?: string;
@@ -19,6 +20,7 @@ export default function Icon({
   icon: IconComponent,
   containerClassName = "",
   iconClassName = "",
+  hoverCursor = "hover:cursor-default",
   w = "w-fit",
   h = "h-fit",
   pos,
@@ -39,11 +41,11 @@ export default function Icon({
     <div
       role="button"
       tabIndex={0}
-      className={`${rounded} ${w} ${h} ${pos} ${t} ${b} ${r} ${l} ${containerClassName} hover:cursor-default`}
+      className={`${rounded} ${w} ${h} ${pos} ${t} ${b} ${r} ${l} ${containerClassName} ${hoverCursor}`}
       onClick={onClick}
       onKeyDown={handleKeyDown}
     >
-      <IconComponent className={`${rounded} ${iconClassName}`} />
+      <IconComponent className={`${rounded} ${iconClassName} ${hoverCursor}`} />
     </div>
   );
 }
