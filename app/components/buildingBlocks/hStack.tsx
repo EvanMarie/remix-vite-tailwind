@@ -34,7 +34,7 @@ const HStack = React.forwardRef<HTMLDivElement, HStackProps>(
       <div
         role="button"
         tabIndex={0}
-        className={`flex flex-row ${gap} ${className}hover:cursor-default`}
+        className={`flex flex-row ${gap} ${className} hover:cursor-default`}
         onClick={onClick}
         onKeyDown={onKeyDown}
         ref={ref}

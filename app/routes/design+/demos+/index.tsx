@@ -1,6 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 import { NavLink } from "@remix-run/react";
-import { FaSquareGithub } from "react-icons/fa6";
+import { ReturnPathIcon } from "styles";
 import HStack from "~/components/buildingBlocks/hStack";
 import Icon from "~/components/buildingBlocks/icon";
 import LayoutContainer from "~/components/buildingBlocks/layoutContainer";
@@ -51,33 +51,14 @@ export default function Index() {
       <Transition className="w-full h-full justify-center items-center">
         <VStackFull className="text-center xxl:w-[60vw]" gap="gap-[6vh]">
           <Text className="font-cursive boldTextGlow text-col-900 text-stroke-8-900 text-[5vh] md:text-[8vh] lg:text-[10vh] text-center animate-slideInRight">
-            Remix, Vite, & Tailwind
+            Demos & Templates
           </Text>
-          <VStackFull>
-            <Text className="text-col-100 text-2xl textShadow text-center animate-slideInLeft delay-1500">
-              A Project Launchpad with Vite, Tailwind CSS, and Remix Flat Routes
-            </Text>
-            <Text className="text-col-100 text-2xl textShadow text-center animate-zoomIn">
-              including extensive preset options and components with quick
-              customization.
-            </Text>
-          </VStackFull>
+
           <Wrap className="animate-slideInUp50vh gap-[3vh] duration-2200 justify-center">
-            <NavButton
-              text="Repo"
-              to="https://github.com/EvanMarie/remix-vite-tailwind"
-              icon={FaSquareGithub}
-              isExternal
-            />
-            <NavButton text="Design Presets" to="/design" />{" "}
-            <NavButton text="Components" to="/design/components" />
-            <NavButton text="Demos" to="/design/demos" />
-            <NavButton text="Animation" to="/design/animation" />
-            <NavButton
-              text="DarkViolet.ai"
-              to="https://darkviolet.ai"
-              className="shadowBroadLoose border-970-md bg-gradient-to-r from-[#cd36f4] via-[#ab00ff] to-[#9b82ee] text-col-100 textShadow hover:metallicEdgesXl hover:scale-105"
-            />
+            <NavButton text="Main" to="/" icon={ReturnPathIcon} />
+            <NavButton text="Ramen Bar" to="/design/demos/ramen-bar" />
+            <NavButton text="Two" to="/design/demos/two" />
+            <NavButton text="Three" to="/design/demos/three" />
           </Wrap>
         </VStackFull>
       </Transition>
