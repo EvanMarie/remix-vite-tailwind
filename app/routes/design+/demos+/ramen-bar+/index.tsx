@@ -8,7 +8,12 @@ import Center from "~/components/buildingBlocks/center";
 import VStackFull from "~/components/buildingBlocks/vStackFull";
 import MothRameHeaderImage from "./components/headerImage";
 import SectionLabel from "./components/sectionLabel";
-import { MenuItemsOne, MenuItemsTwo } from "./components/menuItemsList";
+import {
+  MenuItemsFour,
+  MenuItemsOne,
+  MenuItemsThree,
+  MenuItemsTwo,
+} from "./components/menuItemsList";
 
 export default function RamenBarInded() {
   const parallax = useRef<IParallax>(null!);
@@ -101,20 +106,17 @@ export default function RamenBarInded() {
             imageLink="/images/demo_images/mothRamen05.png"
             position="left-[10vw] sm:left-[17vw]"
           />
-          <ParallaxLayer sticky={{ start: 3, end: 5 }}>
+          <ParallaxLayer sticky={{ start: 3, end: 6 }}>
             <Center className="w-screen h-screen" id="menu">
               <VStackFull className="h-full p-[1vh]">
                 <SectionLabel text="Menu Highlights" />
               </VStackFull>
             </Center>
           </ParallaxLayer>
-          <MenuItemsOne offset={3.2} speed={1} sectionTitle="Section One" />
-          <MenuItemsTwo
-            offset={3.9}
-            speed={0.5}
-            sectionTitle="Section Two"
-            position="top-[20vh]"
-          />
+          <MenuItemsOne offset={3.2} speed={0.9} />
+          <MenuItemsTwo offset={3.9} speed={0.8} position="top-[20vh]" />
+          <MenuItemsThree offset={4.6} speed={0.9} />
+          <MenuItemsFour offset={5.5} speed={0.6} position="top-[20vh]" />
 
           {/* <ParallaxLayer offset={3.25} speed={1}>
             {" "}
@@ -133,7 +135,7 @@ export default function RamenBarInded() {
 
         {/* -----------------------------------------------------------------------------------------  */}
         {/* LARGE SCREEN VIEW  */}
-        <Parallax ref={parallax} pages={6} className="hidden md:inline">
+        <Parallax ref={parallax} pages={8} className="hidden md:inline">
           <MothRameHeaderImage />
           <ParallaxImageLayer
             offset={0.9}
@@ -165,15 +167,17 @@ export default function RamenBarInded() {
             imageLink="/images/demo_images/mothRamen05.png"
             position="md:left-[10vh] lg:left-[30vh]"
           />
-          <ParallaxLayer sticky={{ start: 2.7, end: 5 }}>
+          <ParallaxLayer sticky={{ start: 2.7, end: 6 }}>
             <Center className="w-screen h-screen" id="menu">
               <VStackFull className="h-full p-[1vh]">
                 <SectionLabel text="Menu Highlights" />
               </VStackFull>
             </Center>
           </ParallaxLayer>
-          <MenuItemsOne offset={3} speed={1} sectionTitle="Section One" />
-          <MenuItemsTwo offset={3.8} speed={1} sectionTitle="Section Two" />
+          <MenuItemsOne offset={3} speed={0.4} />
+          <MenuItemsTwo offset={3.6} speed={0.8} position="top-[30vh]" />
+          <MenuItemsThree offset={4.3} speed={0.6} />
+          <MenuItemsFour offset={5} speed={0.9} position="top-[20vh]" />
           {/* <ParallaxLayer offset={3.25} speed={1}>
             {" "}
             <Center className="w-screen h-screen bg-col-950" id="merch">
