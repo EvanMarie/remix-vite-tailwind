@@ -32,7 +32,7 @@ import { InteractiveKeyFrames } from "./components/keyframeExperiments";
 import NavContainer from "~/components/buildingBlocks/navContainer";
 import Heading from "~/components/buildingBlocks/headingText";
 import NavIconButton from "~/components/buildingBlocks/navLinkIconButton";
-import { HomeIcon } from "styles";
+import { HomeIcon, ReturnPathIcon } from "styles";
 import CenterHorizontalFull from "~/components/buildingBlocks/centerHorizontalFull";
 import HStackFull from "~/components/buildingBlocks/hStackFull";
 
@@ -40,8 +40,19 @@ export default function FramerExperiments() {
   return (
     <FlexFull className="h-screen overflow-y-auto overflow-x-hidden relative">
       <NavContainer>
-        <HStackFull className="justify-between px-[1vh] ">
-          <NavIconButton icon={HomeIcon} to="/" />
+        <HStackFull className="justify-between px-[1vh] h-full items-center ">
+          <NavIconButton
+            icon={HomeIcon}
+            type="smallNormal"
+            to="/"
+            label="home"
+          />
+          <NavIconButton
+            icon={ReturnPathIcon}
+            type="smallNormal"
+            to="/design/animation"
+            label="animation"
+          />
           <CenterHorizontalFull>
             <Heading
               text="Experiments with Framer Motion"
