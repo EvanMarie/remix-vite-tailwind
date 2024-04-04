@@ -4,9 +4,6 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import Modal from "~/components/buildingBlocks/modal";
 import VStackFull from "~/components/buildingBlocks/vStackFull";
-import { ParallaxLayer } from "@react-spring/parallax";
-import CenterFull from "~/components/buildingBlocks/centerFull";
-import FlexFull from "~/components/buildingBlocks/flexFull";
 
 export const MerchCollection = [
   // sake set
@@ -198,30 +195,22 @@ export default function MerchItem({
   const [modalOpen, setModalOpen] = useState(false);
   return (
     <>
-      <Box
-        className={`hover:cursor-pointer shadowBroadLooser border-970-md rounded-[2vh]`}
+      <motion.div
+        whileHover={{
+          scale: 1.03,
+          rotate: -3,
+          transition: { duration: 0.3 },
+        }}
+        whileTap={{
+          rotate: 5,
+          scale: 0.85,
+          transition: { duration: 0.3 },
+        }}
+        className="rounded-[2vh] hover:cursor-pointer z-10 w-[85vw] h-[85vw] shadowBroadLooser border-970-md"
         onClick={() => setModalOpen(true)}
       >
-        <motion.div
-          whileHover={{
-            scale: 1.2,
-            rotate: -5,
-            transition: { duration: 0.3 },
-          }}
-          whileTap={{
-            rotate: 5,
-            scale: 0.85,
-            transition: { duration: 0.3 },
-          }}
-          className="w-[70vh] rounded-[2vh] hover:cursor-pointer z-10 bg-red-300"
-        >
-          <Image
-            src={imageLink}
-            alt={title}
-            className="w-full h-full  rounded-[1.8vh]"
-          />
-        </motion.div>
-      </Box>
+        <Image src={imageLink} alt={title} className=" rounded-[1.8vh]" />
+      </motion.div>
 
       <Modal
         isOpen={modalOpen}

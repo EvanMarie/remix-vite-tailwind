@@ -18,7 +18,7 @@ export default function MenuItem({
   return (
     <FlexFull className={`justify-center `}>
       <HStack
-        className={`w-[90vw] lg:w-[80vw] xl:w-[70vw] px-[1vh] ${
+        className={`w-[90vw] lg:w-[80vw] xl:w-[70vw] px-[1vh] items-center ${
           imageSide === "left" ? "justify-start" : "justify-end"
         }`}
         gap="gap-[1.5vh]"
