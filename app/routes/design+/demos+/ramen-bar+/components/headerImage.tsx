@@ -8,8 +8,12 @@ export default function MothRameHeaderImage() {
   return (
     <ParallaxLayer id="top">
       <FlexFull className="pt-[13vh] lg:h-screen justify-center items-center lg:pt-[0px] relative">
-        <Box className="absolute z-10">
-          <Image alt="moth ramen" src="/images/demo_images/moth-ramen.png" />
+        <Box className="absolute z-10 w-full">
+          <Image
+            alt="moth ramen"
+            src="/images/demo_images/moth-ramen.png"
+            className="w-full h-full"
+          />
         </Box>
         <Box>
           <ParallaxShiftingImage
