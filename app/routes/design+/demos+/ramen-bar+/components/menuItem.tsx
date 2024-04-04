@@ -29,11 +29,13 @@ export default function MenuItem({
           </Flex>
         )}
         <VStackFull
-          className="bg-gray-300 p-[1.5vh]"
+          className="bg-gradient-to-br from-red-700 to-zinc-700 p-[1.5vh] shadowBroadLooser border-900-md rounded-[2vh] max-w-[70vh] h-fit"
           align={imageSide === "left" ? "items-start" : "items-end"}
         >
-          <h3 className="text-xl">{title}</h3>
-          <p>{description}</p>
+          <h3 className="text-lg text-yellow-200 textShadow">{title}</h3>
+          <p className="text-md-normal text-yellow-100 textShadow">
+            {description}
+          </p>
         </VStackFull>
         {imageSide === "right" && (
           <Flex className="flex-shrink-0 w-[35vw] h-[35vw] md:w-[20vh] md:h-[20vh] shadowBroadLoose border-900-md">

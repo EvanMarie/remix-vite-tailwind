@@ -146,8 +146,8 @@ export function ParallaxContentLayer({
                 headingSide === "left" ? "justify-start" : "justify-end"
               } px-[2vh] lg:px-[4vh] xl:px-[10vh] xxl:px-[15vh]`}
             >
-              <Flex className="bg-gradient-to-br from-yellow-400 to-red-400 w-[95vw] md:w-[75vw] lg:w-[60vw] px-[2vh] lg:px-[4vh] shadowBroadLoose">
-                <Text className="text-[4vh] text-red-600 textShadow">
+              <Flex className="bg-gradient-to-r from-red-600 to-orange-400 w-[95vw] md:w-[75vw] lg:w-[60vw] px-[2vh] lg:px-[4vh] shadowBroadLoose border-[0.2vh] border-yellow-200">
+                <Text className="text-[4vh] text-yellow-300 textShadow ">
                   {heading}
                 </Text>
               </Flex>

@@ -18,7 +18,7 @@ import {
 export default function RamenBarInded() {
   const parallax = useRef<IParallax>(null!);
   return (
-    <LayoutContainer className="bg-[url('/images/demo_images/ramenBack.png')]">
+    <LayoutContainer className="bg-[url('/images/demo_images/moth_ramen_tokyo.png')] bg-center bg-cover">
       <TransitionFull className="relative h-screen overflow-y-auto">
         <DemoNav />
         {/* <Box className="z-10 hover:cursor-pointer absolute top-[0.5vh] right-[1vh]">
@@ -114,9 +114,9 @@ export default function RamenBarInded() {
             </Center>
           </ParallaxLayer>
           <MenuItemsOne offset={3.2} speed={0.9} />
-          <MenuItemsTwo offset={3.9} speed={0.8} position="top-[20vh]" />
-          <MenuItemsThree offset={4.6} speed={0.9} />
-          <MenuItemsFour offset={5.5} speed={0.6} position="top-[20vh]" />
+          <MenuItemsTwo offset={3.9} speed={0.8} position="top-[28vh]" />
+          <MenuItemsThree offset={4.7} speed={0.9} />
+          <MenuItemsFour offset={5.6} speed={0.6} position="top-[20vh]" />
 
           {/* <ParallaxLayer offset={3.25} speed={1}>
             {" "}
@@ -159,7 +159,7 @@ export default function RamenBarInded() {
             offset={1.8}
             speed={0.5}
             imageLink="/images/demo_images/mothRamen04.png"
-            position="md:right-[5vh] md:top-[10vh] lg:right-[7vh] xl:right-[11vh] xxl:right-[20vh] "
+            position="md:right-[5vh] md:top-[10vh] lg:right-[7vh] xl:right-[9vh] xxl:right-[20vh] "
           />
           <ParallaxImageLayer
             offset={2}
