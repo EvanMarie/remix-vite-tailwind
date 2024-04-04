@@ -72,7 +72,7 @@ export default function RamenBarInded() {
         </Box> */}
       {/* -----------------------------------------------------------------------------------------  */}
       {/* MOBILE THROUGH MEDIUM SCREENS  */}
-      <Parallax ref={parallax} pages={9} className="inline md:hidden">
+      <Parallax ref={parallax} pages={8.5} className="inline md:hidden">
         <MothRameHeaderImage />
         <ParallaxImageLayer // girl eating ramen
           offset={0.7}
@@ -104,7 +104,7 @@ export default function RamenBarInded() {
           imageLink="/images/demo_images/mothRamen05.png"
           position="left-[10vw] sm:left-[17vw]"
         />
-        <ParallaxLayer sticky={{ start: 3, end: 6.9 }}>
+        <ParallaxLayer sticky={{ start: 3.1, end: 6.8 }}>
           <Center className="w-screen h-screen" id="menu">
             <VStackFull className="h-full p-[1vh]">
               <SectionLabel text="Menu Highlights" />
@@ -115,7 +115,7 @@ export default function RamenBarInded() {
         <MenuItemsTwo offset={3.9} speed={0.8} position="top-[28vh]" />
         <MenuItemsThree offset={4.7} speed={0.9} />
         <MenuItemsFour offset={5.6} speed={0.8} position="top-[20vh]" />
-        <FooterPanel sticky={{ start: 7.25, end: 8.5 }} />
+        <FooterPanel sticky={{ start: 6.9, end: 8.5 }} />
       </Parallax>
       {/* -----------------------------------------------------------------------------------------  */}
       {/* LARGE SCREEN VIEW  */}
@@ -162,7 +162,7 @@ export default function RamenBarInded() {
         <MenuItemsTwo offset={3.6} speed={0.8} position="top-[30vh]" />
         <MenuItemsThree offset={4.3} speed={0.6} />
         <MenuItemsFour offset={5} speed={0.9} position="top-[20vh]" />
-        <FooterPanel sticky={{ start: 6.3, end: 8 }} />
+        <FooterPanel sticky={{ start: 6.4, end: 8 }} />
       </Parallax>{" "}
     </TransitionFull>
   );
