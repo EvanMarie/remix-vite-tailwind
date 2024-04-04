@@ -14,12 +14,12 @@ import {
   MenuItemsThree,
   MenuItemsTwo,
 } from "./components/menuItemsList";
-import MerchSectionLarge from "./components/merchSectionLarge";
+import FooterPanel from "./components/footerPanel";
 
 export default function RamenBarInded() {
   const parallax = useRef<IParallax>(null!);
   return (
-    <LayoutContainer className="bg-[url('/images/demo_images/moth_ramen_tokyo.png')] bg-center bg-cover">
+    <LayoutContainer className="bg-[url('/images/demo_images/moth_ramen_tokyo.png')] bg-center bg-cover ">
       <TransitionFull className="relative h-screen overflow-y-auto">
         <DemoNav />
         {/* <Box className="z-10 hover:cursor-pointer absolute top-[0.5vh] right-[1vh]">
@@ -72,7 +72,6 @@ export default function RamenBarInded() {
             }
           />
         </Box> */}
-
         {/* -----------------------------------------------------------------------------------------  */}
         {/* MOBILE THROUGH MEDIUM SCREENS  */}
         <Parallax ref={parallax} pages={10} className="inline md:hidden">
@@ -128,10 +127,9 @@ export default function RamenBarInded() {
 
           <ParallaxLayer offset={5.25} speed={1} />
         </Parallax>
-
         {/* -----------------------------------------------------------------------------------------  */}
         {/* LARGE SCREEN VIEW  */}
-        <Parallax ref={parallax} pages={10} className="hidden md:inline">
+        <Parallax ref={parallax} pages={7} className="hidden md:inline">
           <MothRameHeaderImage />
           <ParallaxImageLayer
             offset={0.9}
@@ -174,16 +172,9 @@ export default function RamenBarInded() {
           <MenuItemsTwo offset={3.6} speed={0.8} position="top-[30vh]" />
           <MenuItemsThree offset={4.3} speed={0.6} />
           <MenuItemsFour offset={5} speed={0.9} position="top-[20vh]" />
-          <ParallaxLayer sticky={{ start: 6.4, end: 8 }}>
-            <Center className="w-screen h-screen">
-              <VStackFull className="h-full p-[1vh]">
-                <SectionLabel text="Merch" />
-              </VStackFull>
-            </Center>
-          </ParallaxLayer>
-          <MerchSectionLarge />
-        </Parallax>
-      </TransitionFull>
+          <FooterPanel sticky={{ start: 6, end: 8 }} />
+        </Parallax>{" "}
+      </TransitionFull>{" "}
     </LayoutContainer>
   );
 }
