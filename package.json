@@ -23,6 +23,7 @@
     "react-intersection-observer": "^9.8.1",
     "react-spring": "^9.7.3",
     "remix-flat-routes": "^0.6.4",
+    "remix-utils": "^7.5.0",
     "use-spring": "^0.2.4"
   },
   "devDependencies": {
