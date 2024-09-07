@@ -13,6 +13,7 @@ interface FallingImagesProps {
   minDelay?: number;
   landingAreaStart?: number;
   landingAreaEnd?: number;
+  imageSrc?: string;
 }
 
 const getRandomValue = (min: number, max: number) =>
@@ -30,6 +31,7 @@ export default function FallingImages({
   minDelay = 0,
   landingAreaStart = 0,
   landingAreaEnd = 12,
+  imageSrc = "/images/heartEyes.png",
 }: FallingImagesProps) {
   const images = Array.from({ length: numImages }, (_, i) => {
     const size =
@@ -68,7 +70,7 @@ export default function FallingImages({
     return (
       <motion.img
         key={i}
-        src="/images/heartEyes.png" // Adjust as needed
+        src={imageSrc} // Adjust as needed
         variants={imageVariants}
         initial="hidden"
         animate="visible"

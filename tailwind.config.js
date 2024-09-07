@@ -2947,6 +2947,7 @@ export default {
           overflow: "hidden",
           borderFadius: "none",
           maxHeight: "100svh",
+          boxShadow: "none",
         },
         body: {
           color: theme("colors.col.900"),

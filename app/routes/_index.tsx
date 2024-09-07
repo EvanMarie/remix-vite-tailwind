@@ -9,6 +9,7 @@ import Text from "~/components/buildingBlocks/text";
 import Transition from "~/components/buildingBlocks/transition";
 import VStackFull from "~/components/buildingBlocks/vStackFull";
 import Wrap from "~/components/buildingBlocks/wrap";
+import FallingImages from "~/components/specialty/fallingImages";
 export const meta: MetaFunction = () => {
   return [
     { title: "New Remix App" },
@@ -48,8 +49,13 @@ export default function Index() {
     );
   }
   return (
-    <LayoutContainer>
-      <Transition className="w-full h-full justify-center items-center">
+    <LayoutContainer className="rounded-none">
+      <FallingImages
+        imageSrc="/images/bluestar.webp"
+        maxImageSize={3}
+        minImageSize={1}
+      />
+      <Transition className="w-full h-full justify-center items-center rounded-none">
         <VStackFull
           className="text-center xxl:w-[60vw] p-[1vh]"
           gap="gap-[6vh]"
@@ -58,7 +64,7 @@ export default function Index() {
             Remix, Vite, & Tailwind
           </Text>
           <VStackFull>
-            <Text className="text-col-100 text-2xl textShadow text-center animate-slideInLeft delay-1500 max-w-[90svh]">
+            <Text className="text-col-100 text-2xl textShadow text-center animate-slideInLeft delay-1500 max-w-[70vw] xl:max-w-[90svh]">
               A Project Launchpad with Vite, Tailwind CSS, and Remix Flat Routes
               including extensive preset options and components with quick
               customization.

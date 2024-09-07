@@ -30,7 +30,7 @@ export default function LayoutContainer({
 
   return (
     <Flex
-      className={`w-screen overflow-hidden justify-center ${pt} ${pb} ${backgroundClass} ${className}`}
+      className={`w-screen overflow-hidden justify-center rounded-none ${pt} ${pb} ${backgroundClass} ${className}`}
       style={{ height: "100svh", maxHeight: "100svh", ...backgroundStyle }}
     >
       {children}
