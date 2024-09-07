@@ -76,7 +76,7 @@ export default function FallingImages({
         animate="visible"
         custom={i}
         style={{
-          width: imageSize,
+          width: Number(imageSize) - 1,
           height: imageSize,
           position: "absolute",
           zIndex: 100,

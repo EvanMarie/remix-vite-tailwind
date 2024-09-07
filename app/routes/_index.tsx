@@ -52,7 +52,7 @@ export default function Index() {
     <LayoutContainer className="rounded-none">
       <FallingImages
         imageSrc="/images/bluestar.webp"
-        maxImageSize={3}
+        maxImageSize={4}
         minImageSize={1}
       />
       <Transition className="w-full h-full justify-center items-center rounded-none">
