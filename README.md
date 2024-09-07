@@ -4,6 +4,8 @@ Welcome to the ultimate starting point for your web development projects: a comp
 
 This template includes various features that allow developers to quickly customize the project, offering pre-configured design presets, UI components, and dynamic animation libraries to enhance both functionality and aesthetic appeal. The extensive integration of gradient and background combinations, typography scaling, and animation demos ensures your web applications remain modern, interactive, and visually engaging.
 
+You can also view the [minimal version of this template](https://github.com/EvanMarie/remix-vite-tailwind-minimal-template), which contains only the most fundamental building block components and the color scheme setup. It is also the repo that I keep updated as a [pristine launchpad](https://github.com/EvanMarie/remix-vite-tailwind-minimal-template) for projects.
+
 <h2 align="center" >
   <a href="https://remix-template.darkviolet.ai" style="color: violet;">🔗 Visit the deployed version</a>
 </h2>
