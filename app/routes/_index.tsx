@@ -70,32 +70,34 @@ export default function Index() {
               customization.
             </Text>
           </VStackFull>
-          <Box className="animate-slideInLeft">
-            <NavButton
-              text="Updated Base Template Repo"
-              to="https://github.com/EvanMarie/remix-vite-tailwind"
-              icon={FaSquareGithub}
-              isExternal
-              className="bg-cyan-300 bg-linear3op25 text-col-900 hover:bg-400-diagonal3op75 hover:bg-cyan-200 metallicEdgesSm"
-            />
-          </Box>
-          <Wrap className="animate-slideInUp50vh gap-[3vh] duration-2200 justify-center">
-            <NavButton
-              text="This Repo"
-              to="https://github.com/EvanMarie/remix-vite-tailwind"
-              icon={FaSquareGithub}
-              isExternal
-            />
-            <NavButton text="Design Presets" to="/design" />{" "}
-            <NavButton text="Components" to="/design/components" />
-            <NavButton text="Demos" to="/design/demos" />
-            <NavButton text="Animation" to="/design/animation" />
-            <NavButton
-              text="DarkViolet.ai"
-              to="https://darkviolet.ai"
-              className="shadowBroadLoose border-970-md bg-gradient-to-r from-[#cd36f4] via-[#ab00ff] to-[#9b82ee] text-col-100 textShadow hover:metallicEdgesXl hover:scale-105"
-            />
-          </Wrap>
+          <VStackFull className="z-20">
+            <Box className="animate-slideInLeft">
+              <NavButton
+                text="Updated Base Template Repo"
+                to="https://github.com/EvanMarie/remix-vite-tailwind"
+                icon={FaSquareGithub}
+                isExternal
+                className="bg-cyan-300 bg-linear3op25 text-col-900 hover:bg-400-diagonal3op75 hover:bg-cyan-200 metallicEdgesSm"
+              />
+            </Box>
+            <Wrap className="animate-slideInUp50vh gap-[3vh] duration-2200 justify-center">
+              <NavButton
+                text="This Repo"
+                to="https://github.com/EvanMarie/remix-vite-tailwind"
+                icon={FaSquareGithub}
+                isExternal
+              />
+              <NavButton text="Design Presets" to="/design" />{" "}
+              <NavButton text="Components" to="/design/components" />
+              <NavButton text="Demos" to="/design/demos" />
+              <NavButton text="Animation" to="/design/animation" />
+              <NavButton
+                text="DarkViolet.ai"
+                to="https://darkviolet.ai"
+                className="shadowBroadLoose border-970-md bg-gradient-to-r from-[#cd36f4] via-[#ab00ff] to-[#9b82ee] text-col-100 textShadow hover:metallicEdgesXl hover:scale-105"
+              />
+            </Wrap>
+          </VStackFull>
         </VStackFull>
       </Transition>
     </LayoutContainer>

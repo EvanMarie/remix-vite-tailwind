@@ -86,7 +86,7 @@ export default function FallingImages({
   });
 
   return (
-    <FlexFull className="h-full absolute top-0 left-0">
+    <FlexFull className="h-full absolute top-0 left-0 ">
       <div className="relative w-full h-full overflow-hidden">{images}</div>
     </FlexFull>
   );
