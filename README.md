@@ -7,7 +7,7 @@ Welcome to the ultimate starting point for your web development projects: a comp
 </h2>
 
 <br>
-<div style="display: flex; justify-content: center; width: 100%;"> <div style="text-align: center;"> <img src=" https://mhejreuxaxxodkdlfcoq.supabase.co/storage/v1/render/image/public/darkVioletPublic/various/remix-vite-tailwind/remix-vite-tailwind-1-splash.webp" alt="Splash Screen" width="800" /> <p><em>Figure 1: Splash</em></p> </div> </div>
+<div style="display: flex; justify-content: center; width: 100%;"> <div style="text-align: center;"> <img src="https://mhejreuxaxxodkdlfcoq.supabase.co/storage/v1/render/image/public/darkVioletPublic/various/remix-vite-tailwind/remix-vite-tailwind-1-splash.webp" alt="Splash Screen" width="800" /> <p><em>Figure 1: Splash</em></p> </div> </div>
 <br>
 
 ---
