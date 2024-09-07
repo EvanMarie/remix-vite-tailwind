@@ -70,23 +70,27 @@ export default function Index() {
               customization.
             </Text>
           </VStackFull>
-          <VStackFull className="z-20">
-            <Box className="animate-slideInLeft">
-              <NavButton
-                text="Updated Base Template Repo"
-                to="https://github.com/EvanMarie/remix-vite-tailwind"
-                icon={FaSquareGithub}
-                isExternal
-                className="bg-cyan-300 bg-linear3op25 text-col-900 hover:bg-400-diagonal3op75 hover:bg-cyan-200 metallicEdgesSm"
-              />
-            </Box>
+          <VStackFull className="z-20" gap="gap-[4vh]">
+            <HStack gap="gap-[3vh]">
+              <Box className="animate-slideInLeft">
+                <NavButton
+                  text="Updated Base Template Repo"
+                  to="https://github.com/EvanMarie/remix-vite-tailwind-minimal-template"
+                  icon={FaSquareGithub}
+                  isExternal
+                  className="bg-cyan-300 bg-linear3op25 text-col-900 hover:bg-400-diagonal3op75 hover:bg-cyan-200 metallicEdgesSm"
+                />
+              </Box>
+              <Box className="animate-slideInRight">
+                <NavButton
+                  text="This Repo"
+                  to="https://github.com/EvanMarie/remix-vite-tailwind"
+                  icon={FaSquareGithub}
+                  isExternal
+                />
+              </Box>
+            </HStack>
             <Wrap className="animate-slideInUp50vh gap-[3vh] duration-2200 justify-center">
-              <NavButton
-                text="This Repo"
-                to="https://github.com/EvanMarie/remix-vite-tailwind"
-                icon={FaSquareGithub}
-                isExternal
-              />
               <NavButton text="Design Presets" to="/design" />{" "}
               <NavButton text="Components" to="/design/components" />
               <NavButton text="Demos" to="/design/demos" />

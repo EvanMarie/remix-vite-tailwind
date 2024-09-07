@@ -57,8 +57,8 @@ export default function Index() {
           <Wrap className="animate-slideInUp50vh gap-[3vh] duration-2200 justify-center">
             <NavButton text="Main" to="/" icon={ReturnPathIcon} />
             <NavButton text="Ramen Bar" to="/design/demos/ramen-bar" />
-            <NavButton text="Two" to="/design/demos/two" />
-            <NavButton text="Three" to="/design/demos/three" />
+              {/* <NavButton text="Two" to="/design/demos/two" />
+              <NavButton text="Three" to="/design/demos/three" /> */}
           </Wrap>
         </VStackFull>
       </Transition>
