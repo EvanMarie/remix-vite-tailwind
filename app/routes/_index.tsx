@@ -65,9 +65,9 @@ export default function Index() {
           </Text>
           <VStackFull>
             <Text className="text-col-100 text-2xl textShadow text-center animate-slideInLeft delay-1500 max-w-[70vw] xl:max-w-[90svh]">
-              A Project Launchpad with Vite, Tailwind CSS, and Remix Flat Routes
-              including extensive preset options and components with quick
-              customization.
+              A Remix project launchpad with Vite and Tailwind CSS, including
+              extensive preset options, color scheme, and components with quick
+              customization, as well as numerous animation and design demos.
             </Text>
           </VStackFull>
           <VStackFull className="z-20" gap="gap-[4vh]">
