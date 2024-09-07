@@ -1,6 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
 import { NavLink } from "@remix-run/react";
 import { FaSquareGithub } from "react-icons/fa6";
+import Box from "~/components/buildingBlocks/box";
 import HStack from "~/components/buildingBlocks/hStack";
 import Icon from "~/components/buildingBlocks/icon";
 import LayoutContainer from "~/components/buildingBlocks/layoutContainer";
@@ -33,7 +34,7 @@ export default function Index() {
       // eslint-disable-next-line react/jsx-no-target-blank
       <NavLink to={to} target={isExternal ? "_blank" : undefined}>
         <HStack
-          className={`px-[1.5vh] py-[0.5vh] transition-400 text-center ${className} items-center group`}
+          className={`px-[1.5vh] py-[0.5vh] transition-200 text-center ${className} items-center group hover:cursor-pointer`}
         >
           {icon && (
             <Icon
@@ -49,22 +50,32 @@ export default function Index() {
   return (
     <LayoutContainer>
       <Transition className="w-full h-full justify-center items-center">
-        <VStackFull className="text-center xxl:w-[60vw]" gap="gap-[6vh]">
+        <VStackFull
+          className="text-center xxl:w-[60vw] p-[1vh]"
+          gap="gap-[6vh]"
+        >
           <Text className="font-cursive boldTextGlow text-col-900 text-stroke-8-900 text-[5vh] md:text-[8vh] lg:text-[10vh] text-center animate-slideInRight">
             Remix, Vite, & Tailwind
           </Text>
           <VStackFull>
-            <Text className="text-col-100 text-2xl textShadow text-center animate-slideInLeft delay-1500">
+            <Text className="text-col-100 text-2xl textShadow text-center animate-slideInLeft delay-1500 max-w-[90svh]">
               A Project Launchpad with Vite, Tailwind CSS, and Remix Flat Routes
-            </Text>
-            <Text className="text-col-100 text-2xl textShadow text-center animate-zoomIn">
               including extensive preset options and components with quick
               customization.
             </Text>
           </VStackFull>
+          <Box className="animate-slideInLeft">
+            <NavButton
+              text="Updated Base Template Repo"
+              to="https://github.com/EvanMarie/remix-vite-tailwind"
+              icon={FaSquareGithub}
+              isExternal
+              className="bg-cyan-300 bg-linear3op25 text-col-900 hover:bg-400-diagonal3op75 hover:bg-cyan-200 metallicEdgesSm"
+            />
+          </Box>
           <Wrap className="animate-slideInUp50vh gap-[3vh] duration-2200 justify-center">
             <NavButton
-              text="Repo"
+              text="This Repo"
               to="https://github.com/EvanMarie/remix-vite-tailwind"
               icon={FaSquareGithub}
               isExternal
