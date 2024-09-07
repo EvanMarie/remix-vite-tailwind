@@ -177,7 +177,7 @@ export default function ComponentExamples() {
             <StaggerMenu />
           </FlexFull>
         </ComponentContainer>
-        <ComponentContainer headerText="Avatar">
+        <ComponentContainer headerText="Toggle Switch">
           <ToggleSwitch
             toggleOn={toggleOn}
             setToggleOn={setToggleOn}
